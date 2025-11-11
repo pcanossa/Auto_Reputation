@@ -9,7 +9,6 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
 - **Análise de Reputação de IP:** Coleta informações sobre portas abertas, serviços, geolocalização, vulnerabilidades (CVEs) e reputação em listas de ameaças.
 - **Análise de Reputação de Domínio:** Coleta informações de WHOIS, subdomínios, IPs associados e reputação em listas de ameaças.
 - **Geração de Relatórios com IA:** Utiliza o modelo `gpt-oss:120b-cloud` via Ollama para analisar os dados coletados e gerar um relatório de threat intelligence estruturado.
-- **Scripts Utilitários:** Inclui ferramentas para descoberta de subdomínios e verificação de URLs ativas.
 
 ## Tecnologias Utilizadas
 

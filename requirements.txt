@@ -1,6 +1,3 @@
-os
-sys
 ollama
 requests
 dotenv
-subprocess

@@ -1,0 +1,753 @@
+
+        ## DADOS COLETADOS PARA ANÁLISE DE THREAT INTELLIGENCE
+
+        ### 1. Informações do Shodan
+        ```html
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>23.192.228.84</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Search Engine for the Internet of Things">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://wire.shodan.io/v2.5.0/default/css/wire.css" media="(prefers-color-scheme: light)" rel="stylesheet"/>
+<link href="https://wire.shodan.io/v2.5.0/dark/css/wire.css" media="(prefers-color-scheme: dark)" rel="stylesheet"/>
+    <link rel="shortcut icon" href="https://www.shodan.io/static/img/favicon-60c1b1cd.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://www.shodan.io/static/img/apple-touch-icon-192-4eb04af5.png">
+    <link rel="search" href="https://www.shodan.io/static/opensearch-07a9aa48.xml" type="application/opensearchdescription+xml" title="Shodan">
+    <script defer src="https://kit.fontawesome.com/b7e79643d9.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://www.shodan.io/static/mapbox-gl-js/css/mapbox-gl-0a4f96d2.css"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@shodanhq"/>
+<meta name="twitter:creator" content="@achillean"/>
+<meta name="twitter:title" content="23.192.228.84"/>
+<meta name="twitter:description" content="Ports open: 80, 443"/>
+<meta name="twitter:image" content="https://www.shodan.io/host/23.192.228.84/image"/>
+<link rel="stylesheet" href="https://www.shodan.io/static/styles/host-b9480d54.css"/>
+  </head>
+  <body>
+<div class="quickbar">
+  <ul>
+    <li><a href="https://www.shodan.io">Shodan</a>
+    </li>
+    <li><a href="https://maps.shodan.io">Maps</a>
+    </li>
+    <li><a href="https://images.shodan.io">Images</a>
+    </li>
+    <li><a href="https://monitor.shodan.io">Monitor</a>
+    </li>
+    <li><a href="https://developer.shodan.io">Developer</a>
+    </li>
+    <li><a href="https://www.shodan.io/about/products">More...</a>
+    </li>
+  </ul>
+</div>
+<div class="container u-full-width">
+  <div class="row">
+    <div class="twelve columns">
+      <div id="host-map"></div>
+<style>.searchbox {
+    font-family: Arial;
+}
+
+.visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+@media (max-width: 900px) {
+    .right-menu .menu-item-account {
+        display: none
+    }
+}
+</style>
+
+<div class="navbar">
+  <input id="menu-btn" type="checkbox" class="menu-btn"/>
+  <label for="menu-btn" class="menu-icon"><span class="navicon"><i class="fa fa-bars  fa-fw "></i></span>
+  </label><a href="/" class="title"><img src="https://www.shodan.io/static/img/logo-6abcc86b.png" alt="Shodan" width="112" height="32"/></a>
+  <ul class="menu sub-menu">
+    <li><a href="/explore"><i class="fas fa-globe  fa-fw "></i>Explore</a>
+    </li>
+
+    <li><a href="https://account.shodan.io/billing" target="_blank" rel="noopener noreferrer"><i class="fas fa-briefcase  fa-fw "></i>Pricing
+<i style="font-size: 1.1rem" class="fa fa-external-link  fa-fw "></i></a>
+    </li>
+  </ul>
+  <form action="/search" method="GET">
+    <div class="searchbox">
+      <div class="input-wrapper">
+        <label for="search-query" value="Enter search query" class="visually-hidden"></label>
+        <input id="search-query" type="text" name="query" placeholder="Type / to search" autocapitalize="none" spellcheck="false" data-focus-placeholder="Search" data-blur-placeholder="Type / to search"/>
+      </div>
+      <button type="submit" aria-label="Submit search query" data-balloon-disable="data-balloon-disable" class="button-red"><i class="fas fa-search  fa-fw "></i>
+      </button>
+    </div>
+  </form>
+  <ul class="menu main-menu right-menu">
+    <li><a href="/dashboard" class="highlight-success">Login</a>
+    </li>
+  </ul>
+</div>
+      <div id="host-header">
+        <h2 data-clipboard="23.192.228.84" class="host-title bg-dark heading">23.192.228.84</h2>
+        <div class="host-header-links"><a href="/host/23.192.228.84" class="bg-light inline-block"><i class="far fa-browser  fa-fw "></i> Regular View</a><a href="/host/23.192.228.84/raw" class="bg-light inline-block"><i class="far fa-terminal  fa-fw "></i> Raw Data</a><a href="/host/23.192.228.84/history" class="bg-light inline-block"><i class="far fa-history  fa-fw "></i> Timeline</a><a href="/host/23.192.228.84/whois" class="bg-light inline-block"><i class="far fa-globe  fa-fw "></i> Whois</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="host" class="container u-full-width card-padding">
+  <div class="row">
+    <div class="top-info twelve columns">
+      <h6 class="grid-heading"><span>Last Seen: 2025-11-25</span>
+      </h6>
+      <div id="tags">
+        <h6 class="grid-heading"><span>Tags:</span>
+        </h6><a href="/search?query=tag%3A%22cdn%22" class="tag ">cdn</a>
+      </div>
+    </div>
+  </div>
+  <div class="host-grid">
+    <div class="left-column">
+      <div class="card card-yellow card-padding"><a name="general"></a>
+        <h1 id="general"><i class="far fa-globe  fa-fw "></i><em>General</em>Information
+        </h1>
+        <div class="grid-table">
+<label>Hostnames</label>
+<div>
+
+a23-192-228-84.deploy.static.<b>akamaitechnologies.com</b><br/>
+<b>example.com</b>
+</div>
+<div class="grid-border"></div>
+          <label>Domains</label>
+          <div class="domains"><a href="/domain/akamaitechnologies.com" class="button">akamaitechnologies.com</a>&nbsp;<a href="/domain/example.com" class="button">example.com</a>&nbsp;
+          </div>
+          <div class="grid-border"></div>
+<label>Country</label>
+<div><strong><a href="/search?query=country%3A%22US%22" class="text-dark">United States</a></strong>
+</div>
+<div class="grid-border"></div>
+<label>City</label>
+<div><strong><a href="/search?query=city%3A%22San+Jose%22" class="text-dark">San Jose</a></strong>
+</div>
+<div class="grid-border"></div>
+<label>Organization</label>
+<div><strong><a href="/search?query=org%3A%22Akamai+Technologies%2C+Inc.%22" class="text-dark">Akamai Technologies, Inc.</a></strong>
+</div>
+<div class="grid-border"></div>
+<label>ISP</label>
+<div><strong><a href="/search?query=isp%3A%22Akamai+International+B.V.%22" class="text-dark">Akamai International B.V.</a></strong>
+</div>
+<div class="grid-border"></div>
+<label>ASN</label>
+<div><strong><a href="/search?query=asn%3A%22AS20940%22" class="text-dark">AS20940</a></strong>
+</div>
+<div class="grid-border"></div>
+        </div>
+      </div>
+<div class="card card-padding card-purple"><a name="webtech"></a>
+  <h1 id="webtech"><i class="far fa-browser  fa-fw "></i><em>Web</em>Technologies
+  </h1>
+  <div id="http-components">
+    <div class="category">
+      <div class="category-heading">Miscellaneous</div>
+      <div class="technologies"><a href="/search?query=http.component%3A%22http%2F3%22" class="text-dark">
+          <div style="background-image:url(https://www.shodan.io/static/img/http-components/HTTP/3.png)" class="technology-icon bg-light"></div><span class="technology-name">HTTP/3</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="right-column">
+      <div class="card card-light-blue card-padding">
+        <h1><i class="far fa-sitemap  fa-fw "></i> Open<em>Ports</em>
+        </h1>
+        <div id="ports"><a href="#80" class="bg-primary">80</a><a href="#443" class="bg-primary">443</a>
+        </div>
+      </div><a name="80"></a>
+<h6 id="80" class="grid-heading">
+  <div><span data-clipboard="23.192.228.84:80"><strong>80</strong> /
+tcp</span>
+<a href="http://23.192.228.84:80" target="_blank" rel="noreferrer noopener" class="link"><i class="far fa-external-link  fa-fw "></i></a>
+  </div>
+  <div class="text-secondary"><a href="/search?query=http.html_hash%3A-723997641">-723997641</a> <a class="bg-success"><i class="fas fa-info  fa-fw "></i></a> | 2025-11-25T17:06:31.514154
+  </div>
+</h6>
+<div class="card card-padding banner">
+  <div class="hashes-table">
+    <h2>Hashes</h2>
+    <div>
+      <div>hash</div><a href="/search?query=hash%3A1890906355">1890906355</a>
+      <div>http.dom_hash</div><a href="/search?query=http.dom_hash%3A-1127754928">-1127754928</a>
+      <div>http.html_hash</div><a href="/search?query=http.html_hash%3A-723997641">-723997641</a>
+      <div>http.title_hash</div><a href="/search?query=http.title_hash%3A766638281">766638281</a>
+    </div>
+    <hr/>
+  </div>
+<div class="http-title"><a href="/search?query=title%3A%22Example+Domain%22" class="text-dark">Example Domain</a>
+</div>
+  <pre>HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Type: text/html
+ETag: &#34;bc2473a18e003bdb249eba5ce893033f:1760028122.592274&#34;
+Last-Modified: Thu, 09 Oct 2025 16:42:02 GMT
+Content-Length: 513
+Cache-Control: max-age=86000
+Date: Tue, 25 Nov 2025 17:05:57 GMT
+Connection: keep-alive
+
+</pre>
+</div><a name="443"></a>
+<h6 id="443" class="grid-heading">
+  <div><span data-clipboard="23.192.228.84:443"><strong>443</strong> /
+tcp</span>
+<a href="https://23.192.228.84:443" target="_blank" rel="noreferrer noopener" class="link"><i class="far fa-external-link  fa-fw "></i></a>
+  </div>
+  <div class="text-secondary"><a href="/search?query=http.html_hash%3A-723997641">-723997641</a> <a class="bg-success"><i class="fas fa-info  fa-fw "></i></a> | 2025-11-25T17:01:20.331005
+  </div>
+</h6>
+<div class="card card-padding banner">
+  <div class="hashes-table">
+    <h2>Hashes</h2>
+    <div>
+      <div>hash</div><a href="/search?query=hash%3A761273161">761273161</a>
+      <div>http.dom_hash</div><a href="/search?query=http.dom_hash%3A-1127754928">-1127754928</a>
+      <div>http.html_hash</div><a href="/search?query=http.html_hash%3A-723997641">-723997641</a>
+      <div>http.title_hash</div><a href="/search?query=http.title_hash%3A766638281">766638281</a>
+    </div>
+    <hr/>
+  </div>
+<div class="http-title"><a href="/search?query=title%3A%22Example+Domain%22" class="text-dark">Example Domain</a>
+</div>
+  <pre>HTTP/1.1 200 OK
+Content-Type: text/html
+ETag: &#34;bc2473a18e003bdb249eba5ce893033f:1760028122.592274&#34;
+Last-Modified: Thu, 09 Oct 2025 16:42:02 GMT
+Vary: Accept-Encoding
+Cache-Control: max-age=86000
+Date: Tue, 25 Nov 2025 17:00:45 GMT
+Content-Length: 513
+Connection: keep-alive
+Alt-Svc: h3=&#34;:443&#34;; ma=93600
+
+</pre><br/><strong>SSL Certificate</strong>
+  <pre>Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            0a:d8:93:ba:fa:68:b0:b7:fb:7a:40:4f:06:ec:af:9a
+        Signature Algorithm: ecdsa-with-SHA384
+        Issuer: C=US, O=DigiCert Inc, CN=DigiCert Global G3 TLS ECC SHA384 2020 CA1
+        Validity
+            Not Before: Jan 15 00:00:00 2025 GMT
+            Not After : Jan 15 23:59:59 2026 GMT
+        Subject: C=US, ST=California, L=Los Angeles, O=Internet Corporation for Assigned Names and Numbers, CN=*.example.com
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    04:9a:48:97:84:2d:61:6c:08:c9:6a:14:a0:c8:38:
+                    80:e6:00:c0:87:fa:99:57:0e:1b:00:e2:d8:87:92:
+                    57:e7:08:fb:3c:5e:b0:d3:84:28:37:c1:24:11:8e:
+                    d3:20:71:74:bd:93:8f:4e:09:03:ce:02:3b:b0:e4:
+                    66:73:cf:af:ee
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        X509v3 extensions:
+            X509v3 Authority Key Identifier: 
+                8A:23:EB:9E:6B:D7:F9:37:5D:F9:6D:21:39:76:9A:A1:67:DE:10:A8
+            X509v3 Subject Key Identifier: 
+                F0:C1:6A:32:0D:EC:DA:C7:EA:8F:CD:0D:6D:19:12:59:D1:BE:72:ED
+            X509v3 Subject Alternative Name: 
+                DNS:*.example.com, DNS:example.com
+            X509v3 Certificate Policies: 
+                Policy: 2.23.140.1.2.2
+                  CPS: http://www.digicert.com/CPS
+            X509v3 Key Usage: critical
+                Digital Signature, Key Agreement
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 CRL Distribution Points: 
+                Full Name:
+                  URI:http://crl3.digicert.com/DigiCertGlobalG3TLSECCSHA3842020CA1-2.crl
+                Full Name:
+                  URI:http://crl4.digicert.com/DigiCertGlobalG3TLSECCSHA3842020CA1-2.crl
+            Authority Information Access: 
+                OCSP - URI:http://ocsp.digicert.com
+                CA Issuers - URI:http://cacerts.digicert.com/DigiCertGlobalG3TLSECCSHA3842020CA1-2.crt
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            CT Precertificate SCTs: 
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 0E:57:94:BC:F3:AE:A9:3E:33:1B:2C:99:07:B3:F7:90:
+                                DF:9B:C2:3D:71:32:25:DD:21:A9:25:AC:61:C5:4E:21
+                    Timestamp : Jan 15 01:01:25.319 2025 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:43:02:1F:24:17:0F:5A:4C:7C:D2:29:3B:B8:B6:16:
+                                E8:E1:AF:35:8B:C9:E0:D9:8E:47:64:57:73:DB:AF:88:
+                                53:C7:E9:02:20:52:DB:AE:51:E9:C7:21:3E:54:35:62:
+                                5F:7C:10:51:AB:7D:6D:50:68:BB:64:34:D2:AE:B3:34:
+                                7F:8C:F5:55:AE
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 64:11:C4:6C:A4:12:EC:A7:89:1C:A2:02:2E:00:BC:AB:
+                                4F:28:07:D4:1E:35:27:AB:EA:FE:D5:03:C9:7D:CD:F0
+                    Timestamp : Jan 15 01:01:25.381 2025 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:44:02:20:70:AE:E8:D8:07:85:5D:50:BE:27:FF:1B:
+                                B0:47:AB:B7:22:30:61:FC:8D:D7:21:FF:1C:B8:2F:3A:
+                                D8:95:EB:17:02:20:72:30:53:2F:0E:11:A0:E2:C6:26:
+                                D4:CB:2B:0C:65:5E:75:CC:29:13:87:8D:D1:1B:99:70:
+                                51:A6:5B:1C:09:72
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : 49:9C:9B:69:DE:1D:7C:EC:FC:36:DE:CD:87:64:A6:B8:
+                                5B:AF:0A:87:80:19:D1:55:52:FB:E9:EB:29:DD:F8:C3
+                    Timestamp : Jan 15 01:01:25.401 2025 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:20:68:58:7A:EF:21:10:DA:5C:20:9B:75:F5:
+                                EA:7D:A2:5A:31:10:14:82:36:6F:67:E9:38:DB:41:56:
+                                26:D9:55:6C:02:21:00:F9:A6:CA:A3:5C:36:2C:20:46:
+                                F5:87:28:74:4B:C6:C1:37:73:B8:BB:6B:00:F7:38:AC:
+                                28:89:58:8D:98:3C:C2
+    Signature Algorithm: ecdsa-with-SHA384
+    Signature Value:
+        30:65:02:31:00:f9:a6:82:46:53:db:6f:e5:58:fa:ee:1a:bc:
+        fc:9a:1b:b7:ef:50:32:6a:37:c2:b0:96:b5:c3:e1:7a:6d:4f:
+        b4:0b:f8:3d:37:f8:10:3f:15:41:28:dd:d0:f5:8b:3d:fb:02:
+        30:64:63:78:e1:b2:e2:c0:5b:ba:56:b0:36:ed:5f:f4:30:c6:
+        9e:a4:36:c2:b8:8e:1d:7f:46:3b:d5:ff:6e:b4:b3:14:30:33:
+        f1:8c:ee:dd:3e:4f:4b:8f:d8:bf:98:d7:65
+</pre>
+</div>
+    </div>
+  </div>
+</div>
+<br/>
+<div class="container u-full-width bg-solid"><br/><br/>
+  <div class="container">
+    <div class="row">
+      <div class="three columns">
+        <h6 class="grid-heading">Products</h6>
+        <ul>
+          <li><a href="https://monitor.shodan.io" class="light">Monitor</a>
+          </li>
+          <li><a href="https://beta.shodan.io" class="light">Search Engine</a>
+          </li>
+          <li><a href="https://developer.shodan.io" class="light">Developer API</a>
+          </li>
+          <li><a href="https://maps.shodan.io" class="light">Maps</a>
+          </li>
+        </ul>
+      </div>
+      <div class="three columns">
+        <h6 style="visibility:hidden" class="grid-heading">&nbsp;</h6>
+        <ul>
+          <li><a href="https://enterprise.shodan.io" class="light">Bulk Data</a>
+          </li>
+          <li><a href="https://images.shodan.io" class="light">Images</a>
+          </li>
+          <li><a href="https://snippets.shodan.io" class="light">Snippets</a>
+          </li>
+        </ul>
+      </div>
+      <div class="three columns">
+        <h6 class="grid-heading">Pricing</h6>
+        <ul>
+          <li><a href="https://www.shodan.io/store/member" class="light">Membership</a>
+          </li>
+          <li><a href="https://developer.shodan.io/pricing" class="light">API Subscriptions</a>
+          </li>
+          <li><a href="https://enterprise.shodan.io" class="light">Enterprise</a>
+          </li>
+        </ul>
+      </div>
+      <div class="three columns">
+        <h6 class="grid-heading">Contact Us</h6>
+        <ul>
+          <li><a href="mailto:support@shodan.io" class="light">support@shodan.io</a>
+          </li>
+          <li>
+            <h5><a href="https://www.linkedin.com/company/shodan" aria-label="Linkedin" data-balloon-disable="data-balloon-disable" class="text-secondary"><i class="fab fa-linkedin   "></i></a>&nbsp;&nbsp;<a href="https://mastodon.shodan.io/@shodan" aria-label="Mastodon" data-balloon-disable="data-balloon-disable" class="text-secondary"><i class="fab fa-mastodon   "></i></a>&nbsp;&nbsp;<a href="https://twitter.com/shodanhq" aria-label="Twitter" data-balloon-disable="data-balloon-disable" class="text-secondary"><i class="fab fa-twitter   "></i></a>&nbsp;&nbsp;<a href="https://www.facebook.com/shodan.io" aria-label="Facebook" data-balloon-disable="data-balloon-disable" class="text-secondary"><i class="fab fa-facebook   "></i></a>
+            </h5>
+          </li>
+        </ul>
+        <p class="light">Shodan &reg; - All rights reserved</p>
+      </div>
+    </div>
+  </div>
+</div>
+    <script src="https://www.shodan.io/static/scripts/main-5f52b6a3.js"></script>
+<script src="https://www.shodan.io/static/scripts/utils-6fe3c38d.js"></script>
+<script src="https://www.shodan.io/static/scripts/host-bd9c8cfc.js"></script>
+<script>(() => setupHashesTables())();
+
+</script>
+
+
+<script src="https://www.shodan.io/static/mapbox-gl-js/js/mapbox-gl-8d1a5afc.js"></script>
+<script>(function () {
+    mapboxgl.setRTLTextPlugin('https://www.shodan.io/static/mapbox-gl-js/js/mapbox-gl-rtl-text-3897da9b.js')
+    new mapboxgl.Map({
+        container: 'host-map',
+        style: 'https://maptiles.shodan.io/styles/hybrid/style.json',
+        center: [-121.89496, 37.33939],
+        zoom: 10,
+        interactive: false,
+    })
+})()
+</script>
+  </body>
+</html>
+        ```
+
+        ### 2. Informações do IPInfo.io
+        ```json
+        {
+  "ip": "23.192.228.84",
+  "hostname": "a23-192-228-84.deploy.static.akamaitechnologies.com",
+  "city": "San Jose",
+  "region": "California",
+  "country": "US",
+  "loc": "37.3394,-121.8950",
+  "org": "AS20940 Akamai International B.V.",
+  "postal": "95025",
+  "timezone": "America/Los_Angeles",
+  "readme": "https://ipinfo.io/missingauth"
+}
+        ```
+
+        ### 3. Resultados do URLScan.io
+        ```json
+        {'results': [{'task': {'visibility': 'public', 'method': 'api', 'domain': 'example.com', 'apexDomain': 'example.com', 'time': '2025-11-25T17:48:42.305Z', 'uuid': '019abc21-b250-756c-a26c-ccbe800c2b36', 'url': 'https://example.com/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 1, 'dataLength': 513, 'encodedDataLength': 557, 'requests': 1}}, {'task': {'visibility': 'public', 'method': 'api', 'domain': 'elitemancer150.info', 'apexDomain': 'elitemancer150.info', 'time': '2025-11-25T17:23:46.847Z', 'uuid': '019abc0a-e307-72c8-9014-3d87ccc80baf', 'url': 'http://elitemancer150.info/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 3, 'uniqCountries': 2, 'dataLength': 25618, 'encodedDataLength': 12747, 'requests': 4}}, {'task': {'visibility': 'public', 'method': 'api', 'domain': 'example.com', 'apexDomain': 'example.com', 'time': '2025-11-25T16:31:54.586Z', 'uuid': '019abbdb-678b-7568-800d-045e34215b3b', 'url': 'http://example.com/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 1, 'dataLength': 1026, 'encodedDataLength': 1308, 'requests': 2}}, {'task': {'visibility': 'public', 'method': 'manual', 'domain': 'example.com', 'apexDomain': 'example.com', 'time': '2025-11-25T14:37:27.607Z', 'uuid': '019abb72-99f1-757d-b670-f6b72fb562ba', 'url': 'https://example.com/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 1, 'dataLength': 513, 'encodedDataLength': 556, 'requests': 1}}, {'task': {'visibility': 'public', 'method': 'manual', 'domain': 'example.com', 'apexDomain': 'example.com', 'time': '2025-11-25T10:53:50.622Z', 'uuid': '019abaa5-dfd1-7005-9d8a-cf638205f8d6', 'url': 'http://example.com/schema'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 1, 'dataLength': 513, 'encodedDataLength': 752, 'requests': 1}}, {'task': {'visibility': 'public', 'method': 'api', 'domain': 'fdg54.bestuniquetrack.com', 'apexDomain': 'bestuniquetrack.com', 'time': '2025-11-25T09:29:52.977Z', 'uuid': '019aba58-f485-77bf-8532-ec0a0e0ff71a', 'url': 'http://fdg54.bestuniquetrack.com/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 2, 'dataLength': 1026, 'encodedDataLength': 1308, 'requests': 2}}, {'task': {'visibility': 'public', 'method': 'api', 'domain': 'example.com', 'apexDomain': 'example.com', 'time': '2025-11-25T04:54:12.158Z', 'uuid': '019ab95c-9e4c-721c-8c8a-041a89d10f72', 'url': 'https://example.com/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 1, 'dataLength': 513, 'encodedDataLength': 556, 'requests': 1}}, {'task': {'visibility': 'public', 'method': 'automatic', 'domain': 'creditfitgroup.co', 'apexDomain': 'creditfitgroup.co', 'time': '2025-11-24T21:05:06.364Z', 'source': 'certstream-suspicious', 'uuid': '019ab7af-2210-7162-b5d6-fa4986a28e56', 'url': 'https://creditfitgroup.co/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 2, 'dataLength': 513, 'encodedDataLength': 686, 'requests': 1}}, {'task': {'visibility': 'public', 'method': 'manual', 'domain': 'online-app.buraeuverltas.com', 'apexDomain': 'buraeuverltas.com', 'time': '2025-11-24T17:06:37.559Z', 'uuid': '019ab6d4-cfb2-768f-b85f-dc311706dacb', 'url': 'https://online-app.buraeuverltas.com/common/getcredentialtype?mkt=en-us'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 2, 'dataLength': 513, 'encodedDataLength': 556, 'requests': 1}}, {'task': {'visibility': 'public', 'method': 'automatic', 'domain': 'creditservgroup.co', 'apexDomain': 'creditservgroup.co', 'time': '2025-11-24T16:52:15.853Z', 'source': 'certstream-suspicious', 'uuid': '019ab6c7-a7cd-7273-b605-72c2286ab69b', 'url': 'https://creditservgroup.co/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 2, 'dataLength': 1026, 'encodedDataLength': 1308, 'requests': 2}}, {'task': {'visibility': 'public', 'method': 'automatic', 'domain': 'moneyedgegroup.co', 'apexDomain': 'moneyedgegroup.co', 'time': '2025-11-24T15:25:25.888Z', 'source': 'certstream-suspicious', 'uuid': '019ab678-29c7-758f-9627-f06491c381b1', 'url': 'https://moneyedgegroup.co/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 2, 'dataLength': 1026, 'encodedDataLength': 1308, 'requests': 2}}, {'task': {'visibility': 'public', 'method': 'automatic', 'domain': 'sign-in.top', 'apexDomain': 'sign-in.top', 'time': '2025-11-24T12:49:32.422Z', 'source': 'certstream-suspicious', 'uuid': '019ab5e9-6e56-73e0-b368-ea082c389746', 'url': 'https://sign-in.top/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 2, 'uniqCountries': 2, 'dataLength': 1442, 'encodedDataLength': 1722, 'requests': 3}}, {'task': {'visibility': 'public', 'method': 'api', 'domain': 'example.com', 'apexDomain': 'example.com', 'time': '2025-11-24T12:30:33.914Z', 'uuid': '019ab5d8-0709-75bf-892f-651205c5e446', 'url': 'http://example.com/path15'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 1, 'dataLength': 1026, 'encodedDataLength': 1808, 'requests': 2}}, {'task': {'visibility': 'public', 'method': 'api', 'domain': 'example.com', 'apexDomain': 'example.com', 'time': '2025-11-24T12:30:33.635Z', 'uuid': '019ab5d8-065a-74d1-a67c-2e6116c3cefd', 'url': 'http://example.com/path16'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 1, 'dataLength': 1026, 'encodedDataLength': 1808, 'requests': 2}}, {'task': {'visibility': 'public', 'method': 'api', 'domain': 'example.com', 'apexDomain': 'example.com', 'time': '2025-11-24T12:30:33.193Z', 'uuid': '019ab5d8-06c1-714e-aabc-ea7d40e52ebe', 'url': 'http://example.com/path34'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 1, 'dataLength': 513, 'encodedDataLength': 752, 'requests': 1}}, {'task': {'visibility': 'public', 'method': 'api', 'domain': 'example.com', 'apexDomain': 'example.com', 'time': '2025-11-24T12:30:31.418Z', 'uuid': '019ab5d8-0734-7639-8a7e-fe83dd5d946b', 'url': 'http://example.com/path20'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 1, 'dataLength': 513, 'encodedDataLength': 752, 'requests': 1}}, {'task': {'visibility': 'public', 'method': 'manual', 'domain': 'online-app.muchine.info', 'apexDomain': 'muchine.info', 'time': '2025-11-24T08:15:18.528Z', 'uuid': '019ab4ee-5d64-71be-8db7-0517c58bef1f', 'url': 'https://online-app.muchine.info/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 2, 'dataLength': 1026, 'encodedDataLength': 1308, 'requests': 2}}, {'task': {'visibility': 'public', 'method': 'api', 'domain': 'example.com', 'apexDomain': 'example.com', 'time': '2025-11-24T03:31:58.178Z', 'uuid': '019ab3ea-fc46-72ce-9fe4-b4eb408d6ee5', 'url': 'https://example.com/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 1, 'dataLength': 513, 'encodedDataLength': 556, 'requests': 1}}, {'task': {'visibility': 'public', 'method': 'api', 'domain': 'example.com', 'apexDomain': 'example.com', 'time': '2025-11-24T01:45:09.222Z', 'uuid': '019ab389-2df4-7701-9019-0d40bbaa927a', 'url': 'https://example.com/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 1, 'dataLength': 513, 'encodedDataLength': 556, 'requests': 1}}, {'task': {'visibility': 'public', 'method': 'api', 'domain': 'example.com', 'apexDomain': 'example.com', 'time': '2025-11-24T01:31:53.753Z', 'uuid': '019ab37d-0c31-770d-8145-4afaa44d01d7', 'url': 'https://example.com/'}, 'page': {'domain': 'example.com', 'ip': '23.192.228.84'}, 'stats': {'uniqIPs': 1, 'uniqCountries': 1, 'dataLength': 1026, 'encodedDataLength': 1308, 'requests': 2}}]}
+        ```
+
+        ### 4. Informações do VirusTotal
+        ```json
+        <Response [200]>
+       ```
+
+        ### 5. Informações do AbuseIPDB
+        ```json 
+        {"data":{"ipAddress":"23.192.228.84","isPublic":true,"ipVersion":4,"isWhitelisted":false,"abuseConfidenceScore":1,"countryCode":"US","usageType":"Content Delivery Network","isp":"Akamai Technologies, Inc.","domain":"akamai.com","hostnames":["a23-192-228-84.deploy.static.akamaitechnologies.com"],"isTor":false,"totalReports":2,"numDistinctUsers":1,"lastReportedAt":"2025-10-29T16:17:33+00:00"}}
+        ```
+
+        ### 6. Informações do WHOIS via comando
+        ```html
+        
+Whois v1.21 - Domain information lookup
+Copyright (C) 2005-2019 Mark Russinovich
+Sysinternals - www.sysinternals.com
+
+Connecting to COM.whois-servers.net...
+
+WHOIS Server: whois.markmonitor.com
+
+   Registrar URL: http://www.markmonitor.com
+
+   Updated Date: 2025-07-16T11:17:16Z
+
+   Creation Date: 1998-08-18T04:00:00Z
+
+   Registry Expiry Date: 2026-08-17T04:00:00Z
+
+   Registrar: MarkMonitor Inc.
+
+   Registrar IANA ID: 292
+
+   Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+
+   Registrar Abuse Contact Phone: +1.2086851750
+
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+
+   Domain Status: serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited
+
+   Domain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited
+
+   Domain Status: serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited
+
+   Name Server: AX0.AKAMAISTREAM.NET
+
+   Name Server: AX1.AKAMAISTREAM.NET
+
+   Name Server: AX2.AKAMAISTREAM.NET
+
+   Name Server: AX3.AKAMAISTREAM.NET
+
+   Name Server: NS2-32.AKAMAISTREAM.NET
+
+   Name Server: NS3-32.AKAMAISTREAM.NET
+
+   Name Server: NS6-32.AKAMAISTREAM.NET
+
+   Name Server: P5.AKAMAISTREAM.NET
+
+   Name Server: P6.AKAMAISTREAM.NET
+
+   Name Server: P7.AKAMAISTREAM.NET
+
+   Name Server: P8.AKAMAISTREAM.NET
+
+   DNSSEC: unsigned
+
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+
+>>> Last update of whois database: 2025-11-25T18:04:07Z <<<
+
+
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+
+
+NOTICE: The expiration date displayed in this record is the date the
+
+registrar's sponsorship of the domain name registration in the registry is
+
+currently set to expire. This date does not necessarily reflect the expiration
+
+date of the domain name registrant's agreement with the sponsoring
+
+registrar.  Users may consult the sponsoring registrar's Whois database to
+
+view the registrar's reported date of expiration for this registration.
+
+
+
+TERMS OF USE: You are not authorized to access or query our Whois
+
+database through the use of electronic processes that are high-volume and
+
+automated except as reasonably necessary to register domain names or
+
+modify existing registrations; the Data in VeriSign Global Registry
+
+Services' ("VeriSign") Whois database is provided by VeriSign for
+
+information purposes only, and to assist persons in obtaining information
+
+about or related to a domain name registration record. VeriSign does not
+
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+
+by the following terms of use: You agree that you may use this Data only
+
+for lawful purposes and that under no circumstances will you use this Data
+
+to: (1) allow, enable, or otherwise support the transmission of mass
+
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+
+or facsimile; or (2) enable high volume, automated, electronic processes
+
+that apply to VeriSign (or its computer systems). The compilation,
+
+repackaging, dissemination or other use of this Data is expressly
+
+prohibited without the prior written consent of VeriSign. You agree not to
+
+use electronic processes that are automated and high-volume to access or
+
+query the Whois database except as reasonably necessary to register
+
+domain names or modify existing registrations. VeriSign reserves the right
+
+to restrict your access to the Whois database in its sole discretion to ensure
+
+operational stability.  VeriSign may restrict or terminate your access to the
+
+Whois database for failure to abide by these terms of use. VeriSign
+
+reserves the right to modify these terms at any time.
+
+
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+
+Registrars.
+
+
+Connecting to whois.markmonitor.com...
+
+WHOIS Server: whois.markmonitor.com
+Registrar URL: http://www.markmonitor.com
+Updated Date: 2025-07-16T11:17:16+0000
+Creation Date: 1998-08-18T04:00:00+0000
+Registrar Registration Expiration Date: 2026-08-17T00:00:00+0000
+Registrar: MarkMonitor, Inc.
+Registrar IANA ID: 292
+Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+Registrar Abuse Contact Phone: +1.2086851750
+Domain Status: clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)
+Domain Status: clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)
+Domain Status: clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)
+Domain Status: serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)
+Domain Status: serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)
+Domain Status: serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)
+Registrant Organization: Akamai Technologies, Inc.
+Registrant Country: US
+Registrant Email: Select Request Email Form at https://domains.markmonitor.com/whois/akamaitechnologies.com
+Tech Email: Select Request Email Form at https://domains.markmonitor.com/whois/akamaitechnologies.com
+Name Server: p5.akamaistream.net
+Name Server: p8.akamaistream.net
+Name Server: ns6-32.akamaistream.net
+Name Server: p7.akamaistream.net
+Name Server: p6.akamaistream.net
+Name Server: ax1.akamaistream.net
+Name Server: ns2-32.akamaistream.net
+Name Server: ax2.akamaistream.net
+Name Server: ax0.akamaistream.net
+Name Server: ax3.akamaistream.net
+Name Server: ns3-32.akamaistream.net
+DNSSEC: unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2025-11-25T18:03:24+0000 <<<
+
+For more information on WHOIS status codes, please visit:
+  https://www.icann.org/resources/pages/epp-status-codes
+
+If you wish to contact this domain’s Registrant or Technical
+contact, and such email address is not visible above, you may do so via our web
+form, pursuant to ICANN’s Temporary Specification. To verify that you are not a
+robot, please enter your email address to receive a link to a page that
+facilitates email communication with the relevant contact(s).
+
+Web-based WHOIS:
+  https://domains.markmonitor.com/whois/contact/akamaitechnologies.com
+
+If you have a legitimate interest in viewing the non-public WHOIS details, send
+your request and the reasons for your request to whoisrequest@markmonitor.com
+and specify the domain name in the subject line. We will review that request and
+may ask for supporting documentation and explanation.
+
+The data in MarkMonitor’s WHOIS database is provided for information purposes,
+and to assist persons in obtaining information about or related to a domain
+name’s registration record. While MarkMonitor believes the data to be accurate,
+the data is provided "as is" with no guarantee or warranties regarding its
+accuracy.
+
+By submitting a WHOIS query, you agree that you will use this data only for
+lawful purposes and that, under no circumstances will you use this data to:
+  (1) allow, enable, or otherwise support the transmission by email, telephone,
+or facsimile of mass, unsolicited, commercial advertising, or spam; or
+  (2) enable high volume, automated, or electronic processes that send queries,
+data, or email to MarkMonitor (or its systems) or the domain name contacts (or
+its systems).
+
+MarkMonitor reserves the right to modify these terms at any time.
+
+By submitting this query, you agree to abide by this policy.
+
+MarkMonitor Domain Management(TM)
+Protecting companies and consumers in a digital world.
+
+Visit MarkMonitor at https://www.markmonitor.com
+Contact us at +1.8007459229
+In Europe, at +44.02032062220
+--
+
+
+Domain Name: akamaitechnologies.com
+Registry Domain ID: 2914642_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.markmonitor.com
+Registrar URL: http://www.markmonitor.com
+Updated Date: 2025-07-16T11:17:16+0000
+Creation Date: 1998-08-18T04:00:00+0000
+Registrar Registration Expiration Date: 2026-08-17T00:00:00+0000
+Registrar: MarkMonitor, Inc.
+Registrar IANA ID: 292
+Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+Registrar Abuse Contact Phone: +1.2086851750
+Domain Status: clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)
+Domain Status: clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)
+Domain Status: clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)
+Domain Status: serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)
+Domain Status: serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)
+Domain Status: serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)
+Registrant Organization: Akamai Technologies, Inc.
+Registrant Country: US
+Registrant Email: Select Request Email Form at https://domains.markmonitor.com/whois/akamaitechnologies.com
+Tech Email: Select Request Email Form at https://domains.markmonitor.com/whois/akamaitechnologies.com
+Name Server: p5.akamaistream.net
+Name Server: p8.akamaistream.net
+Name Server: ns6-32.akamaistream.net
+Name Server: p7.akamaistream.net
+Name Server: p6.akamaistream.net
+Name Server: ax1.akamaistream.net
+Name Server: ns2-32.akamaistream.net
+Name Server: ax2.akamaistream.net
+Name Server: ax0.akamaistream.net
+Name Server: ax3.akamaistream.net
+Name Server: ns3-32.akamaistream.net
+DNSSEC: unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2025-11-25T18:03:24+0000 <<<
+
+For more information on WHOIS status codes, please visit:
+  https://www.icann.org/resources/pages/epp-status-codes
+
+If you wish to contact this domain’s Registrant or Technical
+contact, and such email address is not visible above, you may do so via our web
+form, pursuant to ICANN’s Temporary Specification. To verify that you are not a
+robot, please enter your email address to receive a link to a page that
+facilitates email communication with the relevant contact(s).
+
+Web-based WHOIS:
+  https://domains.markmonitor.com/whois/contact/akamaitechnologies.com
+
+If you have a legitimate interest in viewing the non-public WHOIS details, send
+your request and the reasons for your request to whoisrequest@markmonitor.com
+and specify the domain name in the subject line. We will review that request and
+may ask for supporting documentation and explanation.
+
+The data in MarkMonitor’s WHOIS database is provided for information purposes,
+and to assist persons in obtaining information about or related to a domain
+name’s registration record. While MarkMonitor believes the data to be accurate,
+the data is provided "as is" with no guarantee or warranties regarding its
+accuracy.
+
+By submitting a WHOIS query, you agree that you will use this data only for
+lawful purposes and that, under no circumstances will you use this data to:
+  (1) allow, enable, or otherwise support the transmission by email, telephone,
+or facsimile of mass, unsolicited, commercial advertising, or spam; or
+  (2) enable high volume, automated, or electronic processes that send queries,
+data, or email to MarkMonitor (or its systems) or the domain name contacts (or
+its systems).
+
+MarkMonitor reserves the right to modify these terms at any time.
+
+By submitting this query, you agree to abide by this policy.
+
+MarkMonitor Domain Management(TM)
+Protecting companies and consumers in a digital world.
+
+Visit MarkMonitor at https://www.markmonitor.com
+Contact us at +1.8007459229
+In Europe, at +44.02032062220
+--
+
+
+        ```
+
+        ### 7. Informações do Alien Vault OTX
+        ```json
+        {'pulses': []}
+        ```
+        

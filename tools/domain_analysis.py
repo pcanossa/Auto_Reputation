@@ -45,6 +45,28 @@ def run_domain_analysis():
             return f"Erro ao obter dados do WHOIS: {stderr}"
         else:
             return stdout.replace('"""', '\\"\\"\\"') 
+    
+    def seach_urlscan(domain):
+        url_scan_reponse = requests.get(f'https://urlscan.io/api/v1/search/?q=domain:{domain_name}')
+        url_scan_reponse.raise_for_status()
+
+        url_scan_data=url_scan_reponse.json()
+        if url_scan_data.get('results'): # Limita os resultados para evitar prompts muito longos
+            results = url_scan_data.get("results", [])
+            
+            # Extrai apenas informações essenciais de cada resultado
+            summarized_results = []
+            for result in results[:20]: 
+                summary = {
+                    "task": result.get("task"),
+                    "page": {"domain": result.get("page", {}).get("domain"), "ip": result.get("page", {}).get("ip")},
+                    "stats": result.get("stats"),
+                }
+                summarized_results.append(summary)
+
+            url_scan_final = str({"results": summarized_results})
+            return url_scan_final
+        return url_scan_reponse.text
 
     print(f"Coletando informações para o domínio: {domain_name}...")
 
@@ -57,9 +79,8 @@ def run_domain_analysis():
         whois_text = get_cli_whois(domain_name)
 
         # 2. Análise do Urlscan.io
-        url_scan_reponse = requests.get(f'https://urlscan.io/api/v1/search/?q=domain:{domain_name}', headers=headers)
-        url_scan_reponse.raise_for_status()
-
+        url_scan_data = seach_urlscan(domain_name)
+        
         # 3. Análise do Virus Total
         vt_details_response = requests.get(f'https://www.virustotal.com/api/v3/domains/{domain_name}', headers={
             'x-apikey': VT_API_KEY,
@@ -68,11 +89,18 @@ def run_domain_analysis():
         vt_details_response.raise_for_status()
 
         #4. Análise IOC Alien Vault
-        av_details_response = requests.get(f'https://otx.alienvault.com/api/v1/indicators/domain/{domain_name}', headers={
+        av_response = requests.get(f'https://otx.alienvault.com/api/v1/indicators/domain/{domain_name}/general', headers={
             'accept': 'application/json',
-            'Authorization': f"Bearer {ALIEN_VAULT_API_KEY}"
+            'X-OTX-API-KEY': ALIEN_VAULT_API_KEY
         })
-        av_details_response.raise_for_status()
+        av_response.raise_for_status()
+        
+        av_data = av_response.json()
+        # Limita os dados do Alien Vault para incluir apenas os pulsos (relatórios de ameaças)
+        if 'pulse_info' in av_data and 'pulses' in av_data['pulse_info']:
+            av_details_text = str({"pulses": av_data['pulse_info']['pulses']})
+        else:
+            av_details_text = av_response.text
 
         #6. Análise DNS (opcional, pode ser expandida conforme necessário)
         dns_response = requests.get(f'https://dns.google/resolve?name={domain_name}', headers=headers)
@@ -90,7 +118,7 @@ def run_domain_analysis():
 
         ### 2. Informações do Urlscan.io
         ```json
-        {url_scan_reponse.text}
+        {url_scan_data}
         ```
 
         ### 3. Informações do VirusTotal
@@ -100,7 +128,7 @@ def run_domain_analysis():
 
         ### 4. Informações do Alien Vault OTX
         ```json
-        {av_details_response.text}
+        {av_details_text}
         ```
 
         ### 5. Informações do DNS
@@ -154,7 +182,9 @@ def run_domain_analysis():
         }
     ]
 
-    print(f"Analisando e gerando relatório...\n")
+    print(f"\n=============Dados Brutos Coletados===============\n{combined_content}\n")
+
+    print(f"\n=========>> Analisando e gerando relatório...\n")
     full_response = []
     try:
         for part in client.chat('gpt-oss:120b-cloud', messages=message, stream=True):

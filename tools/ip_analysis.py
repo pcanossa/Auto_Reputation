@@ -53,6 +53,27 @@ def run_ip_analysis():
         else:
             return stdout.replace('"""', '\\"\\"\\"')
 
+    def seach_urlscan(ip):
+        url_scan_reponse = requests.get(f'https://urlscan.io/api/v1/search/?q=ip:{ip}')
+        url_scan_reponse.raise_for_status()
+
+        url_scan_data=url_scan_reponse.json()
+        if url_scan_data.get('results'): # Limita os resultados para evitar prompts muito longos
+            results = url_scan_data.get("results", [])
+            
+            # Extrai apenas informações essenciais de cada resultado
+            summarized_results = []
+            for result in results[:20]: 
+                summary = {
+                    "task": result.get("task"),
+                    "page": {"domain": result.get("page", {}).get("domain"), "ip": result.get("page", {}).get("ip")},
+                    "stats": result.get("stats"),
+                }
+                summarized_results.append(summary)
+
+            url_scan_final = str({"results": summarized_results})
+            return url_scan_final
+        return url_scan_reponse.text
 
 
     try:
@@ -64,8 +85,7 @@ def run_ip_analysis():
         ipinfo_response = requests.get(f'https://ipinfo.io/{ip}/json', headers=headers)
         ipinfo_response.raise_for_status() 
 
-        url_scan_reponse = requests.get(f'https://urlscan.io/api/v1/search/?q=ip:{ip}', headers=headers)
-        url_scan_reponse.raise_for_status()
+        url_scan_reponse = seach_urlscan(ip)
 
         vt_details_response = requests.get(f'https://www.virustotal.com/api/v3/search?query={ip}', headers={
             'x-apikey': VT_API_KEY,
@@ -85,6 +105,19 @@ def run_ip_analysis():
         })
         ipdb_response.raise_for_status()
 
+        av_response = requests.get(f'https://otx.alienvault.com/api/v1/indicators/IPv4/{ip}/general', headers={
+            'accept': 'application/json',
+            'X-OTX-API-KEY': ALIEN_VAULT_API_KEY
+        })
+        av_response.raise_for_status()
+        
+        av_data = av_response.json()
+        # Limita os dados do Alien Vault para incluir apenas os pulsos (relatórios de ameaças)
+        if 'pulse_info' in av_data and 'pulses' in av_data['pulse_info']:
+            av_details_text = str({"pulses": av_data['pulse_info']['pulses']})
+        else:
+            av_details_text = av_response.text
+
         # Combinar todos os dados em uma única string para a IA
         combined_content = f"""
         ## DADOS COLETADOS PARA ANÁLISE DE THREAT INTELLIGENCE
@@ -101,12 +134,12 @@ def run_ip_analysis():
 
         ### 3. Resultados do URLScan.io
         ```json
-        {url_scan_reponse.text}
+        {url_scan_reponse}
         ```
 
         ### 4. Informações do VirusTotal
         ```json
-        {vt_details_response.text}
+        {vt_details_response}
        ```
 
         ### 5. Informações do AbuseIPDB
@@ -117,6 +150,11 @@ def run_ip_analysis():
         ### 6. Informações do WHOIS via comando
         ```html
         {whois_text}
+        ```
+
+        ### 7. Informações do Alien Vault OTX
+        ```json
+        {av_details_text}
         ```
         """
         
@@ -165,8 +203,9 @@ def run_ip_analysis():
           'content': combined_content
         }
     ]
+    print(f"\n=============Dados Brutos Coletados===============\n{combined_content}\n")
 
-    print(f"Analisando e gerando relatório...\n")
+    print(f"\n=========>> Analisando e gerando relatório...\n")
     full_response = []
     try:
         for part in client.chat('gpt-oss:120b-cloud', messages=message, stream=True):

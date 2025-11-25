@@ -18,7 +18,7 @@ def run_domain_analysis():
         'DNT': '1',
     }
 
-    dotenv_path = os.path.join(os.path.dirname(__file__), '.ENV')
+    dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
     dotenv.load_dotenv(dotenv_path=dotenv_path)
 
     VT_API_KEY = os.getenv("VT_API_KEY")

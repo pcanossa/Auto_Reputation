@@ -1,3 +1,4 @@
+import subprocess
 from ollama import Client
 import requests
 import dotenv
@@ -22,27 +23,46 @@ def run_ip_analysis():
 
     VT_API_KEY = os.getenv("VT_API_KEY")
     ALIEN_VAULT_API_KEY = os.getenv("ALIEN_VAULT_API_KEY")
+    ABUSEIPDB_API_KEY = os.getenv("ABUSEIPDB_API_KEY")
     
     print(f"Coletando informações para o IP: {ip}...")
 
     sanitized_ip = ip.replace('.', '_')
     report_filename = f"threat_report_{sanitized_ip}.md"
+    json_filename = f"threat_data_{sanitized_ip}.txt"
+
+    def get_cli_whois(ip):
+        process = subprocess.Popen(
+            ['whois', ip],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            bufsize=1
+        )   
+
+        output_lines = []
+
+        for line in process.stdout:
+            output_lines.append(line)
+        
+        stdout = ''.join(output_lines)
+        stderr = process.stderr.read()
+        return_code = process.wait()
+        if return_code != 0 and not stdout:
+            return f"Erro ao obter dados do WHOIS: {stderr}"
+        else:
+            return stdout.replace('"""', '\\"\\"\\"')
+
+
 
     try:
-        # 1. Usar a API do Shodan para dados estruturados
+
         shodan_host_info = requests.get(f'https://www.shodan.io/host/{ip}', headers=headers)
         shodan_host_info.raise_for_status()  # Verifica se a requisição foi bem-sucedida
         shodan_text = shodan_host_info.text.replace('"""', '\\"\\"\\"') # Escapa aspas triplas
 
-        # 2. Coletar dados de outras fontes
         ipinfo_response = requests.get(f'https://ipinfo.io/{ip}/json', headers=headers)
-        ipinfo_response.raise_for_status()  # Verifica se a requisição foi bem-sucedida
-
-        arin_whois_response = requests.get(f'https://whois.arin.net/rest/ip/{ip}', headers=headers)
-        arin_whois_response.raise_for_status()
-
-        arin_rdap_response = requests.get(f'https://rdap.arin.net/registry/ip/{ip}', headers=headers)
-        arin_rdap_response.raise_for_status()
+        ipinfo_response.raise_for_status() 
 
         url_scan_reponse = requests.get(f'https://urlscan.io/api/v1/search/?q=ip:{ip}', headers=headers)
         url_scan_reponse.raise_for_status()
@@ -53,11 +73,17 @@ def run_ip_analysis():
         })
         vt_details_response.raise_for_status()
 
-        av_details_response = requests.get(f'https://otx.alienvault.com/api/v1/indicators/ip/{ip}', headers={
-            'accept': 'application/json',
-            'Authorization': f"Bearer {ALIEN_VAULT_API_KEY}"
+        whois_text = get_cli_whois(ip)
+        
+        ipdb_response = requests.get(f'https://api.abuseipdb.com/api/v2/check?ipAddress={ip}', headers={
+            'Accept': 'application/json',
+            'Key': ABUSEIPDB_API_KEY
+        },
+        params={
+            'ipAddress': ip,
+            'maxAgeInDays': 90
         })
-        av_details_response.raise_for_status()
+        ipdb_response.raise_for_status()
 
         # Combinar todos os dados em uma única string para a IA
         combined_content = f"""
@@ -73,29 +99,24 @@ def run_ip_analysis():
         {ipinfo_response.text}
         ```
 
-        ### 3. Informações do ARIN (WHOIS)
-        ```
-        {arin_whois_response.text}
-        ```
-
-        ### 4. Informações do ARIN (RDAP)
-        ```json
-        {arin_rdap_response.text}
-        ```
-
-        ### 5. Resultados do URLScan.io
+        ### 3. Resultados do URLScan.io
         ```json
         {url_scan_reponse.text}
         ```
 
-        ### 6. Informações do VirusTotal
+        ### 4. Informações do VirusTotal
         ```json
         {vt_details_response.text}
        ```
 
-        ### 7. Informações do Alien Vault OTX
-        ```json
-        {av_details_response.text}
+        ### 5. Informações do AbuseIPDB
+        ```json 
+        {ipdb_response.text}
+        ```
+
+        ### 6. Informações do WHOIS via comando
+        ```html
+        {whois_text}
         ```
         """
         
@@ -160,5 +181,10 @@ def run_ip_analysis():
 
     with open(f'./reports/{report_filename}', "w", encoding="utf-8") as f:
         f.write("".join(full_response))
+    
+    with open(f'./reports/{json_filename}', "w", encoding="utf-8") as f:
+        f.write(combined_content)
 
     print(f"[+] Relatório salvo com sucesso em: /reports/{report_filename}")
+    print(f"[+] Dados coletados salvo com sucesso em: {json_filename}")
+

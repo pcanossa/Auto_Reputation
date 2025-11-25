@@ -2,6 +2,7 @@ from ollama import Client
 import requests
 import dotenv
 import sys
+import subprocess
 import os
 
 def run_domain_analysis():
@@ -23,16 +24,37 @@ def run_domain_analysis():
     VT_API_KEY = os.getenv("VT_API_KEY")
     ALIEN_VAULT_API_KEY = os.getenv("ALIEN_VAULT_API_KEY")
 
+    def get_cli_whois(domain):
+        process = subprocess.Popen(
+            ['whois', domain],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            bufsize=1
+        )   
+
+        output_lines = []
+
+        for line in process.stdout:
+            output_lines.append(line)
+        
+        stdout = ''.join(output_lines)
+        stderr = process.stderr.read()
+        return_code = process.wait()
+        if return_code != 0 and not stdout:
+            return f"Erro ao obter dados do WHOIS: {stderr}"
+        else:
+            return stdout.replace('"""', '\\"\\"\\"') 
+
     print(f"Coletando informações para o domínio: {domain_name}...")
 
     sanitized_domain = domain_name.replace('.', '_')
     report_filename = f"threat_report_{sanitized_domain}.md"
+    json_filename = f"threat_data_{sanitized_domain}.txt"
 
     try:
         # 1. Análise do WHOIS.com
-        whois_response_host_info = requests.get(f'https://www.whois.com/whois/{domain_name}', headers=headers)
-        whois_response_host_info.raise_for_status()  # Verifica se a requisição foi bem-sucedida
-        whois_text = whois_response_host_info.text.replace('"""', '\\"\\"\\"') # Escapa aspas triplas
+        whois_text = get_cli_whois(domain_name)
 
         # 2. Análise do Urlscan.io
         url_scan_reponse = requests.get(f'https://urlscan.io/api/v1/search/?q=domain:{domain_name}', headers=headers)
@@ -51,6 +73,12 @@ def run_domain_analysis():
             'Authorization': f"Bearer {ALIEN_VAULT_API_KEY}"
         })
         av_details_response.raise_for_status()
+
+        #6. Análise DNS (opcional, pode ser expandida conforme necessário)
+        dns_response = requests.get(f'https://dns.google/resolve?name={domain_name}', headers=headers)
+        dns_response.raise_for_status()
+
+        # Combinar todos os dados em uma única string
 
         combined_content = f"""
         ## DADOS COLETADOS PARA ANÁLISE DE THREAT INTELLIGENCE
@@ -73,6 +101,11 @@ def run_domain_analysis():
         ### 4. Informações do Alien Vault OTX
         ```json
         {av_details_response.text}
+        ```
+
+        ### 5. Informações do DNS
+        ```json
+        {dns_response.text}
         ```
         """
 
@@ -137,4 +170,8 @@ def run_domain_analysis():
     with open(f'./reports/{report_filename}', "w", encoding="utf-8") as f:
         f.write("".join(full_response))
 
+    with open(f'./reports/{json_filename}', "w", encoding="utf-8") as f:
+        f.write(combined_content)
+
     print(f"[+] Relatório salvo com sucesso em: {report_filename}")
+    print(f"[+] Dados coletados salvo com sucesso em: {json_filename}")

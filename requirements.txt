@@ -3,3 +3,4 @@ sys
 ollama
 requests
 dotenv
+subprocess

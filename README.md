@@ -2,13 +2,14 @@
 
 ## Introdução
 
-Uma suíte de ferramentas de linha de comando em Python para realizar análises de reputação e threat intelligence em endereços IP e domínios. O aplicativo coleta dados de diversas fontes públicas (**Shodan**, **VirusTotal**, **AlienVault OTX**, **Urlscan**, etc.) e utiliza um modelo de linguagem grande (LLM) `gpt-oss:120b-cloud` através do `Ollama` para gerar relatórios detalhados em formato Markdown.
+Uma suíte de ferramentas de linha de comando em Python para realizar análises de reputação e threat intelligence em endereços IP e domínios. O aplicativo coleta dados de diversas fontes públicas (**Shodan**, **VirusTotal**, **AlienVault OTX**, **Urlscan**, etc.) e utiliza um modelo de linguagem grande (LLM) `gpt-oss:120b-cloud` através do `Ollama` para gerar relatórios detalhados em formato Markdown com geração de arquivos com dados coletados, que foram utilizados para a análise.
 
 ## Funcionalidades
 
 - **Análise de Reputação de IP:** Coleta informações sobre portas abertas, serviços, geolocalização, vulnerabilidades (CVEs) e reputação em listas de ameaças.
 - **Análise de Reputação de Domínio:** Coleta informações de WHOIS, subdomínios, IPs associados e reputação em listas de ameaças.
 - **Geração de Relatórios com IA:** Utiliza o modelo `gpt-oss:120b-cloud` via Ollama para analisar os dados coletados e gerar um relatório de threat intelligence estruturado.
+- **Geração de Arquivo com Dados Coletados para Análise**: Gera arquivo em formato `.txt`, de todos dados coletados e utilizados para a análise na geração do relatório.
 
 ## Tecnologias Utilizadas
 
@@ -26,9 +27,9 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
   - VirusTotal
   - AlienVault OTX
   - IPInfo.io
-  - ARIN (WHOIS & RDAP)
-  - WHOIS.com
+  - whois 
   - URLScan.io
+  - AbuseIPDB
 
 ## Pré-requisitos
 
@@ -41,6 +42,10 @@ Antes de começar, certifique-se de ter o seguinte instalado:
     ```bash
     ollama pull gpt-oss:120b-cloud
     ```
+4. **whois**: É necessário ter a ferramenta pré instalada no sistema.
+  * **Linux-Debian**: ``sudo apt install whois``
+  * **Linux-Fedora**: ``sudo yum install whois``
+  * **Windows**: [Download Whois](https://learn.microsoft.com/pt-br/sysinternals/downloads/whois) - Descomprimir dentro do ``/Windows/System32`` ou adiconar executáveis em ``PATCH``.
 
 ## Instalação
 
@@ -61,7 +66,7 @@ Antes de começar, certifique-se de ter o seguinte instalado:
     source venv/bin/activate
     ```
 
- 3. **Intale o Ollama**:
+ 3. **Instale o Ollama**:
     - Faça o download e instale o Ollama.
     - Iniciar o servidor ollama
      ```bash
@@ -74,13 +79,13 @@ Antes de começar, certifique-se de ter o seguinte instalado:
     - Iniciar serviço de chat `gpt-oss:120b-cloud` **(Necessário somente na primeira vez que executar o script)**
       ```bash
       ollama run gpt-oss:120b-cloud
-     ``` 
-    - Certifique-se de que o serviço do Ollama esteja em execução antes de rodar o script.
+     ```
 
+    **Certifique-se de que o serviço do Ollama esteja em execução antes de rodar o script.**
 
 ## Configuração
 
-A ferramenta requer chaves de API para consultar os serviços do VirusTotal e AlienVault OTX.
+A ferramenta requer chaves de API para consultar os serviços do VirusTotal, AlienVault OTX e AbuseIPDB.
 
 1.  Navegue até o diretório `tools`:
     ```bash
@@ -93,6 +98,7 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal e Al
     ```
     VT_API_KEY="SUA_CHAVE_API_DO_VIRUSTOTAL"
     ALIEN_VAULT_API_KEY="SUA_CHAVE_API_DO_ALIENVAULT"
+    ABUSEIPDB_API_KEY="SUA_CHAVE_API_DO_ABUSEIPDB"
     ```
 
 ## Como Usar
@@ -112,7 +118,7 @@ O script principal `auto_reputation.py` oferece um menu interativo para escolher
 
 3.  Insira o alvo (domínio ou IP) quando solicitado.
 
-4.  Aguarde a coleta de dados e a geração do relatório. Ao final, um arquivo `.md` com o relatório completo será salvo no diretório `reports`.
+4.  Aguarde a coleta de dados e a geração do relatório. Ao final, um arquivo `.md` com o relatório completo, e um arquivo `.txt` com os dados coletados, utilizados na análise pela IA, serão salvo no diretório `reports`.
 
 * **Certifique-se de sempre iniciar o serviço Ollama antes de executar o script com `ollama start`.**
 

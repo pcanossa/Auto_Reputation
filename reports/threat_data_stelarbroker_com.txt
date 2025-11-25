@@ -1,0 +1,357 @@
+
+        ## DADOS COLETADOS PARA ANÁLISE DE THREAT INTELLIGENCE
+
+        ### 1. Informações do WHOIS
+        ```html
+        
+Whois v1.21 - Domain information lookup
+Copyright (C) 2005-2019 Mark Russinovich
+Sysinternals - www.sysinternals.com
+
+Connecting to COM.whois-servers.net...
+
+WHOIS Server: whois.godaddy.com
+
+   Registrar URL: http://www.godaddy.com
+
+   Updated Date: 2025-09-15T14:33:14Z
+
+   Creation Date: 2025-09-11T01:53:55Z
+
+   Registry Expiry Date: 2026-09-11T01:53:55Z
+
+   Registrar: GoDaddy.com, LLC
+
+   Registrar IANA ID: 146
+
+   Registrar Abuse Contact Email: abuse@godaddy.com
+
+   Registrar Abuse Contact Phone: 480-624-2505
+
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+
+   Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
+
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+
+   Name Server: KINSLEY.NS.CLOUDFLARE.COM
+
+   Name Server: ROMMY.NS.CLOUDFLARE.COM
+
+   DNSSEC: unsigned
+
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+
+>>> Last update of whois database: 2025-11-25T14:53:20Z <<<
+
+
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+
+
+NOTICE: The expiration date displayed in this record is the date the
+
+registrar's sponsorship of the domain name registration in the registry is
+
+currently set to expire. This date does not necessarily reflect the expiration
+
+date of the domain name registrant's agreement with the sponsoring
+
+registrar.  Users may consult the sponsoring registrar's Whois database to
+
+view the registrar's reported date of expiration for this registration.
+
+
+
+TERMS OF USE: You are not authorized to access or query our Whois
+
+database through the use of electronic processes that are high-volume and
+
+automated except as reasonably necessary to register domain names or
+
+modify existing registrations; the Data in VeriSign Global Registry
+
+Services' ("VeriSign") Whois database is provided by VeriSign for
+
+information purposes only, and to assist persons in obtaining information
+
+about or related to a domain name registration record. VeriSign does not
+
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+
+by the following terms of use: You agree that you may use this Data only
+
+for lawful purposes and that under no circumstances will you use this Data
+
+to: (1) allow, enable, or otherwise support the transmission of mass
+
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+
+or facsimile; or (2) enable high volume, automated, electronic processes
+
+that apply to VeriSign (or its computer systems). The compilation,
+
+repackaging, dissemination or other use of this Data is expressly
+
+prohibited without the prior written consent of VeriSign. You agree not to
+
+use electronic processes that are automated and high-volume to access or
+
+query the Whois database except as reasonably necessary to register
+
+domain names or modify existing registrations. VeriSign reserves the right
+
+to restrict your access to the Whois database in its sole discretion to ensure
+
+operational stability.  VeriSign may restrict or terminate your access to the
+
+Whois database for failure to abide by these terms of use. VeriSign
+
+reserves the right to modify these terms at any time.
+
+
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+
+Registrars.
+
+
+Connecting to whois.godaddy.com...
+
+WHOIS Server: whois.godaddy.com
+
+Registrar URL: https://www.godaddy.com
+
+Updated Date: 2025-09-10T20:53:56Z
+
+Creation Date: 2025-09-10T20:53:55Z
+
+Registrar Registration Expiration Date: 2026-09-10T20:53:55Z
+
+Registrar: GoDaddy.com, LLC
+
+Registrar IANA ID: 146
+
+Registrar Abuse Contact Email: abuse@godaddy.com
+
+Registrar Abuse Contact Phone: +1.4806242505
+
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+
+Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+
+Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
+
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+
+Registry Registrant ID: Not Available From Registry
+
+Registrant Name: Registration Private
+
+Registrant Organization: Domains By Proxy, LLC
+
+Registrant Street: DomainsByProxy.com
+
+Registrant Street: 100 S. Mill Ave, Suite 1600
+
+Registrant City: Tempe
+
+Registrant State/Province: Arizona
+
+Registrant Postal Code: 85281
+
+Registrant Country: US
+
+Registrant Phone: +1.4806242599
+
+Registrant Phone Ext:
+
+Registrant Fax: 
+
+Registrant Fax Ext:
+
+Registrant Email: https://www.godaddy.com/whois/results.aspx?domain=stelarbroker.com&action=contactDomainOwner
+
+Name Server: KINSLEY.NS.CLOUDFLARE.COM
+
+Name Server: ROMMY.NS.CLOUDFLARE.COM
+
+DNSSEC: unsigned
+
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+
+>>> Last update of WHOIS database: 2025-11-25T14:53:35Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+
+
+TERMS OF USE: The data contained in this registrar's Whois database, while believed by the
+
+registrar to be reliable, is provided "as is" with no guarantee or warranties regarding its
+
+accuracy. This information is provided for the sole purpose of assisting you in obtaining
+
+information about domain name registration records. Any use of this data for any other purpose
+
+is expressly forbidden without the prior written permission of this registrar. By submitting
+
+an inquiry, you agree to these terms and limitations of warranty. In particular, you agree not
+
+to use this data to allow, enable, or otherwise support the dissemination or collection of this
+
+data, in part or in its entirety, for any purpose, such as transmission by e-mail, telephone,
+
+postal mail, facsimile or other means of mass unsolicited, commercial advertising or solicitations
+
+of any kind, including spam. You further agree not to use this data to enable high volume, automated
+
+or robotic electronic processes designed to collect or compile this data for any purpose, including
+
+mining this data for your own personal or commercial purposes. Failure to comply with these terms
+
+may result in termination of access to the Whois database. These terms may be subject to modification
+
+at any time without notice.
+
+
+
+**NOTICE** This WHOIS server is being retired. Please use our RDAP service instead.
+
+
+
+
+
+Domain Name: stelarbroker.com
+
+Registry Domain ID: 3018649516_DOMAIN_COM-VRSN
+
+Registrar WHOIS Server: whois.godaddy.com
+
+Registrar URL: https://www.godaddy.com
+
+Updated Date: 2025-09-10T20:53:56Z
+
+Creation Date: 2025-09-10T20:53:55Z
+
+Registrar Registration Expiration Date: 2026-09-10T20:53:55Z
+
+Registrar: GoDaddy.com, LLC
+
+Registrar IANA ID: 146
+
+Registrar Abuse Contact Email: abuse@godaddy.com
+
+Registrar Abuse Contact Phone: +1.4806242505
+
+Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+
+Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+
+Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
+
+Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+
+Registry Registrant ID: Not Available From Registry
+
+Registrant Name: Registration Private
+
+Registrant Organization: Domains By Proxy, LLC
+
+Registrant Street: DomainsByProxy.com
+
+Registrant Street: 100 S. Mill Ave, Suite 1600
+
+Registrant City: Tempe
+
+Registrant State/Province: Arizona
+
+Registrant Postal Code: 85281
+
+Registrant Country: US
+
+Registrant Phone: +1.4806242599
+
+Registrant Phone Ext:
+
+Registrant Fax: 
+
+Registrant Fax Ext:
+
+Registrant Email: https://www.godaddy.com/whois/results.aspx?domain=stelarbroker.com&action=contactDomainOwner
+
+Name Server: KINSLEY.NS.CLOUDFLARE.COM
+
+Name Server: ROMMY.NS.CLOUDFLARE.COM
+
+DNSSEC: unsigned
+
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+
+>>> Last update of WHOIS database: 2025-11-25T14:53:35Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+
+
+TERMS OF USE: The data contained in this registrar's Whois database, while believed by the
+
+registrar to be reliable, is provided "as is" with no guarantee or warranties regarding its
+
+accuracy. This information is provided for the sole purpose of assisting you in obtaining
+
+information about domain name registration records. Any use of this data for any other purpose
+
+is expressly forbidden without the prior written permission of this registrar. By submitting
+
+an inquiry, you agree to these terms and limitations of warranty. In particular, you agree not
+
+to use this data to allow, enable, or otherwise support the dissemination or collection of this
+
+data, in part or in its entirety, for any purpose, such as transmission by e-mail, telephone,
+
+postal mail, facsimile or other means of mass unsolicited, commercial advertising or solicitations
+
+of any kind, including spam. You further agree not to use this data to enable high volume, automated
+
+or robotic electronic processes designed to collect or compile this data for any purpose, including
+
+mining this data for your own personal or commercial purposes. Failure to comply with these terms
+
+may result in termination of access to the Whois database. These terms may be subject to modification
+
+at any time without notice.
+
+
+
+**NOTICE** This WHOIS server is being retired. Please use our RDAP service instead.
+
+
+
+
+
+        ```
+
+        ### 2. Informações do Urlscan.io
+        ```json
+        {
+  "results": [],
+  "total": 0,
+  "took": 14,
+  "has_more": false
+}
+        ```
+
+        ### 3. Informações do VirusTotal
+        ```json
+        {"data": {"id": "stelarbroker.com", "type": "domain", "links": {"self": "https://www.virustotal.com/api/v3/domains/stelarbroker.com"}, "attributes": {"tld": "com", "last_update_date": 1757548800, "categories": {}, "whois": "Create date: 2025-09-11 00:00:00\nDomain name: stelarbroker.com\nDomain registrar id: 146\nDomain registrar url: http://www.godaddy.com\nExpiry date: 2026-09-11 00:00:00\nName server 1: ns67.domaincontrol.com\nName server 2: ns68.domaincontrol.com\nQuery time: 2025-09-12 11:44:25\nUpdate date: 2025-09-11 00:00:00", "last_dns_records": [{"type": "NS", "ttl": 21600, "value": "rommy.ns.cloudflare.com"}, {"type": "AAAA", "ttl": 300, "value": "2606:4700:3036::6815:3759"}, {"type": "NS", "ttl": 21600, "value": "kinsley.ns.cloudflare.com"}, {"type": "AAAA", "ttl": 300, "value": "2606:4700:3036::ac43:925e"}, {"type": "A", "ttl": 300, "value": "172.67.146.94"}, {"type": "A", "ttl": 300, "value": "104.21.55.89"}, {"type": "SOA", "ttl": 1800, "value": "kinsley.ns.cloudflare.com", "rname": "dns.cloudflare.com", "serial": 2383829061, "refresh": 10000, "retry": 2400, "expire": 604800, "minimum": 1800}], "jarm": "27d40d40d00040d1dc42d43d00041d6183ff1bfae51ebd88d70384363d525c", "rdap": {"handle": "3018649516_DOMAIN_COM-VRSN", "ldh_name": "STELARBROKER.COM", "events": [{"event_action": "registration", "event_date": "2025-09-11T01:53:55Z", "event_actor": "", "links": []}, {"event_action": "expiration", "event_date": "2026-09-11T01:53:55Z", "event_actor": "", "links": []}, {"event_action": "last changed", "event_date": "2025-09-15T14:33:14Z", "event_actor": "", "links": []}, {"event_action": "last update of RDAP database", "event_date": "2025-10-25T06:28:24Z", "event_actor": "", "links": []}], "links": [{"href": "https://rdap.verisign.com/com/v1/domain/STELARBROKER.COM", "rel": "self", "type": "application/rdap+json", "value": "https://rdap.verisign.com/com/v1/domain/STELARBROKER.COM", "title": "", "media": "", "href_lang": []}, {"href": "https://rdap.godaddy.com/v1/domain/STELARBROKER.COM", "rel": "related", "type": "application/rdap+json", "value": "https://rdap.godaddy.com/v1/domain/STELARBROKER.COM", "title": "", "media": "", "href_lang": []}], "notices": [{"title": "Terms of Service", "description": ["Service subject to Terms of Use."], "links": [{"href": "https://www.verisign.com/domain-names/registration-data-access-protocol/terms-service/index.xhtml", "rel": "terms-of-service", "type": "text/html", "value": "https://rdap.verisign.com/com/v1/domain/stelarbroker.com", "title": "", "media": "", "href_lang": []}], "type": ""}, {"title": "Status Codes", "description": ["For more information on domain status codes, please visit https://icann.org/epp"], "links": [{"href": "https://icann.org/epp", "type": "text/html", "rel": "", "title": "", "value": "", "media": "", "href_lang": []}], "type": ""}, {"title": "RDDS Inaccuracy Complaint Form", "description": ["URL of the ICANN RDDS Inaccuracy Complaint Form: https://icann.org/wicf"], "links": [{"href": "https://icann.org/wicf", "rel": "help", "type": "text/html", "value": "https://rdap.verisign.com/com/v1/domain/stelarbroker.com", "title": "", "media": "", "href_lang": []}], "type": ""}], "nameservers": [{"ldh_name": "KINSLEY.NS.CLOUDFLARE.COM", "object_class_name": "nameserver", "handle": "", "unicode_name": "", "events": [], "links": [], "notices": [], "status": [], "lang": "", "port43": "", "entities": [], "remarks": []}, {"ldh_name": "ROMMY.NS.CLOUDFLARE.COM", "object_class_name": "nameserver", "handle": "", "unicode_name": "", "events": [], "links": [], "notices": [], "status": [], "lang": "", "port43": "", "entities": [], "remarks": []}], "rdap_conformance": ["rdap_level_0", "icann_rdap_technical_implementation_guide_1", "icann_rdap_response_profile_1"], "entities": [{"object_class_name": "entity", "handle": "146", "vcard_array": [{"name": "version", "type": "text", "values": ["4.0"], "parameters": {}}, {"name": "fn", "type": "text", "values": ["GoDaddy.com, LLC"], "parameters": {}}], "roles": ["registrar"], "public_ids": [{"type": "IANA Registrar ID", "identifier": "146"}], "entities": [{"object_class_name": "entity", "vcard_array": [{"name": "version", "type": "text", "values": ["4.0"], "parameters": {}}, {"name": "fn", "type": "text", "values": [""], "parameters": {}}, {"name": "tel", "parameters": {"type": ["voice"]}, "type": "uri", "values": ["tel:480-624-2505"]}, {"name": "email", "type": "text", "values": ["abuse@godaddy.com"], "parameters": {}}], "roles": ["abuse"], "handle": "", "public_ids": [], "entities": [], "remarks": [], "links": [], "events": [], "as_event_actor": [], "status": [], "port43": "", "networks": [], "autnums": [], "url": "", "lang": "", "rdap_conformance": []}], "links": [{"href": "http://www.godaddy.com", "rel": "about", "type": "text/html", "value": "https://rdap.godaddy.com/v1/", "title": "", "media": "", "href_lang": []}], "remarks": [], "events": [], "as_event_actor": [], "status": [], "port43": "", "networks": [], "autnums": [], "url": "", "lang": "", "rdap_conformance": []}], "object_class_name": "domain", "status": ["client delete prohibited", "client renew prohibited", "client transfer prohibited", "client update prohibited"], "secure_dns": {"delegation_signed": false, "zone_signed": false, "max_sig_life": 0, "ds_data": [], "key_data": []}, "unicode_name": "", "punycode": "", "type": "", "port43": "", "switch_name": "", "public_ids": [], "lang": "", "remarks": [], "nask0_state": "", "variants": []}, "last_https_certificate": {"cert_signature": {"signature_algorithm": "1.2.840.10045.4.3.2", "signature": "30450220415a669d2697be7a779ae6096f73a2dcce64f80091f7309e3ca7e1a47a0702cd022100b77eb4091c482e7a72da3d4b26daa37f03df7feeb720b25921a46e71d2dda793"}, "extensions": {"key_usage": ["digitalSignature"], "extended_key_usage": ["serverAuth"], "CA": false, "subject_key_identifier": "deb93920bf06dcc79ba36487a270cad2d3c3d146", "authority_key_identifier": {"keyid": "9077923567c4ffa8cca9e67bd980797bcc93f938"}, "ca_information_access": {"OCSP": "http://o.pki.goog/s/we1/PFM", "CA Issuers": "http://i.pki.goog/we1.crt"}, "subject_alternative_name": ["stelarbroker.com", "*.stelarbroker.com"], "certificate_policies": ["2.23.140.1.2.1"], "crl_distribution_points": ["http://c.pki.goog/we1/0b07lKySgU0.crl"], "1.3.6.1.4.1.11129.2.4.2": "0481f200f000760012f14e34bd53724c840619c38f3f7a13f8e7b56287889c6d"}, "validity": {"not_after": "2025-12-14 14:33:51", "not_before": "2025-09-15 13:41:39"}, "size": 951, "version": "V3", "public_key": {"algorithm": "EC", "ec": {"oid": "secp256r1", "pub": "3059301306072a8648ce3d020106082a8648ce3d030107034200046cdb10b393b7f41e9784536a0529e151432640835081c211db5172aaf5c36b69207b5001ae11e490e1b1d29467f9fcbf97d69c297d7ecc1c0383b6404bc769c3"}}, "thumbprint_sha256": "a6508b3f1691d49316c424c196cbaff3406036cfd3390a81ac6464cd0bde7fad", "thumbprint": "8070baf93a989c5a354930be5891be49dd27f51a", "serial_number": "3c5309af506fd16413700960eb470d7e", "issuer": {"C": "US", "O": "Google Trust Services", "CN": "WE1"}, "subject": {"CN": "stelarbroker.com"}}, "last_dns_records_date": 1761373723, "last_analysis_stats": {"malicious": 1, "suspicious": 2, "undetected": 31, "harmless": 61, "timeout": 0}, "whois_date": 1789084800, "total_votes": {"harmless": 0, "malicious": 0}, "reputation": 0, "creation_date": 1757548800, "last_analysis_results": {"Acronis": {"method": "blacklist", "engine_name": "Acronis", "category": "harmless", "result": "clean"}, "0xSI_f33d": {"method": "blacklist", "engine_name": "0xSI_f33d", "category": "undetected", "result": "unrated"}, "Abusix": {"method": "blacklist", "engine_name": "Abusix", "category": "harmless", "result": "clean"}, "ADMINUSLabs": {"method": "blacklist", "engine_name": "ADMINUSLabs", "category": "harmless", "result": "clean"}, "Axur": {"method": "blacklist", "engine_name": "Axur", "category": "undetected", "result": "unrated"}, "ChainPatrol": {"method": "blacklist", "engine_name": "ChainPatrol", "category": "undetected", "result": "unrated"}, "Criminal IP": {"method": "blacklist", "engine_name": "Criminal IP", "category": "harmless", "result": "clean"}, "AILabs (MONITORAPP)": {"method": "blacklist", "engine_name": "AILabs (MONITORAPP)", "category": "harmless", "result": "clean"}, "AlienVault": {"method": "blacklist", "engine_name": "AlienVault", "category": "harmless", "result": "clean"}, "alphaMountain.ai": {"method": "blacklist", "engine_name": "alphaMountain.ai", "category": "undetected", "result": "unrated"}, "AlphaSOC": {"method": "blacklist", "engine_name": "AlphaSOC", "category": "undetected", "result": "unrated"}, "Antiy-AVL": {"method": "blacklist", "engine_name": "Antiy-AVL", "category": "harmless", "result": "clean"}, "ArcSight Threat Intelligence": {"method": "blacklist", "engine_name": "ArcSight Threat Intelligence", "category": "undetected", "result": "unrated"}, "AutoShun": {"method": "blacklist", "engine_name": "AutoShun", "category": "undetected", "result": "unrated"}, "benkow.cc": {"method": "blacklist", "engine_name": "benkow.cc", "category": "harmless", "result": "clean"}, "Bfore.Ai PreCrime": {"method": "blacklist", "engine_name": "Bfore.Ai PreCrime", "category": "suspicious", "result": "suspicious"}, "BitDefender": {"method": "blacklist", "engine_name": "BitDefender", "category": "harmless", "result": "clean"}, "Bkav": {"method": "blacklist", "engine_name": "Bkav", "category": "undetected", "result": "unrated"}, "Blueliv": {"method": "blacklist", "engine_name": "Blueliv", "category": "harmless", "result": "clean"}, "Certego": {"method": "blacklist", "engine_name": "Certego", "category": "harmless", "result": "clean"}, "Chong Lua Dao": {"method": "blacklist", "engine_name": "Chong Lua Dao", "category": "harmless", "result": "clean"}, "CINS Army": {"method": "blacklist", "engine_name": "CINS Army", "category": "harmless", "result": "clean"}, "Cluster25": {"method": "blacklist", "engine_name": "Cluster25", "category": "undetected", "result": "unrated"}, "CRDF": {"method": "blacklist", "engine_name": "CRDF", "category": "malicious", "result": "malicious"}, "CSIS Security Group": {"method": "blacklist", "engine_name": "CSIS Security Group", "category": "undetected", "result": "unrated"}, "Snort IP sample list": {"method": "blacklist", "engine_name": "Snort IP sample list", "category": "harmless", "result": "clean"}, "CMC Threat Intelligence": {"method": "blacklist", "engine_name": "CMC Threat Intelligence", "category": "harmless", "result": "clean"}, "Cyan": {"method": "blacklist", "engine_name": "Cyan", "category": "undetected", "result": "unrated"}, "Cyble": {"method": "blacklist", "engine_name": "Cyble", "category": "harmless", "result": "clean"}, "CyRadar": {"method": "blacklist", "engine_name": "CyRadar", "category": "harmless", "result": "clean"}, "DNS8": {"method": "blacklist", "engine_name": "DNS8", "category": "harmless", "result": "clean"}, "Dr.Web": {"method": "blacklist", "engine_name": "Dr.Web", "category": "harmless", "result": "clean"}, "Ermes": {"method": "blacklist", "engine_name": "Ermes", "category": "undetected", "result": "unrated"}, "ESET": {"method": "blacklist", "engine_name": "ESET", "category": "harmless", "result": "clean"}, "ESTsecurity": {"method": "blacklist", "engine_name": "ESTsecurity", "category": "harmless", "result": "clean"}, "EmergingThreats": {"method": "blacklist", "engine_name": "EmergingThreats", "category": "harmless", "result": "clean"}, "Emsisoft": {"method": "blacklist", "engine_name": "Emsisoft", "category": "harmless", "result": "clean"}, "Forcepoint ThreatSeeker": {"method": "blacklist", "engine_name": "Forcepoint ThreatSeeker", "category": "harmless", "result": "clean"}, "Fortinet": {"method": "blacklist", "engine_name": "Fortinet", "category": "harmless", "result": "clean"}, "G-Data": {"method": "blacklist", "engine_name": "G-Data", "category": "harmless", "result": "clean"}, "GCP Abuse Intelligence": {"method": "blacklist", "engine_name": "GCP Abuse Intelligence", "category": "undetected", "result": "unrated"}, "Google Safebrowsing": {"method": "blacklist", "engine_name": "Google Safebrowsing", "category": "harmless", "result": "clean"}, "GreenSnow": {"method": "blacklist", "engine_name": "GreenSnow", "category": "harmless", "result": "clean"}, "Gridinsoft": {"method": "blacklist", "engine_name": "Gridinsoft", "category": "suspicious", "result": "suspicious"}, "Heimdal Security": {"method": "blacklist", "engine_name": "Heimdal Security", "category": "harmless", "result": "clean"}, "Hunt.io Intelligence": {"method": "blacklist", "engine_name": "Hunt.io Intelligence", "category": "undetected", "result": "unrated"}, "IPsum": {"method": "blacklist", "engine_name": "IPsum", "category": "harmless", "result": "clean"}, "Juniper Networks": {"method": "blacklist", "engine_name": "Juniper Networks", "category": "harmless", "result": "clean"}, "Kaspersky": {"method": "blacklist", "engine_name": "Kaspersky", "category": "harmless", "result": "clean"}, "Lionic": {"method": "blacklist", "engine_name": "Lionic", "category": "harmless", "result": "clean"}, "Lumu": {"method": "blacklist", "engine_name": "Lumu", "category": "undetected", "result": "unrated"}, "MalwarePatrol": {"method": "blacklist", "engine_name": "MalwarePatrol", "category": "harmless", "result": "clean"}, "MalwareURL": {"method": "blacklist", "engine_name": "MalwareURL", "category": "undetected", "result": "unrated"}, "Malwared": {"method": "blacklist", "engine_name": "Malwared", "category": "harmless", "result": "clean"}, "Mimecast": {"method": "blacklist", "engine_name": "Mimecast", "category": "undetected", "result": "unrated"}, "Netcraft": {"method": "blacklist", "engine_name": "Netcraft", "category": "undetected", "result": "unrated"}, "OpenPhish": {"method": "blacklist", "engine_name": "OpenPhish", "category": "harmless", "result": "clean"}, "Phishing Database": {"method": "blacklist", "engine_name": "Phishing Database", "category": "harmless", "result": "clean"}, "PhishFort": {"method": "blacklist", "engine_name": "PhishFort", "category": "undetected", "result": "unrated"}, "PhishLabs": {"method": "blacklist", "engine_name": "PhishLabs", "category": "undetected", "result": "unrated"}, "Phishtank": {"method": "blacklist", "engine_name": "Phishtank", "category": "harmless", "result": "clean"}, "PREBYTES": {"method": "blacklist", "engine_name": "PREBYTES", "category": "harmless", "result": "clean"}, "PrecisionSec": {"method": "blacklist", "engine_name": "PrecisionSec", "category": "undetected", "result": "unrated"}, "Quick Heal": {"method": "blacklist", "engine_name": "Quick Heal", "category": "harmless", "result": "clean"}, "Quttera": {"method": "blacklist", "engine_name": "Quttera", "category": "harmless", "result": "clean"}, "SafeToOpen": {"method": "blacklist", "engine_name": "SafeToOpen", "category": "undetected", "result": "unrated"}, "Sansec eComscan": {"method": "blacklist", "engine_name": "Sansec eComscan", "category": "undetected", "result": "unrated"}, "Scantitan": {"method": "blacklist", "engine_name": "Scantitan", "category": "harmless", "result": "clean"}, "SCUMWARE.org": {"method": "blacklist", "engine_name": "SCUMWARE.org", "category": "harmless", "result": "clean"}, "Seclookup": {"method": "blacklist", "engine_name": "Seclookup", "category": "harmless", "result": "clean"}, "SecureBrain": {"method": "blacklist", "engine_name": "SecureBrain", "category": "undetected", "result": "unrated"}, "SOCRadar": {"method": "blacklist", "engine_name": "SOCRadar", "category": "undetected", "result": "unrated"}, "Sophos": {"method": "blacklist", "engine_name": "Sophos", "category": "harmless", "result": "clean"}, "Spam404": {"method": "blacklist", "engine_name": "Spam404", "category": "harmless", "result": "clean"}, "StopForumSpam": {"method": "blacklist", "engine_name": "StopForumSpam", "category": "harmless", "result": "clean"}, "Sucuri SiteCheck": {"method": "blacklist", "engine_name": "Sucuri SiteCheck", "category": "harmless", "result": "clean"}, "ThreatHive": {"method": "blacklist", "engine_name": "ThreatHive", "category": "harmless", "result": "clean"}, "Threatsourcing": {"method": "blacklist", "engine_name": "Threatsourcing", "category": "harmless", "result": "clean"}, "Trustwave": {"method": "blacklist", "engine_name": "Trustwave", "category": "harmless", "result": "clean"}, "Underworld": {"method": "blacklist", "engine_name": "Underworld", "category": "undetected", "result": "unrated"}, "URLhaus": {"method": "blacklist", "engine_name": "URLhaus", "category": "harmless", "result": "clean"}, "URLQuery": {"method": "blacklist", "engine_name": "URLQuery", "category": "undetected", "result": "unrated"}, "Viettel Threat Intelligence": {"method": "blacklist", "engine_name": "Viettel Threat Intelligence", "category": "harmless", "result": "clean"}, "VIPRE": {"method": "blacklist", "engine_name": "VIPRE", "category": "undetected", "result": "unrated"}, "VX Vault": {"method": "blacklist", "engine_name": "VX Vault", "category": "harmless", "result": "clean"}, "ViriBack": {"method": "blacklist", "engine_name": "ViriBack", "category": "harmless", "result": "clean"}, "Webroot": {"method": "blacklist", "engine_name": "Webroot", "category": "harmless", "result": "clean"}, "Yandex Safebrowsing": {"method": "blacklist", "engine_name": "Yandex Safebrowsing", "category": "harmless", "result": "clean"}, "ZeroCERT": {"method": "blacklist", "engine_name": "ZeroCERT", "category": "harmless", "result": "clean"}, "desenmascara.me": {"method": "blacklist", "engine_name": "desenmascara.me", "category": "harmless", "result": "clean"}, "malwares.com URL checker": {"method": "blacklist", "engine_name": "malwares.com URL checker", "category": "harmless", "result": "clean"}, "securolytics": {"method": "blacklist", "engine_name": "securolytics", "category": "harmless", "result": "clean"}, "Xcitium Verdict Cloud": {"method": "blacklist", "engine_name": "Xcitium Verdict Cloud", "category": "undetected", "result": "unrated"}, "zvelo": {"method": "blacklist", "engine_name": "zvelo", "category": "undetected", "result": "unrated"}, "ZeroFox": {"method": "blacklist", "engine_name": "ZeroFox", "category": "undetected", "result": "unrated"}}, "last_analysis_date": 1761373403, "last_modification_date": 1763792738, "popularity_ranks": {}, "tags": [], "last_https_certificate_date": 1761373723}}}
+        ```   
+
+        ### 4. Informações do Alien Vault OTX
+        ```json
+        {"sections": ["general", "geo", "url_list", "passive_dns", "malware", "whois", "http_scans"], "whois": "http://whois.domaintools.com/stelarbroker.com", "alexa": "http://www.alexa.com/siteinfo/stelarbroker.com", "indicator": "stelarbroker.com", "type": "domain", "type_title": "Domain", "validation": [], "base_indicator": {}, "pulse_info": {"count": 0, "pulses": [], "references": [], "related": {"alienvault": {"adversary": [], "malware_families": [], "industries": []}, "other": {"adversary": [], "malware_families": [], "industries": []}}}, "false_positive": []}
+        ```
+        

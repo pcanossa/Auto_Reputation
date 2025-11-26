@@ -92,9 +92,9 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal, Ali
     cd tools
     ```
 
-2.  Crie um arquivo chamado `.ENV` neste diretório.
+2.  Crie um arquivo chamado `.env` neste diretório.
 
-3.  Adicione suas chaves de API ao arquivo `.ENV` da seguinte forma:
+3.  Adicione suas chaves de API ao arquivo `.env` da seguinte forma:
     ```
     VT_API_KEY="SUA_CHAVE_API_DO_VIRUSTOTAL"
     ALIEN_VAULT_API_KEY="SUA_CHAVE_API_DO_ALIENVAULT"

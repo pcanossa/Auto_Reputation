@@ -49,7 +49,7 @@ def run_domain_analysis():
     
     def get_cli_header(ip):
         process = subprocess.Popen(
-            ['curl', '-v', '-I', ip],
+            ['curl', '-v', '-o /dev/null', ip],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,

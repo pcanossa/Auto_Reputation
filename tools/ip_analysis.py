@@ -1,9 +1,11 @@
+from datetime import datetime
 import subprocess
 from ollama import Client
 import requests
 import dotenv
 import sys
 import os
+import hashlib
 
 def run_ip_analysis():
     client=Client()
@@ -52,6 +54,29 @@ def run_ip_analysis():
             return f"Erro ao obter dados do WHOIS: {stderr}"
         else:
             return stdout.replace('"""', '\\"\\"\\"')
+    
+    def get_cli_header(ip):
+        process = subprocess.Popen(
+            ['curl', '-v', '-I', ip],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            bufsize=1
+        )   
+
+        output_lines = []
+
+        for line in process.stdout:
+            output_lines.append(line)
+        
+        stdout = ''.join(output_lines)
+        stderr = process.stderr.read()
+        return_code = process.wait()
+        if return_code != 0 and not stdout:
+            return f"Erro ao obter dados de cabeçalho pelo cURL: {stderr}"
+        else:
+            return stdout.replace('"""', '\\"\\"\\"')
+
 
     def seach_urlscan(ip):
         url_scan_reponse = requests.get(f'https://urlscan.io/api/v1/search/?q=ip:{ip}')
@@ -94,6 +119,8 @@ def run_ip_analysis():
         vt_details_response.raise_for_status()
 
         whois_text = get_cli_whois(ip)
+
+        headers_text = get_cli_header(ip)
         
         ipdb_response = requests.get(f'https://api.abuseipdb.com/api/v2/check?ipAddress={ip}', headers={
             'Accept': 'application/json',
@@ -121,6 +148,8 @@ def run_ip_analysis():
         # Combinar todos os dados em uma única string para a IA
         combined_content = f"""
         ## DADOS COLETADOS PARA ANÁLISE DE THREAT INTELLIGENCE
+
+        TIMESTAMP: {datetime.now().isoformat()}
 
         ### 1. Informações do Shodan
         ```html
@@ -156,6 +185,11 @@ def run_ip_analysis():
         ```json
         {av_details_text}
         ```
+
+        ### 8. Cabeçalhos HTTP via cURL
+        ```html
+        {headers_text}
+        ```
         """
         
     except requests.exceptions.HTTPError as e:
@@ -163,7 +197,7 @@ def run_ip_analysis():
         print(f"URL que falhou: {e.request.url}")
         sys.exit(1)
 
-    prompt = """
+    prompt = f"""
     Você é um especialista em Threat Intelligence. Analise os dados brutos fornecidos (em formato JSON e texto) sobre um endereço IP e gere um relatório de inteligência de ameaças.
 
     **Seu relatório deve conter:**
@@ -186,7 +220,7 @@ def run_ip_analysis():
     # Relatório de Threat Intelligence – IP **(Número do IP Analisado)**
 
     > **Fonte dos dados**: (Fontes utilizadas, ex: Shodan, IPInfo.io, ARIN / RIPE RDAP, URLScan.io).  
-    > **Última coleta Shodan**: (Data de Última Coleta).  
+    > **Timestamp da Análise**: {datetime.now().isoformat()}.  
     """.strip()
 
     message = [
@@ -203,13 +237,11 @@ def run_ip_analysis():
           'content': combined_content
         }
     ]
-    print(f"\n=============Dados Brutos Coletados===============\n{combined_content}\n")
 
     print(f"\n=========>> Analisando e gerando relatório...\n")
     full_response = []
     try:
         for part in client.chat('gpt-oss:120b-cloud', messages=message, stream=True):
-          print(part['message']['content'], end='', flush=True)
           content = part['message']['content']
           full_response.append(content)
     except Exception as e:
@@ -226,4 +258,8 @@ def run_ip_analysis():
 
     print(f"[+] Relatório salvo com sucesso em: /reports/{report_filename}")
     print(f"[+] Dados coletados salvo com sucesso em: {json_filename}")
+    full_report_path = f'./reports/{report_filename}'
+    full_data_path = f'./reports/{json_filename}'
+
+    return full_report_path, full_data_path
 

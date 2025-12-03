@@ -1,4 +1,4 @@
-# Auto Reputation - Ferramenta de Análise de Reputação e Threat Intelligence com IA
+> # Auto Reputation - Ferramenta de Análise de Reputação e Threat Intelligence com IA
 
 ## Introdução
 
@@ -8,8 +8,10 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
 
 - **Análise de Reputação de IP:** Coleta informações sobre portas abertas, serviços, geolocalização, vulnerabilidades (CVEs) e reputação em listas de ameaças.
 - **Análise de Reputação de Domínio:** Coleta informações de WHOIS, subdomínios, IPs associados e reputação em listas de ameaças.
+- **Coleta e Análise de scripts de Sites Maliciosos**: Coleta de scripts executaod ao acessar o site, e posterior análise de compostamentos maliciosos observados nos scripts coletados.
 - **Geração de Relatórios com IA:** Utiliza o modelo `gpt-oss:120b-cloud` via Ollama para analisar os dados coletados e gerar um relatório de threat intelligence estruturado.
 - **Geração de Arquivo com Dados Coletados para Análise**: Gera arquivo em formato `.txt`, de todos dados coletados e utilizados para a análise na geração do relatório.
+- **Geração de Hash SHA256:** gera de forma automática hashes de integridade dos documentos criados e analisados.
 
 ## Tecnologias Utilizadas
 
@@ -19,6 +21,7 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
   - `requests`: Para realizar as requisições HTTP às APIs.
   - `python-dotenv`: Para gerenciamento de chaves de API e variáveis de ambiente.
   - `dnspython`: Para consultas DNS na enumeração de subdomínios.
+  - `hashlib`: Geração de hash SHA256 dos documentos criados e analisados.
 - **Inteligência Artificial:**
   - **Ollama**: Plataforma para execução de modelos de linguagem localmente.
   - **Modelo**: `gpt-oss:120b-cloud`.
@@ -27,9 +30,11 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
   - VirusTotal
   - AlienVault OTX
   - IPInfo.io
-  - whois 
+  - `whois` 
   - URLScan.io
   - AbuseIPDB
+  - `wget`
+  - `curl`
 
 ## Pré-requisitos
 
@@ -46,6 +51,11 @@ Antes de começar, certifique-se de ter o seguinte instalado:
   * **Linux-Debian**: ``sudo apt install whois``
   * **Linux-Fedora**: ``sudo yum install whois``
   * **Windows**: [Download Whois](https://learn.microsoft.com/pt-br/sysinternals/downloads/whois) - Descomprimir dentro do ``/Windows/System32`` ou adiconar executáveis em ``PATCH``.
+
+5. **wget**: É necessário ter a ferramenta pré instalada no sistema.
+  * **Linux-Debian**: ``sudo apt install wget``
+  * **Linux-Fedora**: ``sudo yum install wget``
+   * **Windows**: [Download de binário do GNU wget para Windows](https://eternallybored.org/misc/wget/) - Mover para ``/Windows/System32`` ou adiconar executável em ``PATCH``.
 
 ## Instalação
 
@@ -69,9 +79,9 @@ Antes de começar, certifique-se de ter o seguinte instalado:
  3. **Instale o Ollama**:
     - Faça o download e instale o Ollama.
     - Iniciar o servidor ollama
-     ```bash
-      ollama start
-     ```
+      ```bash
+       ollama start
+      ```
     - Baixe um modelo de linguagem robusto. O modelo `gpt-oss:120b-cloud` foi usado no desenvolvimento, mas outros modelos grandes também podem funcionar.
       ```bash
       ollama pull gpt-oss:120b-cloud
@@ -79,7 +89,7 @@ Antes de começar, certifique-se de ter o seguinte instalado:
     - Iniciar serviço de chat `gpt-oss:120b-cloud` **(Necessário somente na primeira vez que executar o script)**
       ```bash
       ollama run gpt-oss:120b-cloud
-     ```
+      ```
 
     **Certifique-se de que o serviço do Ollama esteja em execução antes de rodar o script.**
 
@@ -127,6 +137,7 @@ O script principal `auto_reputation.py` oferece um menu interativo para escolher
 -   `auto_reputation.py`: Ponto de entrada principal da aplicação. Apresenta o menu e chama os módulos de análise.
 -   `/tools/ip_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de endereços IP.
 -   `/tools/domain_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de domínios.
+-   `/tools/scripts_analisys.py`: Módulo responsável por toda a lógica de coleta e análise de scripts.
 -   `/reports`: Diretório de armazenamento dos relatórios gerados pelas análises.
 
 ## Aviso Legal

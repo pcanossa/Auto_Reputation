@@ -41,8 +41,8 @@ def run_scripts_analysis():
                 print(f"[!] Erro ao baixar {name}: {result.stderr}")
             else:
                 print(f"[+] Script {name} baixado com sucesso.")
-                print(f"[+] SHA256 do script {name}: {calculate_sha256(f'./reports/{name}')}")  # Updated path here
-                return f'{name}'  # Updated path here
+                print(f"[+] SHA256 do script {name}: {calculate_sha256(f'./reports/{name}')}")  
+                return f'{name}'  
 
         except Exception as e:
             print(f"[!] Erro ao baixar {js}: {e}")
@@ -63,7 +63,7 @@ def run_scripts_analysis():
         except:
             return f"unknown_script_{index}.js"
 
-    print(f"\n[*] Iniciando coleta forense detalhada em: {TARGET_URL}")
+    print(f"\n[*] Iniciando coleta de scripts em: {TARGET_URL}")
 
     chrome_options = Options()
     chrome_options.add_argument("--headless") 
@@ -131,7 +131,7 @@ def run_scripts_analysis():
 
         # Hash do arquivo final
         file_hash = calculate_sha256(f'./reports/{OUTPUT_FILE}.json')
-        print(f"[+] SHA256 do Arquivo JSON: {file_hash}")
+        print(f"[+] SHA256 do Arquivo {OUTPUT_FILE}.json: {file_hash}")
 
     except Exception as e:
         print(f"[!] Erro: {e}")

@@ -113,7 +113,7 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal, Ali
 
 ## Como Usar
 
-![Menu Principal](https://i.postimg.cc/bw3jgymk/Captura-de-tela-2025-11-11-134751.png)
+![Menu Principal](https://i.postimg.cc/cLY5Q8B2/Captura-de-tela-2025-12-03-190919.png)
 
 ### Análise Principal (IP e Domínio)
 

@@ -1,51 +1,56 @@
-> # Relatório de Análise Forense de script doais8fj34.js de http://teste.com  
-> **Fonte dos dados**: Análise Forense de Scripts JavaScript Extraídos.  
-> **Timestamp da Análise**: 2025-12-03T18:48:30.358714.  
+# Relatório de Análise Forense de script doais8fj34.js de http://teste.com  
+**Fonte dos dados**: Análise Forense de Scripts JavaScript Extraídos.  
+**Timestamp da Análise**: 2025-12-04T13:20:50.749304  
 
 ## 1. Resumo Executivo
-O script `doais8fj34.js` implementa uma aplicação de entrega de anúncios e conteúdos relacionados (AFD – *AdSense for Domains*). Ele controla a coleta de métricas do navegador, comunicação com um backend interno via **fetch**, carregamento dinâmico de um script remoto da Google (`caf.js`), tratamento de redirecionamentos, exibição de mensagens de erro/contato e aplicação de estilos/customizações recebidas do servidor. O código contém lógica de **detecção de bloqueador de anúncios**, **bloqueio geográfico** (Rússia) e mecanismos para evitar loops de redirecionamento.  
+O script `doais8fj34.js` implementa uma camada de entrega de anúncios baseada em Google Ads for Domains (AFD). Ele realiza:
+
+- Coleta de informações de contexto (referrer, user‑agent, dimensões da viewport, etc.) e envio ao endpoint `/_d`.
+- Tratamento de respostas que podem redirecionar usuários, servir anúncios via AFD, ou encaminhar a URLs de fallback.
+- Registro detalhado de eventos (viewport, carregamento de blocos, erros) para o endpoint `/_e`.
+- Exibição de mensagens de erro/contato e injeção de estilos/customizações definidas pelo servidor.
+- Detecção de bloqueadores de anúncios e redirecionamento para páginas específicas (`/_a`, `/_c`, `/_o`).
 
 ## 2. Análise de Comportamento
-| Área | Comportamento observado |
-|------|--------------------------|
-| **Utilitários** | Função `debounce` para limitar frequência de eventos de mouse/scroll. |
-| **Configurações** | Constantes `CONFIG` definem endpoints (`/_d`, `/_a`, `/_c`, `/_e`, `/_o`) e mensagens de erro. |
-| **Gerenciamento de UI** | Classe `UIManager` controla exibição de container, mensagens de erro, título da página e banner de contato. |
-| **Cliente API** | `APIClient.fetchPageData()` envia JSON com referrer, URL atual, contagem de redirecionamentos, user‑agent e informações da janela. Interpreta respostas de erro e redireciona usuários da Rússia ou quando há fallback list. |
-| **Log de Métricas** | `logViewportInfo` e `setupViewportLogging()` capturam dimensões da viewport, agente do usuário, foco, orientação, e enviam evento `metric:browser:viewport`. O registro ocorre na primeira interação real do usuário (mousemove, scroll, click, etc.). |
-| **Carregamento de Script AFD** | `loadAFDScript()` insere dinamicamente o script `https://www.google.com/adsense/domains/caf.js?abp=1&abpgo=true`. Falha desencadeia erro `AD_BLOCK_DETECTED`. |
-| **Eventos de Reporting** | `reportEvent()` POSTa eventos para `/_e` com dados de contexto e `domain_settings`. |
-| **Fallback & Redirecionamento** | `attemptFallbackDelivery()` tenta redirecionar para URLs de fallback listadas. Redirecionamentos são controlados por parâmetros `rc` (contagem) e `err`. |
-| **Callbacks de AFD** | `handlePageLoadedCallback` e `handleBlockLoadedCallback` processam respostas da biblioteca AFD, registram sucesso/erro e, em casos de falha, redirecionam para `/_a` (adult) ou `/_o` (fallback). |
-| **Aplicação de Estilos** | `applyAFDStyles` cria/atualiza stylesheet `#afd-theme` com variáveis CSS vindas de `data.afd.colors`. |
-| **Inicialização** | `DeliveryApp.initialize()` verifica contexto de iframe, parâmetros `afd`, chamadas à API, exibição de mensagens de erro, aplicação de CSS/JS/text personalizados, configuração de banner de contato, registro de viewport, gerenciamento de redirecionamentos (incluindo loops), e finalmente carrega/instancia a biblioteca AFD. |
-| **Execução de Código Remoto** | Se a resposta da API contém `custom_js`, o script o injeta e executa no contexto da página. |
-| **Detecção de Bloqueador de Anúncios** | Caso o script AFD não carregue, o erro `AD_BLOCK_DETECTED` é lançado e pode forçar redirecionamentos ou exibir mensagens. |
-| **Bloqueio Geográfico** | Usuários com `geo.country === 'RU'` são redirecionados para fallback ou endpoint `/_o`. |
-| **Manipulação de Parâmetros de URL** | Parâmetros como `rc`, `afd`, `err`, `query` influenciam fluxo de redirecionamento e exibição de mensagens. |
-| **Eventos de Contato** | `configureContactMessage` cria banner ou rodapé com link para `/_c` quando mensagens de contato são fornecidas. |
+| Componente | Função observada | Comentário |
+|------------|------------------|------------|
+| **Debounce** | Função utilitária para limitar a frequência de eventos de mouse/scroll. | Usada para garantir que o registro de viewport ocorra apenas uma vez. |
+| **CONFIG** | Definições de endpoints, script externo (`caf.js`), mensagens de erro. | Centraliza URLs e strings usadas ao longo do código. |
+| **DeliveryError** | Classe de erro customizada carregando código e detalhes. | Facilita tratamento de falhas específicas da entrega. |
+| **UIManager** | Manipula DOM: exibição de container, mensagens de erro, título da página, banner de contato. | Permite personalização visual baseada nos dados recebidos. |
+| **APIClient.fetchPageData** | Envia POST para `/_d` com dados de navegação; trata respostas HTTP não‑OK e erros de servidor; verifica geo‑localização (ex.: redireciona usuários da Rússia). | Função crítica para obter instruções de entrega. |
+| **DeliveryApp** | Orquestração principal: valida ambiente, coleta dados, registra viewport, carrega script AFD, inicializa blocos de anúncios, trata redirecionamentos e falhas. | Contém a lógica de decisão de fluxo (redirect → AFD → fallback). |
+| **Viewport Logging** | Registra dados de viewport somente após detectar interação humana (mousemove, click, scroll, etc.). | Busca diferenciar usuários reais de bots. |
+| **loadAFDScript** | Carrega dinamicamente `https://www.google.com/adsense/domains/caf.js`. Em caso de falha, dispara erro `AD_BLOCK_DETECTED`. | Dependência externa para exibir anúncios. |
+| **reportEvent** | Envia eventos genéricos ao endpoint `/_e`. | Estratégia de telemetria para análise posterior. |
+| **handlePageLoadedCallback / handleBlockLoadedCallback** | Callbacks de sucesso/erro para carregamento de página e blocos AFD; redireciona para `/ _a`, `/ _o` ou `/ _c` conforme situação (adult, faillist, nofill, etc.). | Controle fino de fluxos de erro. |
+| **applyAFDStyles** | Injeta CSS customizado a partir de cores retornadas pela API. | Personaliza aparência dos anúncios. |
+| **initializeAFD** | Configura parâmetros do AFD (client_id, drid, style_id, termos relacionados) e cria containers DOM (ads, rs, search). | Integração direta com a biblioteca Google Ads. |
+| **Fluxo de inicialização** | - Detecta se está em iframe → redireciona fora. <br> - Verifica parâmetros `afd=1`/`query`. <br> - Busca dados via `fetchPageData`. <br> - Aplica customizações UI. <br> - Executa lógica de entrega (redirect, afd, fallback). | Garante que a página siga o caminho determinado pelo backend. |
 
 ## 3. Riscos de Segurança Identificados
-| Risco | Descrição |
-|-------|-----------|
-| **Exfiltração de Dados de Navegador** | O script envia referrer, URL completa, user‑agent, e informações de janela ao endpoint `/_d`. Esses dados podem ser usados para fingerprinting ou rastreamento avançado. |
-| **Execução de Código Remoto** | Campos `custom_js` e `custom_css` são inseridos diretamente na página sem validação. Um atacante que controle a resposta da API poderia injetar JavaScript malicioso, resultando em **XSS** ou **supply‑chain compromise**. |
-| **Redirecionamento Forçado** | Vários caminhos de redirecionamento (`/_a`, `/_o`, URLs de fallback) são definidos dinamicamente com base em parâmetros e respostas da API. Um manipulador malicioso poderia redirecionar usuários para sites de phishing ou malware. |
-| **Detecção e Contorno de Ad‑Blockers** | Ao bloquear o script AFD, o código gera mensagens de erro e tenta redirecionar para endpoints alternativos, podendo ser usado para **coerção** de usuários a desabilitar bloqueadores e, assim, expor-os a anúncios potencialmente maliciosos. |
-| **Bloqueio Geográfico Discriminatório** | Usuários na Rússia são automaticamente redirecionados, indicando que há lógica de filtragem geográfica que pode ser abusada para **censura** ou **targeting** de grupos específicos. |
-| **Loop de Redirecionamento** | O parâmetro `rc` tenta impedir loops, mas se manipulado inadequadamente pode gerar redirecionamentos infinitos, causando **DoS de navegação**. |
-| **Coleta de Métricas de Interação** | Eventos de viewport e interações de usuário são enviados para o endpoint `/_e`, possibilitando a criação de perfis comportamentais detalhados sem consentimento explícito. |
-| **Manipulação de URL via iframe** | O script detecta execução em iframe e tenta “bust out” adicionando parâmetros `err=frame` e `frame_referrer`. Essa lógica pode ser explorada para **open‑redirect** ou para burlar políticas de mesma origem. |
-| **Dependência de recursos externos** | O carregamento do script `https://www.google.com/adsense/domains/caf.js` tem impacto de disponibilidade; se comprometido, pode servir código malicioso. |
-| **Possível uso malicioso de parâmetros de consulta** | Parâmetros `afd=1`, `query`, `err` influenciam lógica de exibição e redirecionamento, podendo ser abusados para **URL manipulation attacks**. |
+1. **Coleta e exfiltração de informações do usuário**  
+   - Dados como `referrer`, `userAgent`, dimensões da tela, e `window.location` são enviados ao endpoint `/_d`. Estes podem ser utilizados para fingerprinting avançado e rastreamento cross‑site.
+
+2. **Redirecionamento não‑validado**  
+   - O script aceita URLs de redirecionamento vindas da resposta da API (`data.delivery.destination`). Sem validação de lista branca, há risco de **open redirect** para domínios maliciosos.
+
+3. **Injeção de CSS/JS dinâmicos**  
+   - Campos `custom_css`, `custom_js` retornados pela API são inseridos diretamente no `<style>` e `<script>` sem sanitização, potencializando **Cross‑Site Scripting (XSS)** caso o servidor seja comprometido.
+
+4. **Dependência de script externo (caf.js)**  
+   - Carrega `https://www.google.com/adsense/domains/caf.js`. Se esse arquivo for substituído por um atacante (por ex., em um ataque de comprometimento de CDN), permitirá **execução arbitrária de código** no cliente.
+
+5. **Detecção de bloqueador de anúncios como erro**  
+   - Quando o script de ads não carrega, gera erro `AD_BLOCK_DETECTED` e pode redirecionar para páginas de “contato” ou “fallback”, o que pode ser usado para **engano (phishing)** se esses endpoints forem manipulados.
+
+6. **Manipulação de parâmetros de URL**  
+   - Parâmetros como `rc` (contador de redirecionamento) são incrementados e reutilizados, permitindo que um atacante “esgote” o contador ou force múltiplos redirecionamentos, levando a **Denial‑of‑Service** ao usuário.
+
+7. **Exposição de identificadores internos**  
+   - Mensagens de erro enviam códigos como `SERVER_ERROR`, `NO_CHANNELS`, etc., que podem revelar detalhes da arquitetura interna da plataforma ao atacante.
 
 ## 4. Conclusão
-A análise demonstra que o script `doais8fj34.js` realiza funções típicas de entrega de anúncios e conteúdos relacionados, porém incorpora múltiplas rotinas que podem ser exploradas para fins maliciosos:
+O script `doais8fj34.js` desempenha funções avançadas de entrega de anúncios e personalização de página, incluindo coleta de metadados do usuário, registro de eventos, e lógica de redirecionamento baseada em respostas de backend. Várias funcionalidades são potencialmente maliciosas ou de alto risco, destacando‑se a coleta de informações sensíveis, redirecionamento aberto, injeção de CSS/JS sem sanitização, e dependência de recursos externos.
 
-* Coleta e transmissão de informações detalhadas do navegador.
-* Execução de código JavaScript arbitrário proveniente da resposta da API.
-* Redirecionamentos dinâmicos baseados em parâmetros controláveis externamente.
-* Detecção de bloqueadores de anúncios que pode forçar o usuário a desabilitá‑los.
-* Lógica de bloqueio geográfico e prevenção de loops de redirecionamento.
-
-Embora não seja possível afirmar categoricamente que o script está inserindo malware ativo, seus comportamentos constituem **vetores de risco consideráveis** que podem ser abusados por um ator malicioso para rastreamento, phishing, entrega de anúncios indesejados ou execução de código arbitrário. Recomenda‑se atenção ao monitoramento de chamadas de rede e à análise das respostas da API para identificar eventuais injeções de código.
+Em resumo, o script apresenta comportamentos **maliciosos ou altamente suspeitos**, sendo capaz de rastrear usuários, redirecioná‑los para destinos possivelmente não confiáveis e executar código arbitrário proveniente de fontes externas ou de dados controlados pelo servidor. Esses comportamentos justificam um nível elevado de cautela ao lidar com a página `http://teste.com`.

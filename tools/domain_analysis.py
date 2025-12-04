@@ -8,6 +8,7 @@ import os
 
 def run_domain_analysis():
     client=Client()
+    files=[]
 
     domain_name = input("Digite o nome do domínio a ser analisado (ex: example.com): ").strip()
 
@@ -300,5 +301,10 @@ def run_domain_analysis():
 
     full_report_path = f'./reports/{report_filename}'
     full_data_path = f'./reports/{json_filename}'
+    files.append(full_report_path)
+    files.append(full_data_path)
+
+    return files
+
     
-    return full_report_path, full_data_path
+

@@ -1,15 +1,15 @@
 {
     "target": "http://teste.com",
-    "scan_date": "2025-12-03T18:47:12.818723",
+    "scan_date": "2025-12-04T13:19:56.408228",
     "total_scripts_found": 3,
     "scripts": [
         {
             "id": 1,
             "filename": "cookie.js",
             "type": "External",
-            "full_url": "https://partner.googleadservices.com/gampad/cookie.js?domain=teste.com&client=partner-dp-giantpanda-st_3ph&product=SAS&callback=__sasCookie&cookie_types=v1%2Cv2",
+            "full_url": "https://partner.googleadservices.com/gampad/cookie.js?domain=teste.com&client=partner-dp-giantpanda_3ph&product=SAS&callback=__sasCookie&cookie_types=v1%2Cv2",
             "content_snippet": "N/A (External File)",
-            "integrity_hash": "ff6df325cc74cafe1699378e555648d4257d08ac8da2040c09816ccedbe88a9e"
+            "integrity_hash": "741966cde3c879dfb0f6b3dd8d97463967a007b91303f04d082f808e41b5c0be"
         },
         {
             "id": 2,

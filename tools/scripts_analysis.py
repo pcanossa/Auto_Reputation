@@ -11,6 +11,7 @@ from ollama import Client
 from datetime import datetime
 
 def run_scripts_analysis():
+    files=[]
 
     client = Client()
 
@@ -41,7 +42,8 @@ def run_scripts_analysis():
                 print(f"[!] Erro ao baixar {name}: {result.stderr}")
             else:
                 print(f"[+] Script {name} baixado com sucesso.")
-                print(f"[+] SHA256 do script {name}: {calculate_sha256(f'./reports/{name}')}")  
+                print(f"[+] SHA256 do script {name}: {calculate_sha256(f'./reports/{name}')}")
+                files.append(f'./reports/{name}')  
                 return f'{name}'  
 
         except Exception as e:
@@ -132,6 +134,8 @@ def run_scripts_analysis():
         # Hash do arquivo final
         file_hash = calculate_sha256(f'./reports/{OUTPUT_FILE}.json')
         print(f"[+] SHA256 do Arquivo {OUTPUT_FILE}.json: {file_hash}")
+        files.append(f'./reports/{OUTPUT_FILE}.json')
+
 
     except Exception as e:
         print(f"[!] Erro: {e}")
@@ -217,11 +221,14 @@ def run_scripts_analysis():
             with open(f'./reports/{report_filename}', "w", encoding="utf-8") as report_file:
                 report_file.write("".join(full_response))
             print(f"[+] Relatório salvo com sucesso em: /reports/{report_filename}")
+            file_hash = calculate_sha256(f'./reports/{report_filename}')
+            print(f"[+] SHA256 do Arquivo {report_filename}: {file_hash}")
+            files.append(f'./reports/{report_filename}')
 
-            reports.append(report_filename)
     else:
         print("[!] Nenhum script externo baixado para análise LLM.")
     
     print ("\n")
-    return reports
+
+    return files
     

@@ -9,6 +9,7 @@ import hashlib
 
 def run_ip_analysis():
     client=Client()
+    files=[]
 
     ip = input("Digite o endereço IP a ser analisado (ex: 192.168.0.1): ").strip()
 
@@ -260,6 +261,8 @@ def run_ip_analysis():
     print(f"[+] Dados coletados salvo com sucesso em: {json_filename}")
     full_report_path = f'./reports/{report_filename}'
     full_data_path = f'./reports/{json_filename}'
+    files.append(full_report_path)
+    files.append(full_data_path)
 
-    return full_report_path, full_data_path
+    return files
 

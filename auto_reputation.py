@@ -47,11 +47,11 @@ def main():
    files=[] 
 
    if choice == "1":
-       files = run_domain_analysis()
-       choice="domain"
+       files, sanitized_domain= run_domain_analysis()
+       choice=sanitized_domain       
    elif choice == "2":
-       files = run_ip_analysis()
-       choice="ip"          
+       files, sanitized_ip = run_ip_analysis()
+       choice=sanitized_ip        
    elif choice == "3":
        files = run_scripts_analysis()
        choice="scripts"

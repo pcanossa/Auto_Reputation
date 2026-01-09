@@ -24,17 +24,10 @@ def run_ip_analysis():
     dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
     dotenv.load_dotenv(dotenv_path=dotenv_path)
 
-    # Fallback: se a chave do Scamalytics não for encontrada, tente carregar .env padrão
-    if not os.getenv("SCAMNALYTICS_API_KEY"):
-        dotenv.load_dotenv()  # tenta encontrar .env no diretório atual ou pais
-
     VT_API_KEY = os.getenv("VT_API_KEY")
     ALIEN_VAULT_API_KEY = os.getenv("ALIEN_VAULT_API_KEY")
     ABUSEIPDB_API_KEY = os.getenv("ABUSEIPDB_API_KEY")
     SCAMNALYTICS_API_KEY = os.getenv("SCAMNALYTICS_API_KEY")
-
-    if not SCAMNALYTICS_API_KEY:
-        print(f"Aviso: SCAMNALYTICS_API_KEY não encontrada. Verifique {dotenv_path} ou variáveis de ambiente. Requisições podem falhar.")
     
     print(f"Coletando informações para o IP: {ip}...")
 
@@ -282,5 +275,4 @@ def run_ip_analysis():
     files.append(full_report_path)
     files.append(full_data_path)
 
-    return files
-
+    return files, sanitized_ip

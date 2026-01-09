@@ -231,4 +231,3 @@ def run_scripts_analysis():
     print ("\n")
 
     return files
-    

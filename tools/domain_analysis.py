@@ -304,7 +304,7 @@ def run_domain_analysis():
     files.append(full_report_path)
     files.append(full_data_path)
 
-    return files
+    return files, sanitized_domain
 
     
 

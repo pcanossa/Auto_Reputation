@@ -1,0 +1,515 @@
+
+        ## DADOS COLETADOS PARA ANÁLISE DE THREAT INTELLIGENCE
+
+        TIMESTAMP: 2026-01-09T14:44:32.451497
+
+        ### 1. Informações do Shodan
+        ```html
+        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>216.58.194.174</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Search Engine for the Internet of Things">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://wire.shodan.io/v2.5.0/default/css/wire.css" media="(prefers-color-scheme: light)" rel="stylesheet"/>
+<link href="https://wire.shodan.io/v2.5.0/dark/css/wire.css" media="(prefers-color-scheme: dark)" rel="stylesheet"/>
+    <link rel="shortcut icon" href="https://www.shodan.io/static/img/favicon-60c1b1cd.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://www.shodan.io/static/img/apple-touch-icon-192-4eb04af5.png">
+    <link rel="search" href="https://www.shodan.io/static/opensearch-07a9aa48.xml" type="application/opensearchdescription+xml" title="Shodan">
+    <script defer src="https://kit.fontawesome.com/b7e79643d9.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+<div class="quickbar">
+  <ul>
+    <li><a href="https://www.shodan.io">Shodan</a>
+    </li>
+    <li><a href="https://maps.shodan.io">Maps</a>
+    </li>
+    <li><a href="https://images.shodan.io">Images</a>
+    </li>
+    <li><a href="https://monitor.shodan.io">Monitor</a>
+    </li>
+    <li><a href="https://developer.shodan.io">Developer</a>
+    </li>
+    <li><a href="https://www.shodan.io/about/products">More...</a>
+    </li>
+  </ul>
+</div>
+<div class="container u-full-width">
+  <div class="row">
+    <div class="twelve columns">
+<style>.searchbox {
+    font-family: Arial;
+}
+
+.visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+@media (max-width: 900px) {
+    .right-menu .menu-item-account {
+        display: none
+    }
+}
+</style>
+
+<div class="navbar">
+  <input id="menu-btn" type="checkbox" class="menu-btn"/>
+  <label for="menu-btn" class="menu-icon"><span class="navicon"><i class="fa fa-bars  fa-fw "></i></span>
+  </label><a href="/" class="title"><img src="https://www.shodan.io/static/img/logo-6abcc86b.png" alt="Shodan" width="112" height="32"/></a>
+  <ul class="menu sub-menu">
+    <li><a href="/explore"><i class="fas fa-globe  fa-fw "></i>Explore</a>
+    </li>
+
+    <li><a href="https://account.shodan.io/billing" target="_blank" rel="noopener noreferrer"><i class="fas fa-briefcase  fa-fw "></i>Pricing
+<i style="font-size: 1.1rem" class="fa fa-external-link  fa-fw "></i></a>
+    </li>
+  </ul>
+  <form action="/search" method="GET">
+    <div class="searchbox">
+      <div class="input-wrapper">
+        <label for="search-query" value="Enter search query" class="visually-hidden"></label>
+        <input id="search-query" type="text" name="query" placeholder="Type / to search" autocapitalize="none" spellcheck="false" data-focus-placeholder="Search" data-blur-placeholder="Type / to search"/>
+      </div>
+      <button type="submit" aria-label="Submit search query" data-balloon-disable="data-balloon-disable" class="button-red"><i class="fas fa-search  fa-fw "></i>
+      </button>
+    </div>
+  </form>
+  <ul class="menu main-menu right-menu">
+    <li><a href="/dashboard" class="highlight-success">Login</a>
+    </li>
+  </ul>
+</div>
+    </div>
+  </div>
+</div><br/><br/>
+<div class="container card-padding">
+  <div class="row">
+    <div class="twelve columns">
+      <h3 class="heading-highlight"><span>404: Not Found</span>
+      </h3>
+<div class="alert alert-notice">
+  <div><i class="far fa-info  fa-fw "></i>
+  </div><em>Note:</em>
+  <p>No information available for 216.58.194.174</p>
+</div>
+    </div>
+  </div>
+</div>
+<br/>
+<div class="container u-full-width bg-solid"><br/><br/>
+  <div class="container">
+    <div class="row">
+      <div class="three columns">
+        <h6 class="grid-heading">Products</h6>
+        <ul>
+          <li><a href="https://monitor.shodan.io" class="light">Monitor</a>
+          </li>
+          <li><a href="https://beta.shodan.io" class="light">Search Engine</a>
+          </li>
+          <li><a href="https://developer.shodan.io" class="light">Developer API</a>
+          </li>
+          <li><a href="https://maps.shodan.io" class="light">Maps</a>
+          </li>
+        </ul>
+      </div>
+      <div class="three columns">
+        <h6 style="visibility:hidden" class="grid-heading">&nbsp;</h6>
+        <ul>
+          <li><a href="https://enterprise.shodan.io" class="light">Bulk Data</a>
+          </li>
+          <li><a href="https://images.shodan.io" class="light">Images</a>
+          </li>
+          <li><a href="https://snippets.shodan.io" class="light">Snippets</a>
+          </li>
+        </ul>
+      </div>
+      <div class="three columns">
+        <h6 class="grid-heading">Pricing</h6>
+        <ul>
+          <li><a href="https://www.shodan.io/store/member" class="light">Membership</a>
+          </li>
+          <li><a href="https://developer.shodan.io/pricing" class="light">API Subscriptions</a>
+          </li>
+          <li><a href="https://enterprise.shodan.io" class="light">Enterprise</a>
+          </li>
+        </ul>
+      </div>
+      <div class="three columns">
+        <h6 class="grid-heading">Contact Us</h6>
+        <ul>
+          <li><a href="mailto:support@shodan.io" class="light">support@shodan.io</a>
+          </li>
+          <li>
+            <h5><a href="https://www.linkedin.com/company/shodan" aria-label="Linkedin" data-balloon-disable="data-balloon-disable" class="text-secondary"><i class="fab fa-linkedin   "></i></a>&nbsp;&nbsp;<a href="https://mastodon.shodan.io/@shodan" aria-label="Mastodon" data-balloon-disable="data-balloon-disable" class="text-secondary"><i class="fab fa-mastodon   "></i></a>&nbsp;&nbsp;<a href="https://twitter.com/shodanhq" aria-label="Twitter" data-balloon-disable="data-balloon-disable" class="text-secondary"><i class="fab fa-twitter   "></i></a>&nbsp;&nbsp;<a href="https://www.facebook.com/shodan.io" aria-label="Facebook" data-balloon-disable="data-balloon-disable" class="text-secondary"><i class="fab fa-facebook   "></i></a>
+            </h5>
+          </li>
+        </ul>
+        <p class="light">Shodan &reg; - All rights reserved</p>
+      </div>
+    </div>
+  </div>
+</div>
+    <script src="https://www.shodan.io/static/scripts/main-5f52b6a3.js"></script>
+  </body>
+</html>
+        ```
+
+        ### 2. Informações do IPInfo.io
+        ```json
+        {
+  "ip": "216.58.194.174",
+  "hostname": "sfo07s13-in-f14.1e100.net",
+  "city": "San Francisco",
+  "region": "California",
+  "country": "US",
+  "loc": "37.7749,-122.4194",
+  "org": "AS15169 Google LLC",
+  "postal": "94102",
+  "timezone": "America/Los_Angeles",
+  "readme": "https://ipinfo.io/missingauth"
+}
+        ```
+
+        ### 3. Resultados do URLScan.io
+        ```json
+        {'results': [{'task': {'visibility': 'public', 'method': 'manual', 'domain': '216.58.194.174', 'time': '2021-08-15T20:02:46.976Z', 'uuid': '2079342d-559f-4576-94b4-a82310d7f1d8', 'url': 'http://216.58.194.174'}, 'page': {'domain': 'www.google.com', 'ip': '2a00:1450:4001:812::2004'}, 'stats': {'uniqIPs': 4, 'uniqCountries': 2, 'dataLength': 475834, 'encodedDataLength': 161937, 'requests': 9}}, {'task': {'visibility': 'public', 'method': 'manual', 'domain': '216.58.194.174', 'time': '2021-08-09T16:06:01.738Z', 'uuid': '45393070-dc85-415b-8577-2502a0ad017b', 'url': 'http://216.58.194.174'}, 'page': {'domain': 'www.google.com', 'ip': '2a00:1450:4001:813::2004'}, 'stats': {'uniqIPs': 4, 'uniqCountries': 2, 'dataLength': 447746, 'encodedDataLength': 153910, 'requests': 9}}, {'task': {'visibility': 'public', 'method': 'manual', 'domain': '216.58.194.174', 'time': '2021-08-09T16:05:08.507Z', 'uuid': '611aecf4-7ff5-4512-8cec-f45e1de9a333', 'url': 'http://216.58.194.174'}, 'page': {'domain': 'www.google.com', 'ip': '2a00:1450:4001:800::2004'}, 'stats': {'uniqIPs': 6, 'uniqCountries': 2, 'dataLength': 475895, 'encodedDataLength': 161189, 'requests': 9}}, {'task': {'visibility': 'public', 'method': 'manual', 'domain': '216.58.194.174', 'time': '2020-10-28T19:01:52.280Z', 'uuid': '9ca10b87-886b-4768-9375-8c0fa1cb79ed', 'url': 'http://216.58.194.174'}, 'page': {'domain': 'www.google.com', 'ip': '2a00:1450:4001:81a::2004'}, 'stats': {'uniqIPs': 10, 'uniqCountries': 2, 'dataLength': 1989357, 'encodedDataLength': 673712, 'requests': 31}}, {'task': {'visibility': 'public', 'method': 'manual', 'domain': '216.58.194.174', 'time': '2020-05-28T06:18:04.321Z', 'uuid': 'ccfea36d-7789-4a3f-b541-93c5c3b5a045', 'url': 'http://216.58.194.174'}, 'page': {'domain': 'www.google.com', 'ip': '2a00:1450:4001:81f::2004'}, 'stats': {'uniqIPs': 8, 'uniqCountries': 2, 'dataLength': 1287600, 'encodedDataLength': 438129, 'requests': 18}}]}
+        ```
+
+        ### 4. Informações do VirusTotal
+        ```json
+        <Response [200]>
+       ```
+
+        ### 5. Informações do AbuseIPDB
+        ```json 
+        {"data":{"ipAddress":"216.58.194.174","isPublic":true,"ipVersion":4,"isWhitelisted":false,"abuseConfidenceScore":0,"countryCode":"US","usageType":"Data Center\/Web Hosting\/Transit","isp":"Google LLC","domain":"google.com","hostnames":["sfo07s13-in-f174.1e100.net","sfo07s13-in-f14.1e100.net"],"isTor":false,"totalReports":0,"numDistinctUsers":0,"lastReportedAt":"2021-09-26T18:19:15+00:00"}}
+        ```
+
+        ### 6. Informações do WHOIS via comando
+        ```html
+        
+Whois v1.21 - Domain information lookup
+Copyright (C) 2005-2019 Mark Russinovich
+Sysinternals - www.sysinternals.com
+
+Connecting to NET.whois-servers.net...
+
+WHOIS Server: whois.markmonitor.com
+
+   Registrar URL: http://www.markmonitor.com
+
+   Updated Date: 2025-08-24T10:14:44Z
+
+   Creation Date: 2009-09-25T05:40:03Z
+
+   Registry Expiry Date: 2026-09-25T05:40:03Z
+
+   Registrar: MarkMonitor Inc.
+
+   Registrar IANA ID: 292
+
+   Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+
+   Registrar Abuse Contact Phone: +1.2086851750
+
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+
+   Domain Status: serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited
+
+   Domain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited
+
+   Domain Status: serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited
+
+   Name Server: NS1.GOOGLE.COM
+
+   Name Server: NS2.GOOGLE.COM
+
+   Name Server: NS3.GOOGLE.COM
+
+   Name Server: NS4.GOOGLE.COM
+
+   DNSSEC: unsigned
+
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+
+>>> Last update of whois database: 2026-01-09T17:43:59Z <<<
+
+
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+
+
+NOTICE: The expiration date displayed in this record is the date the
+
+registrar's sponsorship of the domain name registration in the registry is
+
+currently set to expire. This date does not necessarily reflect the expiration
+
+date of the domain name registrant's agreement with the sponsoring
+
+registrar.  Users may consult the sponsoring registrar's Whois database to
+
+view the registrar's reported date of expiration for this registration.
+
+
+
+TERMS OF USE: You are not authorized to access or query our Whois
+
+database through the use of electronic processes that are high-volume and
+
+automated except as reasonably necessary to register domain names or
+
+modify existing registrations; the Data in VeriSign Global Registry
+
+Services' ("VeriSign") Whois database is provided by VeriSign for
+
+information purposes only, and to assist persons in obtaining information
+
+about or related to a domain name registration record. VeriSign does not
+
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+
+by the following terms of use: You agree that you may use this Data only
+
+for lawful purposes and that under no circumstances will you use this Data
+
+to: (1) allow, enable, or otherwise support the transmission of mass
+
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+
+or facsimile; or (2) enable high volume, automated, electronic processes
+
+that apply to VeriSign (or its computer systems). The compilation,
+
+repackaging, dissemination or other use of this Data is expressly
+
+prohibited without the prior written consent of VeriSign. You agree not to
+
+use electronic processes that are automated and high-volume to access or
+
+query the Whois database except as reasonably necessary to register
+
+domain names or modify existing registrations. VeriSign reserves the right
+
+to restrict your access to the Whois database in its sole discretion to ensure
+
+operational stability.  VeriSign may restrict or terminate your access to the
+
+Whois database for failure to abide by these terms of use. VeriSign
+
+reserves the right to modify these terms at any time.
+
+
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+
+Registrars.
+
+
+Connecting to whois.markmonitor.com...
+
+WHOIS Server: whois.markmonitor.com
+Registrar URL: http://www.markmonitor.com
+Updated Date: 2025-08-24T10:14:44+0000
+Creation Date: 2009-09-25T05:40:03+0000
+Registrar Registration Expiration Date: 2026-09-25T00:00:00+0000
+Registrar: MarkMonitor, Inc.
+Registrar IANA ID: 292
+Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+Registrar Abuse Contact Phone: +1.2086851750
+Domain Status: clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)
+Domain Status: clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)
+Domain Status: clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)
+Domain Status: serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)
+Domain Status: serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)
+Domain Status: serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)
+Registrant Organization: Google LLC
+Registrant Country: US
+Registrant Email: Select Request Email Form at https://domains.markmonitor.com/whois/1e100.net
+Tech Email: Select Request Email Form at https://domains.markmonitor.com/whois/1e100.net
+Name Server: ns1.google.com
+Name Server: ns2.google.com
+Name Server: ns4.google.com
+Name Server: ns3.google.com
+DNSSEC: unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2026-01-09T17:40:15+0000 <<<
+
+For more information on WHOIS status codes, please visit:
+  https://www.icann.org/resources/pages/epp-status-codes
+
+If you wish to contact this domain’s Registrant or Technical
+contact, and such email address is not visible above, you may do so via our web
+form, pursuant to ICANN’s Temporary Specification. To verify that you are not a
+robot, please enter your email address to receive a link to a page that
+facilitates email communication with the relevant contact(s).
+
+Web-based WHOIS:
+  https://domains.markmonitor.com/whois/contact/1e100.net
+
+If you have a legitimate interest in viewing the non-public WHOIS details, send
+your request and the reasons for your request to whoisrequest@markmonitor.com
+and specify the domain name in the subject line. We will review that request and
+may ask for supporting documentation and explanation.
+
+The data in MarkMonitor’s WHOIS database is provided for information purposes,
+and to assist persons in obtaining information about or related to a domain
+name’s registration record. While MarkMonitor believes the data to be accurate,
+the data is provided "as is" with no guarantee or warranties regarding its
+accuracy.
+
+By submitting a WHOIS query, you agree that you will use this data only for
+lawful purposes and that, under no circumstances will you use this data to:
+  (1) allow, enable, or otherwise support the transmission by email, telephone,
+or facsimile of mass, unsolicited, commercial advertising, or spam; or
+  (2) enable high volume, automated, or electronic processes that send queries,
+data, or email to MarkMonitor (or its systems) or the domain name contacts (or
+its systems).
+
+MarkMonitor reserves the right to modify these terms at any time.
+
+By submitting this query, you agree to abide by this policy.
+
+MarkMonitor Domain Management(TM)
+Protecting companies and consumers in a digital world.
+
+Visit MarkMonitor at https://www.markmonitor.com
+Contact us at +1.8007459229
+In Europe, at +44.02032062220
+--
+
+
+Domain Name: 1e100.net
+Registry Domain ID: 1570253561_DOMAIN_NET-VRSN
+Registrar WHOIS Server: whois.markmonitor.com
+Registrar URL: http://www.markmonitor.com
+Updated Date: 2025-08-24T10:14:44+0000
+Creation Date: 2009-09-25T05:40:03+0000
+Registrar Registration Expiration Date: 2026-09-25T00:00:00+0000
+Registrar: MarkMonitor, Inc.
+Registrar IANA ID: 292
+Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+Registrar Abuse Contact Phone: +1.2086851750
+Domain Status: clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)
+Domain Status: clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)
+Domain Status: clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)
+Domain Status: serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)
+Domain Status: serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)
+Domain Status: serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)
+Registrant Organization: Google LLC
+Registrant Country: US
+Registrant Email: Select Request Email Form at https://domains.markmonitor.com/whois/1e100.net
+Tech Email: Select Request Email Form at https://domains.markmonitor.com/whois/1e100.net
+Name Server: ns1.google.com
+Name Server: ns2.google.com
+Name Server: ns4.google.com
+Name Server: ns3.google.com
+DNSSEC: unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2026-01-09T17:40:15+0000 <<<
+
+For more information on WHOIS status codes, please visit:
+  https://www.icann.org/resources/pages/epp-status-codes
+
+If you wish to contact this domain’s Registrant or Technical
+contact, and such email address is not visible above, you may do so via our web
+form, pursuant to ICANN’s Temporary Specification. To verify that you are not a
+robot, please enter your email address to receive a link to a page that
+facilitates email communication with the relevant contact(s).
+
+Web-based WHOIS:
+  https://domains.markmonitor.com/whois/contact/1e100.net
+
+If you have a legitimate interest in viewing the non-public WHOIS details, send
+your request and the reasons for your request to whoisrequest@markmonitor.com
+and specify the domain name in the subject line. We will review that request and
+may ask for supporting documentation and explanation.
+
+The data in MarkMonitor’s WHOIS database is provided for information purposes,
+and to assist persons in obtaining information about or related to a domain
+name’s registration record. While MarkMonitor believes the data to be accurate,
+the data is provided "as is" with no guarantee or warranties regarding its
+accuracy.
+
+By submitting a WHOIS query, you agree that you will use this data only for
+lawful purposes and that, under no circumstances will you use this data to:
+  (1) allow, enable, or otherwise support the transmission by email, telephone,
+or facsimile of mass, unsolicited, commercial advertising, or spam; or
+  (2) enable high volume, automated, or electronic processes that send queries,
+data, or email to MarkMonitor (or its systems) or the domain name contacts (or
+its systems).
+
+MarkMonitor reserves the right to modify these terms at any time.
+
+By submitting this query, you agree to abide by this policy.
+
+MarkMonitor Domain Management(TM)
+Protecting companies and consumers in a digital world.
+
+Visit MarkMonitor at https://www.markmonitor.com
+Contact us at +1.8007459229
+In Europe, at +44.02032062220
+--
+
+
+        ```
+
+        ### 7. Informações do Alien Vault OTX
+        ```json
+        {'pulses': [{'id': '6928f8d9e4222a6a219d785e', 'name': 'ClipBanker Spy & Information stealer | Crazy Frost | MaaS | Chrome & Cloudflare attacks', 'description': "It appears that entity CrazyFrost provides MasS among other things that include major smear campaigns.| Likely quasi government , and Law Firm contractors.. Domestic terrorizing isn’t a stretch.\nClipBanker: A form of banking trojan information stealer and spy that specifically monitors and steals information, likely by modifying the clipboard contents to redirect financial transactions (e.g., changing a copied bank account number to the attacker's).\n\n[OTX populated - HOSTNAME: CloudFlare.com.., a company owned by the US government, has been added to Pulse, an anti-virus database. (Pulses) created by users.]", 'modified': '2025-12-28T00:04:06.179000', 'created': '2025-11-28T01:20:25.401000', 'tags': ['dynamicloader', 'json', 'ascii text', 'high', 'data', 'x90uxa4xf8', 'cape', 'stream', 'guard', 'write', 'trojan', 'redline', 'malware', 'push', 'local', 'injection_inter_process', 'recon_fingerprint', 'persistence_ads', 'process_creation_suspicious_location', 'infostealer_browser', 'infostealer_cookies', 'stealth_file', 'cape_detected_threat', 'antivm_generic_bios', 'cape_extracted_content', 'united', 'mtb jul', 'a domains', 'aaaa', '443 ma86400', 'servers', 'win32upatre jul', 'virtool', 'b778b1', 'div div', 'd9e4f4', 'edf2f8', 'present mar', 'fastest privacy', 'first dns', 'win32', 'trojandropper', 'passive dns', 'mtb nov', 'ipv4 add', 'asn as13335', 'dns resolutions', 'domain', 'data upload', 'extraction', 'yara', 'troja yara', 'trojar data', 'virto', 'worn data', 'included iocs', 'manually add', 'resolved ips', 'ta0002', 'evasion ta0005', 'tr shared', 'modules', 'files', 'infor', 't1027', 'process t1057', 'community score', 'learn', 'ck id', 'name tactics', 'suspicious', 'informative', 'command', 'adversaries', 'ssl certificate', 'defense evasion', 'spawns', 'flag', 'name server', 'date', 'cloudflare', 'data protected', 'misc activity', 'et info', 'dns requests', 'domain address', 'gmt flag', 'techtarget', 'server', 'et policy', 'prefetch2', 't1179 hooking', 'access windows', 'installs', 'mitre att', 'ck techniques', 'click', 'windir', 'country', 'contacted hosts', 'ip address', 'process details', 'contacted', 'http traffic', 'suricata alerts', 'event category', 'found'], 'references': ['Malware : ClipBanker Entity: Crazy Frost', 'www.crazyfrost.com FileDescription :JF_CF_MiniZM FileVersion: 1.1.0.0 InternalName: jf_cf_frostovip.exe LegalCopyright Copyright © CrazyFrost', 'IDS Detections: Observed Cloudflare DNS over HTTPS Domain (cloudflare-dns .com in TLS SNI)', 'Services : GoogleChromeElevationService = Delete', 'Yara: RansomWin32SintaCry CodeOverlap TrojanClickerWin32Zeriest CodeOverlap', 'Yara: TrojanDownloaderMSILBalamid CodeOverlap TrojanDropperWin32Popsenong CodeOverlap', 'Yara: TrojanPythonKaazar CodeOverlap TrojanSpyWin32Chekafev CodeOverlap', 'Yara: TrojanWin32Kredbegg  CodeOverlap TrojanWin32Motve CodeOverlap TrojanWin32Pitroj', 'Yara : VirToolMSILLuxod CodeOverlap WormMSILVonriamt CodeOverlap TrojanWin32Depriz CodeOverlap', 'Yara: WormWin32Rombrast CodeOverlap Jorgen,Ibsen PECompact_2xx VZX Jeremy,Collake', 'Sigma: Matches rule Suspicious desktop.ini Action by Maxime Thiebaut (@0xThiebaut), Tim Shelton (HAWK.IO)', 'CS IDS: Matches rule (http_inspect) invalid status line', 'CS IDS: Matches rule INDICATOR-COMPROMISE png file attachment without matching file magic Unique rule identifier: This rule belongs to a private collection.', 'jf_cf_frostovip.exe FILEHASH SHA256 4b9d6c5de40bfc4da8cb8b3ab9408dc574346b97268983f10bef8810e3f6bed8', 'https://www.anyxxxtube.net/search-porn/tsara-brashears/\t\thttps://www.pornhub.com/gifs/search?search=tsara+lynn+brashears+lesbian\t URL\thttp://www.anyxxxtube.net/search-porn/tsara-brashears • http://www.anyxxxtube.net/search-porn/tsara-brashears-denies-jeffrey-scott-reimer-sex\t• http://www.anyxxxtube', 'https://www.anyxxxtube.net/search-porn/tsara-brashears/\t URL\thttps://www.pornhub.com/gifs/search?search=tsara+lynn+brashears+lesbian • http://www.anyxxxtube.net/search-porn/tsara-brashears • http://www.anyxxxtube.net/search-porn/tsara-brashears-denies-jeffrey-scott-reimer-sex', 'http://www.anyxxxtube/'], 'public': 1, 'adversary': 'Crazy Frost', 'targeted_countries': [], 'malware_families': [{'id': 'ALF:HeraklezEval:Trojan:Win32/ClipBanker', 'display_name': 'ALF:HeraklezEval:Trojan:Win32/ClipBanker', 'target': None}, {'id': 'Trojan.Disfa/downloader10', 'display_name': 'Trojan.Disfa/downloader10', 'target': None}, {'id': 'Other Malware', 'display_name': 'Other Malware', 'target': None}, {'id': 'Trojan:Win32/Zusy', 'display_name': 'Trojan:Win32/Zusy', 'target': '/malware/Trojan:Win32/Zusy'}, {'id': 'Rozena', 'display_name': 'Rozena', 'target': None}], 'attack_ids': [{'id': 'T1119', 'name': 'Automated Collection', 'display_name': 'T1119 - Automated Collection'}, {'id': 'T1140', 'name': 'Deobfuscate/Decode Files or Information', 'display_name': 'T1140 - Deobfuscate/Decode Files or Information'}, {'id': 'T1027', 'name': 'Obfuscated Files or Information', 'display_name': 'T1027 - Obfuscated Files or Information'}, {'id': 'T1057', 'name': 'Process Discovery', 'display_name': 'T1057 - Process Discovery'}, {'id': 'T1129', 'name': 'Shared Modules', 'display_name': 'T1129 - Shared Modules'}, {'id': 'T1071', 'name': 'Application Layer Protocol', 'display_name': 'T1071 - Application Layer Protocol'}, {'id': 'T1105', 'name': 'Ingress Tool Transfer', 'display_name': 'T1105 - Ingress Tool Transfer'}, {'id': 'T1480', 'name': 'Execution Guardrails', 'display_name': 'T1480 - Execution Guardrails'}, {'id': 'T1553', 'name': 'Subvert Trust Controls', 'display_name': 'T1553 - Subvert Trust Controls'}, {'id': 'T1562', 'name': 'Impair Defenses', 'display_name': 'T1562 - Impair Defenses'}, {'id': 'T1568', 'name': 'Dynamic Resolution', 'display_name': 'T1568 - Dynamic Resolution'}, {'id': 'T1583', 'name': 'Acquire Infrastructure', 'display_name': 'T1583 - Acquire Infrastructure'}, {'id': 'T1035', 'name': 'Service Execution', 'display_name': 'T1035 - Service Execution'}, {'id': 'T1043', 'name': 'Commonly Used Port', 'display_name': 'T1043 - Commonly Used Port'}, {'id': 'T1179', 'name': 'Hooking', 'display_name': 'T1179 - Hooking'}, {'id': 'T1069', 'name': 'Permission Groups Discovery', 'display_name': 'T1069 - Permission Groups Discovery'}, {'id': 'T1457', 'name': 'Malicious Media Content', 'display_name': 'T1457 - Malicious Media Content'}, {'id': 'TA0011', 'name': 'Command and Control', 'display_name': 'TA0011 - Command and Control'}, {'id': 'T1498', 'name': 'Network Denial of Service', 'display_name': 'T1498 - Network Denial of Service'}, {'id': 'T1464', 'name': 'Jamming or Denial of Service', 'display_name': 'T1464 - Jamming or Denial of Service'}], 'industries': [], 'TLP': 'green', 'cloned_from': None, 'export_count': 9, 'upvotes_count': 0, 'downvotes_count': 0, 'votes_count': 0, 'locked': False, 'pulse_source': 'web', 'validator_count': 0, 'comment_count': 0, 'follower_count': 0, 'vote': 0, 'author': {'username': 'Q.Vashti', 'id': '337942', 'avatar_url': 'https://otx.alienvault.com/assets/images/default-avatar.png', 'is_subscribed': False, 'is_following': False}, 'indicator_type_counts': {'FileHash-MD5': 295, 'FileHash-SHA1': 217, 'FileHash-SHA256': 1887, 'URL': 3263, 'domain': 597, 'hostname': 1085, 'email': 2, 'CVE': 1}, 'indicator_count': 7347, 'is_author': False, 'is_subscribing': None, 'subscriber_count': 109, 'modified_text': '12 days ago ', 'is_modified': True, 'groups': [], 'in_group': False, 'threat_hunter_scannable': True, 'threat_hunter_has_agents': 1, 'related_indicator_type': 'IPv4', 'related_indicator_is_active': 0}, {'id': '68eff833ed84ceaf611521d2', 'name': 'Tucker Carlson | AutInject • Zbot • CoinMiner • Zombie • Qbot affects his YouTube Channel (9.14.2025) ', 'description': '', 'modified': '2025-10-15T19:38:27.739000', 'created': '2025-10-15T19:38:27.739000', 'tags': ['resolved ips', 'parent pid', 'full path', 'command line', 'cname', 'ip address', 'port', 'involved direct', 'country name', 'nxdomain', 'tcp connections', 'udp connections', 'data', 'datacrashpad', 'edge', 'passive dns', 'origin trial', 'gmt cache', 'sameorigin', '443 ma2592000', 'ipv4 add', 'files', 'title', 'date', 'found', 'gmt content', 'hostname', 'verdict', 'error', 'code', 'present aug', 'present sep', 'aaaa', 'search', 'domain', 'present apr', 'present jun', 'address google', 'safe browsing', 'present oct', 'match info', 'mitre att', 'control ta0011', 'protocol t1071', 'protocol t1095', 'match medium', 'icmp traffic', 'port t1571', 'info', 'c0002 wininet', 'flag', 'markmonitor', 'domain address', 'contacted hosts', 'process details', 'size', 'iend ihdridatx', 'qrmf', 'qkdi', 'qiyay', 'kjtn8', 'r0x3', 'ihdridatx', 'yg6qp', 'kkrz', 't6 ex', 'click', 'windir', 'openurl c', 'prefetch2', 'data upload', 'extraction', 'failed', 'please', 'your browser', 'learn', 'opera mozilla', 'firefox google', 'chrome remind', 'privacy policy', 'safety', 'google llc', 'youtube', 'mozilla firefox', 'safari google', 'edge opera', 'browse youtube', 'file', 'indicator', 'pattern match', 'ascii text', 'ck id', 'ck matrix', 'href', 'general', 'local', 'path', 'name tactics', 'suspicious', 'informative', 'command', 'adversaries', 'spawns', 't1590 gather', 'victim network', 'files domain', 'files related', 'related tags', 'registrar', 'files ip', 'asn as15169', 'address domain', 'ip whois', 'service address', 'po box', 'city hayes', 'country gb', 'dnssec', 'domain name', 'emails', 'script urls', 'a domains', 'texas flyover', 'script domains', 'script script', 'trojan', 'meta', 'window', 'msie', 'chrome', 'twitter', 'unknown aaaa', 'record value', 'content type', 'united states', 'dynamicloader', 'medium', 'write c', 'high', 'show', 'digicert', 'olet', 'encrypt', 'win64', 'responder', 'write', 'next', 'unknown', 'install', 'dummy', 'entries', 'displayname', 'windows', 'united', 'tofsee', 'copy', 'stream', 'malware', 'hostile', 'body', 'hostile client', 'apollo', 'jaik', 'code overlap', 'sri lanka', 'pintuck sri', 'lanka', 'unknown ns', 'moved', 'buy apparal', 'win32', 'trojandropper', 'virtool', 'susp', 'ipv4', 'pulse pulses', 'urls', 'reverse dns', 'location united', 'installer'], 'references': ['https://www.youtube.com/watch?v=5KmpT-BoVf4', 'https://www.youtube.com/supported_browsers?next_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D5KmpT-BoVf4', 'critical-failure-alert8768.70jf59844149.com-1kafl-hs0pt4m8f.trade', 'http://www.whatbrowser.com/intl/en/ • ghb.console.adtarget.com.tr.88.1.8b13f8ac.roksit.net', 'canary5.nycl.do.ubersmith.com • debian-test.nyc3.do.ubersmith.com', 'docs-old.ubersmith.com • edgevana.trial.ubersmith.com', 'ghb.unoadsrv.com.88.1.8b13f8ac.roksit.net', 'malware.sale • http://virii.es/U/Using%20Entropy%20Analysis%20to%20Find%20Encrypted%20and%20Packed%20Malware.pdf', 'IDS: Win32/Tofsee.AX google.com connectivity check Query to a *.top domain -', 'Likely Hostile Http Client Body contains pwd= in cleartext Cleartext WordPress Login', 'Yara Detections: RansomWin32Apollo • 216.239.32.27'], 'public': 1, 'adversary': '', 'targeted_countries': ['United States of America'], 'malware_families': [{'id': 'Win.Malware.Jaik-9968280-0', 'display_name': 'Win.Malware.Jaik-9968280-0', 'target': None}, {'id': 'Malware + Code Overlap', 'display_name': 'Malware + Code Overlap', 'target': None}, {'id': 'Trojan:Win32/Qbot.R!MTB', 'display_name': 'Trojan:Win32/Qbot.R!MTB', 'target': '/malware/Trojan:Win32/Qbot.R!MTB'}, {'id': 'Trojandownloader:Win32/Upatre', 'display_name': 'Trojandownloader:Win32/Upatre', 'target': '/malware/Trojandownloader:Win32/Upatre'}, {'id': 'Trojan:BAT/Musecador', 'display_name': 'Trojan:BAT/Musecador', 'target': '/malware/Trojan:BAT/Musecador'}, {'id': 'Win32:Trojan', 'display_name': 'Win32:Trojan', 'target': None}, {'id': 'Bancos', 'display_name': 'Bancos', 'target': None}, {'id': 'Hematite', 'display_name': 'Hematite', 'target': None}, {'id': 'Trojanspy:Win32/Banker.LY', 'display_name': 'Trojanspy:Win32/Banker.LY', 'target': '/malware/Trojanspy:Win32/Banker.LY'}, {'id': 'Trojan:Win32/Vflooder!rfn', 'display_name': 'Trojan:Win32/Vflooder!rfn', 'target': '/malware/Trojan:Win32/Vflooder!rfn'}, {'id': 'Win32:MalwareX', 'display_name': 'Win32:MalwareX', 'target': None}, {'id': 'Malwarex', 'display_name': 'Malwarex', 'target': None}, {'id': 'Virtool:Win32/CeeInject.AKZ!bit', 'display_name': 'Virtool:Win32/CeeInject.AKZ!bit', 'target': '/malware/Virtool:Win32/CeeInject.AKZ!bit'}, {'id': 'Win32:Dropper', 'display_name': 'Win32:Dropper', 'target': None}, {'id': 'Ymacco', 'display_name': 'Ymacco', 'target': None}, {'id': 'Upatre', 'display_name': 'Upatre', 'target': None}, {'id': 'Trojandownloader:Win32/Upatre.A', 'display_name': 'Trojandownloader:Win32/Upatre.A', 'target': '/malware/Trojandownloader:Win32/Upatre.A'}, {'id': 'Win32:Evo', 'display_name': 'Win32:Evo', 'target': None}, {'id': 'Trojandropper:Win32/BcryptInject.B!MSR', 'display_name': 'Trojandropper:Win32/BcryptInject.B!MSR', 'target': '/malware/Trojandropper:Win32/BcryptInject.B!MSR'}, {'id': 'Win32:TrojanX-gen\\ [Trj]', 'display_name': 'Win32:TrojanX-gen\\ [Trj]', 'target': None}, {'id': 'Win32:Cleaman-K\\ [Trj]', 'display_name': 'Win32:Cleaman-K\\ [Trj]', 'target': None}, {'id': 'Asacky', 'display_name': 'Asacky', 'target': None}, {'id': 'Backdoor:Win32/Plugx.N!dha', 'display_name': 'Backdoor:Win32/Plugx.N!dha', 'target': '/malware/Backdoor:Win32/Plugx.N!dha'}], 'attack_ids': [{'id': 'T1071', 'name': 'Application Layer Protocol', 'display_name': 'T1071 - Application Layer Protocol'}, {'id': 'T1095', 'name': 'Non-Application Layer Protocol', 'display_name': 'T1095 - Non-Application Layer Protocol'}, {'id': 'T1571', 'name': 'Non-Standard Port', 'display_name': 'T1571 - Non-Standard Port'}, {'id': 'T1573', 'name': 'Encrypted Channel', 'display_name': 'T1573 - Encrypted Channel'}, {'id': 'T1027', 'name': 'Obfuscated Files or Information', 'display_name': 'T1027 - Obfuscated Files or Information'}, {'id': 'T1057', 'name': 'Process Discovery', 'display_name': 'T1057 - Process Discovery'}, {'id': 'T1105', 'name': 'Ingress Tool Transfer', 'display_name': 'T1105 - Ingress Tool Transfer'}, {'id': 'T1480', 'name': 'Execution Guardrails', 'display_name': 'T1480 - Execution Guardrails'}, {'id': 'T1553', 'name': 'Subvert Trust Controls', 'display_name': 'T1553 - Subvert Trust Controls'}, {'id': 'T1568', 'name': 'Dynamic Resolution', 'display_name': 'T1568 - Dynamic Resolution'}, {'id': 'T1583', 'name': 'Acquire Infrastructure', 'display_name': 'T1583 - Acquire Infrastructure'}, {'id': 'T1590', 'name': 'Gather Victim Network Information', 'display_name': 'T1590 - Gather Victim Network Information'}, {'id': 'T1045', 'name': 'Software Packing', 'display_name': 'T1045 - Software Packing'}, {'id': 'T1055', 'name': 'Process Injection', 'display_name': 'T1055 - Process Injection'}, {'id': 'T1060', 'name': 'Registry Run Keys / Startup Folder', 'display_name': 'T1060 - Registry Run Keys / Startup Folder'}, {'id': 'T1210', 'name': 'Exploitation of Remote Services', 'display_name': 'T1210 - Exploitation of Remote Services'}, {'id': 'T1449', 'name': 'Exploit SS7 to Redirect Phone Calls/SMS', 'display_name': 'T1449 - Exploit SS7 to Redirect Phone Calls/SMS'}], 'industries': ['Media'], 'TLP': 'white', 'cloned_from': '68c73fbd85dfbb4d41006ad1', 'export_count': 4, 'upvotes_count': 0, 'downvotes_count': 0, 'votes_count': 0, 'locked': False, 'pulse_source': 'web', 'validator_count': 0, 'comment_count': 0, 'follower_count': 0, 'vote': 0, 'author': {'username': 'Q.Vashti', 'id': '337942', 'avatar_url': 'https://otx.alienvault.com/assets/images/default-avatar.png', 'is_subscribed': False, 'is_following': False}, 'indicator_type_counts': {'URL': 4746, 'hostname': 1829, 'domain': 913, 'FileHash-MD5': 249, 'FileHash-SHA1': 213, 'FileHash-SHA256': 1765, 'email': 3, 'SSLCertFingerprint': 17}, 'indicator_count': 9735, 'is_author': False, 'is_subscribing': None, 'subscriber_count': 108, 'modified_text': '85 days ago ', 'is_modified': False, 'groups': [], 'in_group': False, 'threat_hunter_scannable': True, 'threat_hunter_has_agents': 1, 'related_indicator_type': 'IPv4', 'related_indicator_is_active': 0}, {'id': '68c73fbd85dfbb4d41006ad1', 'name': 'Tucker Carlson Sam Altman YouTube Interview • Qbot | Malware with. Code Overlap', 'description': 'Maybe it’s a network issue. The TV I viewed interview from is in Arabic the every time. It’s not\nmy\ntelevision or network, didn’t get link from a logged in YouTube. Not a subscriber.. I viewed using (cc) close captioning. It’s the only program n YouTube using another language for this interview. The only reason I’ve visited this interview several time’s since it’s aired is to check for the same results. Every time only this interview uses another language for (cc).\n\nThere are related pulses by a few different users, experiencing similar personal issues. I’d assume I’d always get these results. Unclear\n\n* At the end of interview Tucker Carlson states YouTube is trying to suppress or delete this one interview.', 'modified': '2025-10-14T22:26:18.109000', 'created': '2025-09-14T22:20:45.617000', 'tags': ['resolved ips', 'parent pid', 'full path', 'command line', 'cname', 'ip address', 'port', 'involved direct', 'country name', 'nxdomain', 'tcp connections', 'udp connections', 'data', 'datacrashpad', 'edge', 'passive dns', 'origin trial', 'gmt cache', 'sameorigin', '443 ma2592000', 'ipv4 add', 'files', 'title', 'date', 'found', 'gmt content', 'hostname', 'verdict', 'error', 'code', 'present aug', 'present sep', 'aaaa', 'search', 'domain', 'present apr', 'present jun', 'address google', 'safe browsing', 'present oct', 'match info', 'mitre att', 'control ta0011', 'protocol t1071', 'protocol t1095', 'match medium', 'icmp traffic', 'port t1571', 'info', 'c0002 wininet', 'flag', 'markmonitor', 'domain address', 'contacted hosts', 'process details', 'size', 'iend ihdridatx', 'qrmf', 'qkdi', 'qiyay', 'kjtn8', 'r0x3', 'ihdridatx', 'yg6qp', 'kkrz', 't6 ex', 'click', 'windir', 'openurl c', 'prefetch2', 'data upload', 'extraction', 'failed', 'please', 'your browser', 'learn', 'opera mozilla', 'firefox google', 'chrome remind', 'privacy policy', 'safety', 'google llc', 'youtube', 'mozilla firefox', 'safari google', 'edge opera', 'browse youtube', 'file', 'indicator', 'pattern match', 'ascii text', 'ck id', 'ck matrix', 'href', 'general', 'local', 'path', 'name tactics', 'suspicious', 'informative', 'command', 'adversaries', 'spawns', 't1590 gather', 'victim network', 'files domain', 'files related', 'related tags', 'registrar', 'files ip', 'asn as15169', 'address domain', 'ip whois', 'service address', 'po box', 'city hayes', 'country gb', 'dnssec', 'domain name', 'emails', 'script urls', 'a domains', 'texas flyover', 'script domains', 'script script', 'trojan', 'meta', 'window', 'msie', 'chrome', 'twitter', 'unknown aaaa', 'record value', 'content type', 'united states', 'dynamicloader', 'medium', 'write c', 'high', 'show', 'digicert', 'olet', 'encrypt', 'win64', 'responder', 'write', 'next', 'unknown', 'install', 'dummy', 'entries', 'displayname', 'windows', 'united', 'tofsee', 'copy', 'stream', 'malware', 'hostile', 'body', 'hostile client', 'apollo', 'jaik', 'code overlap', 'sri lanka', 'pintuck sri', 'lanka', 'unknown ns', 'moved', 'buy apparal', 'win32', 'trojandropper', 'virtool', 'susp', 'ipv4', 'pulse pulses', 'urls', 'reverse dns', 'location united', 'installer'], 'references': ['https://www.youtube.com/watch?v=5KmpT-BoVf4', 'https://www.youtube.com/supported_browsers?next_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D5KmpT-BoVf4', 'critical-failure-alert8768.70jf59844149.com-1kafl-hs0pt4m8f.trade', 'http://www.whatbrowser.com/intl/en/ • ghb.console.adtarget.com.tr.88.1.8b13f8ac.roksit.net', 'canary5.nycl.do.ubersmith.com • debian-test.nyc3.do.ubersmith.com', 'docs-old.ubersmith.com • edgevana.trial.ubersmith.com', 'ghb.unoadsrv.com.88.1.8b13f8ac.roksit.net', 'malware.sale • http://virii.es/U/Using%20Entropy%20Analysis%20to%20Find%20Encrypted%20and%20Packed%20Malware.pdf', 'IDS: Win32/Tofsee.AX google.com connectivity check Query to a *.top domain -', 'Likely Hostile Http Client Body contains pwd= in cleartext Cleartext WordPress Login', 'Yara Detections: RansomWin32Apollo • 216.239.32.27'], 'public': 1, 'adversary': '', 'targeted_countries': ['United States of America'], 'malware_families': [{'id': 'Win.Malware.Jaik-9968280-0', 'display_name': 'Win.Malware.Jaik-9968280-0', 'target': None}, {'id': 'Malware + Code Overlap', 'display_name': 'Malware + Code Overlap', 'target': None}, {'id': 'Trojan:Win32/Qbot.R!MTB', 'display_name': 'Trojan:Win32/Qbot.R!MTB', 'target': '/malware/Trojan:Win32/Qbot.R!MTB'}, {'id': 'Trojandownloader:Win32/Upatre', 'display_name': 'Trojandownloader:Win32/Upatre', 'target': '/malware/Trojandownloader:Win32/Upatre'}, {'id': 'Trojan:BAT/Musecador', 'display_name': 'Trojan:BAT/Musecador', 'target': '/malware/Trojan:BAT/Musecador'}, {'id': 'Win32:Trojan', 'display_name': 'Win32:Trojan', 'target': None}, {'id': 'Bancos', 'display_name': 'Bancos', 'target': None}, {'id': 'Hematite', 'display_name': 'Hematite', 'target': None}, {'id': 'Trojanspy:Win32/Banker.LY', 'display_name': 'Trojanspy:Win32/Banker.LY', 'target': '/malware/Trojanspy:Win32/Banker.LY'}, {'id': 'Trojan:Win32/Vflooder!rfn', 'display_name': 'Trojan:Win32/Vflooder!rfn', 'target': '/malware/Trojan:Win32/Vflooder!rfn'}, {'id': 'Win32:MalwareX', 'display_name': 'Win32:MalwareX', 'target': None}, {'id': 'Malwarex', 'display_name': 'Malwarex', 'target': None}, {'id': 'Virtool:Win32/CeeInject.AKZ!bit', 'display_name': 'Virtool:Win32/CeeInject.AKZ!bit', 'target': '/malware/Virtool:Win32/CeeInject.AKZ!bit'}, {'id': 'Win32:Dropper', 'display_name': 'Win32:Dropper', 'target': None}, {'id': 'Ymacco', 'display_name': 'Ymacco', 'target': None}, {'id': 'Upatre', 'display_name': 'Upatre', 'target': None}, {'id': 'Trojandownloader:Win32/Upatre.A', 'display_name': 'Trojandownloader:Win32/Upatre.A', 'target': '/malware/Trojandownloader:Win32/Upatre.A'}, {'id': 'Win32:Evo', 'display_name': 'Win32:Evo', 'target': None}, {'id': 'Trojandropper:Win32/BcryptInject.B!MSR', 'display_name': 'Trojandropper:Win32/BcryptInject.B!MSR', 'target': '/malware/Trojandropper:Win32/BcryptInject.B!MSR'}, {'id': 'Win32:TrojanX-gen\\ [Trj]', 'display_name': 'Win32:TrojanX-gen\\ [Trj]', 'target': None}, {'id': 'Win32:Cleaman-K\\ [Trj]', 'display_name': 'Win32:Cleaman-K\\ [Trj]', 'target': None}, {'id': 'Asacky', 'display_name': 'Asacky', 'target': None}, {'id': 'Backdoor:Win32/Plugx.N!dha', 'display_name': 'Backdoor:Win32/Plugx.N!dha', 'target': '/malware/Backdoor:Win32/Plugx.N!dha'}], 'attack_ids': [{'id': 'T1071', 'name': 'Application Layer Protocol', 'display_name': 'T1071 - Application Layer Protocol'}, {'id': 'T1095', 'name': 'Non-Application Layer Protocol', 'display_name': 'T1095 - Non-Application Layer Protocol'}, {'id': 'T1571', 'name': 'Non-Standard Port', 'display_name': 'T1571 - Non-Standard Port'}, {'id': 'T1573', 'name': 'Encrypted Channel', 'display_name': 'T1573 - Encrypted Channel'}, {'id': 'T1027', 'name': 'Obfuscated Files or Information', 'display_name': 'T1027 - Obfuscated Files or Information'}, {'id': 'T1057', 'name': 'Process Discovery', 'display_name': 'T1057 - Process Discovery'}, {'id': 'T1105', 'name': 'Ingress Tool Transfer', 'display_name': 'T1105 - Ingress Tool Transfer'}, {'id': 'T1480', 'name': 'Execution Guardrails', 'display_name': 'T1480 - Execution Guardrails'}, {'id': 'T1553', 'name': 'Subvert Trust Controls', 'display_name': 'T1553 - Subvert Trust Controls'}, {'id': 'T1568', 'name': 'Dynamic Resolution', 'display_name': 'T1568 - Dynamic Resolution'}, {'id': 'T1583', 'name': 'Acquire Infrastructure', 'display_name': 'T1583 - Acquire Infrastructure'}, {'id': 'T1590', 'name': 'Gather Victim Network Information', 'display_name': 'T1590 - Gather Victim Network Information'}, {'id': 'T1045', 'name': 'Software Packing', 'display_name': 'T1045 - Software Packing'}, {'id': 'T1055', 'name': 'Process Injection', 'display_name': 'T1055 - Process Injection'}, {'id': 'T1060', 'name': 'Registry Run Keys / Startup Folder', 'display_name': 'T1060 - Registry Run Keys / Startup Folder'}, {'id': 'T1210', 'name': 'Exploitation of Remote Services', 'display_name': 'T1210 - Exploitation of Remote Services'}, {'id': 'T1449', 'name': 'Exploit SS7 to Redirect Phone Calls/SMS', 'display_name': 'T1449 - Exploit SS7 to Redirect Phone Calls/SMS'}], 'industries': ['Media'], 'TLP': 'white', 'cloned_from': None, 'export_count': 8, 'upvotes_count': 0, 'downvotes_count': 0, 'votes_count': 0, 'locked': False, 'pulse_source': 'web', 'validator_count': 0, 'comment_count': 0, 'follower_count': 0, 'vote': 0, 'author': {'username': 'Q.Vashti', 'id': '337942', 'avatar_url': 'https://otx.alienvault.com/assets/images/default-avatar.png', 'is_subscribed': False, 'is_following': False}, 'indicator_type_counts': {'URL': 4746, 'hostname': 1829, 'domain': 913, 'FileHash-MD5': 249, 'FileHash-SHA1': 213, 'FileHash-SHA256': 1765, 'email': 3, 'SSLCertFingerprint': 17}, 'indicator_count': 9735, 'is_author': False, 'is_subscribing': None, 'subscriber_count': 110, 'modified_text': '86 days ago ', 'is_modified': True, 'groups': [], 'in_group': False, 'threat_hunter_scannable': True, 'threat_hunter_has_agents': 1, 'related_indicator_type': 'IPv4', 'related_indicator_is_active': 0}, {'id': '64e155d6aee2be3e9e807fcc', 'name': 'https://www.google.com/sorry/index?continue= MITRE TI566 & Phishing Mr.Looquer', 'description': "I am remotely attacked. Nothing new. Usual suspects. They are quite good at annoying me. \nVery Malicious. Phishing. Mr.Looquer. \n\nMy device has a renewed life. This device is controlled by 'US' now.\nApparently my IT technician will not let me remove their remotely installed app from my device. \n172.217.14.196\nALF:Backdoor:MSIL/Noancooe.KA\nALF:E5.SpikeAex.rhh_mcv\nALF:HeraklezEval:BrowserModifier:Win32/Foniad\nALF:HeraklezEval:PUA:Win32/4Shared\nALF:HeraklezEval:PUA:Win32/PCSpeedCat\n\nIDS Detections\nPossible Zeus GameOver Connectivity Check\nWin32/Enosch.A gtalk connectivity check\nMedfos Connectivity Check\nWin32/Multibar.EA Variant PUP Google Connectivity Check\nToolbar Download\nW32/MoonLight.worm User-Agent (HellSpawn)\nSuspicious User-Agent HTTP Client\nUser-Agent (Mozilla) - Possible Spyware Related\nObserved Suspicious UA (AdvancedInstaller)\nNullsoft Mozilla UA (NSISDL)\n..", 'modified': '2023-09-19T02:02:31.116000', 'created': '2023-08-19T23:52:54.581000', 'tags': ['thu jul', 'thu aug', 'wed oct', 'thu may', 'wed jul', 'tue oct', 'thu sep', 'mon may', 'tue jan', 'sat oct', 'malware', 'team', 'soar', 'service', 'overview ip', 'address'], 'references': [], 'public': 1, 'adversary': '', 'targeted_countries': [], 'malware_families': [], 'attack_ids': [], 'industries': [], 'TLP': 'green', 'cloned_from': None, 'export_count': 16, 'upvotes_count': 0, 'downvotes_count': 0, 'votes_count': 0, 'locked': False, 'pulse_source': 'web', 'validator_count': 0, 'comment_count': 0, 'follower_count': 0, 'vote': 0, 'author': {'username': 'OctoSeek', 'id': '243548', 'avatar_url': '/otxapi/users/avatar_image/media/avatars/user_243548/resized/80/avatar_3b9c358f36.png', 'is_subscribed': False, 'is_following': False}, 'indicator_type_counts': {'FileHash-SHA256': 1578, 'domain': 921, 'hostname': 1130, 'URL': 2358, 'FileHash-MD5': 50, 'FileHash-SHA1': 10, 'email': 6, 'CIDR': 2}, 'indicator_count': 6055, 'is_author': False, 'is_subscribing': None, 'subscriber_count': 216, 'modified_text': '843 days ago ', 'is_modified': True, 'groups': [], 'in_group': False, 'threat_hunter_scannable': True, 'threat_hunter_has_agents': 1, 'related_indicator_type': 'IPv4', 'related_indicator_is_active': 0}, {'id': '64e155d7b1ec76e8f6f5bcc9', 'name': 'https://www.google.com/sorry/index?continue= MITRE TI566 & Phishing Mr.Looquer', 'description': "I am remotely attacked. Nothing new. Usual suspects. They are quite good at annoying me. \nVery Malicious. Phishing. Mr.Looquer. \n\nMy device has a renewed life. This device is controlled by 'US' now.\nApparently my IT technician will not let me remove their remotely installed app from my device. \n172.217.14.196\nALF:Backdoor:MSIL/Noancooe.KA\nALF:E5.SpikeAex.rhh_mcv\nALF:HeraklezEval:BrowserModifier:Win32/Foniad\nALF:HeraklezEval:PUA:Win32/4Shared\nALF:HeraklezEval:PUA:Win32/PCSpeedCat\n\nIDS Detections\nPossible Zeus GameOver Connectivity Check\nWin32/Enosch.A gtalk connectivity check\nMedfos Connectivity Check\nWin32/Multibar.EA Variant PUP Google Connectivity Check\nToolbar Download\nW32/MoonLight.worm User-Agent (HellSpawn)\nSuspicious User-Agent HTTP Client\nUser-Agent (Mozilla) - Possible Spyware Related\nObserved Suspicious UA (AdvancedInstaller)\nNullsoft Mozilla UA (NSISDL)\n..", 'modified': '2023-09-18T23:04:41.492000', 'created': '2023-08-19T23:52:55.893000', 'tags': ['thu jul', 'thu aug', 'wed oct', 'thu may', 'wed jul', 'tue oct', 'thu sep', 'mon may', 'tue jan', 'sat oct', 'malware', 'team', 'soar', 'service', 'overview ip', 'address'], 'references': [], 'public': 1, 'adversary': '', 'targeted_countries': [], 'malware_families': [], 'attack_ids': [], 'industries': [], 'TLP': 'green', 'cloned_from': None, 'export_count': 13, 'upvotes_count': 0, 'downvotes_count': 0, 'votes_count': 0, 'locked': False, 'pulse_source': 'web', 'validator_count': 0, 'comment_count': 0, 'follower_count': 0, 'vote': 0, 'author': {'username': 'OctoSeek', 'id': '243548', 'avatar_url': '/otxapi/users/avatar_image/media/avatars/user_243548/resized/80/avatar_3b9c358f36.png', 'is_subscribed': False, 'is_following': False}, 'indicator_type_counts': {'FileHash-SHA256': 1, 'domain': 6, 'hostname': 7, 'URL': 14}, 'indicator_count': 28, 'is_author': False, 'is_subscribing': None, 'subscriber_count': 215, 'modified_text': '843 days ago ', 'is_modified': True, 'groups': [], 'in_group': False, 'threat_hunter_scannable': True, 'threat_hunter_has_agents': 1, 'related_indicator_type': 'IPv4', 'related_indicator_is_active': 0}]}
+        ```
+
+        ### 8. Cabeçalhos HTTP via cURL
+        ```html
+        Erro ao obter dados de cabeçalho pelo cURL:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 216.58.194.174:80...
+
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:16 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:17 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:18 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:19 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:20 --:--:--     0* connect to 216.58.194.174 port 80 from 0.0.0.0 port 23483 failed: Timed out
+* Failed to connect to 216.58.194.174 port 80 after 21030 ms: Could not connect to server
+
+  0     0    0     0    0     0      0      0 --:--:--  0:00:21 --:--:--     0
+* closing connection #0
+curl: (28) Failed to connect to 216.58.194.174 port 80 after 21030 ms: Could not connect to server
+
+        ```
+
+        ### 9. Informações do Scamalytics
+        ```json
+        {"scamalytics":{"status":"ok","mode":"live","ip":"216.58.194.174","scamalytics_score":1,"scamalytics_risk":"low","scamalytics_url":"https:\/\/scamalytics.com\/ip\/216.58.194.174","scamalytics_isp":"Google LLC","scamalytics_org":"Google LLC","scamalytics_isp_score":1,"scamalytics_isp_risk":"low","scamalytics_proxy":{"is_datacenter":true,"is_vpn":false,"is_apple_icloud_private_relay":false,"is_amazon_aws":false,"is_google":true},"is_blacklisted_external":false,"credits":{"used":2,"remaining":4998,"last_sync_timestamp_utc":"2026-01-09 17:42:21","seconds_elapsed_since_last_sync":131,"note":"Credits used and remaining are approximate values."},"exec":"13.77 ms"},"external_datasources":{"dbip":{"ip_country_code":"US","ip_state_name":"Arizona","ip_district_name":"Maricopa","ip_city":"Phoenix","ip_postcode":"85001","ip_geolocation":"33.4484,-112.074","ip_country_name":"United States","isp_name":"Google LLC","org_name":"Google LLC","connection_type":null,"history_monthly":{"10-2025":{"isp_name":"Google LLC","org_name":"Google LLC"},"11-2025":{"isp_name":"Google LLC","org_name":"Google LLC"},"12-2025":{"isp_name":"Google LLC","org_name":"Google LLC"}},"datasource_name":"db-ip.com","license_info":"info@scamalytics.com"},"ip2proxy":{"proxy_type":"PUB","datasource_name":"ip2proxy.com","license_info":"info@scamalytics.com"},"ip2proxy_lite":{"asn":"15169","as_name":"Google LLC","proxy_type":"PUB","proxy_last_seen":"30","usage_type":"DCH","ip_blacklisted":false,"ip_blacklist_type":"","ip_provider":"","ip_country_code":"US","ip_country_name":"United States of America","ip_district_name":"California","ip_city":"San Francisco","isp_name":"Google LLC","domain":"google.com","datasource_name":"https:\/\/lite.ip2location.com\/ip2proxy-lite","license_info":"https:\/\/creativecommons.org\/licenses\/by-sa\/4.0","last_updated_timestamp_utc":"2026-01-08 03:13:03"},"maxmind_geolite2":{"asn":"15169","as_name":"GOOGLE","ip_geoname_id":"6252001","ip_location_accuracy_km":"1000","ip_country_code":"US","ip_state_name":"","ip_district_name":"","ip_city":"","ip_metro_code":"","ip_postcode":"","ip_geolocation":"37.7510,-97.8220","ip_country_name":"United States","ip_time_zone":"America\/Chicago","datasource_name":"maxmind.com and geonames.org","license_info":"https:\/\/creativecommons.org\/licenses\/by-sa\/4.0","last_updated_timestamp_utc":"2026-01-09 06:19:11"},"ipinfo":{"asn":"AS15169","ip_range_from":"216.58.192.0","ip_range_to":"216.58.195.255","as_name":"Google LLC","as_domain":"google.com","ip_country_code":"US","ip_country_name":"United States","ip_continent_code":"NA","ip_continent_name":"North America","datasource_name":"ipinfo.io","license_info":"https:\/\/creativecommons.org\/licenses\/by-sa\/4.0","last_updated_timestamp_utc":"2026-01-09 04:05:11"},"firehol":{"ip_blacklisted_30":false,"ip_blacklisted_1day":false,"is_proxy":true,"datasource_name":"https:\/\/iplists.firehol.org\/","license_info":"GPL v2","last_updated_timestamp_utc":"2026-01-09 02:04:17"},"ipsum":{"ip_blacklisted":false,"num_blacklists":0,"datasource_name":"https:\/\/github.com\/stamparm\/ipsum","license_info":"https:\/\/unlicense.org\/","last_updated_timestamp_utc":"2026-01-09 05:00:43"},"spamhaus_drop":{"ip_blacklisted":false,"datasource_name":"https:\/\/www.spamhaus.org\/drop","license_info":"https:\/\/www.spamhaus.org\/drop\/terms\/","last_updated_timestamp_utc":"2026-01-09 07:00:02"},"x4bnet":{"is_vpn":false,"is_datacenter":true,"is_tor":false,"is_blacklisted_spambot":false,"is_bot_operamini":false,"is_bot_semrush":false,"datasource_name":"https:\/\/github.com\/X4BNet\/","license_info":"https:\/\/www.gnu.org\/licenses\/agpl-3.0.en.html","last_updated_timestamp_utc":"2026-01-09 11:00:14"},"google":{"is_google_general":true,"is_googlebot":false,"is_special_crawler":false,"is_user_triggered_fetcher":false,"datasource_name":"https:\/\/developers.google.com\/","last_updated_timestamp_utc":"2026-01-09 12:00:02"},"amazon_aws":{"data":[],"datasource_name":"https:\/\/docs.aws.amazon.com\/","last_updated_timestamp_utc":"2026-01-09 13:00:04"},"apple_icloud_private_relay":{"data":{"ip_prefix":"","country_code":"","state_code":"","city":"","postcode":""},"datasource_name":"https:\/\/developer.apple.com\/","last_updated_timestamp_utc":"2026-01-09 14:00:48"}}}
+        ```
+        

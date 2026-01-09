@@ -24,9 +24,17 @@ def run_ip_analysis():
     dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
     dotenv.load_dotenv(dotenv_path=dotenv_path)
 
+    # Fallback: se a chave do Scamalytics não for encontrada, tente carregar .env padrão
+    if not os.getenv("SCAMNALYTICS_API_KEY"):
+        dotenv.load_dotenv()  # tenta encontrar .env no diretório atual ou pais
+
     VT_API_KEY = os.getenv("VT_API_KEY")
     ALIEN_VAULT_API_KEY = os.getenv("ALIEN_VAULT_API_KEY")
     ABUSEIPDB_API_KEY = os.getenv("ABUSEIPDB_API_KEY")
+    SCAMNALYTICS_API_KEY = os.getenv("SCAMNALYTICS_API_KEY")
+
+    if not SCAMNALYTICS_API_KEY:
+        print(f"Aviso: SCAMNALYTICS_API_KEY não encontrada. Verifique {dotenv_path} ou variáveis de ambiente. Requisições podem falhar.")
     
     print(f"Coletando informações para o IP: {ip}...")
 
@@ -146,6 +154,11 @@ def run_ip_analysis():
         else:
             av_details_text = av_response.text
 
+        api_key = SCAMNALYTICS_API_KEY
+        scamnalytics_data = requests.get(f'https://api11.scamalytics.com/v3/pcanossa/?key={api_key}&ip={ip}')
+        scamnalytics_data.raise_for_status()
+
+
         # Combinar todos os dados em uma única string para a IA
         combined_content = f"""
         ## DADOS COLETADOS PARA ANÁLISE DE THREAT INTELLIGENCE
@@ -190,6 +203,11 @@ def run_ip_analysis():
         ### 8. Cabeçalhos HTTP via cURL
         ```html
         {headers_text}
+        ```
+
+        ### 9. Informações do Scamalytics
+        ```json
+        {scamnalytics_data.text}
         ```
         """
         

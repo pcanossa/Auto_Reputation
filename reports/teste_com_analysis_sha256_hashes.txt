@@ -1,0 +1,2 @@
+./reports/threat_report_teste_com.md = 4d3da59b70bfb8310061ae315a9f4d2b337619ef46f0c6ad9b018cff8d48e36d
+./reports/threat_data_teste_com.txt = c16436ed28be387ca16a0fc843ab4b9e7e09e7d8063048b9d3b5c15427f59360

@@ -1,2 +1,0 @@
-./reports/threat_report_acessoportalatendimento_app.md = 35a5b038ac6f9f95604c9fe798cfa39bc753caeb6e1af20716d3b1e5b0f56105
-./reports/threat_data_acessoportalatendimento_app.txt = 41b574fdf29dda441206f0720b0ecc789ead2ad7ffc251b6b3191d544a345cdd

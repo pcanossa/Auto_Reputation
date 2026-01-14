@@ -128,9 +128,14 @@ def run_domain_analysis():
         else:
             av_details_text = av_response.text
 
-        #6. Análise DNS (opcional, pode ser expandida conforme necessário)
+        #7. Análise de certificado cert.sh
+        cert_response = requests.get(f'https://crt.sh/?q={domain_name}&output=json', headers=headers)
+        cert_response.raise_for_status()
+
+        #Análise DNS (opcional, pode ser expandida conforme necessário)
         dns_response = requests.get(f'https://dns.google/resolve?name={domain_name}', headers=headers)
         dns_response.raise_for_status()
+
 
         # Combinar todos os dados em uma única string
 
@@ -167,6 +172,11 @@ def run_domain_analysis():
         ### 6. Cabeçalhos HTTP via cURL
         ```html
         {headers_text}
+        ```
+
+        ### 7. Informações do certificado SSL/TLS
+        ```json
+        {cert_response.text}
         ```
         """
 

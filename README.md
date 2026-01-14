@@ -35,7 +35,7 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
   - AbuseIPDB
   - `wget`
   - `curl`
-  - Cert.sh
+  - Crt.sh
   - Scamalytics
   - Google Public DNS
 

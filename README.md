@@ -2,12 +2,12 @@
 
 ## Introdução
 
-Uma suíte de ferramentas de linha de comando em Python para realizar análises de reputação e threat intelligence em endereços IP e domínios. O aplicativo coleta dados de diversas fontes públicas (**Shodan**, **VirusTotal**, **AlienVault OTX**, **Urlscan**, etc.) e utiliza um modelo de linguagem grande (LLM) `gpt-oss:120b-cloud` através do `Ollama` para gerar relatórios detalhados em formato Markdown com geração de arquivos com dados coletados, que foram utilizados para a análise.
+Uma suíte de ferramentas de linha de comando em Python para realizar análises de reputação e threat intelligence em endereços IP e domínios. O aplicativo coleta dados de diversas fontes públicas (**Shodan**, **VirusTotal**, **AlienVault OTX**, **Urlscan**, **WHOIS**, etc.) e utiliza um modelo de linguagem grande (LLM) `gpt-oss:120b-cloud` através do `Ollama` para gerar relatórios detalhados em formato Markdown com geração de arquivos com dados coletados, que foram utilizados para a análise.
 
 ## Funcionalidades
 
-- **Análise de Reputação de IP:** Coleta informações sobre portas abertas, serviços, geolocalização, vulnerabilidades (CVEs) e reputação em listas de ameaças.
-- **Análise de Reputação de Domínio:** Coleta informações de WHOIS, subdomínios, IPs associados e reputação em listas de ameaças.
+- **Análise de Reputação de IP:** Coleta informações sobre portas abertas, serviços, geolocalização, vulnerabilidades (CVEs), arquivos associados e reputação em listas de ameaças.
+- **Análise de Reputação de Domínio:** Coleta informações de WHOIS, subdomínios, arquivos e IPs associados e reputação em listas de ameaças.
 - **Coleta e Análise de scripts de Sites Maliciosos**: Coleta de scripts executaod ao acessar o site, e posterior análise de compostamentos maliciosos observados nos scripts coletados.
 - **Geração de Relatórios com IA:** Utiliza o modelo `gpt-oss:120b-cloud` via Ollama para analisar os dados coletados e gerar um relatório de threat intelligence estruturado.
 - **Geração de Arquivo com Dados Coletados para Análise**: Gera arquivo em formato `.txt`, de todos dados coletados e utilizados para a análise na geração do relatório.
@@ -35,6 +35,9 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
   - AbuseIPDB
   - `wget`
   - `curl`
+  - Cert.sh
+  - Scamalytics
+  - Google Public DNS
 
 ## Pré-requisitos
 
@@ -109,6 +112,7 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal, Ali
     VT_API_KEY="SUA_CHAVE_API_DO_VIRUSTOTAL"
     ALIEN_VAULT_API_KEY="SUA_CHAVE_API_DO_ALIENVAULT"
     ABUSEIPDB_API_KEY="SUA_CHAVE_API_DO_ABUSEIPDB"
+    SCAMNALYTICS_API_KEY="SUA_CHAVE_API_DO_SCAMNALYTICS"
     ```
 
 ## Como Usar

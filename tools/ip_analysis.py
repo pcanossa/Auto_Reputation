@@ -120,6 +120,18 @@ def run_ip_analysis():
         })
         vt_details_response.raise_for_status()
 
+        vt_comments_response = requests.get(f'https://www.virustotal.com/api/v3/ip_addresses/{ip}/relationships/related_comments?limit=10', headers={
+            'x-apikey': VT_API_KEY,
+            'accept': 'application/json'
+        })
+        vt_comments_response.raise_for_status()
+
+        vt_files_response = requests.get(f'https://www.virustotal.com/api/v3/ip_addresses/{ip}/communicating_files?limit=10', headers={
+            'x-apikey': VT_API_KEY,
+            'accept': 'application/json'
+        })
+        vt_files_response.raise_for_status()
+
         whois_text = get_cli_whois(ip)
 
         headers_text = get_cli_header(ip)
@@ -175,7 +187,9 @@ def run_ip_analysis():
 
         ### 4. Informações do VirusTotal
         ```json
-        {vt_details_response}
+        detecções = {vt_details_response.text}
+        comentários da comunidade = {vt_comments_response.text}
+        arquivos comunicados = {vt_files_response.text}
        ```
 
         ### 5. Informações do AbuseIPDB

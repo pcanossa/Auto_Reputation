@@ -114,6 +114,18 @@ def run_domain_analysis():
         })
         vt_details_response.raise_for_status()
 
+        vt_comments_response = requests.get(f'https://www.virustotal.com/api/v3/domains/{domain_name}/relationships/related_comments?limit=10', headers={
+            'x-apikey': VT_API_KEY,
+            'accept': 'application/json'
+        })
+        vt_comments_response.raise_for_status()
+
+        vt_files_response = requests.get(f'https://www.virustotal.com/api/v3/domains/{domain_name}/communicating_files?limit=10', headers={
+            'x-apikey': VT_API_KEY,
+            'accept': 'application/json'
+        })
+        vt_files_response.raise_for_status()
+
         #4. Análise IOC Alien Vault
         av_response = requests.get(f'https://otx.alienvault.com/api/v1/indicators/domain/{domain_name}/general', headers={
             'accept': 'application/json',
@@ -156,7 +168,9 @@ def run_domain_analysis():
 
         ### 3. Informações do VirusTotal
         ```json
-        {vt_details_response.text}
+        detecções = {vt_details_response.text}
+        comentários da comunidade = {vt_comments_response.text}
+        arquivos comunicados = {vt_files_response.text}
         ```   
 
         ### 4. Informações do Alien Vault OTX

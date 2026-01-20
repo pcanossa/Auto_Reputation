@@ -1,3 +1,4 @@
+![Logo](./Logo.png)
 # Auto Reputation - Ferramenta de Análise de Reputação e Threat Intelligence com IA
 
 ## Introdução

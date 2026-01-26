@@ -26,6 +26,7 @@ def run_domain_analysis():
 
     VT_API_KEY = os.getenv("VT_API_KEY")
     ALIEN_VAULT_API_KEY = os.getenv("ALIEN_VAULT_API_KEY")
+    DNS_DUMPSTER_API_KEY = os.getenv("DNS_DUMPSTER_API_KEY")
 
     def get_cli_whois(domain):
         process = subprocess.Popen(
@@ -149,6 +150,12 @@ def run_domain_analysis():
         dns_response = requests.get(f'https://dns.google/resolve?name={domain_name}', headers=headers)
         dns_response.raise_for_status()
 
+        #Análise DNS pelo DNSDumpster
+        dns_dumpster_response = requests.get(f'https://api.dnsdumpster.com/domain/{domain_name}', headers={
+            "X-API-Key": DNS_DUMPSTER_API_KEY
+        })
+        dns_dumpster_response.raise_for_status()
+
 
         # Combinar todos os dados em uma única string
 
@@ -192,6 +199,11 @@ def run_domain_analysis():
         ### 7. Informações do certificado SSL/TLS
         ```json
         {cert_response.text}
+        ```
+
+        ### 8. Informações do DNSDumpster
+        ```json
+        {dns_dumpster_response.text}
         ```
         """
 

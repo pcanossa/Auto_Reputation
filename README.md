@@ -39,6 +39,7 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
   - Crt.sh
   - Scamalytics
   - Google Public DNS
+  - DNS Dumpster
 
 ## Pré-requisitos
 
@@ -111,9 +112,10 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal, Ali
 3.  Adicione suas chaves de API ao arquivo `.env` da seguinte forma:
     ```
     VT_API_KEY="SUA_CHAVE_API_DO_VIRUSTOTAL"
-    ALIEN_VAULT_API_KEY="SUA_CHAVE_API_DO_ALIENVAULT"
-    ABUSEIPDB_API_KEY="SUA_CHAVE_API_DO_ABUSEIPDB"
-    SCAMNALYTICS_API_KEY="SUA_CHAVE_API_DO_SCAMNALYTICS"
+    ALIEN_VAULT_API_KEY=SUA_CHAVE_API_DO_ALIENVAULT
+    ABUSEIPDB_API_KEY=SUA_CHAVE_API_DO_ABUSEIPDB
+    SCAMNALYTICS_API_KEY=SUA_CHAVE_API_DO_SCAMNALYTICS
+    DNS_DUMPSTER_API_KEY=SUA_CHAVE_API_DO_DNSDUMPSTER
     ```
 
 ## Como Usar

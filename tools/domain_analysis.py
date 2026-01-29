@@ -1,6 +1,7 @@
 from datetime import datetime
 from ollama import Client
 from tools.prompts.domain_prompt import generate_domain_threat_intel_prompt
+from tools.get_phishing_list import fetch_phishing_lists
 import requests
 import dotenv
 import sys
@@ -52,7 +53,7 @@ def run_domain_analysis():
     
     def get_cli_header(ip):
         process = subprocess.Popen(
-            ['curl', '-v', '-o /dev/null', ip],
+            ['curl', '-v', '-I', '-o', '/dev/null', ip],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
@@ -156,6 +157,9 @@ def run_domain_analysis():
         })
         dns_dumpster_response.raise_for_status()
 
+        #Análise em lista de urls phishings conhecidas
+        phishing_list_info, phishing_list_info_file = fetch_phishing_lists(domain_name)
+
 
         # Combinar todos os dados em uma única string
 
@@ -204,6 +208,11 @@ def run_domain_analysis():
         ### 8. Informações do DNSDumpster
         ```json
         {dns_dumpster_response.text}
+        ```
+
+        ### 9. Verificação em listas de phishing conhecidas pelo Phishing Army
+        ```text
+        {phishing_list_info}
         ```
         """
 
@@ -255,7 +264,7 @@ def run_domain_analysis():
     full_data_path = f'./reports/{json_filename}'
     files.append(full_report_path)
     files.append(full_data_path)
+    files.append(phishing_list_info_file)
 
     return files, sanitized_domain
-
     

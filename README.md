@@ -40,6 +40,7 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
   - Scamalytics
   - Google Public DNS
   - DNS Dumpster
+  - Phishing Army
 
 ## Pré-requisitos
 
@@ -145,8 +146,10 @@ O script principal `auto_reputation.py` oferece um menu interativo para escolher
 -   `/tools/ip_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de endereços IP.
 -   `/tools/domain_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de domínios.
 -   `/tools/scripts_analisys.py`: Módulo responsável por toda a lógica de coleta e análise de scripts.
+-   `/tools/get_phishing_list`: Módulo responsável pela obtenção de lista de domínios reportados como phihshing.
 -   `/tools/prompts`: Diretório de prompts para geração de relatórios pela LLM.
 -   `/reports`: Diretório de armazenamento dos relatórios gerados pelas análises.
+-   `/reports/phishing_lists`: Diretório de armazenamento de listas de domínios reportados como phishing obtidas para análise.
 
 ## Aviso Legal
 

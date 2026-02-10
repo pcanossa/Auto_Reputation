@@ -1,7 +1,0 @@
-./reports/cookie.js = eb3dd29e8df6adef89cf06c20637ec5727e2f74c201eb145927fd9431b3b1c6a
-./reports/caf.js = 7605f38986226cc1891c194e184550366e508f72165376ee335019fdb648189e
-./reports/doais8fj34.js = 9f7aa6c8bb78dbe852d42707df6c841ede8bd135ed3958215004505493f59756
-./reports/scanned_scripts_teste_com.json = 34981de1a9042fc4a35d8398216e845200327fb1d8a7f39348cc665ce9f8147d
-./reports/script_analisys_cookie.md = 20c4fe0f33caa393f20b16cbd895faca03fc4ca1e45a3bb74a9e4f476361f376
-./reports/script_analisys_caf.md = 4f1ca9920182d61548e81d25b9211b8458ba42369b013b1e47faff5d1f3d8397
-./reports/script_analisys_doais8fj34.md = a94601adc871e874b09a1a41f3e7c506f68b8a23b5e6f440c0d6bffb1244d529

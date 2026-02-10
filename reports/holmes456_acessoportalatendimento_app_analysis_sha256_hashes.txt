@@ -1,2 +1,0 @@
-./reports/threat_report_holmes456_acessoportalatendimento_app.md = a046af2bf0eb9eebd0e925c141773c5408fb9489ac930d3d7b5db8ec5cbd2f4f
-./reports/threat_data_holmes456_acessoportalatendimento_app.txt = 8b83542cc709f2870cce30dca292c2227f0b0aee53264d43cbc5431b37bec3ba

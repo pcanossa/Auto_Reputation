@@ -1,1 +1,0 @@
-__sasCookie({"_cookies_":[{"_value_":"ID=1572d7637018e873:T=1764865194:RT=1764865194:S=ALNI_MYOF6oNnO2rnkIJsIWhOBjhQ3xAeg","_expires_":1798561194,"_path_":"/","_domain_":"teste.com","_version_":1},{"_value_":"UID=000012a999c6a921:T=1764865194:RT=1764865194:S=ALNI_MaiXPUC248_Rwrx_1NSGcrEumUEhQ","_expires_":1798561194,"_path_":"/","_domain_":"teste.com","_version_":2}]});

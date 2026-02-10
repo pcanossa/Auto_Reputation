@@ -1,137 +1,72 @@
 # Relatório de Threat Intelligence – Domínio **teste.com**
 
-> **Fonte dos dados**: WHOIS (whois.uniregistrar.com), VirusTotal, URLScan.io, AlienVault OTX, DNS (Google DNS), cURL, Certificadora Let’s Encrypt, análises de arquivos associados.  
-> **Timestamp da Análise**: 2026-01-14T18:20:35.815178.  
+> **Fonte dos dados**: WHOIS (Domains By Proxy, LLC), VirusTotal, AlienVault OTX, DNS passivo, análise de certificados SSL, varreduras HTTP, registros de nameservers.
+> **Timestamp da Análise**: 2026-02-10T16:36:11.045424.
 
 ## 1. Resumo Executivo
-O domínio **teste.com** está registrado no **whois** com o registrador GoDaddy (Cayman Islands) e possui um registro de proteção de privacidade. Ele resolve para **cinco endereços IPv4** (139.162.174.209, 139.162.181.76, 172.104.149.86, 172.104.203.186, 172.104.251.198) distribuídos nos EUA (principalmente regiões da costa leste).  
-
-Os certificados TLS são emitidos pela **Let’s Encrypt** (validade corrente até 10 abr 2026) e não apresentam anomalias. Contudo, o domínio está associado a múltiplas amostras de malwares encontradas no VirusTotal, dentre elas:
-
-* **c77cc485…** – executável Windows UPX‑compactado, identificado como *MyDoom/Emotet* downloader (mais de 60 deteções maliciosas).  
-* **0fdc87b7…** – outro executável Windows com comportamento de downloader e presença de *MyDoom* / *SuperThreat*.  
-* **arquivo.docx** (macro‑enabled) que contém código VBA que **baixa e executa** `http://teste.com/arquivo.exe` no diretório temporário da vítima.  
-
-Além disso, o domínio aparece em **relatórios de URLScan.io** mostrando resoluções para diferentes IPs (incluindo IPv6) e servindo conteúdo HTML simples (4186 bytes).  
-
-Em conjunto, esses indicadores sugerem que **teste.com** está sendo usado como **infraestrutura de distribuição de payloads** (download de executáveis maliciosos) e como **carga útil de campanhas de phishing/malware via documentos Office**. Não há evidência de serviço legítimo; a presença de certificados válidos pode ser utilizada para mascarar atividades maliciosas.
+O domínio `teste.com`, registrado em 2001 com privacidade ativada, apresenta fortes indicadores de comportamento malicioso, apesar de não estar listado em feeds de phishing conhecidos. Sua infraestrutura é atípica, utilizando nameservers (`*.giantpanda.com`) não associados a provedores legítimos. A resolução DNS aponta para múltiplos IPs em serviços de hospedagem compartilhada (Linode/AS63949, outros), com TTL curto, padrão comum em infraestrutura maliciosa. Embora o AlienVault OTX não liste pulsos ativos, scanners como Fortinet, alphaMountain.ai, CyRadar e Forcepoint detectaram atividades maliciosas ou suspeitas. A presença de subdomínios genéricos e numerados (`www1`, `www70`, `financeiro`), combinada com certificados SSL wildcard de emissores gratuitos (Let's Encrypt, ZeroSSL) e histórico de redirecionamentos para páginas "lander", consolida a reputação de **alto risco** para campanhas de phishing, fraude e possível distribuição de malware.
 
 ---
 
 ## 2. Análise de Comportamento
-
 | Fonte | Evidência | Interpretação |
-|------|-----------|---------------|
-| **VirusTotal – Domínio** | `last_analysis_stats`: 1 malicious, 1 suspicious, 59 harmless; 0 malicious / 0 suspicious nos arquivos associados ao domínio. | O domínio em si não é marcado como malicioso pelos scanners, porém os arquivos vinculados (executáveis e documentos) são marcados como malware. |
-| **VirusTotal – Arquivos** | *c77cc485…* (UPX, MyDoom) – 63 deteções malicious; *0fdc87b7…* – 63 detections malicious; *arquivo.docx* – 35 detections malicious (Trojan/Downloader). | Evidência clara de uso do domínio como **C2 / servidor de entrega** para trojans e backdoors. |
-| **URLScan.io** (diversas execuções) | Resolução para vários IPs (IPv4 e IPv6) e carregamento de página HTML simples. Algumas execuções mostram redirecionamentos ou chamadas a sub‑domínios (`okok.teste.com`). | O domínio tem **infraestrutura de balanceamento / DNS round‑robin**, prática comum em “serviços de hospedagem de C2” para dificultar bloqueios. |
-| **DNS** | Resposta contém 5 A‑records diferentes (IP dos EUA). | Distribuição geográfica e de rede típica de provedores Cloud ou de serviços de hospedagem que permitem **escalar** a entrega de payloads. |
-| **cURL – Header** | HTTP 200 OK, `Server: openresty/1.27.1.2`, `Content‑Length: 4186`. | O servidor responde com conteúdo estático; não há redirecionamento imediato, mas o conteúdo pode conter scripts de download ou ser “landing page” de phishing. |
-| **Certificados SSL** | Vários certificados Let’s Encrypt válidos (última emissão 2026‑01‑10). | Certificados legítimos ajudam a **evitar alertas de navegadores** e aumentam a credibilidade percebida. |
-| **Código VBA (docx)** | Funções `URLDownloadToFile` e `ShellExecute` para baixar `http://teste.com/arquivo.exe` e executá‑lo no diretório `%TEMP%`. | **Comportamento típico de malware**: entrega de payload via documentos Office (phishing). |
+|------|------------|---------------|
+| **VirusTotal** | 1 detecção maliciosa (Fortinet), 3 suspeitas (alphaMountain.ai, CyRadar, Forcepoint). Reputação neutra (0). Certificado SSL válido (Let's Encrypt). JARM: `20d14d20d21d...`. | Embora a maioria dos scanners não detecte, engines confiáveis sinalizam risco. O JARM serve como IOC para fingerprinting de infraestrutura potencialmente maliciosa. |
+| **DNS & Infraestrutura** | Nameservers atípicos (`DAMAO.NS.GIANTPANDA.COM`, `YANGGUANG.NS.GIANTPANDA.COM`). 57 registros A apontando para múltiplos IPs (AS63949/Akamai-Linode). TTL curto (129s). Ausência de DNSSEC. | Infraestrutura não convencional e distribuída, com características (TTL baixo, múltiplos IPs) típicas de operações maliciosas para evasão e resiliência. |
+| **Subdomínios & Conteúdo** | Subdomínios suspeitos: `action.att.com.teste.com` (typosquatting/phishing), `financeiro.teste.com`, `www6.teste.com` (redirecionamento "lander"). Subdomínios genéricos/numerados (`cpanel`, `mail`, `hvdencp59517`). | Padrão consistente com campanhas de phishing (imitação de marca) e infraestrutura de ataque para hospedagem de páginas de destino ou malwares. |
+| **Certificados SSL** | Certificados wildcard emitidos por Let's Encrypt (R3, R10-R13) e ZeroSSL (para `www70`). Renovações regulares. | Emissores gratuitos são legítimos, mas o uso combinado com subdomínios numerados é comum em esquemas maliciosos para obter criptografia e parecer legítimo. |
+| **Varreduras HTTP** | Resposta na porta 80 (HTTP) sem redirecionamento para HTTPS. Servidor `openresty` servindo conteúdo padrão em alguns IPs. | Configuração de segurança básica ausente, facilitando ataques de intermediário. Conteúdo padrão pode ser um placeholder para atividades maliciosas. |
+| **AlienVault OTX** | Contagem zero de pulsos, sem IOCs, malware ou adversários vinculados nas fontes consultadas. | Ausência de indicadores nesta plataforma específica, mas **não descarta** risco, dado os alertas de outras fontes confiáveis. |
+| **WHOIS** | Registrado em 2001. Privacidade ativada via **Domains By Proxy, LLC**. | Longevidade do domínio com privacidade persistente, um fator que pode ser explorado para ocultar a identidade em operações maliciosas. |
 
-### Técnicas/Procedimentos (MITRE ATT&CK) observados
-| Táctica | Técnica | Comentário |
-|---------|---------|------------|
-| **Inicial Access** | T1566 – Phishing (macro docx) | Documento malicioso que baixa e executa payload. |
-| **Execution** | T1059 – Command‑Line (ShellExecute); T1105 – Ingress Tool Transfer (download de EXE). |
-| **Persistence** | T1547 – Create/Modify Autorun (possível criação de arquivos de registro). |
-| **Defense Evasion** | T1027 – Obfuscation/Encoding (UPX, Packers). |
-| **Command & Control** | T1071 – Application Layer Protocol (HTTP/HTTPS). |
-| **Impact** | T1486 – Data Encrypted for Impact (MyDoom). |
+**Evidências de Comportamento Malicioso:**
+
+*   **Associação a Campanhas de Phishing/Fraude**: Subdomínio `action.att.com.teste.com` configura typosquatting para phishing de marca. O histórico menciona redirecionamentos para páginas "lander" com parâmetros de busca, padrão típico de fraudes.
+*   **Infraestrutura de Ataque Evasiva**: Multi-homing (vários IPs de diferentes provedores), TTL de DNS curto e nameservers incomuns são táticas para dificultar rastreamento e bloqueio.
+*   **Atividade Suspeita Detectada por Engines**: Detecções positivas por fornecedores de segurança estabelecidos (Fortinet) e especializados (alphaMountain.ai) elevam o nível de confiança na malignidade.
+
+**Táticas/Procedimentos (ATT&CK) observados:**
+
+- **T1583.001 - Acquire Infrastructure: Domains** – Uso de domínio antigo com privacidade.
+- **T1566 - Phishing** – Evidenciado pelo subdomínio de typosquatting (`action.att.com.teste.com`).
+- **T1071.001 - Application Layer Protocol: Web Protocols** – Uso de HTTP/HTTPS para comunicação ou redirecionamento.
+- **T1595 - Active Scanning** – Possível uso da infraestrutura para varredura (múltiplos IPs).
+- **T1105 - Ingress Tool Transfer** – Potencial hospedagem/entrega de ferramentas através dos subdomínios.
 
 ---
 
 ## 3. Informações de Rede e Geográficas
-
 | Campo | Valor |
 |-------|-------|
-| **ASN** | Não há ASN exclusivo; os IPs pertencem a diferentes blocos (ex.: **AS16509 – Amazon AWS**, **AS15169 – Google Cloud**, **AS16550 – OVH**, **AS20690 – Linode**). |
-| **ISP / Provedor** | Vários provedores de nuvem (AWS, Google Cloud, OVH, Linode, etc.). |
-| **Localização** | Todos os IPs estão alocados nos **Estados Unidos** (costa leste e interior). |
-| **Endereços IPv4** | 139.162.174.209, 139.162.181.76, 172.104.149.86, 172.104.203.186, 172.104.251.198 |
-| **Endereço IPv6** | Não divulgado nas respostas DNS, mas URLScan.io registra IPv6 para alguns testes. |
-| **DNSSEC** | Não assinado ( `DNSSEC: unsigned`). |
-| **TTL padrão** | 600 s (10 min), típico de serviços de CDN ou balanceamento. |
+| **ASN (Principal)** | **AS63949 - Akamai Technologies, Inc. (Linode)**, entre outros associados a IPs resolvidos. |
+| **ISP / Provedor** | Vários, incluindo Linode (Akamai), Amazon AWS, Google Cloud, e outros provedores de hospedagem web compartilhada. |
+| **Localização (IPs)** | Predominantemente **Estados Unidos**. Localizações específicas variam conforme o IP (ex: Dallas, Fremont, outros). |
+| **Endereços IPv4 (Seleção de IOCs)** | `66.175.209.179`, `96.126.111.165`, `192.155.84.236`, `23.239.4.93`, `74.207.241.245`. |
+| **IPv6** | Presente em alguns registros TXT de configuração, mas não como AAAA primário. |
+| **Nameservers** | `DAMAO.NS.GIANTPANDA.COM`, `YANGGUANG.NS.GIANTPANDA.COM` (hospedados na AWS). |
+| **DNSSEC** | Não assinado (Ausente). |
 
 ---
 
 ## 4. Domínios e IPs Relacionados
+- **Subdomínios Suspeitos Relacionados**: `action.att.com.teste.com`, `financeiro.teste.com`, `www1.teste.com`, `www6.teste.com`, `www42.teste.com`, `www70.teste.com`, `cpanel.teste.com`, `mail.teste.com`, `hvdencp59517.teste.com`.
+- **IPs Frequentemente Associados (IOCs)**: `66.175.209.179`, `96.126.111.165`, `192.155.84.236`, `23.239.4.93`, `74.207.241.245`, `5.161.133.13` (servidor MX - Hetzner).
+- **Infraestrutura de Suporte**: Domínio dos nameservers: `giantpanda.com`. Servidor MX: `mail.mailerhost.net`.
 
-### Domínios/Sub‑domínios observados
-* `teste.com` (apex) – alvo principal.  
-* `okok.teste.com` – sub‑domínio usado em algumas execuções de URLScan (possível “dropper” ou “callback”).  
-* `url.teste.com`, `action.att.com.teste.com` – outros sub‑domínios vistos nos logs de URLScan.  
-
-### IPs associados (resolvidos nas consultas DNS)
-| IP | Possível provedor/ASN |
-|----|----------------------|
-| 139.162.174.209 | OVH (AS16276) |
-| 139.162.181.76  | OVH (AS16276) |
-| 172.104.149.86  | Linode (AS63949) |
-| 172.104.203.186 | Linode (AS63949) |
-| 172.104.251.198 | Linode (AS63949) |
-
-*Observação*: a variação de IPs pode indicar **rotatividade de infraestrutura** ou uso de um serviço de “anycast”.
-
-### Arquivos associados (malware) – hashes relevantes
-| SHA‑256 | Tipo | Detections (VT) | Comentário |
-|----------|------|------------------|------------|
-| `c77cc485980f82d0a6012316a181be59c435...` | Windows EXE (UPX) | 63 malicious | MyDoom/Emotet downloader. |
-| `0fdc87b7...` | Windows EXE | 63 malicious | Downloader de trojan, contém macro de download. |
-| `4588636f...` (ICL0udin_Bypass) | Windows EXE | 47 malicious | Potencial loader/packer. |
-| `a93092f...` (docx) | Office DOCX (macro) | 0 malicious (mas malware) | VBA que baixa `http://teste.com/arquivo.exe`. |
-| `f414cdf7...` (xlsx) | Excel XLSM | 36 malicious | Macro que baixa e executa payload. |
-| `fe82a2b2...` (APK) | Android APK | 0 malicious | Contém permissões “INTERNET”, “CAMERA”, “VIBRATE”, contém chamadas a `http://teste.com`. |
+> **Observação:** A grande quantidade de registros A (57) sugere uma infraestrutura volátil. Os listados são representativos dos blocos mais comuns e suspeitos.
 
 ---
 
-## 5. Recomendações (investigação e detecção)
-
-1. **Monitoramento DNS**  
-   - Crie regras de alerta para **consultas ao domínio `teste.com`** e seus sub‑domínios em logs de DNS (resolvidas para os IPs acima).  
-   - Correlacione com tráfego fora‑do‑tempo (pico fora de horário comercial).  
-
-2. **Bloqueio de IPs**  
-   - Adicione os cinco endereços IPv4 a listas de **deny‑list** nos firewalls perímetro e proxies.  
-   - Caso a infraestrutura utilize *anycast*, monitore novos IPs associados ao domínio e avalie bloqueio em nível de FQDN (DNS‑sinkhole).  
-
-3. **Inspeção de tráfego HTTP/HTTPS**  
-   - Desbloqueie apenas conexões HTTPS a `teste.com` e registre a inspeção de certificado (Let’s Encrypt).  
-   - Procure por **download de arquivos executáveis** (extensões .exe, .dll, .msi) no corpo das respostas.  
-
-4. **Análise de E-mails e Documentos**  
-   - Verifique caixas de correio por documentos Office (DOCX, XLSM) que contenham macros com referência a `teste.com`.  
-   - Utilize ferramentas de sandbox (ex.: Cuckoo, VMRay) para abrir suspeitos e observar comportamento de download.  
-
-5. **Threat Hunting de indicadores de compromise (IoC)**  
-   - Procure nos endpoints pelos hashes SHA‑256 dos executáveis listados (c77cc485…, 0fdc87b7…).  
-   - Busque por arquivos criados no `%TEMP%` com nome “arquivo.exe” ou similar.  
-   - Verifique registros de processos que invoquem `URLDownloadToFile` ou `ShellExecute` via ETW/Windows Event Forwarding.  
-
-6. **Enriquecimento adicional**  
-   - Consulte bancos de dados de reputação de IP (AbuseIPDB, ThreatIntel Platforms) para validar histórico de abusos.  
-   - Verifique se os IPs pertencem a **cloud providers** que oferecem “pay‑as‑you‑go” e podem ser abusados por atores maliciosos.  
-
-7. **Comunicação com provedores**  
-   - Notifique os provedores de nuvem (AWS, Linode, OVH) sobre o uso abusivo dos seus blocos de IP; eles podem tomar providências de remoção.  
-
-8. **Atualização de IDS/IPS**  
-   - Importe as regras de Snort/Suricata já listadas (ex.: `PROTOCOL-ICMP Unusual PING`, `FILE tracking GIF (1x1 pixel)`) que já detectam tráfego relacionado.  
-   - Crie regras específicas para **HTTP GET** a `/arquivo.exe` ou `/favicon.ico` seguido por 1×1 GIF (indicativo de rastreamento).  
+## 5. Recomendações de Ações de Investigação
+1.  **Bloqueio Proativo em Perímetro**: Recomenda-se o bloqueio imediato do domínio `teste.com` e de todos os subdomínios e IPs relacionados listados como IOCs em firewalls, proxies web e sistemas de prevenção de intrusão (IPS).
+2.  **Monitoramento de DNS Interno**: Configure o sinkhole DNS ou regras de alerta no SIEM para qualquer tentativa de resolução de `teste.com` ou seus subdomínios na rede corporativa. Correlacione com tentativas de acesso a URLs com parâmetros suspeitos.
+3.  **Threat Hunting com IOCs**: Busca ativa em logs de endpoint, proxy e e-mail por comunicações com os IPs listados, hashes associados a famílias de malware conhecidas (usando o JARM como referência) e tentativas de acesso aos subdomínios de phishing (`action.att.com.teste.com`).
+4.  **Análise de Tráfego de Saída**: Investigar conexões de saída HTTP/HTTPS na porta 80/443 para os IPs da AS63949 (Linode) e outros listados, que não sejam justificadas por aplicações empresariais conhecidas.
+5.  **Verificação em Feeds de Ameaças Especializados**: Consultar os IPs e o domínio em feeds de inteligência que capturam atividades de botnets, C2 e malware, complementando a visão do OTX.
+6.  **Análise de Certificados em Tráfego**: Monitorar e alertar para o uso dos fingerprints de certificados (JARM) e emissores (Let's Encrypt R-series específica, ZeroSSL) associados a este domínio em tráfego criptografado.
+7.  **Investigação de Atividades de E-mail**: Analisar logs de e-mail em busca de mensagens contendo links para `teste.com` ou seus subdomínios, dada a associação prévia com tentativas de phishing.
 
 ---
 
 ## 6. Conclusão
-O domínio **teste.com** apresenta forte indício de ser **instrumento de campanha maliciosa**, atuando como **servidor de entrega (C2/Downloader)** e como **referência em documentos Office** que executam payloads. Embora o domínio possua certificados legítimos e responda com conteúdo HTTP “normal”, a combinação de:
-
-* Vários IPs em provedores de nuvem,  
-* Amostras de malware UPX altamente detectadas que apontam para o domínio,  
-* Documentos com macros que baixam executáveis de `http://teste.com/arquivo.exe`,  
-
-... demonstra que ele está sendo utilizado ativamente por atores maliciosos para distribuir **trojans, ransomware e ferramentas de download**.  
-
-Recomenda‑se **monitoramento ativo**, **bloqueio de IP/FQDN** e **investigações de endpoints** para identificar possíveis compromissos. A presença de certificados válidos reforça a necessidade de **inspeção profunda** (deep packet inspection) em vez de confiar apenas em validação TLS.  
-
----
-**Nível de Risco:** **Médio‑Alto** (suficiente para inclusão em listas de bloqueio corporativas e para ação de threat‑hunting).
+O domínio `teste.com` é um ativo digital de **alto risco**. Sua combinação de idade, privacidade de registro, infraestrutura técnica atípica e evasiva, detecções positivas por motores de segurança e histórico de subdomínios associados a phishing formam um perfil consistente com operações maliciosas. A ausência de pulsos no OTX é atípica, mas não anula os fortes indicadores levantados por outras fontes. Conclui-se que `teste.com` opera como parte de uma infraestrutura potencialmente utilizada para **fraude online, phishing e possível suporte a campanhas de malware**. Recomenda-se seu tratamento como ameaça concreta, com aplicação de controles de bloqueio e monitoramento contínuo para detecção de qualquer tentativa de interação com os sistemas da organização.

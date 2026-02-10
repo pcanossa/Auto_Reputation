@@ -1,2 +1,0 @@
-./reports/threat_report_example_com.md = d500ef1f194f781472f58b006ad7142f950459408c4dc908d76ba9e265b5d68c
-./reports/threat_data_example_com.txt = b49ce5f9d18ff346ca295668aba82e3d27a62fccb911c08f04f7fe58ba9db4dd

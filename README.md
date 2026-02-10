@@ -3,7 +3,7 @@
 
 ## Introdução
 
-Uma suíte de ferramentas de linha de comando em Python para realizar análises de reputação e threat intelligence em endereços IP e domínios. O aplicativo coleta dados de diversas fontes públicas (**Shodan**, **VirusTotal**, **AlienVault OTX**, **Urlscan**, **WHOIS**, etc.) e utiliza um modelo de linguagem grande (LLM) `gpt-oss:120b-cloud` através do `Ollama` para gerar relatórios detalhados em formato Markdown com geração de arquivos com dados coletados, que foram utilizados para a análise.
+Uma suíte de ferramentas de linha de comando em Python para realizar análises de reputação e threat intelligence em endereços IP e domínios. O aplicativo coleta dados de diversas fontes públicas (**Shodan**, **VirusTotal**, **AlienVault OTX**, **Urlscan**, **WHOIS**, etc.) e utiliza um modelo de linguagem grande (LLM) `gpt-oss:120b-cloud` através do `Ollama` para gerar relatórios detalhados em formato Markdown com geração de arquivos com dados coletados em `json` estruturado, que foram utilizados para a análise.
 
 ## Funcionalidades
 
@@ -11,7 +11,7 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
 - **Análise de Reputação de Domínio:** Coleta informações de WHOIS, subdomínios, arquivos e IPs associados e reputação em listas de ameaças.
 - **Coleta e Análise de scripts de Sites Maliciosos**: Coleta de scripts executaod ao acessar o site, e posterior análise de compostamentos maliciosos observados nos scripts coletados.
 - **Geração de Relatórios com IA:** Utiliza o modelo `gpt-oss:120b-cloud` via Ollama para analisar os dados coletados e gerar um relatório de threat intelligence estruturado.
-- **Geração de Arquivo com Dados Coletados para Análise**: Gera arquivo em formato `.txt`, de todos dados coletados e utilizados para a análise na geração do relatório.
+- **Geração de Arquivo com Dados Coletados para Análise**: Gera arquivo em formato `.json`, de todos dados coletados e utilizados para a análise na geração do relatório.
 - **Geração de Hash SHA256:** gera de forma automática hashes de integridade dos documentos criados e analisados.
 
 ## Tecnologias Utilizadas
@@ -32,15 +32,15 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
   - AlienVault OTX
   - IPInfo.io
   - `whois` 
-  - URLScan.io
+  - URLScan
   - AbuseIPDB
   - `wget`
-  - `curl`
-  - Crt.sh
+  - `cur
   - Scamalytics
   - Google Public DNS
   - DNS Dumpster
   - Phishing Army
+  - VPNAPI
 
 ## Pré-requisitos
 
@@ -92,10 +92,11 @@ Antes de começar, certifique-se de ter o seguinte instalado:
       ```bash
       ollama pull gpt-oss:120b-cloud
       ```
-    - Iniciar serviço de chat `gpt-oss:120b-cloud` **(Necessário somente na primeira vez que executar o script)**
+    - Autenticar dispositivo para uso da conta cloud. Será exibido uma url para autenticação. **(Necessário somente na primeira vez que executar o script)**
       ```bash
-      ollama run gpt-oss:120b-cloud
+      ollama signin
       ```
+    
 
     **Certifique-se de que o serviço do Ollama esteja em execução antes de rodar o script.**
 
@@ -136,7 +137,7 @@ O script principal `auto_reputation.py` oferece um menu interativo para escolher
 
 3.  Insira o alvo (domínio ou IP) quando solicitado.
 
-4.  Aguarde a coleta de dados e a geração do relatório. Ao final, um arquivo `.md` com o relatório completo, e um arquivo `.txt` com os dados coletados, utilizados na análise pela IA, serão salvo no diretório `reports`.
+4.  Aguarde a coleta de dados e a geração do relatório. Ao final, um arquivo `.md` com o relatório completo, e um arquivo `.json` com os dados coletados, utilizados na análise pela IA, serão salvo no diretório `reports`.
 
 * **Certifique-se de sempre iniciar o serviço Ollama antes de executar o script com `ollama start`.**
 
@@ -146,7 +147,8 @@ O script principal `auto_reputation.py` oferece um menu interativo para escolher
 -   `/tools/ip_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de endereços IP.
 -   `/tools/domain_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de domínios.
 -   `/tools/scripts_analisys.py`: Módulo responsável por toda a lógica de coleta e análise de scripts.
--   `/tools/get_phishing_list`: Módulo responsável pela obtenção de lista de domínios reportados como phihshing.
+-   `/tools/get_phishing_list.py`: Módulo responsável pela obtenção de lista de domínios reportados como phihshing.
+-   `/tools/ollama_engine.py`: Módulo responsável por toda a lógica de de comunicação e geração de resposta pela LLM / Ollama.
 -   `/tools/prompts`: Diretório de prompts para geração de relatórios pela LLM.
 -   `/reports`: Diretório de armazenamento dos relatórios gerados pelas análises.
 -   `/reports/phishing_lists`: Diretório de armazenamento de listas de domínios reportados como phishing obtidas para análise.

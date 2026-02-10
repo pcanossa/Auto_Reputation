@@ -1,3 +1,0 @@
-./reports/threat_report_zyxy_com.md = 1e4248250159c763ea869222813e0fdd3ff9d041ac118c1f569e76c12ff1e7f8
-./reports/threat_data_zyxy_com.txt = f9eb346d8ba624b710fffbc8fd1faa13c4f8fc16d8e9922d1034d630a3f1488c
-./reports/phishing_lists/phishing_army_blocklist_29-01-2026.txt = d9661f19209881e4d0624ee64df616f343dfae670c3207bae200b11d8b804110

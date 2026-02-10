@@ -1,7 +1,9 @@
 from datetime import datetime
+import json
 from ollama import Client
 from tools.prompts.domain_prompt import generate_domain_threat_intel_prompt
 from tools.get_phishing_list import fetch_phishing_lists
+from tools.ollama_engine import ollama_engine
 import requests
 import dotenv
 import sys
@@ -78,33 +80,11 @@ def run_domain_analysis():
         else:
             return stdout.replace('"""', '\\"\\"\\"')
     
-    def seach_urlscan(domain):
-        url_scan_reponse = requests.get(f'https://urlscan.io/api/v1/search/?q=domain:{domain_name}')
-        url_scan_reponse.raise_for_status()
-
-        url_scan_data=url_scan_reponse.json()
-        if url_scan_data.get('results'): # Limita os resultados para evitar prompts muito longos
-            results = url_scan_data.get("results", [])
-            
-            # Extrai apenas informações essenciais de cada resultado
-            summarized_results = []
-            for result in results[:20]: 
-                summary = {
-                    "task": result.get("task"),
-                    "page": {"domain": result.get("page", {}).get("domain"), "ip": result.get("page", {}).get("ip")},
-                    "stats": result.get("stats"),
-                }
-                summarized_results.append(summary)
-
-            url_scan_final = str({"results": summarized_results})
-            return url_scan_final
-        return url_scan_reponse.text
-
     print(f"Coletando informações para o domínio: {domain_name}...")
 
     sanitized_domain = domain_name.replace('.', '_')
     report_filename = f"threat_report_{sanitized_domain}.md"
-    json_filename = f"threat_data_{sanitized_domain}.txt"
+    json_filename = f"threat_data_{sanitized_domain}.json"
 
     try:
         # 1. Análise do WHOIS.com
@@ -113,7 +93,8 @@ def run_domain_analysis():
         headers_text = get_cli_header(domain_name)
 
         # 2. Análise do Urlscan.io
-        url_scan_data = seach_urlscan(domain_name)
+        url_scan_data = requests.get(f'https://urlscan.io/api/v1/search/?q=domain:{domain_name}')
+        url_scan_data.raise_for_status()
         
         # 3. Análise do Virus Total
         vt_details_response = requests.get(f'https://www.virustotal.com/api/v3/domains/{domain_name}', headers={
@@ -140,13 +121,6 @@ def run_domain_analysis():
             'X-OTX-API-KEY': ALIEN_VAULT_API_KEY
         })
         av_response.raise_for_status()
-        
-        av_data = av_response.json()
-        # Limita os dados do Alien Vault para incluir apenas os pulsos (relatórios de ameaças)
-        if 'pulse_info' in av_data and 'pulses' in av_data['pulse_info']:
-            av_details_text = str({"pulses": av_data['pulse_info']['pulses']})
-        else:
-            av_details_text = av_response.text
 
         #7. Análise de certificado cert.sh
         cert_response = requests.get(f'https://crt.sh/?q={domain_name}&output=json', headers=headers)
@@ -165,61 +139,50 @@ def run_domain_analysis():
         #Análise em lista de urls phishings conhecidas
         phishing_list_info, phishing_list_info_file = fetch_phishing_lists(domain_name)
 
-
-        # Combinar todos os dados em uma única string
-
-        combined_content = f"""
-        ## DADOS COLETADOS PARA ANÁLISE DE THREAT INTELLIGENCE
-
-        TIMESTAMP: {datetime.now().isoformat()}
-
-        ### 1. Informações do WHOIS
-        ```html
-        {whois_text}
-        ```
-
-        ### 2. Informações do Urlscan.io
-        ```json
-        {url_scan_data}
-        ```
-
-        ### 3. Informações do VirusTotal
-        ```json
-        detecções = {vt_details_response.text}
-        comentários da comunidade = {vt_comments_response.text}
-        arquivos comunicados = {vt_files_response.text}
-        ```   
-
-        ### 4. Informações do Alien Vault OTX
-        ```json
-        {av_details_text}
-        ```
-
-        ### 5. Informações do DNS
-        ```json
-        {dns_response.text}
-        ```
-
-        ### 6. Cabeçalhos HTTP via cURL
-        ```html
-        {headers_text}
-        ```
-
-        ### 7. Informações do certificado SSL/TLS
-        ```json
-        {cert_response.text}
-        ```
-
-        ### 8. Informações do DNSDumpster
-        ```json
-        {dns_dumpster_response.text}
-        ```
-
-        ### 9. Verificação em listas de phishing conhecidas pelo Phishing Army
-        ```text
-        {phishing_list_info}
-        ```
-        """
+        domain_data = {
+            "target": domain_name,
+            "timestamp": datetime.now().isoformat(),
+            "tools": {
+                "whois": {
+                    "description": "Informações do WHOIS",
+                    "data": whois_text
+                },
+                "urlscan": {
+                    "description": "Informações do Urlscan.io",
+                    "data": url_scan_data.json()
+                },
+                "virustotal": {
+                    "description": "Informações do VirusTotal",
+                    "detections": vt_details_response.json(),
+                    "comments": vt_comments_response.json(),
+                    "files": vt_files_response.json()
+                },
+                "alienvault": {
+                    "description": "Informações do Alien Vault OTX",
+                    "data": av_response.json()
+                },
+                "dns": {
+                    "description": "Informações do DNS",
+                    "data": dns_response.json()
+                },
+                "curl_headers": {
+                    "description": "Cabeçalhos HTTP via cURL",
+                    "data": headers_text
+                },
+                "ssl_cert": {
+                    "description": "Informações do certificado SSL/TLS",
+                    "data": cert_response.json()
+                },
+                "dns_dumpster": {
+                    "description": "Informações do DNSDumpster",
+                    "data": dns_dumpster_response.json()
+                },
+                "phishing_army": {
+                    "description": "Verificação em listas de phishing",
+                    "data": phishing_list_info
+                }
+            }
+        }
 
         
     except requests.exceptions.HTTPError as e:
@@ -228,8 +191,54 @@ def run_domain_analysis():
         sys.exit(1)
 
     prompt = generate_domain_threat_intel_prompt()
+    
+    resumos_ferramentas = []
 
-    message = [
+    print(f"\n=========>> Analisando blocos de informação...\n")
+
+    for tool_name, tool_info in domain_data['tools'].items():
+    
+        data_content = tool_info.get('data') or tool_info.get('detections')
+        description = tool_info.get('description', tool_name)
+    
+        print(f"[+] Processando: {description}")
+
+        message = [
+            {
+                'role': 'system',
+                'content': 'Você é um especialista em Threat Intelligence, com foco em análise de vetores maliciosos, identificando IPs, domínios, hosts e comportamentos maliciosos.'
+            },
+            {
+                'role': 'user',
+                'content': """
+            Analise os seguintes dados coletados para o domínio {domain_name}, extraia as principais informações relevantes para Threat Intelligence, identifique possíveis indicadores de comprometimento (IOCs), padrões de comportamento malicioso e forneça um resumo detalhado sobre a reputação e riscos associados a este domínio. Considere todas as fontes de dados apresentadas, correlacione as informações e destaque quaisquer sinais de alerta ou atividades suspeitas que possam indicar que este domínio é malicioso ou está associado a atividades de phishing, malware ou outras ameaças cibernéticas:
+            * Identificar ao início do relatória, a ferramenta que foi utilizada para análise (urlscan, whois...)
+            * Gere ao final, um relatótio em markdown
+            * Sucinto, contendo as informações de maior relevância, e de inteligência.
+            * Construção do relatório em um único parágrafo, sem tópicos ou seções, apenas um texto corrido, mas que contenha toda
+            * Parágrafo único com no máximo de 700 caracteres, focando apenas nas informações mais relevantes e de inteligência, sem incluir detalhes triviais ou redundantes.
+            * Evite incluir informações que não sejam diretamente relevantes para a avaliação de risco do domínio.
+            """
+            },
+            {
+              'role': 'user',
+              'content': f"Analise estes dados técnicos de {description} para o domínio {domain_name} e forneça um resumo técnico: {data_content}"
+            }
+       ]
+
+        resumo = ollama_engine(message=message)
+        resumos_ferramentas.append(resumo)
+
+    
+    contexto_consolidado = "\n\n".join(resumos_ferramentas)
+    full_response = []
+
+    print("\n\n===============Resumo dos Dados==================\n")
+    print(f"{contexto_consolidado}\n")
+    print(f"\n=========>> Analisando e gerando relatório...\n")
+
+    
+    final_message = [
         {
             'role': 'system',
             'content': 'Você é um especialista em Threat Intelligence, com foco em análise de vetores maliciosos, identificando IPs, domínios, hosts e comportamentos maliciosos.'
@@ -240,16 +249,12 @@ def run_domain_analysis():
         },
         {
           'role': 'user',
-          'content': combined_content
+          'content': contexto_consolidado
         }
-    ]
+    ] 
 
-    print(f"\n=========>> Analisando e gerando relatório...\n")
-    full_response = []
     try:
-        for part in client.chat('gpt-oss:120b-cloud', messages=message, stream=True):
-          content = part['message']['content']
-          full_response.append(content)
+        full_response = ollama_engine(message=final_message)
     except Exception as e:
         print(f"\n\nErro ao comunicar com o modelo de IA: {e}")
         sys.exit(1)
@@ -260,7 +265,7 @@ def run_domain_analysis():
         f.write("".join(full_response))
 
     with open(f'./reports/{json_filename}', "w", encoding="utf-8") as f:
-        f.write(combined_content)
+       json.dump(domain_data, f, indent=4, ensure_ascii=False)
 
     print(f"[+] Relatório salvo com sucesso em: {report_filename}")
     print(f"[+] Dados coletados salvo com sucesso em: {json_filename}")

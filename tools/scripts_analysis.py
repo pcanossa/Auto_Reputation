@@ -14,7 +14,12 @@ from datetime import datetime
 def run_scripts_analysis():
     files=[]
 
-    client = Client()
+    # Verificação e correção do host do Ollama para evitar erro 10049 no Windows
+    ollama_host = os.getenv('OLLAMA_HOST')
+    if ollama_host and '0.0.0.0' in ollama_host:
+        client = Client(host=ollama_host.replace('0.0.0.0', '127.0.0.1'))
+    else:
+        client = Client()
 
     TARGET_URL = input("Digite a URL alvo (ex: http://example.com): ").strip()
     if not TARGET_URL.startswith(("http://", "https://")):

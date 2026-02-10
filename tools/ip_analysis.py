@@ -9,7 +9,12 @@ import os
 import hashlib
 
 def run_ip_analysis():
-    client=Client()
+    # Verificação e correção do host do Ollama para evitar erro 10049 no Windows
+    ollama_host = os.getenv('OLLAMA_HOST')
+    if ollama_host and '0.0.0.0' in ollama_host:
+        client = Client(host=ollama_host.replace('0.0.0.0', '127.0.0.1'))
+    else:
+        client = Client()
     files=[]
 
     ip = input("Digite o endereço IP a ser analisado (ex: 192.168.0.1): ").strip()
@@ -29,6 +34,7 @@ def run_ip_analysis():
     ALIEN_VAULT_API_KEY = os.getenv("ALIEN_VAULT_API_KEY")
     ABUSEIPDB_API_KEY = os.getenv("ABUSEIPDB_API_KEY")
     SCAMNALYTICS_API_KEY = os.getenv("SCAMNALYTICS_API_KEY")
+    VPNAPI_KEY = os.getenv("VPNAPI_KEY")
     
     print(f"Coletando informações para o IP: {ip}...")
 
@@ -164,6 +170,8 @@ def run_ip_analysis():
         scamnalytics_data = requests.get(f'https://api11.scamalytics.com/v3/pcanossa/?key={api_key}&ip={ip}')
         scamnalytics_data.raise_for_status()
 
+        vpanapi_response = requests.get(f'https://vpnapi.io/api/{ip}?key={VPNAPI_KEY}')
+        vpanapi_response.raise_for_status()
 
         # Combinar todos os dados em uma única string para a IA
         combined_content = f"""
@@ -216,6 +224,11 @@ def run_ip_analysis():
         ### 9. Informações do Scamalytics
         ```json
         {scamnalytics_data.text}
+        ```
+
+        ### 10. Informações do VPNAPI
+        ```json
+        {vpanapi_response.text}
         ```
         """
         

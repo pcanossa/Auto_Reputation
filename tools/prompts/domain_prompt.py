@@ -41,6 +41,11 @@ def generate_domain_threat_intel_prompt():
     | **DNS** | 6 A‑records diferentes (todos dentro do bloco 23. x.x.x). | Distribuição geográfica e de rede típica de **cloud providers**, facilitando disponibilidade e resiliência para atores maliciosos. |
     | **Whois** | Registrado em 1995, via **IANA** (sem contato público). | Domínio antigo, possivelmente usado como “placeholder” ou **sandbox** por ferramentas automáticas de teste. |
 
+    Existem fortes evidências de que este IP está ou esteve envolvido em operações maliciosas: (**Se não existir comportamento malicioso, ignorar essa parte e não construir**) 
+
+    *   **Associação a Campanhas de Phishing**: O Urlscan desecreve como um domínio de phishing que se disfarça como um portal de serviço governamental para regularização de documento, com últiplos scans públicos para URLs como `https://portalbrofcbenef.com/site-receita/consulta.html?cpf=... associados a ele.
+    *   **Atividade de C2**: Infraestrutura distribuída e heterogênea, comum em operações de ataque para aumentar a resiliência e evitar bloqueios.
+
     **Táticas/Procedimentos (ATT&CK) observados nos pulsos associados**  
 
     - **T1071 – Application Layer Protocol (HTTP/DNS)** – uso de domínios legítimos como capa.  

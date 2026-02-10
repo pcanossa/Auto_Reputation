@@ -112,7 +112,7 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal, Ali
 
 3.  Adicione suas chaves de API ao arquivo `.env` da seguinte forma:
     ```
-    VT_API_KEY="SUA_CHAVE_API_DO_VIRUSTOTAL"
+    VT_API_KEY=SUA_CHAVE_API_DO_VIRUSTOTAL
     ALIEN_VAULT_API_KEY=SUA_CHAVE_API_DO_ALIENVAULT
     ABUSEIPDB_API_KEY=SUA_CHAVE_API_DO_ABUSEIPDB
     SCAMNALYTICS_API_KEY=SUA_CHAVE_API_DO_SCAMNALYTICS

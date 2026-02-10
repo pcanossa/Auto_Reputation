@@ -9,7 +9,12 @@ import subprocess
 import os
 
 def run_domain_analysis():
-    client=Client()
+    # Verificação e correção do host do Ollama para evitar erro 10049 no Windows
+    ollama_host = os.getenv('OLLAMA_HOST')
+    if ollama_host and '0.0.0.0' in ollama_host:
+        client = Client(host=ollama_host.replace('0.0.0.0', '127.0.0.1'))
+    else:
+        client = Client()
     files=[]
 
     domain_name = input("Digite o nome do domínio a ser analisado (ex: example.com): ").strip()

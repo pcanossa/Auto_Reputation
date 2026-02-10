@@ -1,0 +1,3 @@
+./reports/threat_report_sistemafull_site.md = effae3c2fcfcc9228a4482546c95a5586fd9af8e929c5baf247d2f1c37e810b2
+./reports/threat_data_sistemafull_site.txt = 90748bd6a88f2148a7a96230030066f5fbb38dd215999df3f885e006c59ec190
+./reports/phishing_lists/phishing_army_blocklist_10-02-2026.txt = a9ec5e1b136ebc05d144629e199b13cb3b482caac22564b45fdcd922d87f2a14

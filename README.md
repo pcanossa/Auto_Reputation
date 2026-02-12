@@ -118,7 +118,19 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal, Ali
     ABUSEIPDB_API_KEY=SUA_CHAVE_API_DO_ABUSEIPDB
     SCAMNALYTICS_API_KEY=SUA_CHAVE_API_DO_SCAMNALYTICS
     DNS_DUMPSTER_API_KEY=SUA_CHAVE_API_DO_DNSDUMPSTER
+    NETLAS_API_KEY=SUA_CHAVE_API_DO_NETLAS
+    IPINFO_API_KEY=SUA_CHAVE_API_DO_IPINFO   
     ```
+
+Acesso para obtenção das chaves API, após criação de consta (Todos possuem cota para usp gratuito):
+* [Shodan](https://www.shodan.io/)
+* [VirusTotal](https://www.virustotal.com/gui/join-us)
+* [AlienVault OTX](https://otx.alienvault.com/)
+* [AbuseIPDB](https://abuseipdb.com/)
+* [Scamalytics](https://scamalytics.com/)
+* [DNS Dumpster](https://dnsdumpster.com/)
+* [Netlas](https://netlas.io/)
+* [IPInfo](https://ipinfo.io/)
 
 ## Como Usar
 

@@ -12,7 +12,6 @@ import os
 import hashlib
 
 def run_ip_analysis():
-    # Verificação e correção do host do Ollama para evitar erro 10049 no Windows
     ollama_host = os.getenv('OLLAMA_HOST')
     if ollama_host and '0.0.0.0' in ollama_host:
         client = Client(host=ollama_host.replace('0.0.0.0', '127.0.0.1'))
@@ -39,6 +38,9 @@ def run_ip_analysis():
     ABUSEIPDB_API_KEY = os.getenv("ABUSEIPDB_API_KEY")
     SCAMNALYTICS_API_KEY = os.getenv("SCAMNALYTICS_API_KEY")
     VPNAPI_KEY = os.getenv("VPNAPI_KEY")
+    NETLAS_API_KEY = os.getenv("NETLAS_API_KEY")
+    IP_INFO_API_KEY = os.getenv("IPINFO_API_KEY")
+
 
     shodan_api = shodan.Shodan(SHODAN_API_KEY)
     
@@ -95,9 +97,14 @@ def run_ip_analysis():
 
     try:
 
-        shodan_response = shodan_api.host(ip)
+        #shodan_response = shodan_api.host(ip)
 
-        ipinfo_response = requests.get(f'https://ipinfo.io/{ip}/json', headers=headers)
+        netlas_response = requests.get(f"https://app.netlas.io/api/host/{ip}", headers={
+            "Authorization": f"Bearer {NETLAS_API_KEY}"
+        })
+        netlas_response.raise_for_status()
+
+        ipinfo_response = requests.get(f'https://api.ipinfo.io/lite/{ip}?token={IP_INFO_API_KEY}', headers=headers)
         ipinfo_response.raise_for_status() 
 
         url_scan_reponse = requests.get(f'https://urlscan.io/api/v1/search/?q=ip:{ip}')
@@ -170,9 +177,9 @@ def run_ip_analysis():
                     "description": "Informações do Alien Vault OTX",
                     "data": av_response.json()
                 },
-                "shodan": {
-                    "description": "Informações do Shodan",
-                    "data": shodan_response
+                "netlas": {
+                    "description": "Informações do Netlas",
+                    "data": netlas_response.json()
                 },    
                 "curl_headers": {
                     "description": "Cabeçalhos HTTP via cURL",

@@ -3,6 +3,11 @@ import os
 import datetime
 
 def fetch_phishing_lists(domain):
+    VERDE = '\033[92m'
+    RESET = '\033[0m'
+    NEGRITO = '\033[1m'
+    LIGHT_BLUE = "\033[1;36m"
+    AMARELO = '\033[93m'
 
     phishing_list_urls = "Ausente em listas de phishing conhecidas.\n\n"
     phishing_army = requests.get("https://phishing.army/download/phishing_army_blocklist_extended.txt")
@@ -22,7 +27,7 @@ def fetch_phishing_lists(domain):
         f.write(phishing_army.text)
     
     final_file_path = f"../reports/phishing_lists/phishing_army_blocklist_{datetime.datetime.now().strftime('%d-%m-%Y')}.txt"
-    print(f"\n[+] Lista atualizada de phishing utilizada para análise salva em: {final_file_path}")
+    print(f"\n[{VERDE}{NEGRITO}+{RESET}] Lista atualizada de phishing utilizada para análise salva em: {final_file_path}")
     final_file_path = f"./reports/phishing_lists/phishing_army_blocklist_{datetime.datetime.now().strftime('%d-%m-%Y')}.txt"
 
     return phishing_list_urls, final_file_path

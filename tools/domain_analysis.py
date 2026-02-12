@@ -11,6 +11,12 @@ import subprocess
 import os
 
 def run_domain_analysis():
+    VERDE = '\033[92m'
+    RESET = '\033[0m'
+    NEGRITO = '\033[1m'
+    LIGHT_BLUE = "\033[1;36m"
+    AMARELO = '\033[93m'
+
     # Verificação e correção do host do Ollama para evitar erro 10049 no Windows
     ollama_host = os.getenv('OLLAMA_HOST')
     if ollama_host and '0.0.0.0' in ollama_host:
@@ -201,7 +207,7 @@ def run_domain_analysis():
         data_content = tool_info.get('data') or tool_info.get('detections')
         description = tool_info.get('description', tool_name)
     
-        print(f"[+] Processando: {description}")
+        print(f"[{VERDE}{NEGRITO}+{RESET}] Processando: {VERDE}{NEGRITO}{description}{RESET}")
 
         message = [
             {
@@ -233,7 +239,7 @@ def run_domain_analysis():
     contexto_consolidado = "\n\n".join(resumos_ferramentas)
     full_response = []
 
-    print("\n\n===============Resumo dos Dados==================\n")
+    print(f"\n\n{LIGHT_BLUE}{NEGRITO}===============Resumo dos Dados=================={RESET}\n")
     print(f"{contexto_consolidado}\n")
     print(f"\n=========>> Analisando e gerando relatório...\n")
 
@@ -259,7 +265,7 @@ def run_domain_analysis():
         print(f"\n\nErro ao comunicar com o modelo de IA: {e}")
         sys.exit(1)
 
-    print(f"\n\n--- Fim da Análise ---")
+    print(f"\n\n{VERDE}{NEGRITO}--- Fim da Análise ---{RESET}")
 
     with open(f'./reports/{report_filename}', "w", encoding="utf-8") as f:
         f.write("".join(full_response))
@@ -267,8 +273,8 @@ def run_domain_analysis():
     with open(f'./reports/{json_filename}', "w", encoding="utf-8") as f:
        json.dump(domain_data, f, indent=4, ensure_ascii=False)
 
-    print(f"[+] Relatório salvo com sucesso em: {report_filename}")
-    print(f"[+] Dados coletados salvo com sucesso em: {json_filename}")
+    print(f"[{VERDE}{NEGRITO}+{RESET}] Relatório salvo com sucesso em: {report_filename}")
+    print(f"[{VERDE}{NEGRITO}+{RESET}] Dados coletados salvo com sucesso em: {json_filename}")
 
     full_report_path = f'./reports/{report_filename}'
     full_data_path = f'./reports/{json_filename}'

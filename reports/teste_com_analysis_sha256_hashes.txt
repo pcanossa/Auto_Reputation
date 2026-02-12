@@ -1,3 +1,3 @@
-./reports/threat_report_teste_com.md = 1e5d5c737a6a3af8cdd08861d0f6a26239b3b97bbe05df24c2f54b6d62625947
-./reports/threat_data_teste_com.json = ee829366bc955ba72d69e517d9bc0321996cbaab3c08a6c1affba1dcad284ab8
-./reports/phishing_lists/phishing_army_blocklist_10-02-2026.txt = 4b604738c5c1ac9b4e7f31f04a9215da738a4ecd9eb02129dbef7e932aca7a3b
+./reports/threat_report_teste_com.md = de8ee46c0a3046f59f7b4fddd4e0247f07eeed8547daeb4a520605fd3f492d35
+./reports/threat_data_teste_com.json = 7cd5ca3294480f4603098aab0ce2a5309435ae5469eea0095d6651033b98d232
+./reports/phishing_lists/phishing_army_blocklist_12-02-2026.txt = ec74a409240cc3e723398ffd8f0793d7af72acabcf3150ac4142fd073a4f4aff

@@ -18,7 +18,7 @@ def fetch_phishing_lists(domain):
 
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    target_dir = os.path.join(script_dir, '..', 'reports', 'phishing_lists')
+    target_dir = os.path.join(script_dir, '..', '..', 'reports', 'phishing_lists')
 
     os.makedirs(target_dir, exist_ok=True)
 
@@ -26,7 +26,7 @@ def fetch_phishing_lists(domain):
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(phishing_army.text)
     
-    final_file_path = f"../reports/phishing_lists/phishing_army_blocklist_{datetime.datetime.now().strftime('%d-%m-%Y')}.txt"
+    final_file_path = f"./reports/phishing_lists/phishing_army_blocklist_{datetime.datetime.now().strftime('%d-%m-%Y')}.txt"
     print(f"\n[{VERDE}{NEGRITO}+{RESET}] Lista atualizada de phishing utilizada para análise salva em: {final_file_path}")
     final_file_path = f"./reports/phishing_lists/phishing_army_blocklist_{datetime.datetime.now().strftime('%d-%m-%Y')}.txt"
 

@@ -9,6 +9,8 @@ def generate_filehash_threat_intel_prompt():
     1.  **Resumo Executivo:** Um parágrafo conciso com as principais descobertas (grupos de atividades maliciosas relacionados, camapnhas relacionadas, registros de malignidade, comportamento suspeito, domínios e IPs suspeitos relacionados, registros de malignidade).
     2.  **Análise de Comportamento:** Avalie se há indícios de atividade maliciosa, como associação com botnets, scanners, ou servidores de C2, uso para phishing, comunicaçao com servidores C2, extração de dados, criptografia de dados, malware com base nos dados das fontes fornecidas.
     3.  **Informações de Campanhas associadas (Se houver):**
+        - **Nome de Arquivos:** Nome de arquivos associados à hash de arquivo analisada.
+        - **Tipo:** de Arquivo Associado (script, js,, executável, exe...)
         - **Grupo:** Nome da organização.
         - **Alvo:** Alvos da campanha.
         - **Localização:** Localização de campanha.
@@ -64,10 +66,13 @@ def generate_filehash_threat_intel_prompt():
     ## 3. Informações de Campanha Associada
     | Campo | Valor |
     |-------|-------|
-    | **Grupo** | Não definido para filehash. |
+    | **Nome de Arquivos** | atualize_outlook.js |
+    | **Tipo** | script, js |
+    | **Obfuscação** | XOR em variáveis de carregamento |
+    | **Classe** | Infostealer |
+    | **Grupo/Família** | Mirai |
     | **Alvo** | Usuários de emails do outlook, etc. |
     | **Localização** | Brasil |
-    | **Classe** | Infostealer |
     | **Objetivos** | Extração de dados de autenticação e PII |
 
     ---

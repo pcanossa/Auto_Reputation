@@ -1,8 +1,8 @@
 from datetime import datetime
 import json
 from ollama import Client
-from tools.prompts.filehash_prompt import generate_filehash_threat_intel_prompt
-from tools.ollama_engine import ollama_engine
+from ..prompts.filehash_prompt import generate_filehash_threat_intel_prompt
+from ..others.ollama_engine import ollama_engine
 import requests
 import dotenv
 import sys
@@ -36,10 +36,10 @@ def run_filehash_analysis():
 
     if type_hash == 1:
         filehash = input("Digite o a hash SHA256 a ser analisado: ").strip()
-        type = "sha256"
+        type_hash = "sha256"
     else:
         filehash = input("Digite o a hash md5 a ser analisado: ").strip()
-        type = "md5"
+        type_hash = "md5"
 
 
     headers = {
@@ -50,26 +50,21 @@ def run_filehash_analysis():
         'DNT': '1',
     }
 
-    dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+    dotenv_path = os.path.join(os.path.dirname(__file__), '../.env')
     dotenv.load_dotenv(dotenv_path=dotenv_path)
 
     VT_API_KEY = os.getenv("VT_API_KEY")
     ALIEN_VAULT_API_KEY = os.getenv("ALIEN_VAULT_API_KEY")
     ABUSE_CH_API_KEY = os.getenv("ABUSE_CH_API_KEY")
+    HYBRID_ANALYSIS_API_KEY = os.getenv("HYBRID_ANALYSIS_API_KEY")
         
     print(f"Coletando informações para o hash de arquivo: {filehash}...")
 
     report_filename = f"threat_report_{filehash}.md"
     json_filename = f"threat_data_{filehash}.json"
 
-    try:
-        
-        # 2. Análise do Urlscan.io
-        url_scan_data = requests.get(f'https://urlscan.io/api/v1/search/?q=hash:{filehash}')
-        url_scan_data.raise_for_status()
-        
+    try:       
 
-        # 3. Análise do Virus Total
         vt_details_response = requests.get(f'https://www.virustotal.com/api/v3/files/{filehash}', headers={
             'x-apikey': VT_API_KEY,
             'accept': 'application/json'
@@ -95,7 +90,6 @@ def run_filehash_analysis():
         vt_all_response.raise_for_status()   
 
 
-        #4. Análise IOC Alien Vault
         av_analise = requests.get(f'https://otx.alienvault.com/api/v1/indicators/file/{filehash}/analysis', headers={
             'accept': 'application/json',
             'X-OTX-API-KEY': ALIEN_VAULT_API_KEY
@@ -108,42 +102,61 @@ def run_filehash_analysis():
         })
         av_response.raise_for_status()
 
-        #7. Análise URLHaus sha256
-        urlhaus_response = requests.post(f'https://urlhaus-api.abuse.ch/v1/payload/?{type}_hash={filehash}', headers={
+        urlhaus_response = requests.post(f'https://urlhaus-api.abuse.ch/v1/payload/', headers={
             "Auth-Key": ABUSE_CH_API_KEY,
-            "Content-Type": "application/json"
+        }, data={
+            f"{type_hash}_hash": filehash
         })
         urlhaus_response.raise_for_status()
 
-        #Análise DNS (opcional, pode ser expandida conforme necessário)
-        yara_response = requests.post(f'https://yaraify-api.abuse.ch/api/v1/?query=lookup_hash&search_term={filehash}', headers={
+        print(f"{type_hash}_hash: {filehash}")
+
+        yara_response = requests.post(f'https://yaraify-api.abuse.ch/api/v1/', headers={
             "Auth-Key": ABUSE_CH_API_KEY,
             "Content-Type": "application/json"
+        }, json={
+            "query": "lookup_hash",
+            "search_term": filehash
         })
         yara_response.raise_for_status()
 
-        #Análise DNS pelo DNSDumpster
-        malware_bazaar_response = requests.post(f'https://mb-api.abuse.ch/api/v1/?query=get_info&hash={filehash}', headers={
+        malware_bazaar_response = requests.post(f'https://mb-api.abuse.ch/api/v1/', headers={
             "Auth-Key": ABUSE_CH_API_KEY,
+        }, data = {
+            "query": "get_info",
+            "hash": filehash
         })
         malware_bazaar_response.raise_for_status()
 
-        threat_fox_response= requests.post(f'https://threatfox-api.abuse.ch/api/v1/?query=get_info&hash={filehash}', headers={
+        threat_fox_response= requests.post(f'https://threatfox-api.abuse.ch/api/v1/', headers={
             "Auth-Key": ABUSE_CH_API_KEY,
+        }, json={
+            "query": "search_hash",
+            "hash": filehash
         })
         threat_fox_response.raise_for_status()
+
+        hybris_analysis_response= requests.get(f"https://hybrid-analysis.com/api/v2/search/hash?hash={filehash}", headers={
+            "api-key": HYBRID_ANALYSIS_API_KEY,
+            "accept": "application/json"
+        })
+        hybris_analysis_response.raise_for_status()
+
+
+        hybris_analysis_analysis= requests.get(f"https://hybrid-analysis.com/api/v2/overview/{filehash}", headers={
+            "api-key": HYBRID_ANALYSIS_API_KEY,
+            "accept": "application/json"
+        })
+        hybris_analysis_analysis.raise_for_status()
         
 
         filehash_data = {
             "target": filehash,
+            "type_hash": type_hash,
             "timestamp": datetime.now().isoformat(),
             "tools": {
-                "urlscan": {
-                    "description": "Informações do Urlscan.io",
-                    "data": url_scan_data.json()
-                },
                 "virustotal_details": {
-                    "description": "Informações do VirusTotal - Detalhes Gerais",
+                    "description": "Informações do VirusTotal - Informações Gerais",
                     "data": vt_details_response.json(),
                 },
                 "virustotal_behavior": {
@@ -166,8 +179,8 @@ def run_filehash_analysis():
                     "description": "Informações do URLHaus",
                     "data": urlhaus_response.json()
                 },
-                "yara": {
-                    "description": "Informações YARA",
+                "yaraify": {
+                    "description": "Informações do YARAify",
                     "data": yara_response.json()
                 },
                 "malware_bazaar": {
@@ -177,6 +190,14 @@ def run_filehash_analysis():
                 "threat_fox": {
                     "description": "Informações do Threat Fox",
                     "data": threat_fox_response.json()
+                },
+                "hybrid_analysys_overview": {
+                    "description": "Informações do Hybrid Analysis - Informações Gerais",
+                    "data": hybris_analysis_response.json()
+                },
+                "hybrid_analysys_analysis": {
+                    "description": "Informações do Hybrid Analysis - Análise de Comportamento",
+                    "data": hybris_analysis_analysis.json()
                 }
             }
         }

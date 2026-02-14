@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from urllib.parse import urlparse
-from tools.prompts.script_prompt import generate_script_threat_intel_prompt
+from ..prompts.script_prompt import generate_script_threat_intel_prompt
 import json
 import hashlib
 import time

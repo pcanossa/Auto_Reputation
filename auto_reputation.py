@@ -1,7 +1,7 @@
-from tools.domain_analysis import run_domain_analysis
-from tools.ip_analysis import run_ip_analysis
-from tools.scripts_analysis import run_scripts_analysis
-from tools.filehash_analysis import run_filehash_analysis
+from tools.analysis.domain_analysis import run_domain_analysis
+from tools.analysis.ip_analysis import run_ip_analysis
+from tools.analysis.scripts_analysis import run_scripts_analysis
+from tools.analysis.filehash_analysis import run_filehash_analysis
 import sys
 import hashlib
 

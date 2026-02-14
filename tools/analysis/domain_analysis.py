@@ -1,9 +1,9 @@
 from datetime import datetime
 import json
 from ollama import Client
-from tools.prompts.domain_prompt import generate_domain_threat_intel_prompt
-from tools.get_phishing_list import fetch_phishing_lists
-from tools.ollama_engine import ollama_engine
+from ..prompts.domain_prompt import generate_domain_threat_intel_prompt
+from ..others.get_phishing_list import fetch_phishing_lists
+from ..others.ollama_engine import ollama_engine
 import requests
 import dotenv
 import sys
@@ -35,7 +35,7 @@ def run_domain_analysis():
         'DNT': '1',
     }
 
-    dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+    dotenv_path = os.path.join(os.path.dirname(__file__), '../.env')
     dotenv.load_dotenv(dotenv_path=dotenv_path)
 
     VT_API_KEY = os.getenv("VT_API_KEY")
@@ -222,7 +222,7 @@ def run_domain_analysis():
             * Gere ao final, um relatótio em markdown
             * Sucinto, contendo as informações de maior relevância, e de inteligência.
             * Construção do relatório em um único parágrafo, sem tópicos ou seções, apenas um texto corrido, mas que contenha toda
-            * Parágrafo único com no máximo de 700 caracteres, focando apenas nas informações mais relevantes e de inteligência, sem incluir detalhes triviais ou redundantes.
+            * Parágrafo único com no máximo de 1000 caracteres, focando apenas nas informações mais relevantes e de inteligência, sem incluir detalhes triviais ou redundantes.
             * Evite incluir informações que não sejam diretamente relevantes para a avaliação de risco do domínio.
             """
             },

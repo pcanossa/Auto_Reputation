@@ -1,0 +1,2116 @@
+{
+    "target": "58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca",
+    "type_hash": "sha256",
+    "timestamp": "2026-02-14T13:06:00.874088",
+    "tools": {
+        "virustotal_details": {
+            "description": "Informações do VirusTotal - Informações Gerais",
+            "data": {
+                "data": {
+                    "id": "58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca",
+                    "type": "file",
+                    "links": {
+                        "self": "https://www.virustotal.com/api/v3/files/58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca"
+                    },
+                    "attributes": {
+                        "trid": [
+                            {
+                                "file_type": "ELF Executable and Linkable format (Linux)",
+                                "probability": 50.1
+                            },
+                            {
+                                "file_type": "ELF Executable and Linkable format (generic)",
+                                "probability": 49.8
+                            }
+                        ],
+                        "type_tags": [
+                            "executable",
+                            "linux",
+                            "elf"
+                        ],
+                        "names": [
+                            "s-h.4-.dick",
+                            "4zr6d.exe"
+                        ],
+                        "last_analysis_results": {
+                            "Bkav": {
+                                "method": "blacklist",
+                                "engine_name": "Bkav",
+                                "engine_version": "2.0.0.1",
+                                "engine_update": "20260212",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Lionic": {
+                                "method": "blacklist",
+                                "engine_name": "Lionic",
+                                "engine_version": "8.16",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Elastic": {
+                                "method": "blacklist",
+                                "engine_name": "Elastic",
+                                "engine_version": "4.0.248",
+                                "engine_update": "20260203",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "MicroWorld-eScan": {
+                                "method": "blacklist",
+                                "engine_name": "MicroWorld-eScan",
+                                "engine_version": "14.0.409.0",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Gen:Variant.Trojan.Linux.Gafgyt.8"
+                            },
+                            "ClamAV": {
+                                "method": "blacklist",
+                                "engine_name": "ClamAV",
+                                "engine_version": "1.5.1.0",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Unix.Trojan.Mirai-7100807-0"
+                            },
+                            "CTX": {
+                                "method": "blacklist",
+                                "engine_name": "CTX",
+                                "engine_version": "2024.8.29.1",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "elf.trojan.gafgyt"
+                            },
+                            "CAT-QuickHeal": {
+                                "method": "blacklist",
+                                "engine_name": "CAT-QuickHeal",
+                                "engine_version": "22.00",
+                                "engine_update": "20260212",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Skyhigh": {
+                                "method": "blacklist",
+                                "engine_name": "Skyhigh",
+                                "engine_version": "v2021.2.0+4045",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "ALYac": {
+                                "method": "blacklist",
+                                "engine_name": "ALYac",
+                                "engine_version": "2.0.0.10",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Gen:Variant.Trojan.Linux.Gafgyt.8"
+                            },
+                            "Malwarebytes": {
+                                "method": "blacklist",
+                                "engine_name": "Malwarebytes",
+                                "engine_version": "3.1.0.209",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "VIPRE": {
+                                "method": "blacklist",
+                                "engine_name": "VIPRE",
+                                "engine_version": "6.0.0.35",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Gen:Variant.Trojan.Linux.Gafgyt.8"
+                            },
+                            "Sangfor": {
+                                "method": "blacklist",
+                                "engine_name": "Sangfor",
+                                "engine_version": "2.22.3.0",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Suspicious.Linux.Save.a"
+                            },
+                            "K7AntiVirus": {
+                                "method": "blacklist",
+                                "engine_name": "K7AntiVirus",
+                                "engine_version": "14.35.58587",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "K7GW": {
+                                "method": "blacklist",
+                                "engine_name": "K7GW",
+                                "engine_version": "14.35.58587",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "CrowdStrike": {
+                                "method": "blacklist",
+                                "engine_name": "CrowdStrike",
+                                "engine_version": "1.0",
+                                "engine_update": "20251219",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Baidu": {
+                                "method": "blacklist",
+                                "engine_name": "Baidu",
+                                "engine_version": "1.0.0.2",
+                                "engine_update": "20190318",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "VirIT": {
+                                "method": "blacklist",
+                                "engine_name": "VirIT",
+                                "engine_version": "9.5.1145",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Symantec": {
+                                "method": "blacklist",
+                                "engine_name": "Symantec",
+                                "engine_version": "1.22.0.0",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Linux.Mirai"
+                            },
+                            "ESET-NOD32": {
+                                "method": "blacklist",
+                                "engine_name": "ESET-NOD32",
+                                "engine_version": "18.2.18.0",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Linux/Mirai.A trojan"
+                            },
+                            "TrendMicro-HouseCall": {
+                                "method": "blacklist",
+                                "engine_name": "TrendMicro-HouseCall",
+                                "engine_version": "24.550.0.1002",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Backdoor.Linux.BASHLITE.SMJC2"
+                            },
+                            "Avast": {
+                                "method": "blacklist",
+                                "engine_name": "Avast",
+                                "engine_version": "23.9.8494.0",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "ELF:Mirai-A [Trj]"
+                            },
+                            "Cynet": {
+                                "method": "blacklist",
+                                "engine_name": "Cynet",
+                                "engine_version": "4.0.3.4",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Malicious (score: 99)"
+                            },
+                            "Kaspersky": {
+                                "method": "blacklist",
+                                "engine_name": "Kaspersky",
+                                "engine_version": "22.0.1.28",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "HEUR:Backdoor.Linux.Mirai.hw"
+                            },
+                            "BitDefender": {
+                                "method": "blacklist",
+                                "engine_name": "BitDefender",
+                                "engine_version": "7.2",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Gen:Variant.Trojan.Linux.Gafgyt.8"
+                            },
+                            "NANO-Antivirus": {
+                                "method": "blacklist",
+                                "engine_name": "NANO-Antivirus",
+                                "engine_version": "1.0.170.26895",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "ViRobot": {
+                                "method": "blacklist",
+                                "engine_name": "ViRobot",
+                                "engine_version": "2014.3.20.0",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Tencent": {
+                                "method": "blacklist",
+                                "engine_name": "Tencent",
+                                "engine_version": "1.0.0.1",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Backdoor.Linux.Mirai.wz"
+                            },
+                            "Sophos": {
+                                "method": "blacklist",
+                                "engine_name": "Sophos",
+                                "engine_version": "3.3.1.0",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Linux/DDoS-CI"
+                            },
+                            "F-Secure": {
+                                "method": "blacklist",
+                                "engine_name": "F-Secure",
+                                "engine_version": "18.10.1547.307",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Malware.LINUX/Mirai.bonb"
+                            },
+                            "DrWeb": {
+                                "method": "blacklist",
+                                "engine_name": "DrWeb",
+                                "engine_version": "7.0.74.11120",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Linux.Mirai.9770"
+                            },
+                            "Zillya": {
+                                "method": "blacklist",
+                                "engine_name": "Zillya",
+                                "engine_version": "2.0.0.5543",
+                                "engine_update": "20260212",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "TrendMicro": {
+                                "method": "blacklist",
+                                "engine_name": "TrendMicro",
+                                "engine_version": "24.550.0.1002",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Backdoor.Linux.BASHLITE.SMJC2"
+                            },
+                            "McAfeeD": {
+                                "method": "blacklist",
+                                "engine_name": "McAfeeD",
+                                "engine_version": "1.2.0.13781",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "CMC": {
+                                "method": "blacklist",
+                                "engine_name": "CMC",
+                                "engine_version": "2.4.2022.1",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Emsisoft": {
+                                "method": "blacklist",
+                                "engine_name": "Emsisoft",
+                                "engine_version": "2024.8.0.61147",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Gen:Variant.Trojan.Linux.Gafgyt.8 (B)"
+                            },
+                            "Ikarus": {
+                                "method": "blacklist",
+                                "engine_name": "Ikarus",
+                                "engine_version": "6.4.16.0",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Trojan.Linux.Mirai"
+                            },
+                            "Avast-Mobile": {
+                                "method": "blacklist",
+                                "engine_name": "Avast-Mobile",
+                                "engine_version": "260213-00",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "ELF:Mirai-AJO [Trj]"
+                            },
+                            "Jiangmin": {
+                                "method": "blacklist",
+                                "engine_name": "Jiangmin",
+                                "engine_version": "16.0.100",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Varist": {
+                                "method": "blacklist",
+                                "engine_name": "Varist",
+                                "engine_version": "6.6.1.3",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Avira": {
+                                "method": "blacklist",
+                                "engine_name": "Avira",
+                                "engine_version": "8.3.3.24",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "LINUX/Mirai.bonb"
+                            },
+                            "Antiy-AVL": {
+                                "method": "blacklist",
+                                "engine_name": "Antiy-AVL",
+                                "engine_version": "3.0",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Kingsoft": {
+                                "method": "blacklist",
+                                "engine_name": "Kingsoft",
+                                "engine_version": "None",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Microsoft": {
+                                "method": "blacklist",
+                                "engine_name": "Microsoft",
+                                "engine_version": "1.1.26010.1",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Backdoor:Linux/Gafgyt.AX!xp"
+                            },
+                            "Gridinsoft": {
+                                "method": "blacklist",
+                                "engine_name": "Gridinsoft",
+                                "engine_version": "1.0.237.174",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Susp.U.XOREncoded.sd!yf"
+                            },
+                            "Xcitium": {
+                                "method": "blacklist",
+                                "engine_name": "Xcitium",
+                                "engine_version": "38410",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Arcabit": {
+                                "method": "blacklist",
+                                "engine_name": "Arcabit",
+                                "engine_version": "2025.0.0.23",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Trojan.Trojan.Linux.Gafgyt.8"
+                            },
+                            "SUPERAntiSpyware": {
+                                "method": "blacklist",
+                                "engine_name": "SUPERAntiSpyware",
+                                "engine_version": "5.6.0.1032",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "ZoneAlarm": {
+                                "method": "blacklist",
+                                "engine_name": "ZoneAlarm",
+                                "engine_version": "6.23-113518161",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Linux/DDoS-CI"
+                            },
+                            "GData": {
+                                "method": "blacklist",
+                                "engine_name": "GData",
+                                "engine_version": "GD:27.43530AVA:64.30654",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Gen:Variant.Trojan.Linux.Gafgyt.8"
+                            },
+                            "Google": {
+                                "method": "blacklist",
+                                "engine_name": "Google",
+                                "engine_version": "1771005643",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Detected"
+                            },
+                            "AhnLab-V3": {
+                                "method": "blacklist",
+                                "engine_name": "AhnLab-V3",
+                                "engine_version": "3.29.1.10604",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Linux/Mirai.Gen2"
+                            },
+                            "Acronis": {
+                                "method": "blacklist",
+                                "engine_name": "Acronis",
+                                "engine_version": "1.2.0.121",
+                                "engine_update": "20240328",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "VBA32": {
+                                "method": "blacklist",
+                                "engine_name": "VBA32",
+                                "engine_version": "5.5.1",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "TACHYON": {
+                                "method": "blacklist",
+                                "engine_name": "TACHYON",
+                                "engine_version": "2026-02-13.02",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Zoner": {
+                                "method": "blacklist",
+                                "engine_name": "Zoner",
+                                "engine_version": "2.2.2.0",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Rising": {
+                                "method": "blacklist",
+                                "engine_name": "Rising",
+                                "engine_version": "25.0.0.28",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Backdoor.Mirai/Linux!1.B311 (CLASSIC)"
+                            },
+                            "Yandex": {
+                                "method": "blacklist",
+                                "engine_name": "Yandex",
+                                "engine_version": "5.5.2.24",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "TrellixENS": {
+                                "method": "blacklist",
+                                "engine_name": "TrellixENS",
+                                "engine_version": "6.0.6.653",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "huorong": {
+                                "method": "blacklist",
+                                "engine_name": "huorong",
+                                "engine_version": "7b77317:7b77317:0516edd:0516edd",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Trojan/Linux.DDoS.h"
+                            },
+                            "MaxSecure": {
+                                "method": "blacklist",
+                                "engine_name": "MaxSecure",
+                                "engine_version": "1.0.0.1",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "Fortinet": {
+                                "method": "blacklist",
+                                "engine_name": "Fortinet",
+                                "engine_version": "7.0.30.0",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "Linux/Mirai.A!tr"
+                            },
+                            "AVG": {
+                                "method": "blacklist",
+                                "engine_name": "AVG",
+                                "engine_version": "23.9.8494.0",
+                                "engine_update": "20260213",
+                                "category": "malicious",
+                                "result": "ELF:Mirai-A [Trj]"
+                            },
+                            "Panda": {
+                                "method": "blacklist",
+                                "engine_name": "Panda",
+                                "engine_version": "4.6.4.2",
+                                "engine_update": "20260213",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "alibabacloud": {
+                                "method": "blacklist",
+                                "engine_name": "alibabacloud",
+                                "engine_version": "2.2.0",
+                                "engine_update": "20250321",
+                                "category": "undetected",
+                                "result": null
+                            },
+                            "SymantecMobileInsight": {
+                                "method": "blacklist",
+                                "engine_name": "SymantecMobileInsight",
+                                "engine_version": "2.0",
+                                "engine_update": "20260123",
+                                "category": "type-unsupported",
+                                "result": null
+                            },
+                            "BitDefenderFalx": {
+                                "method": "blacklist",
+                                "engine_name": "BitDefenderFalx",
+                                "engine_version": "2.0.936",
+                                "engine_update": "20251216",
+                                "category": "type-unsupported",
+                                "result": null
+                            },
+                            "tehtris": {
+                                "method": "blacklist",
+                                "engine_name": "tehtris",
+                                "engine_version": "v0.1.4",
+                                "engine_update": "20260213",
+                                "category": "type-unsupported",
+                                "result": null
+                            },
+                            "DeepInstinct": {
+                                "method": "blacklist",
+                                "engine_name": "DeepInstinct",
+                                "engine_version": "5.0.0.8",
+                                "engine_update": "20260208",
+                                "category": "type-unsupported",
+                                "result": null
+                            },
+                            "APEX": {
+                                "method": "blacklist",
+                                "engine_name": "APEX",
+                                "engine_version": "6.747",
+                                "engine_update": "20260213",
+                                "category": "type-unsupported",
+                                "result": null
+                            },
+                            "Paloalto": {
+                                "method": "blacklist",
+                                "engine_name": "Paloalto",
+                                "engine_version": "0.9.0.1003",
+                                "engine_update": "20260213",
+                                "category": "type-unsupported",
+                                "result": null
+                            },
+                            "Trapmine": {
+                                "method": "blacklist",
+                                "engine_name": "Trapmine",
+                                "engine_version": "4.0.9.0",
+                                "engine_update": "20260203",
+                                "category": "type-unsupported",
+                                "result": null
+                            },
+                            "Alibaba": {
+                                "method": "blacklist",
+                                "engine_name": "Alibaba",
+                                "engine_version": "0.3.0.5",
+                                "engine_update": "20190527",
+                                "category": "type-unsupported",
+                                "result": null
+                            },
+                            "Webroot": {
+                                "method": "blacklist",
+                                "engine_name": "Webroot",
+                                "engine_version": "1.9.0.8",
+                                "engine_update": "20250227",
+                                "category": "type-unsupported",
+                                "result": null
+                            },
+                            "Cylance": {
+                                "method": "blacklist",
+                                "engine_name": "Cylance",
+                                "engine_version": "3.0.0.0",
+                                "engine_update": "20260213",
+                                "category": "type-unsupported",
+                                "result": null
+                            },
+                            "SentinelOne": {
+                                "method": "blacklist",
+                                "engine_name": "SentinelOne",
+                                "engine_version": "7.5.3.1",
+                                "engine_update": "20251224",
+                                "category": "type-unsupported",
+                                "result": null
+                            },
+                            "Trustlook": {
+                                "method": "blacklist",
+                                "engine_name": "Trustlook",
+                                "engine_version": "1.0",
+                                "engine_update": "20260213",
+                                "category": "type-unsupported",
+                                "result": null
+                            }
+                        },
+                        "first_submission_date": 1771013698,
+                        "popular_threat_classification": {
+                            "suggested_threat_label": "trojan.mirai/gafgyt",
+                            "popular_threat_category": [
+                                {
+                                    "value": "trojan",
+                                    "count": 19
+                                }
+                            ],
+                            "popular_threat_name": [
+                                {
+                                    "value": "mirai",
+                                    "count": 15
+                                },
+                                {
+                                    "value": "gafgyt",
+                                    "count": 9
+                                },
+                                {
+                                    "value": "ddos",
+                                    "count": 3
+                                }
+                            ]
+                        },
+                        "size": 163752,
+                        "magika": "ELF",
+                        "type_tag": "elf",
+                        "sha256": "58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca",
+                        "magic": "ELF 32-bit LSB executable, Renesas SH, version 1 (SYSV), statically linked, not stripped",
+                        "last_submission_date": 1771013698,
+                        "detectiteasy": {
+                            "filetype": "ELF32",
+                            "values": [
+                                {
+                                    "info": "EXEC SH-32",
+                                    "type": "Operation system",
+                                    "name": "Unix"
+                                },
+                                {
+                                    "info": "EXEC SH-32",
+                                    "version": "(GNU) 4.1.2",
+                                    "type": "Compiler",
+                                    "name": "gcc"
+                                }
+                            ]
+                        },
+                        "reputation": -11,
+                        "tlsh": "T1A7F32A4768B55FB7C185AFB531A35A740757E9211B1B0B8AB23EEAF00207DCDF80A764",
+                        "meaningful_name": "s-h.4-.dick",
+                        "tags": [
+                            "elf"
+                        ],
+                        "vhash": "e0f3826e9e3feda7e028dcb55b093ea4",
+                        "last_analysis_date": 1771013698,
+                        "elf_info": {
+                            "header": {
+                                "type": "EXEC (Executable file)",
+                                "hdr_version": "1 (current)",
+                                "num_prog_headers": 3,
+                                "obj_version": "0x1",
+                                "machine": "<unknown>",
+                                "num_section_headers": 16,
+                                "os_abi": "UNIX - System V",
+                                "abi_version": 0,
+                                "entrypoint": 4194720,
+                                "data": "2's complement, little endian",
+                                "class": "ELF32"
+                            },
+                            "export_list": [
+                                {
+                                    "name": "__read_etc_hosts_r",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "longjmp",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__libc_tcdrain",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__linuxthreads_pthread_threads_max",
+                                    "type": "OBJECT"
+                                },
+                                {
+                                    "name": "__GI_pthread_attr_getdetachstate",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_execve",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__libc_sigaction",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__libc_pread",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "strcpy",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_fcntl64",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "send_mc_join",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_sigaddset",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__socketcall",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI___ctype_b",
+                                    "type": "OBJECT"
+                                },
+                                {
+                                    "name": "xdr_longlong_t",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "bcmp",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_memchr",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "setjmp",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__sdivsi3_i4",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_pthread_attr_setdetachstate",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI___glibc_strerror_r",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "pthread_mutex_timedlock",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "waitpid",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__longjmp",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "calculate_tcp_checksum",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__libc_fsync",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__open_nameservers",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_fopen",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "xprt_register",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "getrlimit",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "pause",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "ioctl",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "pthread_cond_signal",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "_stdio_openlist_use_count",
+                                    "type": "OBJECT"
+                                },
+                                {
+                                    "name": "__pthread_mutexattr_destroy",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_initstate_r",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_sigaction",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "strtok_r",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_xdrmem_create",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_time",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "getgid",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__pthread_exit_code",
+                                    "type": "OBJECT"
+                                },
+                                {
+                                    "name": "printf",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "stdout",
+                                    "type": "OBJECT"
+                                },
+                                {
+                                    "name": "random",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_strdup",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_getpagesize",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "getdtablesize",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "lrand48_r",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_h_errno",
+                                    "type": "OBJECT"
+                                },
+                                {
+                                    "name": "__length_question",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_strcasecmp",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__pthread_restart_new",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_tolower",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "pthread_mutexattr_gettype",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__movstr_i4_even",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "pthread_attr_destroy",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "recv",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "connect",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__linuxthreads_initial_report_events",
+                                    "type": "OBJECT"
+                                },
+                                {
+                                    "name": "__encode_question",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "svcerr_auth",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI___uClibc_fini",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__encode_header",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "pthread_attr_getstacksize",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__GI_strncat",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__pthread_once",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "pthread_create",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "sigemptyset",
+                                    "type": "FUNC"
+                                },
+                                {
+                                    "name": "__pthread_mutex_lock",
+                                    "type": "FUNC"
+                                }
+                            ],
+                            "import_list": [
+                                {
+                                    "name": "__deregister_frame_info",
+                                    "type": "NOTYPE"
+                                },
+                                {
+                                    "name": "_Jv_RegisterClasses",
+                                    "type": "NOTYPE"
+                                },
+                                {
+                                    "name": "__register_frame_info",
+                                    "type": "NOTYPE"
+                                }
+                            ],
+                            "section_list": [
+                                {
+                                    "name": "",
+                                    "section_type": "NULL",
+                                    "virtual_address": 0,
+                                    "physical_offset": 0,
+                                    "size": 0,
+                                    "flags": ""
+                                },
+                                {
+                                    "name": ".init",
+                                    "section_type": "PROGBITS",
+                                    "virtual_address": 4194452,
+                                    "physical_offset": 148,
+                                    "size": 48,
+                                    "flags": "AX"
+                                },
+                                {
+                                    "name": ".text",
+                                    "section_type": "PROGBITS",
+                                    "virtual_address": 4194528,
+                                    "physical_offset": 224,
+                                    "size": 87264,
+                                    "flags": "AX"
+                                },
+                                {
+                                    "name": ".fini",
+                                    "section_type": "PROGBITS",
+                                    "virtual_address": 4281792,
+                                    "physical_offset": 87488,
+                                    "size": 36,
+                                    "flags": "AX"
+                                },
+                                {
+                                    "name": ".rodata",
+                                    "section_type": "PROGBITS",
+                                    "virtual_address": 4281828,
+                                    "physical_offset": 87524,
+                                    "size": 8312,
+                                    "flags": "A"
+                                },
+                                {
+                                    "name": ".eh_frame",
+                                    "section_type": "PROGBITS",
+                                    "virtual_address": 4290140,
+                                    "physical_offset": 95836,
+                                    "size": 4,
+                                    "flags": "A"
+                                },
+                                {
+                                    "name": ".ctors",
+                                    "section_type": "PROGBITS",
+                                    "virtual_address": 4358144,
+                                    "physical_offset": 98304,
+                                    "size": 12,
+                                    "flags": "WA"
+                                },
+                                {
+                                    "name": ".dtors",
+                                    "section_type": "PROGBITS",
+                                    "virtual_address": 4358156,
+                                    "physical_offset": 98316,
+                                    "size": 8,
+                                    "flags": "WA"
+                                },
+                                {
+                                    "name": ".jcr",
+                                    "section_type": "PROGBITS",
+                                    "virtual_address": 4358164,
+                                    "physical_offset": 98324,
+                                    "size": 4,
+                                    "flags": "WA"
+                                },
+                                {
+                                    "name": ".data",
+                                    "section_type": "PROGBITS",
+                                    "virtual_address": 4358176,
+                                    "physical_offset": 98336,
+                                    "size": 18580,
+                                    "flags": "WA"
+                                },
+                                {
+                                    "name": ".got",
+                                    "section_type": "PROGBITS",
+                                    "virtual_address": 4376756,
+                                    "physical_offset": 116916,
+                                    "size": 20,
+                                    "flags": "WA"
+                                },
+                                {
+                                    "name": ".bss",
+                                    "section_type": "NOBITS",
+                                    "virtual_address": 4376776,
+                                    "physical_offset": 116936,
+                                    "size": 71328,
+                                    "flags": "WA"
+                                },
+                                {
+                                    "name": ".comment",
+                                    "section_type": "PROGBITS",
+                                    "virtual_address": 0,
+                                    "physical_offset": 116936,
+                                    "size": 4392,
+                                    "flags": ""
+                                },
+                                {
+                                    "name": ".shstrtab",
+                                    "section_type": "STRTAB",
+                                    "virtual_address": 0,
+                                    "physical_offset": 121328,
+                                    "size": 107,
+                                    "flags": ""
+                                },
+                                {
+                                    "name": ".symtab",
+                                    "section_type": "SYMTAB",
+                                    "virtual_address": 0,
+                                    "physical_offset": 122076,
+                                    "size": 21952,
+                                    "flags": ""
+                                },
+                                {
+                                    "name": ".strtab",
+                                    "section_type": "STRTAB",
+                                    "virtual_address": 0,
+                                    "physical_offset": 144028,
+                                    "size": 19724,
+                                    "flags": ""
+                                }
+                            ],
+                            "segment_list": [
+                                {
+                                    "segment_type": "LOAD",
+                                    "resources": [
+                                        ".init",
+                                        ".text",
+                                        ".fini",
+                                        ".rodata",
+                                        ".eh_frame"
+                                    ]
+                                },
+                                {
+                                    "segment_type": "LOAD",
+                                    "resources": [
+                                        ".ctors",
+                                        ".dtors",
+                                        ".jcr",
+                                        ".data",
+                                        ".got",
+                                        ".bss"
+                                    ]
+                                },
+                                {
+                                    "segment_type": "GNU_STACK",
+                                    "resources": []
+                                }
+                            ]
+                        },
+                        "last_modification_date": 1771020941,
+                        "last_analysis_stats": {
+                            "malicious": 33,
+                            "suspicious": 0,
+                            "undetected": 31,
+                            "harmless": 0,
+                            "timeout": 0,
+                            "confirmed-timeout": 0,
+                            "failure": 0,
+                            "type-unsupported": 12
+                        },
+                        "filecondis": {
+                            "dhash": "fc783c3e4c680800",
+                            "raw_md5": "342bbe82a3232cfa8db0bca7d0233de8"
+                        },
+                        "type_description": "ELF",
+                        "telfhash": "t1e5715354943c05d9ef634d29a8686be31853b52a22a9bf28ff26ccc8084f438f165d4f",
+                        "total_votes": {
+                            "harmless": 0,
+                            "malicious": 1
+                        },
+                        "ssdeep": "3072:wgr/XQCUv5n5hOSqj1rWnnIniUDiWmgv3UqAKHZiXpIJTK5TX:wgEC855hxk6nsiUDiWmgv3UqAKHZiXpt",
+                        "sha1": "2681ea080025017d3d98c7050b2b7bf869eda89a",
+                        "times_submitted": 1,
+                        "crowdsourced_yara_results": [
+                            {
+                                "ruleset_id": "00054b746e",
+                                "ruleset_version": "00054b746e|1d926845269a3ac8de0431da133950390b5cced3",
+                                "ruleset_name": "gen_xor_hunting",
+                                "rule_name": "SUSP_XORed_Mozilla_Oct19",
+                                "match_date": 1771017298,
+                                "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+                                "author": "Florian Roth",
+                                "source": "https://github.com/Neo23x0/signature-base"
+                            }
+                        ],
+                        "unique_sources": 1,
+                        "md5": "a2ecbd8af2465c81e99559b1b0e6cead"
+                    }
+                }
+            }
+        },
+        "virustotal_behavior": {
+            "description": "Informações do VirusTotal - Análise de Comportamento",
+            "data": {
+                "data": null
+            }
+        },
+        "virustotal_mitre_behavior": {
+            "description": "Informações do VirusTotal - Análise de Comportamento por MITRE ATT&CK",
+            "data": {
+                "data": {},
+                "links": {
+                    "self": "https://www.virustotal.com/api/v3/files/58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca/behaviour_mitre_trees"
+                }
+            }
+        },
+        "virustotal_all_behavior": {
+            "description": "Informações do VirusTotal - Análise de Comportamentos e Relacionamentos Gerais",
+            "data": {
+                "data": [],
+                "meta": {
+                    "count": 0
+                },
+                "links": {
+                    "self": "https://www.virustotal.com/api/v3/files/58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca/behaviours?limit=10"
+                }
+            }
+        },
+        "alienvault_general": {
+            "description": "Informações do Alien Vault OTX",
+            "data": {
+                "sections": [
+                    "general",
+                    "analysis"
+                ],
+                "type": "sha256",
+                "type_title": "FileHash-SHA256",
+                "indicator": "58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca",
+                "validation": [],
+                "base_indicator": {
+                    "id": 4206374329,
+                    "indicator": "58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca",
+                    "type": "FileHash-SHA256",
+                    "title": "",
+                    "description": "",
+                    "content": "",
+                    "access_type": "public",
+                    "access_reason": ""
+                },
+                "pulse_info": {
+                    "count": 1,
+                    "pulses": [
+                        {
+                            "id": "6990846607fd609da9b13a1c",
+                            "name": "Malware | Feb 15, 2026",
+                            "description": "Malware indicators. Date: Feb 15, 2026. Total: 576 indicators. For more threat intelligence visit https://ltna.com.au/cyber",
+                            "modified": "2026-02-14T14:19:18.794000",
+                            "created": "2026-02-14T14:19:18.794000",
+                            "tags": [
+                                "malware",
+                                "malwarebazaar"
+                            ],
+                            "references": [
+                                "https://ltna.com.au/cyber"
+                            ],
+                            "public": 1,
+                            "adversary": "",
+                            "targeted_countries": [],
+                            "malware_families": [],
+                            "attack_ids": [],
+                            "industries": [],
+                            "TLP": "white",
+                            "cloned_from": null,
+                            "export_count": 0,
+                            "upvotes_count": 0,
+                            "downvotes_count": 0,
+                            "votes_count": 0,
+                            "locked": false,
+                            "pulse_source": "api",
+                            "validator_count": 0,
+                            "comment_count": 0,
+                            "follower_count": 0,
+                            "vote": 0,
+                            "author": {
+                                "username": "LTNA-Australia",
+                                "id": "380633",
+                                "avatar_url": "/otxapi/users/avatar_image/media/avatars/user_380633/resized/80/avatar_3b9c358f36.png",
+                                "is_subscribed": false,
+                                "is_following": false
+                            },
+                            "indicator_type_counts": {
+                                "FileHash-SHA256": 576
+                            },
+                            "indicator_count": 576,
+                            "is_author": false,
+                            "is_subscribing": null,
+                            "subscriber_count": 12,
+                            "modified_text": "1 hour ago ",
+                            "is_modified": false,
+                            "groups": [],
+                            "in_group": false,
+                            "threat_hunter_scannable": true,
+                            "threat_hunter_has_agents": 1,
+                            "related_indicator_type": "FileHash-SHA256",
+                            "related_indicator_is_active": 1
+                        }
+                    ],
+                    "references": [
+                        "https://ltna.com.au/cyber"
+                    ],
+                    "related": {
+                        "alienvault": {
+                            "adversary": [],
+                            "malware_families": [],
+                            "industries": []
+                        },
+                        "other": {
+                            "adversary": [],
+                            "malware_families": [],
+                            "industries": []
+                        }
+                    }
+                },
+                "false_positive": []
+            }
+        },
+        "urlhaus": {
+            "description": "Informações do URLHaus",
+            "data": {
+                "query_status": "ok",
+                "md5_hash": "a2ecbd8af2465c81e99559b1b0e6cead",
+                "sha256_hash": "58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca",
+                "file_type": "elf",
+                "file_size": "163752",
+                "signature": "Mirai",
+                "firstseen": "2026-02-13 20:07:10",
+                "lastseen": null,
+                "url_count": "2",
+                "urlhaus_download": "https://urlhaus-api.abuse.ch/v1/download/58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca/",
+                "virustotal": null,
+                "imphash": null,
+                "ssdeep": "3072:wgr/XQCUv5n5hOSqj1rWnnIniUDiWmgv3UqAKHZiXpIJTK5TX:wgEC855hxk6nsiUDiWmgv3UqAKHZiXpt",
+                "tlsh": "T1A7F32A4768B55FB7C185AFB531A35A740757E9211B1B0B8AB23EEAF00207DCDF80A7",
+                "magika": "elf",
+                "urls": [
+                    {
+                        "url_id": "3777415",
+                        "url": "http://16.171.140.194/s-h.4-.dick",
+                        "url_status": "offline",
+                        "urlhaus_reference": "https://urlhaus.abuse.ch/url/3777415/",
+                        "filename": "s-h.4-.dick",
+                        "firstseen": "2026-02-13",
+                        "lastseen": null
+                    },
+                    {
+                        "url_id": "3777407",
+                        "url": "http://definitely-not.gay/s-h.4-.dick",
+                        "url_status": "offline",
+                        "urlhaus_reference": "https://urlhaus.abuse.ch/url/3777407/",
+                        "filename": "s-h.4-.dick",
+                        "firstseen": "2026-02-13",
+                        "lastseen": null
+                    }
+                ]
+            }
+        },
+        "yaraify": {
+            "description": "Informações do YARAify",
+            "data": {
+                "query_status": "ok",
+                "data": {
+                    "metadata": {
+                        "file_size": 163752,
+                        "file_type_mime": "application/x-executable",
+                        "first_seen": "2026-02-13 20:09:08 UTC",
+                        "last_seen": "2026-02-13 20:12:32 UTC",
+                        "sightings": 5,
+                        "sha256_hash": "58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca",
+                        "md5_hash": "a2ecbd8af2465c81e99559b1b0e6cead",
+                        "sha1_hash": "2681ea080025017d3d98c7050b2b7bf869eda89a",
+                        "sha3_384": "6bf1a7d0c712fd8d3a3b149fe60498d92f0bc248b2066c7498cefa8b08dd884f86a1f69e861ff8f03576f09eab26960b",
+                        "imphash": "",
+                        "ssdeep": "3072:wgr/XQCUv5n5hOSqj1rWnnIniUDiWmgv3UqAKHZiXpIJTK5TX:wgEC855hxk6nsiUDiWmgv3UqAKHZiXpt",
+                        "tlsh": null,
+                        "telfhash": "t1e5715354943c05d9ef634d29a8686be31853b52a22a9bf28ff26ccc8084f438f165d4f",
+                        "gimphash": null,
+                        "dhash_icon": null
+                    },
+                    "tasks": [
+                        {
+                            "task_id": "54624f54-0918-11f1-82f6-42010aa4000b",
+                            "time_stamp": "2026-02-13 20:12:32 UTC",
+                            "file_name": "58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca.elf",
+                            "task_parameters": {
+                                "clamav_scan": 1,
+                                "unpack": 0,
+                                "share_file": 1
+                            },
+                            "unpacked_files_cnt": 0,
+                            "clamav_results": [
+                                "Unix.Dropper.Mirai-7136013-0",
+                                "Unix.Dropper.Mirai-7136057-0",
+                                "Unix.Dropper.Mirai-7136070-0",
+                                "Unix.Dropper.Mirai-7136288-0",
+                                "Unix.Dropper.Mirai-7139229-0",
+                                "Unix.Malware.Mirai-9885121-0",
+                                "Unix.Trojan.Mirai-7100807-0",
+                                "Unix.Trojan.Mirai-8025795-0",
+                                "Unix.Trojan.Mirai-9858729-0"
+                            ],
+                            "static_results": [
+                                {
+                                    "rule_name": "CP_Script_Inject_Detector",
+                                    "author": "DiegoAnalytics",
+                                    "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+                                    "reference": null,
+                                    "yarahub_uuid": "bf7af7bb-5cf7-4fcc-a097-3db4937ad8b6",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "ELF_Toriilike_persist",
+                                    "author": "4r4",
+                                    "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+                                    "reference": "Identified via researched data",
+                                    "yarahub_uuid": "031cfb94-1972-4c6c-b1a5-9f2d6b670836",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "Linux_Gafgyt_Generic",
+                                    "author": "albertzsigovits",
+                                    "description": "Generic Approach to Mirai/Gafgyt samples",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "Qbot_Gafgyt_Bashlite",
+                                    "author": null,
+                                    "description": null,
+                                    "reference": null,
+                                    "yarahub_uuid": "c32b2beb-e2ec-416a-9f01-cc1b19e91f4e",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "setsockopt",
+                                    "author": "Tim Brown @timb_machine",
+                                    "description": "Hunts for setsockopt() red flags",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "SUSP_XORed_Mozilla_Oct19",
+                                    "author": "Florian Roth",
+                                    "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+                                    "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()",
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+                                    "author": "Florian Roth",
+                                    "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+                                    "reference": "Internal Research",
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "unixredflags3",
+                                    "author": "Tim Brown @timb_machine",
+                                    "description": "Hunts for UNIX red flags",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                }
+                            ],
+                            "unpack_results": []
+                        },
+                        {
+                            "task_id": "44558e94-0918-11f1-82f6-42010aa4000b",
+                            "time_stamp": "2026-02-13 20:12:05 UTC",
+                            "file_name": "s-h.4-.dick",
+                            "task_parameters": {
+                                "clamav_scan": 1,
+                                "unpack": 1,
+                                "share_file": 1
+                            },
+                            "unpacked_files_cnt": 0,
+                            "clamav_results": [
+                                "Unix.Dropper.Mirai-7136013-0",
+                                "Unix.Dropper.Mirai-7136057-0",
+                                "Unix.Dropper.Mirai-7136070-0",
+                                "Unix.Dropper.Mirai-7136288-0",
+                                "Unix.Dropper.Mirai-7139229-0",
+                                "Unix.Malware.Mirai-9885121-0",
+                                "Unix.Trojan.Mirai-7100807-0",
+                                "Unix.Trojan.Mirai-8025795-0",
+                                "Unix.Trojan.Mirai-9858729-0"
+                            ],
+                            "static_results": [
+                                {
+                                    "rule_name": "CP_Script_Inject_Detector",
+                                    "author": "DiegoAnalytics",
+                                    "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+                                    "reference": null,
+                                    "yarahub_uuid": "bf7af7bb-5cf7-4fcc-a097-3db4937ad8b6",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "ELF_Toriilike_persist",
+                                    "author": "4r4",
+                                    "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+                                    "reference": "Identified via researched data",
+                                    "yarahub_uuid": "031cfb94-1972-4c6c-b1a5-9f2d6b670836",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "Linux_Gafgyt_Generic",
+                                    "author": "albertzsigovits",
+                                    "description": "Generic Approach to Mirai/Gafgyt samples",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "Qbot_Gafgyt_Bashlite",
+                                    "author": null,
+                                    "description": null,
+                                    "reference": null,
+                                    "yarahub_uuid": "c32b2beb-e2ec-416a-9f01-cc1b19e91f4e",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "setsockopt",
+                                    "author": "Tim Brown @timb_machine",
+                                    "description": "Hunts for setsockopt() red flags",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "SUSP_XORed_Mozilla_Oct19",
+                                    "author": "Florian Roth",
+                                    "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+                                    "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()",
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+                                    "author": "Florian Roth",
+                                    "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+                                    "reference": "Internal Research",
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "unixredflags3",
+                                    "author": "Tim Brown @timb_machine",
+                                    "description": "Hunts for UNIX red flags",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                }
+                            ],
+                            "unpack_results": []
+                        },
+                        {
+                            "task_id": "2020a1ed-0918-11f1-82f6-42010aa4000b",
+                            "time_stamp": "2026-02-13 20:11:04 UTC",
+                            "file_name": "s-h.4-.dick",
+                            "task_parameters": {
+                                "clamav_scan": 1,
+                                "unpack": 1,
+                                "share_file": 1
+                            },
+                            "unpacked_files_cnt": 0,
+                            "clamav_results": [
+                                "Unix.Dropper.Mirai-7136013-0",
+                                "Unix.Dropper.Mirai-7136057-0",
+                                "Unix.Dropper.Mirai-7136070-0",
+                                "Unix.Dropper.Mirai-7136288-0",
+                                "Unix.Dropper.Mirai-7139229-0",
+                                "Unix.Malware.Mirai-9885121-0",
+                                "Unix.Trojan.Mirai-7100807-0",
+                                "Unix.Trojan.Mirai-8025795-0",
+                                "Unix.Trojan.Mirai-9858729-0"
+                            ],
+                            "static_results": [
+                                {
+                                    "rule_name": "CP_Script_Inject_Detector",
+                                    "author": "DiegoAnalytics",
+                                    "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+                                    "reference": null,
+                                    "yarahub_uuid": "bf7af7bb-5cf7-4fcc-a097-3db4937ad8b6",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "ELF_Toriilike_persist",
+                                    "author": "4r4",
+                                    "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+                                    "reference": "Identified via researched data",
+                                    "yarahub_uuid": "031cfb94-1972-4c6c-b1a5-9f2d6b670836",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "Linux_Gafgyt_Generic",
+                                    "author": "albertzsigovits",
+                                    "description": "Generic Approach to Mirai/Gafgyt samples",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "Qbot_Gafgyt_Bashlite",
+                                    "author": null,
+                                    "description": null,
+                                    "reference": null,
+                                    "yarahub_uuid": "c32b2beb-e2ec-416a-9f01-cc1b19e91f4e",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "setsockopt",
+                                    "author": "Tim Brown @timb_machine",
+                                    "description": "Hunts for setsockopt() red flags",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "SUSP_XORed_Mozilla_Oct19",
+                                    "author": "Florian Roth",
+                                    "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+                                    "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()",
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+                                    "author": "Florian Roth",
+                                    "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+                                    "reference": "Internal Research",
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "unixredflags3",
+                                    "author": "Tim Brown @timb_machine",
+                                    "description": "Hunts for UNIX red flags",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                }
+                            ],
+                            "unpack_results": []
+                        },
+                        {
+                            "task_id": "fc69ee3c-0917-11f1-82f6-42010aa4000b",
+                            "time_stamp": "2026-02-13 20:10:04 UTC",
+                            "file_name": "s-h.4-.dick",
+                            "task_parameters": {
+                                "clamav_scan": 1,
+                                "unpack": 1,
+                                "share_file": 1
+                            },
+                            "unpacked_files_cnt": 0,
+                            "clamav_results": [
+                                "Unix.Dropper.Mirai-7136013-0",
+                                "Unix.Dropper.Mirai-7136057-0",
+                                "Unix.Dropper.Mirai-7136070-0",
+                                "Unix.Dropper.Mirai-7136288-0",
+                                "Unix.Dropper.Mirai-7139229-0",
+                                "Unix.Malware.Mirai-9885121-0",
+                                "Unix.Trojan.Mirai-7100807-0",
+                                "Unix.Trojan.Mirai-8025795-0",
+                                "Unix.Trojan.Mirai-9858729-0"
+                            ],
+                            "static_results": [
+                                {
+                                    "rule_name": "CP_Script_Inject_Detector",
+                                    "author": "DiegoAnalytics",
+                                    "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+                                    "reference": null,
+                                    "yarahub_uuid": "bf7af7bb-5cf7-4fcc-a097-3db4937ad8b6",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "ELF_Toriilike_persist",
+                                    "author": "4r4",
+                                    "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+                                    "reference": "Identified via researched data",
+                                    "yarahub_uuid": "031cfb94-1972-4c6c-b1a5-9f2d6b670836",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "Linux_Gafgyt_Generic",
+                                    "author": "albertzsigovits",
+                                    "description": "Generic Approach to Mirai/Gafgyt samples",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "Qbot_Gafgyt_Bashlite",
+                                    "author": null,
+                                    "description": null,
+                                    "reference": null,
+                                    "yarahub_uuid": "c32b2beb-e2ec-416a-9f01-cc1b19e91f4e",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "setsockopt",
+                                    "author": "Tim Brown @timb_machine",
+                                    "description": "Hunts for setsockopt() red flags",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "SUSP_XORed_Mozilla_Oct19",
+                                    "author": "Florian Roth",
+                                    "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+                                    "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()",
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+                                    "author": "Florian Roth",
+                                    "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+                                    "reference": "Internal Research",
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "unixredflags3",
+                                    "author": "Tim Brown @timb_machine",
+                                    "description": "Hunts for UNIX red flags",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                }
+                            ],
+                            "unpack_results": []
+                        },
+                        {
+                            "task_id": "dad1994e-0917-11f1-82f6-42010aa4000b",
+                            "time_stamp": "2026-02-13 20:09:08 UTC",
+                            "file_name": "s-h.4-.dick",
+                            "task_parameters": {
+                                "clamav_scan": 1,
+                                "unpack": 1,
+                                "share_file": 1
+                            },
+                            "unpacked_files_cnt": 0,
+                            "clamav_results": [
+                                "Unix.Dropper.Mirai-7136013-0",
+                                "Unix.Dropper.Mirai-7136057-0",
+                                "Unix.Dropper.Mirai-7136070-0",
+                                "Unix.Dropper.Mirai-7136288-0",
+                                "Unix.Dropper.Mirai-7139229-0",
+                                "Unix.Malware.Mirai-9885121-0",
+                                "Unix.Trojan.Mirai-7100807-0",
+                                "Unix.Trojan.Mirai-8025795-0",
+                                "Unix.Trojan.Mirai-9858729-0"
+                            ],
+                            "static_results": [
+                                {
+                                    "rule_name": "CP_Script_Inject_Detector",
+                                    "author": "DiegoAnalytics",
+                                    "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+                                    "reference": null,
+                                    "yarahub_uuid": "bf7af7bb-5cf7-4fcc-a097-3db4937ad8b6",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "ELF_Toriilike_persist",
+                                    "author": "4r4",
+                                    "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+                                    "reference": "Identified via researched data",
+                                    "yarahub_uuid": "031cfb94-1972-4c6c-b1a5-9f2d6b670836",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "Linux_Gafgyt_Generic",
+                                    "author": "albertzsigovits",
+                                    "description": "Generic Approach to Mirai/Gafgyt samples",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "Qbot_Gafgyt_Bashlite",
+                                    "author": null,
+                                    "description": null,
+                                    "reference": null,
+                                    "yarahub_uuid": "c32b2beb-e2ec-416a-9f01-cc1b19e91f4e",
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "setsockopt",
+                                    "author": "Tim Brown @timb_machine",
+                                    "description": "Hunts for setsockopt() red flags",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "SUSP_XORed_Mozilla_Oct19",
+                                    "author": "Florian Roth",
+                                    "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+                                    "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()",
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+                                    "author": "Florian Roth",
+                                    "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+                                    "reference": "Internal Research",
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                },
+                                {
+                                    "rule_name": "unixredflags3",
+                                    "author": "Tim Brown @timb_machine",
+                                    "description": "Hunts for UNIX red flags",
+                                    "reference": null,
+                                    "yarahub_uuid": null,
+                                    "tlp": "WHITE"
+                                }
+                            ],
+                            "unpack_results": []
+                        }
+                    ]
+                }
+            }
+        },
+        "malware_bazaar": {
+            "description": "Informações do Malware Bazaar",
+            "data": {
+                "query_status": "ok",
+                "data": [
+                    {
+                        "sha256_hash": "58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca",
+                        "sha3_384_hash": "6bf1a7d0c712fd8d3a3b149fe60498d92f0bc248b2066c7498cefa8b08dd884f86a1f69e861ff8f03576f09eab26960b",
+                        "sha1_hash": "2681ea080025017d3d98c7050b2b7bf869eda89a",
+                        "md5_hash": "a2ecbd8af2465c81e99559b1b0e6cead",
+                        "first_seen": "2026-02-13 20:11:37",
+                        "last_seen": null,
+                        "file_name": "s-h.4-.dick",
+                        "file_size": 163752,
+                        "file_type_mime": "application/x-executable",
+                        "file_type": "elf",
+                        "file_format": "ELF",
+                        "file_arch": "SH",
+                        "reporter": "abuse_ch",
+                        "origin_country": "DE",
+                        "anonymous": 0,
+                        "signature": "Mirai",
+                        "imphash": null,
+                        "tlsh": "T1A7F32A4768B55FB7C185AFB531A35A740757E9211B1B0B8AB23EEAF00207DCDF80A764",
+                        "telfhash": "t1e5715354943c05d9ef634d29a8686be31853b52a22a9bf28ff26ccc8084f438f165d4f",
+                        "gimphash": null,
+                        "ssdeep": "3072:wgr/XQCUv5n5hOSqj1rWnnIniUDiWmgv3UqAKHZiXpIJTK5TX:wgEC855hxk6nsiUDiWmgv3UqAKHZiXpt",
+                        "magika": "elf",
+                        "dhash_icon": null,
+                        "trid": [
+                            "50.1% (.) ELF Executable and Linkable format (Linux) (4022/12)",
+                            "49.8% (.O) ELF Executable and Linkable format (generic) (4000/1)"
+                        ],
+                        "comment": null,
+                        "archive_pw": null,
+                        "tags": [
+                            "elf",
+                            "Gafgyt",
+                            "Mirai"
+                        ],
+                        "code_sign": null,
+                        "delivery_method": "web_download",
+                        "intelligence": {
+                            "clamav": [
+                                "Unix.Dropper.Mirai-7136013-0",
+                                "Unix.Dropper.Mirai-7136057-0",
+                                "Unix.Dropper.Mirai-7136070-0",
+                                "Unix.Dropper.Mirai-7136288-0",
+                                "Unix.Dropper.Mirai-7139229-0",
+                                "Unix.Malware.Mirai-9885121-0",
+                                "Unix.Trojan.Mirai-7100807-0",
+                                "Unix.Trojan.Mirai-8025795-0",
+                                "Unix.Trojan.Mirai-9858729-0"
+                            ],
+                            "downloads": "65",
+                            "uploads": "1",
+                            "mail": null
+                        },
+                        "file_information": [
+                            {
+                                "context": "URLhaus",
+                                "value": "https://urlhaus.abuse.ch/url/3777407/"
+                            },
+                            {
+                                "context": "URLhaus",
+                                "value": "https://urlhaus.abuse.ch/url/3777415/"
+                            }
+                        ],
+                        "ole_information": [],
+                        "yara_rules": [
+                            {
+                                "rule_name": "CP_Script_Inject_Detector",
+                                "author": "DiegoAnalytics",
+                                "description": "Detects attempts to inject code into another process across PE, ELF, Mach-O binaries",
+                                "reference": null
+                            },
+                            {
+                                "rule_name": "ELF_Toriilike_persist",
+                                "author": "4r4",
+                                "description": "Detects Torii IoT Botnet (stealthier Mirai alternative)",
+                                "reference": "Identified via researched data"
+                            },
+                            {
+                                "rule_name": "Linux_Gafgyt_Generic",
+                                "author": "albertzsigovits",
+                                "description": "Generic Approach to Mirai/Gafgyt samples",
+                                "reference": null
+                            },
+                            {
+                                "rule_name": "setsockopt",
+                                "author": "Tim Brown @timb_machine",
+                                "description": "Hunts for setsockopt() red flags",
+                                "reference": null
+                            },
+                            {
+                                "rule_name": "SUSP_XORed_Mozilla_Oct19",
+                                "author": "Florian Roth",
+                                "description": "Detects suspicious single byte XORed keyword 'Mozilla/5.0' - it uses yara's XOR modifier and therefore cannot print the XOR key. You can use the CyberChef recipe linked in the reference field to brute force the used key.",
+                                "reference": "https://gchq.github.io/CyberChef/#recipe=XOR_Brute_Force()"
+                            },
+                            {
+                                "rule_name": "SUSP_XORed_Mozilla_RID2DB4",
+                                "author": "Florian Roth",
+                                "description": "Detects suspicious XORed keyword - Mozilla/5.0",
+                                "reference": "Internal Research"
+                            },
+                            {
+                                "rule_name": "unixredflags3",
+                                "author": "Tim Brown @timb_machine",
+                                "description": "Hunts for UNIX red flags",
+                                "reference": null
+                            }
+                        ],
+                        "vendor_intel": {
+                            "CERT-PL_MWDB": {
+                                "detection": "mirai",
+                                "link": "https://mwdb.cert.pl/sample/58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca/"
+                            },
+                            "Intezer": {
+                                "verdict": "not_supported",
+                                "family_name": null,
+                                "analysis_url": "https://analyze.intezer.com/analyses/49ad83b8-2ff1-47eb-b6c5-5064b801b358?utm_source=MalwareBazaar"
+                            },
+                            "InQuest": {
+                                "verdict": null,
+                                "url": null,
+                                "details": []
+                            },
+                            "Triage": {
+                                "malware_family": null,
+                                "score": "1",
+                                "link": "https://tria.ge/reports/260213-yy1zxaez5c/",
+                                "tags": [
+                                    "linux"
+                                ],
+                                "signatures": [],
+                                "malware_config": []
+                            },
+                            "ReversingLabs": {
+                                "threat_name": "Linux.Backdoor.Gafgyt",
+                                "status": "MALICIOUS",
+                                "first_seen": "2026-02-13 20:13:21",
+                                "scanner_count": "36",
+                                "scanner_match": "18",
+                                "scanner_percent": "50.00"
+                            },
+                            "Spamhaus_HBL": [
+                                {
+                                    "detection": "suspicious",
+                                    "link": "https://www.spamhaus.org/hbl/"
+                                }
+                            ],
+                            "FileScan-IO": {
+                                "verdict": null,
+                                "threatlevel": null,
+                                "confidence": null,
+                                "report_link": "https://www.filescan.io/uploads/698f85ae930564ff3ca0191c/reports//overview"
+                            }
+                        },
+                        "comments": null
+                    }
+                ]
+            }
+        },
+        "threat_fox": {
+            "description": "Informações do Threat Fox",
+            "data": {
+                "query_status": "no_result",
+                "data": "Your search did not yield any results"
+            }
+        },
+        "hybrid_analysys_overview": {
+            "description": "Informações do Hybrid Analysis - Informações Gerais",
+            "data": {
+                "sha256s": [
+                    "58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca"
+                ],
+                "reports": []
+            }
+        },
+        "hybrid_analysys_analysis": {
+            "description": "Informações do Hybrid Analysis - Análise de Comportamento",
+            "data": {
+                "sha256": "58968266f92ea06e3f064e23e58d689cc9d6841082581e06876d36d4a14228ca",
+                "last_file_name": "s-h.4-.dick",
+                "other_file_name": [],
+                "threat_score": null,
+                "verdict": "malicious",
+                "url_analysis": false,
+                "size": 163752,
+                "type": "ELF 32-bit LSB executable, Renesas SH, version 1 (SYSV), statically linked, not stripped",
+                "type_short": [
+                    "elf",
+                    "executable"
+                ],
+                "submitted_at": "2026-02-13T21:01:13+00:00",
+                "analysis_start_time": null,
+                "last_multi_scan": "2026-02-13T21:01:15+00:00",
+                "tags": [],
+                "architecture": null,
+                "vx_family": "Trojan[Backdoor]/Linux.Gafgyt",
+                "multiscan_result": 19,
+                "scanners": [
+                    {
+                        "name": "CrowdStrike Falcon Static Analysis (ML)",
+                        "status": "error",
+                        "status_raw": "error",
+                        "error_message": "Submitted file failed validation, given file is unsupported",
+                        "progress": 100,
+                        "total": null,
+                        "positives": null,
+                        "percent": null,
+                        "anti_virus_results": []
+                    },
+                    {
+                        "name": "Metadefender",
+                        "status": "malicious",
+                        "status_raw": "malicious",
+                        "error_message": null,
+                        "progress": 100,
+                        "total": 26,
+                        "positives": 5,
+                        "percent": 19,
+                        "anti_virus_results": []
+                    }
+                ],
+                "scanners_v2": {
+                    "crowdstrike_ml": {
+                        "name": "CrowdStrike Falcon Static Analysis (ML)",
+                        "status": "error",
+                        "status_raw": "error",
+                        "error_message": "Submitted file failed validation, given file is unsupported",
+                        "progress": 100,
+                        "percent": null,
+                        "anti_virus_results": []
+                    },
+                    "metadefender": {
+                        "name": "Metadefender",
+                        "status": "malicious",
+                        "status_raw": "malicious",
+                        "error_message": null,
+                        "progress": 100,
+                        "total": 26,
+                        "positives": 5,
+                        "percent": 19,
+                        "anti_virus_results": []
+                    },
+                    "virustotal": null,
+                    "urlscan_io": null,
+                    "scam_adviser": null,
+                    "clean_dns": null,
+                    "bfore_ai": null,
+                    "criminal_ip": null,
+                    "vipre": null
+                },
+                "submit_context": [
+                    "http://16.171.140.194/s-h.4-.dick"
+                ],
+                "related_parent_hashes": [],
+                "related_children_hashes": [],
+                "reports": [],
+                "whitelisted": false,
+                "children_in_queue": 0,
+                "children_in_progress": 0,
+                "community_score_votes_down": 0,
+                "community_score_votes_up": 0,
+                "related_reports": []
+            }
+        }
+    }
+}

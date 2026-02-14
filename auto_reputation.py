@@ -1,6 +1,7 @@
 from tools.domain_analysis import run_domain_analysis
 from tools.ip_analysis import run_ip_analysis
 from tools.scripts_analysis import run_scripts_analysis
+from tools.filehash_analysis import run_filehash_analysis
 import sys
 import hashlib
 
@@ -22,8 +23,8 @@ def calculate_files_sha256(file_paths, type_analysis):
     for path in file_paths:
         hash_value = calculate_sha256(path)
         sha256_hashes.append(f'{path} = {hash_value}')
-        if type_analysis == "domain" or type_analysis == "ip":
-            print(f"[{LIGHT_BLUE}{NEGRITO}+ {RESET}] SHA256 do arquivo {path}: {hash_value}")
+        if type_analysis == "domain" or type_analysis == "ip" or type_analysis == "filehash":
+            print(f"[{LIGHT_BLUE}{NEGRITO}+{RESET}] SHA256 do arquivo {path}: {hash_value}")
     create_sha_file(sha256_hashes, type_analysis)
 
 
@@ -47,7 +48,8 @@ def main():
    print(f"{LIGHT_BLUE}{NEGRITO}TIPOS DE ANÁLISES DISPONÍVEIS{RESET}\n")
    print(f"{VERDE}{NEGRITO}[1]{RESET}. Análise de Domínio")
    print(f"{VERDE}{NEGRITO}[2]{RESET}. Análise de IP")
-   print(f"{VERDE}{NEGRITO}[3]{RESET}. Análise de Scripts\n")
+   print(f"{VERDE}{NEGRITO}[3]{RESET}. Análise de Scripts")
+   print(f"{VERDE}{NEGRITO}[4]{RESET}. Análise de Hash de Arquivo\n")
    print(f"{LIGHT_BLUE}{NEGRITO}{'='*62}{RESET}\n")
    choice = input("Digite o número da opção desejada: ")
    files=[] 
@@ -61,6 +63,9 @@ def main():
    elif choice == "3":
        files = run_scripts_analysis()
        choice="scripts"
+   elif choice == "4":
+       files = run_filehash_analysis()
+       choice="filehash"
    else:   
        print("Opção inválida. Encerrando o programa.")
        sys.exit(1)

@@ -1,3 +1,0 @@
-./reports/threat_report_qrserver_com.md = 48a3170897005bb1b73cdf7bb474756dd9f724e4879a83c32c498a7ae3c9650e
-./reports/threat_data_qrserver_com.json = b6f1dcec8a34e07ad44b0b9826c6e8855e80ddf5978fb350518714ce299d4949
-./reports/phishing_lists/phishing_army_blocklist_10-02-2026.txt = 4b604738c5c1ac9b4e7f31f04a9215da738a4ecd9eb02129dbef7e932aca7a3b

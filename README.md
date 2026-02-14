@@ -112,14 +112,15 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal, Ali
 2.  Crie um arquivo chamado `.env` neste diretório.
 
 3.  Adicione suas chaves de API ao arquivo `.env` da seguinte forma:
-    ```
+    ```env
     VT_API_KEY=SUA_CHAVE_API_DO_VIRUSTOTAL
     ALIEN_VAULT_API_KEY=SUA_CHAVE_API_DO_ALIENVAULT
     ABUSEIPDB_API_KEY=SUA_CHAVE_API_DO_ABUSEIPDB
     SCAMNALYTICS_API_KEY=SUA_CHAVE_API_DO_SCAMNALYTICS
     DNS_DUMPSTER_API_KEY=SUA_CHAVE_API_DO_DNSDUMPSTER
     NETLAS_API_KEY=SUA_CHAVE_API_DO_NETLAS
-    IPINFO_API_KEY=SUA_CHAVE_API_DO_IPINFO   
+    IPINFO_API_KEY=SUA_CHAVE_API_DO_IPINFO 
+    ABUS_CH_API_KEY=SUA_CHAVE_API_DO_ABUS_CH  
     ```
 
 Acesso para obtenção das chaves API, após criação de consta (Todos possuem cota para usp gratuito):
@@ -131,6 +132,7 @@ Acesso para obtenção das chaves API, após criação de consta (Todos possuem 
 * [DNS Dumpster](https://dnsdumpster.com/)
 * [Netlas](https://netlas.io/)
 * [IPInfo](https://ipinfo.io/)
+* [Abuse.ch](https://auth.abuse.ch/)
 
 ## Como Usar
 

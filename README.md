@@ -3,7 +3,7 @@
 
 ## Introdução
 
-Uma suíte de ferramentas de linha de comando em Python para realizar análises de reputação e threat intelligence em endereços IP, domínios e hashes de arquivos. O aplicativo coleta dados de diversas fontes públicas (**Abuse.ch*, **VirusTotal**, **AlienVault OTX**, **Urlscan**, **WHOIS**, etc.) e utiliza um modelo de linguagem grande (LLM) `gpt-oss:120b-cloud` através do `Ollama` para gerar relatórios detalhados em formato Markdown com geração de arquivos com dados coletados em `json` estruturado, que foram utilizados para a análise.
+Uma suíte de ferramentas de linha de comando em Python para realizar análises de reputação e threat intelligence em endereços IP, domínios e hashes de arquivos. O aplicativo coleta dados de diversas fontes públicas (**Abuse.ch**, **VirusTotal**, **AlienVault OTX**, **Urlscan**, **WHOIS**, etc.) e utiliza um modelo de linguagem grande (LLM) `gpt-oss:120b-cloud` através do `Ollama` para gerar relatórios detalhados em formato Markdown com geração de arquivos com dados coletados em `json` estruturado, que foram utilizados para a análise.
 
 ## Funcionalidades
 

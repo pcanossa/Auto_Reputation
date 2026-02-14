@@ -168,15 +168,15 @@ O script principal `auto_reputation.py` oferece um menu interativo para escolher
 
 -   `auto_reputation.py`: Ponto de entrada principal da aplicação. Apresenta o menu e chama os módulos de análise.
 -   `/tools`
-    -   `/analysis`
-      -   `ip_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de endereços IP.
-      -   `domain_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de domínios.
-      -   `scripts_analisys.py`: Módulo responsável por toda a lógica de coleta e análise de scripts.
-      -   `filehash_analisys.py`: Módulo responsável por toda a lógica de coleta e análise de hash de arquivo.
-    -   `/others `
+  -   `/analysis`
+        -   `ip_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de endereços IP.
+        -   `domain_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de domínios.
+        -   `scripts_analisys.py`: Módulo responsável por toda a lógica de coleta e análise de scripts.
+        -   `filehash_analisys.py`: Módulo responsável por toda a lógica de coleta e análise de hash de arquivo.
+  -   `/others `
         -   `get_phishing_list.py`: Módulo responsável pela obtenção de lista de domínios reportados como phihshing.
         -   `ollama_engine.py`: Módulo responsável por toda a lógica de de comunicação e geração de resposta pela LLM / Ollama.
-    -   `/prompts`: Diretório de prompts para geração de relatórios pela LLM.
+  -   `/prompts`: Diretório de prompts para geração de relatórios pela LLM.
         -   `domain_prompt`: Prompt utilizado para análise e geração de relatórios de domínios.
         -   `ip_prompt`: Prompt utilizado para análise e geração de relatórios de IPs.
         -   `filehash_prompt`: Prompt utilizado para análise e geração de relatórios de Hashes de Arquivos.     

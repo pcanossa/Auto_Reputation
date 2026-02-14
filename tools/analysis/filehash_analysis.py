@@ -109,8 +109,6 @@ def run_filehash_analysis():
         })
         urlhaus_response.raise_for_status()
 
-        print(f"{type_hash}_hash: {filehash}")
-
         yara_response = requests.post(f'https://yaraify-api.abuse.ch/api/v1/', headers={
             "Auth-Key": ABUSE_CH_API_KEY,
             "Content-Type": "application/json"

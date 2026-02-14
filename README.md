@@ -3,7 +3,7 @@
 
 ## Introdução
 
-Uma suíte de ferramentas de linha de comando em Python para realizar análises de reputação e threat intelligence em endereços IP e domínios. O aplicativo coleta dados de diversas fontes públicas (**Shodan**, **VirusTotal**, **AlienVault OTX**, **Urlscan**, **WHOIS**, etc.) e utiliza um modelo de linguagem grande (LLM) `gpt-oss:120b-cloud` através do `Ollama` para gerar relatórios detalhados em formato Markdown com geração de arquivos com dados coletados em `json` estruturado, que foram utilizados para a análise.
+Uma suíte de ferramentas de linha de comando em Python para realizar análises de reputação e threat intelligence em endereços IP, domínios e hashes de arquivos. O aplicativo coleta dados de diversas fontes públicas (**Abuse.ch*, **VirusTotal**, **AlienVault OTX**, **Urlscan**, **WHOIS**, etc.) e utiliza um modelo de linguagem grande (LLM) `gpt-oss:120b-cloud` através do `Ollama` para gerar relatórios detalhados em formato Markdown com geração de arquivos com dados coletados em `json` estruturado, que foram utilizados para a análise.
 
 ## Funcionalidades
 
@@ -35,12 +35,18 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
   - URLScan
   - AbuseIPDB
   - `wget`
-  - `cur
+  - `curl`
   - Scamalytics
   - Google Public DNS
   - DNS Dumpster
   - Phishing Army
   - VPNAPI
+  - Abuse.ch
+  - Hybrid Analysis
+  - Netlas
+  - URLhaus
+  - Malware Bazaar
+  - YARAify
 
 ## Pré-requisitos
 
@@ -48,7 +54,7 @@ Antes de começar, certifique-se de ter o seguinte instalado:
 
 1.  **Python 3.8+**: Download Python
 2.  **Ollama**: É necessário ter o Ollama instalado e em execução para a geração dos relatórios.
-    - Download Ollama
+    - [Download Ollama](https://ollama.com/download) 
 3.  **Modelo de IA**: O modelo utilizado nos scripts é o `gpt-oss:120b-cloud`. Baixe-o com o comando:
     ```bash
     ollama pull gpt-oss:120b-cloud
@@ -86,7 +92,7 @@ Antes de começar, certifique-se de ter o seguinte instalado:
     - Faça o download e instale o Ollama.
     - Iniciar o servidor ollama
       ```bash
-       ollama start
+       ollama serve
       ```
     - Baixe um modelo de linguagem robusto. O modelo `gpt-oss:120b-cloud` foi usado no desenvolvimento, mas outros modelos grandes também podem funcionar.
       ```bash
@@ -120,7 +126,8 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal, Ali
     DNS_DUMPSTER_API_KEY=SUA_CHAVE_API_DO_DNSDUMPSTER
     NETLAS_API_KEY=SUA_CHAVE_API_DO_NETLAS
     IPINFO_API_KEY=SUA_CHAVE_API_DO_IPINFO 
-    ABUS_CH_API_KEY=SUA_CHAVE_API_DO_ABUS_CH  
+    ABUSE_CH_API_KEY=SUA_CHAVE_API_DO_ABUSE_CH 
+    HYBRID_ANALYSIS_API_KEY=SUA_CHAVE_API_DO_HYBRID_ANALYSIS 
     ```
 
 Acesso para obtenção das chaves API, após criação de consta (Todos possuem cota para usp gratuito):
@@ -133,6 +140,7 @@ Acesso para obtenção das chaves API, após criação de consta (Todos possuem 
 * [Netlas](https://netlas.io/)
 * [IPInfo](https://ipinfo.io/)
 * [Abuse.ch](https://auth.abuse.ch/)
+* [Hybrid Analysis](https://hybrid-analysis.com/)
 
 ## Como Usar
 
@@ -147,9 +155,9 @@ O script principal `auto_reputation.py` oferece um menu interativo para escolher
     python auto_reputation.py
     ```
 
-2.  Siga as instruções no terminal para escolher entre a análise de Domínio (opção 1) ou IP (opção 2).
+2.  Siga as instruções no terminal para escolher entre a análise de Domínio (opção 1), IP (opção 2), scripts js (opção 3) ou análise de hash de arquivo (opção 4).
 
-3.  Insira o alvo (domínio ou IP) quando solicitado.
+3.  Insira o alvo (domínio, IP ou Hash de arquivo) quando solicitado. 
 
 4.  Aguarde a coleta de dados e a geração do relatório. Ao final, um arquivo `.md` com o relatório completo, e um arquivo `.json` com os dados coletados, utilizados na análise pela IA, serão salvo no diretório `reports`.
 
@@ -158,14 +166,21 @@ O script principal `auto_reputation.py` oferece um menu interativo para escolher
 ## Estrutura do Repositório
 
 -   `auto_reputation.py`: Ponto de entrada principal da aplicação. Apresenta o menu e chama os módulos de análise.
--   `/tools/ip_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de endereços IP.
--   `/tools/domain_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de domínios.
--   `/tools/scripts_analisys.py`: Módulo responsável por toda a lógica de coleta e análise de scripts.
--   `/tools/get_phishing_list.py`: Módulo responsável pela obtenção de lista de domínios reportados como phihshing.
--   `/tools/ollama_engine.py`: Módulo responsável por toda a lógica de de comunicação e geração de resposta pela LLM / Ollama.
--   `/tools/prompts`: Diretório de prompts para geração de relatórios pela LLM.
+-   `/tools`
+    -   `/analysis`
+      -   `ip_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de endereços IP.
+      -   `domain_analysis.py`: Módulo responsável por toda a lógica de coleta e análise de domínios.
+      -   `scripts_analisys.py`: Módulo responsável por toda a lógica de coleta e análise de scripts.
+      -   `filehash_analisys.py`: Módulo responsável por toda a lógica de coleta e análise de hash de arquivo.
+    -   `/others `
+        -   `get_phishing_list.py`: Módulo responsável pela obtenção de lista de domínios reportados como phihshing.
+        -   `ollama_engine.py`: Módulo responsável por toda a lógica de de comunicação e geração de resposta pela LLM / Ollama.
+    -   `/prompts`: Diretório de prompts para geração de relatórios pela LLM.
+        -   `domain_prompt`: Prompt utilizado para análise e geração de relatórios de domínios.
+        -   `ip_prompt`: Prompt utilizado para análise e geração de relatórios de IPs.
+        -   `filehash_prompt`: Prompt utilizado para análise e geração de relatórios de Hashes de Arquivos.     
 -   `/reports`: Diretório de armazenamento dos relatórios gerados pelas análises.
--   `/reports/phishing_lists`: Diretório de armazenamento de listas de domínios reportados como phishing obtidas para análise.
+    -   `/phishing_lists`: Diretório de armazenamento de listas de domínios reportados como phishing obtidas para análise.
 
 ## Aviso Legal
 

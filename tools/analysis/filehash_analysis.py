@@ -125,6 +125,11 @@ def run_filehash_analysis():
             "hash": filehash
         })
         malware_bazaar_response.raise_for_status()
+        
+        malware_bazaar_data = malware_bazaar_response.json()
+        if malware_bazaar_data.get("query_status") == "ok" and "data" in malware_bazaar_data:
+            for item in malware_bazaar_data["data"]:
+                item.pop("file_information", None)
 
         threat_fox_response= requests.post(f'https://threatfox-api.abuse.ch/api/v1/', headers={
             "Auth-Key": ABUSE_CH_API_KEY,
@@ -146,6 +151,13 @@ def run_filehash_analysis():
             "accept": "application/json"
         })
         hybris_analysis_analysis.raise_for_status()
+        
+        hybris_analysis_analysis_data = hybris_analysis_analysis.json()
+        # Remove campos excessivos para economizar tokens (submit_context, reports, etc)
+        keys_to_remove = ["submit_context", "related_parent_hashes", "related_children_hashes", "reports", "related_reports"]
+        if isinstance(hybris_analysis_analysis_data, dict):
+            for key in keys_to_remove:
+                hybris_analysis_analysis_data.pop(key, None)
         
 
         filehash_data = {
@@ -183,7 +195,7 @@ def run_filehash_analysis():
                 },
                 "malware_bazaar": {
                     "description": "Informações do Malware Bazaar",
-                    "data": malware_bazaar_response.json()
+                    "data": malware_bazaar_data
                 },
                 "threat_fox": {
                     "description": "Informações do Threat Fox",
@@ -195,7 +207,7 @@ def run_filehash_analysis():
                 },
                 "hybrid_analysys_analysis": {
                     "description": "Informações do Hybrid Analysis - Análise de Comportamento",
-                    "data": hybris_analysis_analysis.json()
+                    "data": hybris_analysis_analysis_data
                 }
             }
         }
@@ -290,5 +302,5 @@ def run_filehash_analysis():
     files.append(full_report_path)
     files.append(full_data_path)
 
-    return files
+    return files, filehash
     

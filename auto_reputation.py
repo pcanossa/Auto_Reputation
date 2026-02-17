@@ -64,8 +64,8 @@ def main():
        files = run_scripts_analysis()
        choice="scripts"
    elif choice == "4":
-       files = run_filehash_analysis()
-       choice="filehash"
+       files, filehash = run_filehash_analysis()
+       choice=filehash
    else:   
        print("Opção inválida. Encerrando o programa.")
        sys.exit(1)

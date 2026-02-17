@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>threat_report_4293c1d8574dc87c58360d6bac3daa182f64f7785c9d41da5e0741d2b1817fc7.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="relat%C3%B3rio-de-threat-intelligence-%E2%80%93-hash-de-arquivo-4293c1d8574dc87c58360d6bac3daa182f64f7785c9d41da5e0741d2b1817fc7">Relatório de Threat Intelligence – Hash de Arquivo <code>4293c1d8574dc87c58360d6bac3daa182f64f7785c9d41da5e0741d2b1817fc7</code></h1>
+<blockquote>
+<p><strong>Fonte dos dados</strong>: VirusTotal, AlienVault OTX, URLHaus, YARAify, Malware Bazaar, Hybrid Analysis, Threat Fox.
+<strong>Timestamp da Análise</strong>: 2026-02-17T13:27:24.442712.</p>
+</blockquote>
+<h2 id="1-resumo-executivo">1. Resumo Executivo</h2>
+<p>O arquivo com hash <code>4293c1d8574dc87c58360d6bac3daa182f64f7785c9d41da5e0741d2b1817fc7</code> é um executável malicioso ELF para a arquitetura MIPS (dispositivos IoT/embarcados Linux), amplamente detectado como uma variante das famílias de botnets <strong>Mozi</strong> e <strong>Mirai</strong>. A ameaça apresenta detecção massiva (49/72 motores no VirusTotal) e está ativamente associada a campanhas de recrutamento de botnets para ataques DDoS e exploração de vulnerabilidades. A análise de comportamento revela técnicas sofisticadas de evasão (packer UPX modificado, detecção de sandbox), persistência agressiva (modificação de serviços <code>systemd</code> e <code>rc.local</code>), comunicação C2 criptografada e tentativas de roubo de credenciais de metadados de nuvem. Os indicadores de comprometimento (IOCs) são abundantes e vinculam o arquivo a uma extensa infraestrutura de distribuição global, com centenas de milhares de URLs e IPs maliciosos, principalmente na Ásia. O risco é classificado como <strong>ALTO</strong>, representando uma ameaça operacional persistente para dispositivos Linux e IoT expostos.</p>
+<hr>
+<h2 id="2-an%C3%A1lise-de-comportamento">2. Análise de Comportamento</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Fonte</th>
+<th style="text-align:left">Evidência</th>
+<th style="text-align:left">Interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>VirusTotal (Detecção)</strong></td>
+<td style="text-align:left">49/72 motores marcam como malicioso. Reputação: -210. Famílias: <code>Trojan.Linux.Mirai</code>, <code>Backdoor.Linux.Mozi</code>.</td>
+<td style="text-align:left">Consenso elevado na comunidade de antivírus sobre a natureza maliciosa do artefato, associando-o a botnets de IoT conhecidas.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>VirusTotal (Comportamento)</strong></td>
+<td style="text-align:left">Comunicação HTTPS com IPs suspeitos (ex: <code>185.125.188.59</code>). Tentativa de conexão com endpoint de metadados da nuvem (<code>169.254.169.254:80</code>). Parada de serviço <code>snapd.socket</code>.</td>
+<td style="text-align:left">Padrão claro de C2 e coleta de informações sensíveis. Comportamento de desabilitação de serviços de segurança/atualização para estabelecer controle.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>VirusTotal (Zenbox/ATT&amp;CK)</strong></td>
+<td style="text-align:left">Táticas mapeadas: <strong>Defense Evasion</strong> (T1027 - UPX packing), <strong>Discovery</strong> (T1518.001 - detecção de software de segurança), <strong>Persistence</strong> (criação de serviços <code>systemd</code>), <strong>Command and Control</strong> (T1071.001 - HTTPS).</td>
+<td style="text-align:left">Malware evasivo que busca se entrincheirar no sistema, coletar informações do ambiente e estabelecer canal de comunicação persistente com atacantes.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>AlienVault OTX</strong></td>
+<td style="text-align:left">Associado a 50+ <em>Pulses</em>. Vinculado a campanhas ativas de força bruta SSH e Apache. Fontes como MalwarePatrol o listam em feeds diários.</td>
+<td style="text-align:left">O artefato está em uso ativo por atores de ameaça, sendo distribuído em campanhas de exploração e comprometimento inicial.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>URLHaus</strong></td>
+<td style="text-align:left">Mais de 720 mil URLs de distribuição associadas, muitas ainda online. IPs de hospedagem primariamente na China (ex: <code>61.53.81.9</code>, <code>115.48.36.132</code>).</td>
+<td style="text-align:left">Infraestrutura de distribuição massiva e resiliente, indicando uma operação de botnet madura e de larga escala.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Hybrid Analysis</strong></td>
+<td style="text-align:left">Erros consistentes de análise (<code>FILE_TYPE_BAD_ERROR</code>) em múltiplos SOs. 1510 tentativas de análise falhadas.</td>
+<td style="text-align:left">Forte indicativo de técnicas anti-análise e ofuscação deliberada para impedir a detecção dinâmica em sandboxes.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Outras Fontes</strong></td>
+<td style="text-align:left">(Malware Bazaar) Nome comum: <code>Mozi.m</code>. (YARAify) Ativo desde fev/2023. Packer UPX &quot;patched&quot;.</td>
+<td style="text-align:left">Confirma a associação específica à botnet Mozi e a evolução contínua do malware para evitar detecção estática.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Táticas/Procedimentos (ATT&amp;CK) Observados:</strong></p>
+<ul>
+<li><strong>T1027 – Obfuscated Files or Information:</strong> Empacotado com UPX modificado (&quot;patched&quot;).</li>
+<li><strong>T1518.001 – Software Discovery:</strong> Chama <code>uname</code> e lê <code>/proc</code> para identificar o ambiente.</li>
+<li><strong>T1543.002 – Create or Modify System Process (systemd):</strong> Cria ou modifica serviços <code>systemd</code> para persistência.</li>
+<li><strong>T1071.001 – Application Layer Protocol (HTTP/HTTPS):</strong> Comunicação C2 via HTTPS em portas diversas.</li>
+<li><strong>T1573 – Encrypted Channel:</strong> Uso de HTTPS para ofuscar a comunicação.</li>
+<li><strong>T1110 – Brute Force:</strong> Associado a campanhas de força bruta SSH (conforme OTX).</li>
+<li><strong>T1486 – Data Encrypted for Impact:</strong> Vinculado a campanhas de ransomware em <em>pulses</em> relacionados.</li>
+<li><strong>T1595 – Active Scanning:</strong> Comportamento de varredura de rede típico do Mirai/Mozi.</li>
+</ul>
+<hr>
+<h2 id="3-informa%C3%A7%C3%B5es-de-campanha-associada">3. Informações de Campanha Associada</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Campo</th>
+<th style="text-align:left">Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Nome de Arquivos</strong></td>
+<td style="text-align:left"><code>Mozi.m</code>, <code>bin.sh</code>, <code>115.50.4.8257595</code> (IP embutido no nome)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Tipo</strong></td>
+<td style="text-align:left">Executável (ELF)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Obfuscação</strong></td>
+<td style="text-align:left">Packer UPX modificado/remendado (&quot;patched UPX&quot;)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Classe</strong></td>
+<td style="text-align:left">Botnet, Backdoor, DDoS Trojan</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Grupo/Família</strong></td>
+<td style="text-align:left">Mozi (derivado da família Mirai)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Alvo</strong></td>
+<td style="text-align:left">Dispositivos IoT (roteadores, câmeras IP, DVRs) e servidores Linux com credenciais fracas ou vulnerabilidades não corrigidas.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Localização</strong></td>
+<td style="text-align:left">Distribuição global, com forte concentração de infraestrutura na Ásia (especialmente China).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Objetivos</strong></td>
+<td style="text-align:left">Recrutamento de dispositivos para uma botnet (zumbificação) para realização de ataques de Negação de Serviço Distribuído (DDoS), mineração de criptomoedas, exfiltração de dados e propagação lateral.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="4-dom%C3%ADnios-e-ips-relacionados">4. Domínios e IPs Relacionados</h2>
+<p>A ameaça está associada a uma vasta infraestrutura. Abaixo, os IOCs mais críticos e recorrentes:</p>
+<ul>
+<li><strong>IPs de Comando e Controle (C2) e Distribuição:</strong>
+<ul>
+<li><code>185.125.188.59:443</code> (C2 via HTTPS, citado no VT)</li>
+<li><code>61.53.81.9</code> (Distribuição, citado no URLHaus)</li>
+<li><code>115.48.36.132</code> (Distribuição, citado no URLHaus)</li>
+<li><code>23.192.228.84</code>, <code>23.215.0.136</code>, <code>23.215.0.138</code> (IPs associados em <em>pulses</em> da OTX)</li>
+</ul>
+</li>
+<li><strong>Endpoints de Distribuição Comuns:</strong> Padrões de URL como <code>/i</code>, <code>/bin.sh</code> em portas não padrão (ex: <code>:8080</code>, <code>:8443</code>).</li>
+<li><strong>Endereço de Metadados de Nuvem:</strong> <code>169.254.169.254:80</code> (Alvo de tentativa de conexão para roubo de credenciais).</li>
+<li><strong>Hash Relacionados (IOCs de Arquivo):</strong>
+<ul>
+<li><strong>MD5:</strong> <code>59ce0baba11893f90527fc951ac69912</code></li>
+<li><strong>SHA1:</strong> <code>5857a7dd621c4c3ebb0b5a3bec915d409f70d39f</code></li>
+<li><strong>Nomes suspeitos:</strong> Qualquer arquivo nomeado <code>Mozi.m</code>, <code>bin.sh</code>, ou contendo padrões de IP como nome (ex: <code>[IP].[PORTA]</code>).</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Observação:</strong> A lista completa de IOCs (milhares de URLs e IPs) está disponível nos <em>pulses</em> do AlienVault OTX e no banco de dados do URLHaus associados a este hash.</p>
+</blockquote>
+<hr>
+<h2 id="5-recomenda%C3%A7%C3%B5es-de-a%C3%A7%C3%B5es-de-investiga%C3%A7%C3%A3o">5. Recomendações de Ações de Investigação</h2>
+<ol>
+<li><strong>Bloqueio Proativo de IOCs:</strong> Implemente bloqueios imediatos em firewalls, proxies e soluções de segurança de endpoint para os IPs de C2 e distribuição listados, bem como para os hashes de arquivo conhecidos (SHA256, MD5).</li>
+<li><strong>Threat Hunting em Dispositivos Linux/IoT:</strong> Busque ativamente nos ativos de rede por:
+<ul>
+<li>Processos com os nomes suspeitos (<code>Mozi.m</code>, <code>bin.sh</code>).</li>
+<li>Conexões de saída para as portas e IPs listados.</li>
+<li>Modificações suspeitas em arquivos de inicialização (<code>/etc/rc.local</code>, <code>/etc/init.d/</code>) ou criação de novos serviços <code>systemd</code>.</li>
+<li>Tentativas de acesso ao endpoint de metadados <code>169.254.169.254</code> a partir de servidores internos.</li>
+</ul>
+</li>
+<li><strong>Análise de Logs de Autenticação:</strong> Revise logs de serviços expostos (SSH, Apache, outros) por tentativas massivas de força bruta, que são o vetor primário de infecção para este malware.</li>
+<li><strong>Enriquecimento de Monitoramento:</strong> Configure alertas no SIEM para qualquer tráfego de saída para os IPs de C2 identificados ou para padrões de comunicação HTTPS incomuns em portas altas a partir de dispositivos IoT ou servidores Linux.</li>
+<li><strong>Análise de Artefatos em Sandbox Corporativa:</strong> Submeta amostras de arquivos suspeitos coletados no ambiente para análise dinâmica em sandbox, observando especificamente os comportamentos de persistência e C2 documentados.</li>
+<li><strong>Monitoramento de Feeds de Inteligência:</strong> Inscreva-se ou consulte regularmente feeds de ameaças (como OTX, URLHaus) que listam IOCs relacionados às famílias Mirai e Mozi para atualizar as listas de bloqueio.</li>
+</ol>
+<hr>
+<h2 id="6-conclus%C3%A3o">6. Conclusão</h2>
+<p>O arquivo analisado (<code>4293c1d8574dc87c58360d6bac3daa182f64f7785c9d41da5e0741d2b1817fc7</code>) é <strong>definitivamente malicioso</strong> e representa uma ameaça operacional de alto risco. Trata-se de um componente ativo da botnet <strong>Mozi</strong>, que herda e evolui as capacidades destrutivas da família <strong>Mirai</strong>. Sua sofisticação é evidenciada pelas técnicas de evasão, persistência agressiva e pela infraestrutura de distribuição massiva e resiliente.</p>
+<p>A ameaça é projetada para transformar dispositivos comprometidos em zumbis sob o controle de um operador malicioso, primariamente para a realização de ataques DDoS em larga escala. A persistência da atividade ao longo de anos e a associação constante a campanhas ativas de exploração demandam que organizações com ativos Linux e IoT expostos tratem este indicador com máxima prioridade, implementando as ações de investigação e contenção recomendadas.</p>
+
+</body>
+</html>

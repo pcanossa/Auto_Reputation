@@ -89,7 +89,12 @@ Antes de começar, certifique-se de ter o seguinte instalado:
     source venv/bin/activate
     ```
 
- 3. **Instale o Ollama**:
+ 3. **Instale as dependências:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+ 4. **Instale o Ollama**:
     - Faça o download e instale o Ollama.
     - Iniciar o servidor ollama
       ```bash

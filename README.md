@@ -157,7 +157,7 @@ Acesso para obtenção das chaves API, após criação de conta (Todos possuem c
 
 ![Menu Principal](./reports/image.png)
 
-### Análise Principal (IP e Domínio)
+### Análise Principal (IP, Domínio e Hash de Arquivo)
 
 O script principal `auto_reputation.py` oferece um menu interativo para escolher o tipo de análise.
 

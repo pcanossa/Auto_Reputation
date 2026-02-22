@@ -157,11 +157,17 @@ def run_domain_analysis():
                     "description": "Informações do Urlscan.io",
                     "data": url_scan_data.json()
                 },
-                "virustotal": {
-                    "description": "Informações do VirusTotal",
-                    "detections": vt_details_response.json(),
-                    "comments": vt_comments_response.json(),
-                    "files": vt_files_response.json()
+                "virustotal_general": {
+                    "description": "Informações do VirusTotal - Informações gerais",
+                    "data": vt_details_response.json(),
+                },
+                "virustotal_comments": {
+                    "description": "Informações do VirusTotal - Comentários",
+                    "data": vt_comments_response.json(),
+                },
+                "virustotal_files": {
+                    "description": "Informações do VirusTotal - Arquivos",
+                    "data": vt_files_response.json()
                 },
                 "alienvault": {
                     "description": "Informações do Alien Vault OTX",

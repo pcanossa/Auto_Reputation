@@ -135,10 +135,11 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal, Ali
     IPINFO_API_KEY=SUA_CHAVE_API_DO_IPINFO 
     ABUSE_CH_API_KEY=SUA_CHAVE_API_DO_ABUSE_CH 
     HYBRID_ANALYSIS_API_KEY=SUA_CHAVE_API_DO_HYBRID_ANALYSIS 
-    SECURITY_TRAILS_API_KEY=SUA_CHAVE_API_DO_SECURITY_TRAILS 
+    SECURITY_TRAILS_API_KEY=SUA_CHAVE_API_DO_SECURITY_TRAILS
+    URLSCAN_API_KEY=SUA_CHAVE_API_DO_URLSCAN 
     ```
 
-Acesso para obtenção das chaves API, após criação de consta (Todos possuem cota para usp gratuito):
+Acesso para obtenção das chaves API, após criação de conta (Todos possuem cota para api gratuito):
 * [Shodan](https://www.shodan.io/)
 * [VirusTotal](https://www.virustotal.com/gui/join-us)
 * [AlienVault OTX](https://otx.alienvault.com/)
@@ -150,6 +151,7 @@ Acesso para obtenção das chaves API, após criação de consta (Todos possuem 
 * [Abuse.ch](https://auth.abuse.ch/)
 * [Hybrid Analysis](https://hybrid-analysis.com/)
 * [SecurityTrails](https://securitytrails.com/)
+* [URLScan](https://urlscan.io/)
 
 ## Como Usar
 

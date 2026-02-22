@@ -1,4 +1,5 @@
 from datetime import datetime
+import time
 import json
 from ollama import Client
 from ..prompts.domain_prompt import generate_domain_threat_intel_prompt
@@ -41,6 +42,8 @@ def run_domain_analysis():
     VT_API_KEY = os.getenv("VT_API_KEY")
     ALIEN_VAULT_API_KEY = os.getenv("ALIEN_VAULT_API_KEY")
     DNS_DUMPSTER_API_KEY = os.getenv("DNS_DUMPSTER_API_KEY")
+    SECURITY_TRAILS_API_KEY = os.getenv("SECURITY_TRAILS_API_KEY")
+    URLSCAN_API_KEY = os.getenv("URLSCAN_API_KEY")
 
     def get_cli_whois(domain):
         process = subprocess.Popen(
@@ -101,6 +104,36 @@ def run_domain_analysis():
         # 2. Análise do Urlscan.io
         url_scan_data = requests.get(f'https://urlscan.io/api/v1/search/?q=domain:{domain_name}')
         url_scan_data.raise_for_status()
+
+        urlscan_payload = {
+            "url": domain_name,
+            "visibility": "public",
+        }
+        
+        url_scan_scaner_response = requests.post(f'https://urlscan.io/api/v1/scan', headers={
+            "api-key": URLSCAN_API_KEY,
+            'Content-Type': 'application/json'
+        }, json=urlscan_payload)
+        url_scan_scaner_response.raise_for_status()
+        scanID = url_scan_scaner_response.json().get('uuid')
+        print(f"\n[{AMARELO}{NEGRITO}*{RESET}] Scan iniciado no {VERDE}{NEGRITO}Urlscan.io (ID: {scanID}){RESET}. Aguardando conclusão...")
+
+        url_scan_scaner_data = None
+        # Polling para aguardar o resultado (até 90s)
+        for _ in range(18):
+            time.sleep(5)
+            temp_response = requests.get(f'https://urlscan.io/api/v1/result/{scanID}', headers={
+                "api-key": URLSCAN_API_KEY,
+                'Content-Type': 'application/json'
+            })
+            if temp_response.status_code != 404:
+                url_scan_scaner_data = temp_response
+                break
+        
+        if url_scan_scaner_data is None:
+            url_scan_scaner_data = temp_response
+
+        
         
         # 3. Análise do Virus Total
         vt_details_response = requests.get(f'https://www.virustotal.com/api/v3/domains/{domain_name}', headers={
@@ -145,6 +178,46 @@ def run_domain_analysis():
         #Análise em lista de urls phishings conhecidas
         phishing_list_info, phishing_list_info_file = fetch_phishing_lists(domain_name)
 
+        records=[
+            "a",
+            "aaaa",
+            "mx",
+            "ns",
+            "soa",
+            "txt",
+        ]
+        st_responses = {}
+        for r in records:
+            try:
+                response = requests.get(f'https://api.securitytrails.com/v1/history/{domain_name}/dns/{r}', headers={
+                    "apikey": SECURITY_TRAILS_API_KEY
+                })
+                if response.status_code == 429:
+                    st_responses[r] = {
+                        "error": "Limite de requisições (quota) atingido para SecurityTrails."
+                    }
+                else:
+                    response.raise_for_status()
+                    st_responses[r] = response.json()
+            except Exception as e:
+                st_responses[r] = {"error": f"Erro na requisição: {str(e)}"}
+            time.sleep(1)
+
+        try:
+            security_trail_subdomains_reponse = requests.get(f'https://api.securitytrails.com/v1/domain/{domain_name}/subdomains', headers={
+                "apikey": SECURITY_TRAILS_API_KEY
+            })
+            if security_trail_subdomains_reponse.status_code == 429:
+                security_trail_subdomains_data = {
+                    "error": "Limite de requisições (quota) atingido para SecurityTrails."
+                }
+            else:
+                security_trail_subdomains_reponse.raise_for_status()
+                security_trail_subdomains_data = security_trail_subdomains_reponse.json()
+        except Exception as e:
+            security_trail_subdomains_data = {"error": f"Erro na requisição: {str(e)}"}
+
+
         domain_data = {
             "target": domain_name,
             "timestamp": datetime.now().isoformat(),
@@ -153,9 +226,13 @@ def run_domain_analysis():
                     "description": "Informações do WHOIS",
                     "data": whois_text
                 },
-                "urlscan": {
-                    "description": "Informações do Urlscan.io",
+                "urlscan_general": {
+                    "description": "Informações do Urlscan.io - Busca por domínio",
                     "data": url_scan_data.json()
+                },
+                "urlscan_scaner": {
+                    "description": "Informações do Urlscan.io - Resultado do scanner",
+                    "data": url_scan_scaner_data.json()
                 },
                 "virustotal_general": {
                     "description": "Informações do VirusTotal - Informações gerais",
@@ -188,6 +265,34 @@ def run_domain_analysis():
                 "dns_dumpster": {
                     "description": "Informações do DNSDumpster",
                     "data": dns_dumpster_response.json()
+                },
+                "security_trail_dns_a": {
+                    "description": "Informações do SecurityTrails - DNS A Records",
+                    "data": st_responses['a']
+                },
+                "security_trail_dns_aaaa": {
+                    "description": "Informações do SecurityTrails - DNS AAAA Records",
+                    "data": st_responses['aaaa']
+                },
+                "security_trail_dns_mx": {
+                    "description": "Informações do SecurityTrails - DNS MX Records",
+                    "data": st_responses['mx']
+                },
+                "security_trail_dns_ns": {
+                    "description": "Informações do SecurityTrails - DNS NS Records",
+                    "data": st_responses['ns']
+                },
+                "security_trail_dns_soa": {
+                    "description": "Informações do SecurityTrails - DNS SOA Records",
+                    "data": st_responses['soa']
+                },
+                "security_trail_dns_txt": {
+                    "description": "Informações do SecurityTrails - DNS TXT Records",
+                    "data": st_responses['txt']
+                },
+                "security_trail_subdomains": {
+                    "description": "Informações do SecurityTrails - Subdomínios",
+                    "data": security_trail_subdomains_data
                 },
                 "phishing_army": {
                     "description": "Verificação em listas de phishing",

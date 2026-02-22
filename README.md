@@ -48,6 +48,7 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
   - URLhaus
   - Malware Bazaar
   - YARAify
+  - SecurityTrails
 
 ## Pré-requisitos
 
@@ -134,6 +135,7 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal, Ali
     IPINFO_API_KEY=SUA_CHAVE_API_DO_IPINFO 
     ABUSE_CH_API_KEY=SUA_CHAVE_API_DO_ABUSE_CH 
     HYBRID_ANALYSIS_API_KEY=SUA_CHAVE_API_DO_HYBRID_ANALYSIS 
+    SECURITY_TRAILS_API_KEY=SUA_CHAVE_API_DO_SECURITY_TRAILS 
     ```
 
 Acesso para obtenção das chaves API, após criação de consta (Todos possuem cota para usp gratuito):
@@ -147,6 +149,7 @@ Acesso para obtenção das chaves API, após criação de consta (Todos possuem 
 * [IPInfo](https://ipinfo.io/)
 * [Abuse.ch](https://auth.abuse.ch/)
 * [Hybrid Analysis](https://hybrid-analysis.com/)
+* [SecurityTrails](https://securitytrails.com/)
 
 ## Como Usar
 

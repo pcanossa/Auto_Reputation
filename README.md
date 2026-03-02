@@ -140,6 +140,7 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal, Ali
     URLSCAN_API_KEY=SUA_CHAVE_API_DO_URLSCAN 
     SPAMHAUS_API_KEY=SEU_PASSWORD_API_DO_SPAMHAUS 
     SPAMHAUS_USERNAME=SEU_USERNAME_DO_SPAMHAUS 
+    VPNAPI_KEY=SUA_CHAVE_API_DO_VPNAPI
     ```
 
 Acesso para obtenção das chaves API, após criação de conta (Todos possuem cota para api gratuito):
@@ -156,6 +157,7 @@ Acesso para obtenção das chaves API, após criação de conta (Todos possuem c
 * [SecurityTrails](https://securitytrails.com/)
 * [URLScan](https://urlscan.io/)
 * [SPAMHAus Intelligence API](https://portal.spamhaus.com/auth/account-setup?ps=intel_api)
+* [VPNAPI](https://vpnapi.io/)
 
 ## Como Usar
 

@@ -46,6 +46,8 @@ def run_ip_analysis():
     VPNAPI_KEY = os.getenv("VPNAPI_KEY")
     NETLAS_API_KEY = os.getenv("NETLAS_API_KEY")
     IP_INFO_API_KEY = os.getenv("IPINFO_API_KEY")
+    SPAMHAUS_API_KEY = os.getenv("SPAMHAUS_API_KEY")
+    SPAMHAUS_USERNAME = os.getenv("SPAMHAUS_USERNAME")
 
 
     shodan_api = shodan.Shodan(SHODAN_API_KEY)
@@ -154,12 +156,19 @@ def run_ip_analysis():
         })
         av_response.raise_for_status()
 
+        
+        av_url_response = requests.get(f'https://otx.alienvault.com/api/v1/indicators/IPv4/{ip}/passive_dns', headers={
+            'accept': 'application/json',
+            'X-OTX-API-KEY': ALIEN_VAULT_API_KEY
+        })
+        av_url_response.raise_for_status()
+
         api_key = SCAMNALYTICS_API_KEY
         scamnalytics_data = requests.get(f'https://api11.scamalytics.com/v3/pcanossa/?key={api_key}&ip={ip}')
         scamnalytics_data.raise_for_status()
 
         vpanapi_response = requests.get(f'https://vpnapi.io/api/{ip}?key={VPNAPI_KEY}')
-        vpanapi_response.raise_for_status()
+        vpanapi_response.raise_for_status()  
 
         ip_data = {
             "target": ip,
@@ -185,9 +194,13 @@ def run_ip_analysis():
                     "description": "Informações do VirusTotal - Arquivos",
                     "data": vt_files_response.json()
                 },
-                "alienvault": {
-                    "description": "Informações do Alien Vault OTX",
+                "alienvault_General": {
+                    "description": "Informações do Alien Vault OTX - Geral",
                     "data": av_response.json()
+                },
+                "alienvault_PassiveDNS": {
+                    "description": "Informações do Alien Vault OTX - URLs associadas (Passive DNS)",
+                    "data": av_url_response.json()
                 },
                 "netlas": {
                     "description": "Informações do Netlas",
@@ -212,7 +225,7 @@ def run_ip_analysis():
                 "vpnapi": {
                     "description": "Informações do VPNAPI",
                     "data": vpanapi_response.json()
-                }
+                },
             }
         }
         

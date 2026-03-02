@@ -3,3 +3,5 @@ requests
 dotenv
 selenium
 shodan
+beautifulsoup4
+bs4

@@ -25,7 +25,7 @@ def generate_domain_threat_intel_prompt():
     > **Fonte dos dados**: (Fontes utilizadas, ex: WHOIS.com, VirusTotal, URLScan.io).  
     > **Timestamp da Análise**: {datetime.now().isoformat()}. 
 
-    ## MODELO DE RELATÓRIO
+    ## MODELO DE RELATÓRIO (Apenas modelo - Modificar para dados obtidos na análise)
 
     ## 1. Resumo Executivo
     O domínio está registrado sob a IANA (RESERVED‑Internet Assigned Numbers Authority) e não possui um registrador comercial típico. Não há informações de ISP / ASN associadas ao domínio em si; os endereços IP resolvidos pertencem a múltiplas redes (Amazon AWS, Google Cloud, provedores de hospedagem genéricos). Embora o VirusTotal indique “benigno” (0 malicious / 0 suspicious, 66 harmless), o domínio aparece em *mais de 30 pulsos* da OTX que o relacionam a **botnets, scanners, phishing, C2s e campanhas de malware** (ex.: Mirai, Pegasus, Emotet, Tofsee, etc.). Diversos endereços IPv4 (23.192.228.84, 23.215.0.136, 23.215.0.138, 23.220.75.245, 23.220.75.232, 23.192.228.80) são resolvidos pelo DNS e são referenciados em múltiplas análises de ameaças. O domínio pode ser usado como *infrastructure-as-a-service* por atores maliciosos (e.g., hospedagem de arquivos, redirecionamento de tráfego, C2). Não há evidência de comprometimento direto de usuários finais, mas a presença em campanhas de **phishing** e **malware distribution** indica que ele pode ser incluído em listas de bloqueio e observação.

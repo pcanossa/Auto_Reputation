@@ -49,6 +49,7 @@ Uma suíte de ferramentas de linha de comando em Python para realizar análises 
   - Malware Bazaar
   - YARAify
   - SecurityTrails
+  - SPAMHaus Intelligence API
 
 ## Pré-requisitos
 
@@ -137,6 +138,8 @@ A ferramenta requer chaves de API para consultar os serviços do VirusTotal, Ali
     HYBRID_ANALYSIS_API_KEY=SUA_CHAVE_API_DO_HYBRID_ANALYSIS 
     SECURITY_TRAILS_API_KEY=SUA_CHAVE_API_DO_SECURITY_TRAILS
     URLSCAN_API_KEY=SUA_CHAVE_API_DO_URLSCAN 
+    SPAMHAUS_API_KEY=SEU_PASSWORD_API_DO_SPAMHAUS 
+    SPAMHAUS_USERNAME=SEU_USERNAME_DO_SPAMHAUS 
     ```
 
 Acesso para obtenção das chaves API, após criação de conta (Todos possuem cota para api gratuito):
@@ -152,6 +155,7 @@ Acesso para obtenção das chaves API, após criação de conta (Todos possuem c
 * [Hybrid Analysis](https://hybrid-analysis.com/)
 * [SecurityTrails](https://securitytrails.com/)
 * [URLScan](https://urlscan.io/)
+* [SPAMHAus Intelligence API](https://portal.spamhaus.com/auth/account-setup?ps=intel_api)
 
 ## Como Usar
 

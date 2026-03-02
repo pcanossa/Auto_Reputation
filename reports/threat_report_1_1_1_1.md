@@ -1,79 +1,73 @@
 # Relatório de Threat Intelligence – IP **1.1.1.1**
 
-> **Fonte dos dados**: WHOIS (Sysinternals), Urlscan.io, VirusTotal API v3, AlienVault OTX, Netlas, cURL (Análise de Cabeçalhos HTTP), IPInfo.io, AbuseIPDB, Scamalytics, VPNAPI.  
-> **Timestamp da Análise**: 2026-02-14T13:54:20.890239.
+> **Fonte dos dados**: Shodan, IPInfo.io, VirusTotal, AbuseIPDB, AlienVault OTX, Scamalytics, VPNAPI, RDAP/ARIN, Netlas, Urlscan.io, cURL, WHOIS.  
+> **Timestamp da Análise**: 2026-03-02T12:44:03.883992.  
 
----
+---  
 
 ## 1. Resumo Executivo
-O IP 1.1.1.1 é um endereço Anycast de infraestrutura pública legítima, operado pela **Cloudflare, Inc. (AS13335)** em parceria com a APNIC, servindo principalmente como um resolvedor de DNS público (1.1.1.1). Geograficamente, é registrado na Austrália, mas sua natureza Anycast significa que o tráfego é roteado para o datacenter mais próximo. A reputação do IP é majoritariamente positiva, com pontuação de risco baixo ou neutro na maioria das ferramentas e sem detecções maliciosas ativas. No entanto, análises de superfície revelam que este IP é **amplamente utilizado por atores de ameaças como parte de sua infraestrutura de ofuscação**, servindo como ponto de contato para redirecionamentos maliciosos, hospedando páginas de bloqueio (403) para domínios de phishing e sendo sinalizado como VPN/Proxy. Portas críticas abertas incluem 53/UDP/TCP (DNS), 80/TCP (HTTP) e 443/TCP (HTTPS).
+O endereço **1.1.1.1** pertence ao bloco de anycast da **Cloudflare (ASN 13335)**, operando como um resolutor DNS público de alta disponibilidade. A maioria das fontes (IPInfo, AbuseIPDB, Scamalytics, OTX) aponta **risco baixo** e **reputação benign**. Contudo, alguns relatórios de inteligência (ex.: indicadores de “ping‑delete” em amostras ransomware, tags “suspicious‑udp” no VirusTotal) sugerem que atores maliciosos podem estar tentando **abusar** o IP como ponto de *beacon* ou *C2* em campanhas de malware. Não foram identificadas portas vulneráveis nem CVEs associados a serviços expostos. O perfil geral indica **infraestrutura crítica de confiança**, porém com **potencial de uso indevido** por terceiros devido à sua natureza anycast e à ausência de autenticação para consultas DNS.
 
----
-
-## 2. Análise de Comportamento
+## 2. Análise de Comportamento  
 
 | Fonte | Evidência | Interpretação |
-|------|-----------|---------------|
-| **VirusTotal** | Score de reputação 78, **0/93 detecções maliciosas**. 40 votos maliciosos de usuários. | Reputação técnica limpa, sem detecções ativas por motores de antivírus. Os votos de usuários indicam percepção negativa ou associação a incidentes indiretos. |
-| **AlienVault OTX** | Reputação neutra (score 0). **Listado como falso positivo conhecido e em prefixo whitelist**. Nenhum pulso de ameaça ativo associado. | A plataforma reconhece oficialmente que o IP é legítimo e que aparições em contextos de ameaça são geralmente falsos positivos. |
-| **Urlscan.io** | IP identificado como **servidor de bloqueio (403 Forbidden)** para **inúmeros domínios maliciosos** (ex: `xyzverse.site`, `admin.cukrarnavanilka.cz`). Tags incluem "phishdestroy", "phishing", "redirecionamento suspeito". | Evidência concreta de que atores maliciosos estão **configurando seus domínios para apontar para 1.1.1.1**, usando a infraestrutura confiável da Cloudflare para ocultar servidores reais ou servir páginas de erro, um padrão comum em campanhas de phishing e fraudes. |
-| **AbuseIPDB** | **Score de abuso 0 (whitelisted)**, porém com **392 relatórios históricos de 58 usuários distintos**. Último reporte com data anômala (2026-02-14). | O alto volume de relatórios sugere **abuso indireto constante**, possivelmente relacionado a ataques de reflexão DNS ou uso do IP como destino em scripts maliciosos. A data futura indica possível inconsistência nos dados. |
-| **Netlas** | Associado a **44.295 domínios**, incluindo vários com nomenclaturas suspeitas (ex: `168168168168168.vip`, `12138000.xyz`). | O volume massivo de domínios, muitos com padrões anômalos, reforça que o IP é um **ponto focal para tráfego diversificado**, parte do qual é claramente malicioso, abusando da reputação limpa da infraestrutura. |
-| **VPNAPI** | Sinalizado como **VPN e Proxy**. Ausência de dados geolocalizáveis precisos. | Indica que o IP possui características que permitem **ocultação de tráfego**, sendo usado para ofuscar a origem real das conexões, um padrão valioso para ataques. |
-| **cURL / Shodan (implícito)** | Redirecionamento 301 para HTTPS, cabeçalhos padrão da Cloudflare (`CF-RAY`), serviço de DNS respondendo. | Comportamento técnico esperado e legítimo para o serviço 1.1.1.1. Não indica comprometimento direto do próprio IP. |
-| **Scamalytics** | Risco de frade **baixo (score 0)**. Identificado como tráfego de datacenter. Não está em blacklists. | Confirma a natureza legítima do IP como infraestrutura de rede, não sendo um host de usuário final comprometido. |
+|-------|------------|---------------|
+| **VirusTotal** | 82/100 (141 harmless, 39 undetected, 0 malicious). Tags: *suspicious‑udp*, *JARM* típico Cloudflare. | Predominantemente limpo, mas tráfego UDP (DNS) pode ser usado para “DNS‑tunnel” ou consultas de beacon. |
+| **AbuseIPDB** | abuseConfidenceScore = 0, 0 relatos recentes. | Nenhum abuso declarado pelos usuários da comunidade. |
+| **Scamalytics** | Score = 0 (low risk), não é proxy/VPN/TOR. | Reputação de risco muito baixa. |
+| **VPNAPI** | Classificado como **VPN = True** e **Proxy = True** (contradiz outras fontes). | Pode refletir a característica anycast/edge da Cloudflare, mas gera alerta de potencial anonimato. |
+| **AlienVault OTX** | 0 pulses, nenhuma tag de botnet ou C2. | Não há associação direta a campanhas conhecidas. |
+| **Shodan** | Serviços detectados: DNS (53/TCP & UDP), HTTP / HTTPS (80/443), outros ports 8080, 8443, 2053, 2095, 2096 etc. Banners: “cloudflare”. | Infraestrutura pública de resolução DNS e CDN, sem portas vulneráveis expostas. |
+| **Netlas** | Confirma presença de serviços DNS, HTTP/HTTPS, HTTP‑alt (8080), DNS‑over‑TLS (853). | Validação de múltiplos serviços típicos de um edge CDN. |
+| **cURL / HttpHeader** | Redirecionamento 301 → `https://1.1.1.1/` com header **Server: cloudflare**. | Servidor HTTP apenas para redirecionamento – sem conteúdo malicioso. |
+| **Relatórios de malware (VT IP communication & Sigma)** | Amostras ransomware utilizam “ping 1.1.1.1” como *heartbeat* ou “cleanup” (ex.: `PING 1.1.1.1 -n 1 -w 1000`). | Indicador de **abuso** como ponto de “sign‑off” em campanhas, possivelmente devido à confiabilidade do IP. |
 
-**Conclusão:** O IP **1.1.1.1** é, em sua operação principal, **legítimo e de baixo risco intrínseco**. No entanto, ele possui um **risco operacional ALTO como vetor indireto de ameaças**. Sua confiabilidade e ubiquidade são exploradas por atores maliciosos para:
-*   **Ofuscar infraestrutura:** Apontar domínios maliciosos para ele, usando respostas 403 da Cloudflare como camada de defesa ou desvio.
-*   **Facilitar campanhas:** Servir como ponto de contato em cadeias de redirecionamento de phishing e fraudes.
-*   **Ocultar origens:** Ser utilizado como saída de VPN/Proxy, mascarando a origem real de ataques.
+**Síntese:** A maior parte das fontes classifica o IP como de infraestrutura legítima e de baixo risco. Contudo, há **evidências pontuais** de que agentes de ameaças o utilizam como “host de beacon” em scripts de limpeza pós‑infecção, aproveitando sua alta disponibilidade e a improbabilidade de bloqueio. Não há indicações de que o próprio serviço esteja comprometido.
 
-O IP em si não está comprometido, mas é um **instrumento passivo e amplamente utilizado no ecossistema de ameaças**.
-
----
-
-## 3. Superfície de Ataque
+## 3. Superfície de Ataque  
 
 ### 3.1 Portas abertas / Serviços
-Com base na análise do Netlas e na função conhecida do IP:
-- **53/TCP/UDP**: DNS (Serviço de resolvedor público 1.1.1.1)
-- **80/TCP**: HTTP (Redireciona para HTTPS)
-- **443/TCP**: HTTPS (Serviço DNS sobre HTTPS/HTTP/3)
+| Porta | Protocolo | Serviço | Observação |
+|-------|------------|---------|-------------|
+| 53 | TCP/UDP | DNS Resolver (anycast) | Serviço público de resolução DNS. |
+| 80 | TCP | HTTP (redirecionamento 301) | Apenas redireciona para HTTPS. |
+| 443 | TCP | HTTPS (Cloudflare edge) | CDN / TLS termination. |
+| 8080 | TCP | HTTP alternativo (geralmente usado por Cloudflare) | Detectado por Netlas. |
+| 8443 | TCP | HTTPS alternativo | Detectado por Netlas. |
+| 2053 | TCP | DNS‑over‑TLS | Servidor TLS para DNS. |
+| 853 | TCP | DNS‑over‑TLS (DoT) | Suporte padrão Cloudflare. |
+| 2095/2096 | TCP | HTTPS (cPanel/WHM típico) – provável artefato anycast | Não há evidência de uso ativo. |
 
-### 3.2 Vulnerabilidades (CVEs) detectadas
-- **Nenhuma vulnerabilidade (CVE)** foi reportada nas fontes consultadas para os serviços deste IP.
-- O risco não está em vulnerabilidades do próprio software da Cloudflare, mas no **padrão de abuso da infraestrutura**.
+> **Nota:** Não foram encontradas vulnerabilidades (CVEs) relacionadas a esses serviços na base de dados Shodan ou CVE Details. O fato de ser um serviço gerenciado pela Cloudflare reduz a exposição a vulnerabilidades conhecidas de terceiros.
 
----
+### 3.2 Vulnerabilidades (CVEs) identificadas
+- **Nenhuma CVE** foi listada nas respostas do Shodan, Netlas ou bases públicas.  
+- Dada a natureza de **serviço gerenciado**, as eventuais vulnerabilidades são mitigadas pela própria Cloudflare (patches automáticos).
 
-## 4. Informações de Rede e Geográficas
+## 4. Informações de Rede e Geográficas  
 
 | Campo | Valor |
 |------|-------|
 | **ASN** | **AS13335 – Cloudflare, Inc.** |
-| **ISP / Provedor** | **Cloudflare, Inc.** (Em parceria com a APNIC para o serviço 1.1.1.1) |
-| **Localização (Registro)** | Austrália (AU) / Oceania. *(Devido ao Anycast, a localização de resposta varia; exemplo de roteamento para GRU-São Paulo observado)* |
-| **Tipo de Rede** | Data-center / Anycast Network de Infraestrutura Global. Sinalizado como VPN/Proxy por algumas ferramentas. |
-| **Faixa de IP** | Parte do bloco administrado pela Cloudflare e APNIC. |
-| **Domínios Principais** | `one.one.one.one`, `cloudflare-dns.com` |
-
----
+| **ISP / Provedor** | **Cloudflare, Inc.** |
+| **Organização** | Cloudflare, Inc. |
+| **Hostname PTR** | `one.one.one.one` |
+| **Cidade / Região / País** | **Estados Unidos (anycast – múltiplas localidades)**; respostas variações mostram pontos na região de **São Paulo (BR)**, **Virginia (US)**, **Frankfurt (DE)** etc. |
+| **Latitude / Longitude** | Aproximadamente **37.7510 / ‑97.8220** (representativo do ponto de anycast nos EUA) – pode variar por PoP. |
+| **Tipo de rede** | **Anycast / CDN / Data Center** (IP público de resolução DNS). |
+| **Faixa de IP** | **1.1.1.0/24** (1.1.1.0 – 1.1.1.255). |
+| **Contato de abuso** | **abuse@cloudflare.com** (ou **abuse‑dns@cloudflare.com**). |
 
 ## 5. Recomendações (próximos passos)
 
-1.  **Contextualizar Alertas:** Em logs de segurança (firewall, proxy, DNS), **não bloquear 1.1.1.1 por padrão**, pois é um serviço essencial. Em vez disso, investigar o **contexto** da conexão:
-    *   É uma consulta DNS legítima? (Comportamento esperado).
-    *   O tráfego HTTP/HTTPS para 1.1.1.1 está associado a tentativas de acesso a **domínios maliciosos** conhecidos? (Verificar logs de URL).
-2.  **Monitorar Domínios Associados:** Utilizar a lista de milhares de domínios associados a este IP (ex: via Netlas) como **IOCs (Indicadores de Comprometimento)**. Focar investigações nos domínios com padrões suspeitos.
-3.  **Correlacionar com Intenção Maliciosa:** Em casos de detecção de phishing ou fraude, verificar se a cadeia de redirecionamento inclui respostas 403/error pages da Cloudflare (IP 1.1.1.1). Isso é um **padrão tático** a ser documentado.
-4.  **Ajustar Regras de Detecção:** Criar regras em SIEM/IDS que destaquem conexões **HTTP/HTTPS não-DNS** para 1.1.1.1 a partir de estações de trabalho internas, pois isso é anômalo e pode indicar tráfego malicioso ofuscado.
-5.  **Acompanhar Reputação Dinâmica:** Manter o IP em monitoramento passivo em ferramentas como AbuseIPDB e VirusTotal para detectar qualquer mudança futura em seu status de reputação.
-
----
+1. **Correlacionar logs internos** – Verificar fluxos de saída/internos (firewall, proxy, SIEM) que comuniquem com **1.1.1.1** nas portas 53 (DNS), 443 (HTTPS) ou 80 (HTTP). Priorizar alertas de *pings* frequentes ou consultas DNS anômalas.
+2. **Monitoramento de indicadores de C2** – Adicionar o IP a *watchlist* nas plataformas de Threat Intel (Shodan Monitor, VirusTotal Monitor, OTX). Configurar alertas para novos *pulses* ou relatórios que passem a associar o IP a botnets ou ransomware.
+3. **Análise de tráfego DNS** – Capturar e inspecionar pacotes DNS (incluindo DoH/DoT) para detectar possíveis *tunneling* ou *exfiltration* que utilizem o IP como canal.
+4. **Verificar padrões de “ping‑delete”** – Caso existam processos automatizados que enviam ICMP para 1.1.1.1, validar se são parte de scripts de limpeza de malware (ex.: ransomware). Avaliar bloqueio ou inspeção profunda (Deep Packet Inspection) desses pings.
+5. **Consulta a feeds adicionais de botnet** – Consultar APIs de AbuseCH, MalwareBazaar, ThreatFox para validar se há novas ocorrências ligando 1.1.1.1 a famílias como **Qakbot**, **Mirai**, **Gafgyt** ou **ransomware**.
+6. **Avaliar necessidade de bloqueio parcial** – Em ambientes sensíveis, considerar **blocking outbound** para 1.1.1.1 **exclusivamente nas portas não essenciais** (ex.: bloquear UDP 53 se o DNS interno já for usado) ou aplicar **DNS‑filtering** que permita apenas resolvers internos confiáveis.
+7. **Reportar abuso ao provedor** – Caso se confirme uso maligno, notificar **Cloudflare (abuse@cloudflare.com)** com evidências (logs, hashes, PCAP) para que a equipe investigue possíveis infratores que estejam explorando o serviço.
+8. **Revisar políticas de DNS interno** – Garantir que clientes corporativos utilizem DNS interno/autorizado ao invés de depender de resolvers públicos para evitar vazamento de consultas confidenciais.
 
 ## 6. Considerações Finais
-O IP **1.1.1.1** representa um caso clássico de **"infraestrutura dual-use"**: um ativo de rede crítico e legítimo que é simultaneamente **explorado massivamente por atores de ameaças para dar resiliência e ofuscar suas operações**. A avaliação de risco deve separar:
-*   **Risco Direto (BAIXO):** O IP não está comprometido, não hospeda malware e fornece um serviço público válido.
-*   **Risco Indireto / Associativo (ALTO):** O IP é um componente frequente em cadeias de ataque, servindo como cortina de fumaça ou ponto de rendez-vous para atividades maliciosas.
-
-A recomendação principal é **entender e monitorar os padrões de abuso** deste IP, focando nos domínios e no contexto do tráfego associado a ele, em vez de tentar bloquear o próprio endereço.
+O IP **1.1.1.1** é parte da infraestrutura crítica da Cloudflare, amplamente confiável e usada por milhões de usuários para resolução DNS. A **grande maioria das fontes** indica **baixo risco** e **ausência de vulnerabilidades**. Contudo, devido à alta disponibilidade e ao fato de ser um alvo “confiável”, ele pode ser **abusado como ponto de beacon** ou “heartbeat” em campanhas de ransomware e outras ameaças que buscam evitar bloqueios. Recomenda‑se **monitoramento ativo** e **correlação com logs internos**, bem como a **conscientização de que tráfego inesperado** (especialmente ICMP ou consultas DNS irregulares) proveniente deste IP pode indicar **atividade de adversário** que está tentando mascarar suas comunicações através de um serviço de infraestrutura legítima. Uma postura de vigilância equilibrada—permitindo o uso legítimo, mas alertando para padrões suspeitos—é a abordagem mais adequada.

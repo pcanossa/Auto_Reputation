@@ -44,6 +44,8 @@ def run_domain_analysis():
     DNS_DUMPSTER_API_KEY = os.getenv("DNS_DUMPSTER_API_KEY")
     SECURITY_TRAILS_API_KEY = os.getenv("SECURITY_TRAILS_API_KEY")
     URLSCAN_API_KEY = os.getenv("URLSCAN_API_KEY")
+    SPAMHAUS_USERNAME = os.getenv("SPAMHAUS_USERNAME")
+    SPAMHAUS_API_KEY = os.getenv("SPAMHAUS_API_KEY")
 
     def get_cli_whois(domain):
         process = subprocess.Popen(
@@ -105,33 +107,45 @@ def run_domain_analysis():
         url_scan_data = requests.get(f'https://urlscan.io/api/v1/search/?q=domain:{domain_name}')
         url_scan_data.raise_for_status()
 
+           
+
         urlscan_payload = {
             "url": domain_name,
             "visibility": "public",
         }
-        
+
         url_scan_scaner_response = requests.post(f'https://urlscan.io/api/v1/scan', headers={
             "api-key": URLSCAN_API_KEY,
             'Content-Type': 'application/json'
         }, json=urlscan_payload)
-        url_scan_scaner_response.raise_for_status()
-        scanID = url_scan_scaner_response.json().get('uuid')
-        print(f"\n[{AMARELO}{NEGRITO}*{RESET}] Scan iniciado no {VERDE}{NEGRITO}Urlscan.io (ID: {scanID}){RESET}. Aguardando conclusão...")
 
-        url_scan_scaner_data = None
-        # Polling para aguardar o resultado (até 90s)
-        for _ in range(18):
-            time.sleep(5)
-            temp_response = requests.get(f'https://urlscan.io/api/v1/result/{scanID}', headers={
-                "api-key": URLSCAN_API_KEY,
-                'Content-Type': 'application/json'
-            })
-            if temp_response.status_code != 404:
-                url_scan_scaner_data = temp_response
-                break
-        
-        if url_scan_scaner_data is None:
-            url_scan_scaner_data = temp_response
+        if url_scan_scaner_response.status_code == 400:
+            print(f"\n[{AMARELO}{NEGRITO}!{RESET}] Scan por URLScan.io não realizado para o domínio {domain_name} -> Não foram encontrados registros de DNS para resolver o domínio.")
+            url_scan_scaner_data = {
+                "error": "Urlscan.io retornou erro 400 - Domínio não encontrado ou sem registros DNS."
+            }
+
+        else:    
+            url_scan_scaner_response.raise_for_status()
+            scanID = url_scan_scaner_response.json().get('uuid')
+            print(f"\n[{AMARELO}{NEGRITO}*{RESET}] Scan iniciado no {VERDE}{NEGRITO}Urlscan.io (ID: {scanID}){RESET}. Aguardando conclusão...")
+
+
+
+            url_scan_scaner_data = None
+            # Polling para aguardar o resultado (até 90s)
+            for _ in range(18):
+                time.sleep(5)
+                temp_response = requests.get(f'https://urlscan.io/api/v1/result/{scanID}', headers={
+                    "api-key": URLSCAN_API_KEY,
+                    'Content-Type': 'application/json'
+                })
+                if temp_response.status_code != 404:
+                    url_scan_scaner_data = temp_response.json()
+                    break
+                
+            if url_scan_scaner_data is None:
+                url_scan_scaner_data = temp_response.json()
 
         
         
@@ -178,6 +192,8 @@ def run_domain_analysis():
         #Análise em lista de urls phishings conhecidas
         phishing_list_info, phishing_list_info_file = fetch_phishing_lists(domain_name)
 
+
+
         records=[
             "a",
             "aaaa",
@@ -218,6 +234,77 @@ def run_domain_analysis():
             security_trail_subdomains_data = {"error": f"Erro na requisição: {str(e)}"}
 
 
+        spamhaus_get_token = requests.post('https://api.spamhaus.org/api/v1/login', json={
+            "username": SPAMHAUS_USERNAME,
+            "password": SPAMHAUS_API_KEY,
+            "realm": "intel"
+        })
+        spamhaus_get_token.raise_for_status()
+        spamhaus_token = spamhaus_get_token.json().get('token')
+
+        spamhaus_get_hashes = requests.get(f"https://api.spamhaus.org/api/intel/v2/byobject/domain/{domain_name}/malware/hashes", headers={
+            "Authorization": f"Bearer {spamhaus_token}"
+        })
+        spamhaus_get_hashes.raise_for_status()
+        time.sleep(5)
+
+        spamhaus_get_malwares_urls = requests.get(f"https://api.spamhaus.org/api/intel/v2/byobject/domain/{domain_name}/malware/urls", headers={
+            "Authorization": f"Bearer {spamhaus_token}"
+        })
+        spamhaus_get_malwares_urls.raise_for_status()
+        time.sleep(5)
+
+        spamhaus_get_hostnames = requests.get(f"https://api.spamhaus.org/api/intel/v2/byobject/domain/{domain_name}/hostnames", headers={
+            "Authorization": f"Bearer {spamhaus_token}"
+        })
+        spamhaus_get_hostnames.raise_for_status()
+        time.sleep(5)
+
+        spamhaus_get_general = requests.get(f"https://api.spamhaus.org/api/intel/v2/byobject/domain/{domain_name}", headers={
+            "Authorization": f"Bearer {spamhaus_token}"
+        })
+        spamhaus_get_general.raise_for_status()
+        time.sleep(5)
+
+        spamhaus_get_contexts = requests.get(f"https://api.spamhaus.org/api/intel/v2/byobject/domain/{domain_name}/contexts", headers={
+            "Authorization": f"Bearer {spamhaus_token}"
+        })
+        spamhaus_get_contexts.raise_for_status()
+        time.sleep(5)
+
+        spamhaus_get_dimensions = requests.get(f"https://api.spamhaus.org/api/intel/v2/byobject/domain/{domain_name}/dimensions", headers={
+            "Authorization": f"Bearer {spamhaus_token}"
+        })
+        spamhaus_get_dimensions.raise_for_status()
+        time.sleep(5)
+
+        spamhaus_dimensions = requests.get("https://api.spamhaus.org/api/intel/v2/domains/dimensions", headers={
+            "Authorization": f"Bearer {spamhaus_token}"
+        })
+        spamhaus_dimensions.raise_for_status()
+        time.sleep(5)
+
+        spamhaus_tags = requests.get("https://api.spamhaus.org/api/intel/v2/domains/tags", headers={
+            "Authorization": f"Bearer {spamhaus_token}"
+        })
+        spamhaus_tags.raise_for_status()
+        time.sleep(5)
+
+
+        spamhaus_data = {
+            "general": spamhaus_get_general.json(),
+            "contexts": spamhaus_get_contexts.json(),
+            "dimensions": spamhaus_get_dimensions.json(),
+            "dimensions_context": spamhaus_dimensions.json(),
+            "tags": spamhaus_tags.json(),
+        }
+
+        spamhaus_malwares = {
+            "hashes": spamhaus_get_hashes.json(),
+            "urls": spamhaus_get_malwares_urls.json(),
+
+        }
+
         domain_data = {
             "target": domain_name,
             "timestamp": datetime.now().isoformat(),
@@ -232,7 +319,7 @@ def run_domain_analysis():
                 },
                 "urlscan_scaner": {
                     "description": "Informações do Urlscan.io - Resultado do scanner",
-                    "data": url_scan_scaner_data.json()
+                    "data": url_scan_scaner_data
                 },
                 "virustotal_general": {
                     "description": "Informações do VirusTotal - Informações gerais",
@@ -297,6 +384,18 @@ def run_domain_analysis():
                 "phishing_army": {
                     "description": "Verificação em listas de phishing",
                     "data": phishing_list_info
+                },
+                "spamhaus_general": {
+                    "description": "Informações do Spamhaus - Reputação",
+                    "reputation_data": spamhaus_data
+                },
+                "spamhaus_malware_hashes": {
+                    "description": "Informações do Spamhaus - Hashes e urls malware associados",
+                    "data": spamhaus_malwares
+                },
+                "spamhaus_hosts_associates": {
+                    "description": "Informações do Spamhaus - Hosts associados",
+                    "data": spamhaus_get_hostnames.json()
                 }
             }
         }

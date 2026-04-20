@@ -177,7 +177,10 @@ def run_domain_analysis():
 
         #7. Análise de certificado cert.sh
         cert_response = requests.get(f'https://crt.sh/?q={domain_name}&output=json', headers=headers)
-        cert_response.raise_for_status()
+        if cert_response.status_code != 200:
+            cert_data =  {"error": "Erro ao obter dados do cert.sh, tente mais tarde"}
+        else:
+            cert_data = cert_response.json()
 
         #Análise DNS (opcional, pode ser expandida conforme necessário)
         dns_response = requests.get(f'https://dns.google/resolve?name={domain_name}', headers=headers)
@@ -241,68 +244,60 @@ def run_domain_analysis():
         })
         spamhaus_get_token.raise_for_status()
         spamhaus_token = spamhaus_get_token.json().get('token')
+        print(spamhaus_token)
 
         spamhaus_get_hashes = requests.get(f"https://api.spamhaus.org/api/intel/v2/byobject/domain/{domain_name}/malware/hashes", headers={
             "Authorization": f"Bearer {spamhaus_token}"
         })
-        spamhaus_get_hashes.raise_for_status()
         time.sleep(5)
 
         spamhaus_get_malwares_urls = requests.get(f"https://api.spamhaus.org/api/intel/v2/byobject/domain/{domain_name}/malware/urls", headers={
             "Authorization": f"Bearer {spamhaus_token}"
         })
-        spamhaus_get_malwares_urls.raise_for_status()
         time.sleep(5)
 
         spamhaus_get_hostnames = requests.get(f"https://api.spamhaus.org/api/intel/v2/byobject/domain/{domain_name}/hostnames", headers={
             "Authorization": f"Bearer {spamhaus_token}"
         })
-        spamhaus_get_hostnames.raise_for_status()
         time.sleep(5)
 
         spamhaus_get_general = requests.get(f"https://api.spamhaus.org/api/intel/v2/byobject/domain/{domain_name}", headers={
             "Authorization": f"Bearer {spamhaus_token}"
         })
-        spamhaus_get_general.raise_for_status()
         time.sleep(5)
 
         spamhaus_get_contexts = requests.get(f"https://api.spamhaus.org/api/intel/v2/byobject/domain/{domain_name}/contexts", headers={
             "Authorization": f"Bearer {spamhaus_token}"
         })
-        spamhaus_get_contexts.raise_for_status()
         time.sleep(5)
 
         spamhaus_get_dimensions = requests.get(f"https://api.spamhaus.org/api/intel/v2/byobject/domain/{domain_name}/dimensions", headers={
             "Authorization": f"Bearer {spamhaus_token}"
         })
-        spamhaus_get_dimensions.raise_for_status()
         time.sleep(5)
 
         spamhaus_dimensions = requests.get("https://api.spamhaus.org/api/intel/v2/domains/dimensions", headers={
             "Authorization": f"Bearer {spamhaus_token}"
         })
-        spamhaus_dimensions.raise_for_status()
         time.sleep(5)
 
         spamhaus_tags = requests.get("https://api.spamhaus.org/api/intel/v2/domains/tags", headers={
             "Authorization": f"Bearer {spamhaus_token}"
         })
-        spamhaus_tags.raise_for_status()
         time.sleep(5)
 
 
         spamhaus_data = {
-            "general": spamhaus_get_general.json(),
-            "contexts": spamhaus_get_contexts.json(),
-            "dimensions": spamhaus_get_dimensions.json(),
-            "dimensions_context": spamhaus_dimensions.json(),
-            "tags": spamhaus_tags.json(),
+            "general": spamhaus_get_general.json() if spamhaus_get_general.status_code == 200 else {"info": "Não encontrado"},
+            "contexts": spamhaus_get_contexts.json() if spamhaus_get_contexts.status_code == 200 else {"info": "Não encontrado"},
+            "dimensions": spamhaus_get_dimensions.json() if spamhaus_get_dimensions.status_code == 200 else {"info": "Não encontrado"},
+            "dimensions_context": spamhaus_dimensions.json() if spamhaus_dimensions.status_code == 200 else {"info": "Não encontrado"},
+            "tags": spamhaus_tags.json() if spamhaus_tags.status_code == 200 else {"info": "Não encontrado"},
         }
 
         spamhaus_malwares = {
-            "hashes": spamhaus_get_hashes.json(),
-            "urls": spamhaus_get_malwares_urls.json(),
-
+            "hashes": spamhaus_get_hashes.json() if spamhaus_get_hashes.status_code == 200 else {"info": "Não encontrado"},
+            "urls": spamhaus_get_malwares_urls.json() if spamhaus_get_malwares_urls.status_code == 200 else {"info": "Não encontrado"},
         }
 
         domain_data = {
@@ -347,7 +342,7 @@ def run_domain_analysis():
                 },
                 "ssl_cert": {
                     "description": "Informações do certificado SSL/TLS",
-                    "data": cert_response.json()
+                    "data": cert_data
                 },
                 "dns_dumpster": {
                     "description": "Informações do DNSDumpster",
@@ -387,7 +382,7 @@ def run_domain_analysis():
                 },
                 "spamhaus_general": {
                     "description": "Informações do Spamhaus - Reputação",
-                    "reputation_data": spamhaus_data
+                    "data": spamhaus_data
                 },
                 "spamhaus_malware_hashes": {
                     "description": "Informações do Spamhaus - Hashes e urls malware associados",
@@ -395,7 +390,7 @@ def run_domain_analysis():
                 },
                 "spamhaus_hosts_associates": {
                     "description": "Informações do Spamhaus - Hosts associados",
-                    "data": spamhaus_get_hostnames.json()
+                    "data": spamhaus_get_hostnames.json() if spamhaus_get_hostnames.status_code == 200 else {"info": "Não encontrado"}
                 }
             }
         }
@@ -494,3 +489,4 @@ def run_domain_analysis():
 
     return files, sanitized_domain
     
+

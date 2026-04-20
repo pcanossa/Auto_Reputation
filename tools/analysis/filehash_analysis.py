@@ -139,26 +139,26 @@ def run_filehash_analysis():
         })
         threat_fox_response.raise_for_status()
 
-        hybris_analysis_response= requests.get(f"https://hybrid-analysis.com/api/v2/search/hash?hash={filehash}", headers={
-            "api-key": HYBRID_ANALYSIS_API_KEY,
-            "accept": "application/json"
-        })
-        hybris_analysis_response.raise_for_status()
-
-
-        hybris_analysis_analysis= requests.get(f"https://hybrid-analysis.com/api/v2/overview/{filehash}", headers={
-            "api-key": HYBRID_ANALYSIS_API_KEY,
-            "accept": "application/json"
-        })
-        hybris_analysis_analysis.raise_for_status()
-        
-        hybris_analysis_analysis_data = hybris_analysis_analysis.json()
-        # Remove campos excessivos para economizar tokens (submit_context, reports, etc)
-        keys_to_remove = ["submit_context", "related_parent_hashes", "related_children_hashes", "reports", "related_reports"]
-        if isinstance(hybris_analysis_analysis_data, dict):
-            for key in keys_to_remove:
-                hybris_analysis_analysis_data.pop(key, None)
-        
+        #hybris_analysis_response= requests.get(f"https://hybrid-analysis.com/api/v2/search/hash?hash={filehash}", headers={
+        #    "api-key": HYBRID_ANALYSIS_API_KEY,
+        #    "accept": "application/json"
+        #})
+        #hybris_analysis_response.raise_for_status()
+#
+#
+        #hybris_analysis_analysis= requests.get(f"https://hybrid-analysis.com/api/v2/overview/{filehash}", headers={
+        #    "api-key": HYBRID_ANALYSIS_API_KEY,
+        #    "accept": "application/json"
+        #})
+        #hybris_analysis_analysis.raise_for_status()
+        #
+        #hybris_analysis_analysis_data = hybris_analysis_analysis.json()
+        ## Remove campos excessivos para economizar tokens (submit_context, reports, etc)
+        #keys_to_remove = ["submit_context", "related_parent_hashes", "related_children_hashes", "reports", "related_reports"]
+        #if isinstance(hybris_analysis_analysis_data, dict):
+        #    for key in keys_to_remove:
+        #        hybris_analysis_analysis_data.pop(key, None)
+        #
 
         filehash_data = {
             "target": filehash,
@@ -200,15 +200,15 @@ def run_filehash_analysis():
                 "threat_fox": {
                     "description": "Informações do Threat Fox",
                     "data": threat_fox_response.json()
-                },
-                "hybrid_analysys_overview": {
-                    "description": "Informações do Hybrid Analysis - Informações Gerais",
-                    "data": hybris_analysis_response.json()
-                },
-                "hybrid_analysys_analysis": {
-                    "description": "Informações do Hybrid Analysis - Análise de Comportamento",
-                    "data": hybris_analysis_analysis_data
-                }
+                }#,
+                #"hybrid_analysys_overview": {
+                #    "description": "Informações do Hybrid Analysis - Informações Gerais",
+                #    "data": hybris_analysis_response.json()
+                #},
+                #"hybrid_analysys_analysis": {
+                #    "description": "Informações do Hybrid Analysis - Análise de Comportamento",
+                #    "data": hybris_analysis_analysis_data
+                #}
             }
         }
 

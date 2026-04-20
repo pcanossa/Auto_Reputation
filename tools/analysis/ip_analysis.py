@@ -107,9 +107,7 @@ def run_ip_analysis():
 
         #shodan_response = shodan_api.host(ip)
 
-        netlas_response = requests.get(f"https://app.netlas.io/api/host/{ip}", headers={
-            "Authorization": f"Bearer {NETLAS_API_KEY}"
-        })
+        netlas_response = requests.get(f"https://app.netlas.io/api/host/{ip}")
         netlas_response.raise_for_status()
 
         ipinfo_response = requests.get(f'https://api.ipinfo.io/lite/{ip}?token={IP_INFO_API_KEY}', headers=headers)

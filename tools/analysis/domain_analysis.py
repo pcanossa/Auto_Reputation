@@ -485,8 +485,8 @@ def run_domain_analysis():
     full_data_path = f'./reports/{json_filename}'
     files.append(full_report_path)
     files.append(full_data_path)
-    files.append(phishing_list_info_file)
+    if phishing_list_info_file:
+        files.append(phishing_list_info_file)
 
     return files, sanitized_domain
     
-

@@ -63,52 +63,78 @@ def run_filehash_analysis():
     report_filename = f"threat_report_{filehash}.md"
     json_filename = f"threat_data_{filehash}.json"
 
-    try:       
-
+    try:
         vt_details_response = requests.get(f'https://www.virustotal.com/api/v3/files/{filehash}', headers={
             'x-apikey': VT_API_KEY,
             'accept': 'application/json'
         })
         vt_details_response.raise_for_status()
+        vt_details_data = vt_details_response.json()
+    except Exception as e:
+        vt_details_data = {"error": f"Erro na requisição VirusTotal Details: {str(e)}"}
 
+    try:
         vt_behavior_response = requests.get(f'https://www.virustotal.com/api/v3/files/{filehash}/behaviour_summary', headers={
             'x-apikey': VT_API_KEY,
             'accept': 'application/json'
         })
-        vt_behavior_response.raise_for_status()     
-        
+        vt_behavior_response.raise_for_status()
+        vt_behavior_data = vt_behavior_response.json()
+    except Exception as e:
+        vt_behavior_data = {"error": f"Erro na requisição VirusTotal Behavior: {str(e)}"}
+
+    try:
         vt_mitre_response = requests.get(f'https://www.virustotal.com/api/v3/files/{filehash}/behaviour_mitre_trees', headers={
             'x-apikey': VT_API_KEY,
             'accept': 'application/json'
         })
-        vt_mitre_response.raise_for_status()    
+        vt_mitre_response.raise_for_status()
+        vt_mitre_data = vt_mitre_response.json()
+    except Exception as e:
+        vt_mitre_data = {"error": f"Erro na requisição VirusTotal MITRE: {str(e)}"}
 
+    try:
         vt_all_response = requests.get(f'https://www.virustotal.com/api/v3/files/{filehash}/behaviours', headers={
             'x-apikey': VT_API_KEY,
             'accept': 'application/json'
         })
-        vt_all_response.raise_for_status()   
+        vt_all_response.raise_for_status()
+        vt_all_data = vt_all_response.json()
+    except Exception as e:
+        vt_all_data = {"error": f"Erro na requisição VirusTotal Behaviours: {str(e)}"}
 
-
+    try:
         av_analise = requests.get(f'https://otx.alienvault.com/api/v1/indicators/file/{filehash}/analysis', headers={
             'accept': 'application/json',
             'X-OTX-API-KEY': ALIEN_VAULT_API_KEY
         })
         av_analise.raise_for_status()
+        av_analise_data = av_analise.json()
+    except Exception as e:
+        av_analise_data = {"error": f"Erro na requisição Alien Vault Analysis: {str(e)}"}
 
+    try:
         av_response = requests.get(f'https://otx.alienvault.com/api/v1/indicators/file/{filehash}/general', headers={
             'accept': 'application/json',
             'X-OTX-API-KEY': ALIEN_VAULT_API_KEY
         })
         av_response.raise_for_status()
+        av_general_data = av_response.json()
+    except Exception as e:
+        av_general_data = {"error": f"Erro na requisição Alien Vault General: {str(e)}"}
 
+    try:
         urlhaus_response = requests.post(f'https://urlhaus-api.abuse.ch/v1/payload/', headers={
             "Auth-Key": ABUSE_CH_API_KEY,
         }, data={
             f"{type_hash}_hash": filehash
         })
         urlhaus_response.raise_for_status()
+        urlhaus_data = urlhaus_response.json()
+    except Exception as e:
+        urlhaus_data = {"error": f"Erro na requisição URLhaus: {str(e)}"}
 
+    try:
         yara_response = requests.post(f'https://yaraify-api.abuse.ch/api/v1/', headers={
             "Auth-Key": ABUSE_CH_API_KEY,
             "Content-Type": "application/json"
@@ -117,7 +143,11 @@ def run_filehash_analysis():
             "search_term": filehash
         })
         yara_response.raise_for_status()
+        yara_data = yara_response.json()
+    except Exception as e:
+        yara_data = {"error": f"Erro na requisição YARAify: {str(e)}"}
 
+    try:
         malware_bazaar_response = requests.post(f'https://mb-api.abuse.ch/api/v1/', headers={
             "Auth-Key": ABUSE_CH_API_KEY,
         }, data = {
@@ -130,7 +160,10 @@ def run_filehash_analysis():
         if malware_bazaar_data.get("query_status") == "ok" and "data" in malware_bazaar_data:
             for item in malware_bazaar_data["data"]:
                 item.pop("file_information", None)
+    except Exception as e:
+        malware_bazaar_data = {"error": f"Erro na requisição Malware Bazaar: {str(e)}"}
 
+    try:
         threat_fox_response= requests.post(f'https://threatfox-api.abuse.ch/api/v1/', headers={
             "Auth-Key": ABUSE_CH_API_KEY,
         }, json={
@@ -138,6 +171,9 @@ def run_filehash_analysis():
             "hash": filehash
         })
         threat_fox_response.raise_for_status()
+        threat_fox_data = threat_fox_response.json()
+    except Exception as e:
+        threat_fox_data = {"error": f"Erro na requisição Threat Fox: {str(e)}"}
 
         #hybris_analysis_response= requests.get(f"https://hybrid-analysis.com/api/v2/search/hash?hash={filehash}", headers={
         #    "api-key": HYBRID_ANALYSIS_API_KEY,
@@ -160,63 +196,57 @@ def run_filehash_analysis():
         #        hybris_analysis_analysis_data.pop(key, None)
         #
 
-        filehash_data = {
-            "target": filehash,
-            "type_hash": type_hash,
-            "timestamp": datetime.now().isoformat(),
-            "tools": {
-                "virustotal_details": {
-                    "description": "Informações do VirusTotal - Informações Gerais",
-                    "data": vt_details_response.json(),
-                },
-                "virustotal_behavior": {
-                    "description": "Informações do VirusTotal - Análise de Comportamento",
-                    "data": vt_behavior_response.json(),
-                },
-                "virustotal_mitre_behavior": {
-                    "description": "Informações do VirusTotal - Análise de Comportamento por MITRE ATT&CK",
-                    "data": vt_mitre_response.json(),
-                },
-                "virustotal_all_behavior": {
-                    "description": "Informações do VirusTotal - Análise de Comportamentos e Relacionamentos Gerais",
-                    "data":  vt_all_response.json(),
-                },    
-                "alienvault_general": {
-                    "description": "Informações do Alien Vault OTX",
-                    "data": av_response.json(),
-                },
-                "urlhaus": {
-                    "description": "Informações do URLHaus",
-                    "data": urlhaus_response.json()
-                },
-                "yaraify": {
-                    "description": "Informações do YARAify",
-                    "data": yara_response.json()
-                },
-                "malware_bazaar": {
-                    "description": "Informações do Malware Bazaar",
-                    "data": malware_bazaar_data
-                },
-                "threat_fox": {
-                    "description": "Informações do Threat Fox",
-                    "data": threat_fox_response.json()
-                }#,
-                #"hybrid_analysys_overview": {
-                #    "description": "Informações do Hybrid Analysis - Informações Gerais",
-                #    "data": hybris_analysis_response.json()
-                #},
-                #"hybrid_analysys_analysis": {
-                #    "description": "Informações do Hybrid Analysis - Análise de Comportamento",
-                #    "data": hybris_analysis_analysis_data
-                #}
-            }
+    filehash_data = {
+        "target": filehash,
+        "type_hash": type_hash,
+        "timestamp": datetime.now().isoformat(),
+        "tools": {
+            "virustotal_details": {
+                "description": "Informações do VirusTotal - Informações Gerais",
+                "data": vt_details_data,
+            },
+            "virustotal_behavior": {
+                "description": "Informações do VirusTotal - Análise de Comportamento",
+                "data": vt_behavior_data,
+            },
+            "virustotal_mitre_behavior": {
+                "description": "Informações do VirusTotal - Análise de Comportamento por MITRE ATT&CK",
+                "data": vt_mitre_data,
+            },
+            "virustotal_all_behavior": {
+                "description": "Informações do VirusTotal - Análise de Comportamentos e Relacionamentos Gerais",
+                "data":  vt_all_data,
+            },    
+            "alienvault_general": {
+                "description": "Informações do Alien Vault OTX",
+                "data": av_general_data,
+            },
+            "urlhaus": {
+                "description": "Informações do URLHaus",
+                "data": urlhaus_data
+            },
+            "yaraify": {
+                "description": "Informações do YARAify",
+                "data": yara_data
+            },
+            "malware_bazaar": {
+                "description": "Informações do Malware Bazaar",
+                "data": malware_bazaar_data
+            },
+            "threat_fox": {
+                "description": "Informações do Threat Fox",
+                "data": threat_fox_data
+            }#,
+            #"hybrid_analysys_overview": {
+            #    "description": "Informações do Hybrid Analysis - Informações Gerais",
+            #    "data": hybris_analysis_response.json()
+            #},
+            #"hybrid_analysys_analysis": {
+            #    "description": "Informações do Hybrid Analysis - Análise de Comportamento",
+            #    "data": hybris_analysis_analysis_data
+            #}
         }
-
-        
-    except requests.exceptions.HTTPError as e:
-        print(f"Erro ao fazer requisição HTTP para uma das fontes de dados: {e}")
-        print(f"URL que falhou: {e.request.url}")
-        sys.exit(1)
+    }
 
     prompt = generate_filehash_threat_intel_prompt()
     
